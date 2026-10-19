@@ -7,6 +7,7 @@
 <style>
   :root { --bg:#14161a; --panel:#1c1f25; --line:#2b3039; --text:#e8eaed; --dim:#9aa3af; --accent:#1da0c3; }
   * { box-sizing: border-box; }
+  [hidden] { display:none !important; }
   body { margin:0; background:var(--bg); color:var(--text); font:15px/1.4 system-ui, sans-serif; }
   header { position:sticky; top:0; z-index:5; background:var(--panel); border-bottom:1px solid var(--line); padding:10px 16px; }
   .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:8px; }
@@ -17,10 +18,12 @@
   label { color:var(--dim); font-size:13px; display:flex; gap:5px; align-items:center; }
   #now { font-size:13px; color:var(--dim); margin-bottom:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   iframe { width:100%; height:120px; border:0; display:block; background:#222; }
-  .layout { display:grid; grid-template-columns:240px 1fr; gap:0; }
+  .layout { display:grid; grid-template-columns:260px 1fr; gap:0; }
   nav { border-right:1px solid var(--line); padding:12px; height:calc(100vh - 190px); position:sticky; top:190px; overflow:auto; }
-  nav button { display:flex; justify-content:space-between; width:100%; text-align:left; margin-bottom:4px; }
-  nav button span:last-child { color:var(--dim); }
+  nav button { display:flex; justify-content:space-between; align-items:baseline; gap:10px; width:100%; text-align:left; margin-bottom:4px; }
+  nav button span:first-child { min-width:0; overflow-wrap:anywhere; }
+  nav button span:last-child { flex-shrink:0; color:var(--dim); font-variant-numeric:tabular-nums; }
+  nav button.on span:last-child { color:#fff; }
   main { padding:16px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(170px, 1fr)); gap:14px; }
   .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; overflow:hidden; cursor:pointer; display:flex; flex-direction:column; }
@@ -57,7 +60,7 @@
 </header>
 
 <div id="loader">
-  <p>Loading <code>wishlist.json</code>&hellip;</p>
+  <p id="status">Loading <code>wishlist.json</code>&hellip;</p>
   <p>If nothing appears, drop your exported <code>wishlist.json</code> here or
     <input type="file" id="file" accept="application/json,.json"></p>
 </div>
@@ -307,7 +310,13 @@ window.addEventListener('drop', (e) => { e.preventDefault(); loader.classList.re
 fetch('wishlist.json', { cache: 'no-cache' })
   .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
   .then(init)
-  .catch(() => { /* fall back to the file picker */ });
+  .catch(() => {
+    // Fall back to the file picker. Opened from disk, the browser blocks reading
+    // neighbouring files, so say so rather than leave "Loading…" up.
+    $('status').textContent = location.protocol === 'file:'
+      ? 'Opened from disk, so the browser won\'t let this page read wishlist.json automatically.'
+      : 'Couldn\'t load wishlist.json.';
+  });
 </script>
 </body>
 </html>
