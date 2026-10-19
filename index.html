@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wishlist Genres</title>
+<style>
+  :root { --bg:#14161a; --panel:#1c1f25; --line:#2b3039; --text:#e8eaed; --dim:#9aa3af; --accent:#1da0c3; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.4 system-ui, sans-serif; }
+  header { position:sticky; top:0; z-index:5; background:var(--panel); border-bottom:1px solid var(--line); padding:10px 16px; }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:8px; }
+  .bar h1 { font-size:16px; margin:0 8px 0 0; }
+  button, input[type=search], select { background:var(--bg); color:var(--text); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font:inherit; }
+  button { cursor:pointer; } button:hover { border-color:var(--accent); }
+  button.on { background:var(--accent); border-color:var(--accent); color:#fff; }
+  label { color:var(--dim); font-size:13px; display:flex; gap:5px; align-items:center; }
+  #now { font-size:13px; color:var(--dim); margin-bottom:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  iframe { width:100%; height:120px; border:0; display:block; background:#222; }
+  .layout { display:grid; grid-template-columns:240px 1fr; gap:0; }
+  nav { border-right:1px solid var(--line); padding:12px; height:calc(100vh - 190px); position:sticky; top:190px; overflow:auto; }
+  nav button { display:flex; justify-content:space-between; width:100%; text-align:left; margin-bottom:4px; }
+  nav button span:last-child { color:var(--dim); }
+  main { padding:16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(170px, 1fr)); gap:14px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; overflow:hidden; cursor:pointer; display:flex; flex-direction:column; }
+  .card:hover { border-color:var(--accent); }
+  .card.playing { border-color:var(--accent); box-shadow:0 0 0 2px var(--accent) inset; }
+  .card img { width:100%; aspect-ratio:1; object-fit:cover; display:block; background:#222; }
+  .card .t { padding:8px 8px 2px; font-weight:600; font-size:13px; }
+  .card .a { padding:0 8px; color:var(--dim); font-size:12px; }
+  .card .g { padding:4px 8px 8px; color:var(--dim); font-size:11px; margin-top:auto; }
+  .card a { color:var(--accent); font-size:12px; padding:0 8px 8px; text-decoration:none; }
+  #loader { max-width:560px; margin:60px auto; text-align:center; color:var(--dim); }
+  #loader.drag { color:var(--accent); }
+  details { margin-top:24px; color:var(--dim); font-size:13px; }
+  details code { color:var(--text); }
+  @media (max-width:720px) { .layout { grid-template-columns:1fr; } nav { position:static; height:auto; max-height:160px; border-right:0; border-bottom:1px solid var(--line); } }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <h1>Wishlist Genres</h1>
+    <button id="prev">&#9664; Prev</button>
+    <button id="next">Next &#9654;</button>
+    <button id="shuffle">Shuffle order</button>
+    <label><input type="checkbox" id="multi"> List in every matching genre</label>
+    <input type="search" id="q" placeholder="Search title, artist, tag">
+    <select id="sort"><option value="added">Wishlist order</option><option value="artist">Artist A-Z</option><option value="title">Title A-Z</option></select>
+  </div>
+  <div id="now">Nothing playing. Click a release.</div>
+  <iframe id="player" title="Bandcamp player" seamless></iframe>
+</header>
+
+<div id="loader">
+  <p>Loading <code>wishlist.json</code>&hellip;</p>
+  <p>If nothing appears, drop your exported <code>wishlist.json</code> here or
+    <input type="file" id="file" accept="application/json,.json"></p>
+</div>
+
+<div class="layout" id="layout" hidden>
+  <nav id="nav"></nav>
+  <main>
+    <div class="grid" id="grid"></div>
+    <details><summary>Most common tags not matched to a genre (use these to extend GENRE_GROUPS)</summary><div id="unmatched"></div></details>
+  </main>
+</div>
+
+<script>
+/* ---- Edit me -------------------------------------------------------------
+   Ordered most-specific to most-generic. An item's primary genre is the first
+   group in this list that matches any of its tags. Matching is whole-word, so
+   "house" matches "deep house" but not "warehouse".
+--------------------------------------------------------------------------- */
+const GENRE_GROUPS = [
+  ['Dub Techno',          ['dub techno']],
+  ['Ambient / Drone',     ['ambient', 'drone', 'dark ambient', 'soundscape', 'new age']],
+  ['Drum & Bass / Jungle',['drum and bass', 'drum & bass', 'dnb', 'drum n bass', 'jungle', 'liquid funk', 'neurofunk']],
+  ['Trance / Psy',        ['trance', 'psytrance', 'goa', 'psychedelic trance']],
+  ['Techno',              ['techno', 'minimal techno', 'hard techno']],
+  ['House',               ['house', 'deep house', 'acid house', 'tech house']],
+  ['Electro / Breaks',    ['electro', 'breaks', 'breakbeat', 'miami bass']],
+  ['Bass / Dubstep / Grime', ['dubstep', 'bass', 'grime', 'uk bass', 'footwork', 'juke', 'garage', 'uk garage']],
+  ['IDM / Experimental',  ['idm', 'glitch', 'experimental', 'noise', 'avant-garde', 'musique concrete', 'leftfield']],
+  ['Industrial / Dark',   ['industrial', 'ebm', 'darkwave', 'goth', 'coldwave']],
+  ['Synth / Vapor',       ['synthwave', 'synth', 'retrowave', 'italo disco', 'vaporwave', 'chillwave']],
+  ['Disco / Funk / Soul', ['disco', 'funk', 'soul', 'boogie', 'r&b', 'rnb']],
+  ['Hip-Hop / Beats',     ['hip-hop', 'hip hop', 'rap', 'beat tape', 'trap', 'lo-fi', 'lofi', 'instrumental hip-hop']],
+  ['Jazz',                ['jazz', 'spiritual jazz', 'fusion']],
+  ['Reggae / Dub / World',['reggae', 'dub', 'dancehall', 'afrobeat', 'world', 'latin', 'cumbia', 'highlife']],
+  ['Metal',               ['metal', 'black metal', 'doom', 'death metal', 'sludge']],
+  ['Punk / Hardcore',     ['punk', 'hardcore', 'post-punk', 'emo']],
+  ['Rock / Indie',        ['rock', 'indie', 'shoegaze', 'post-rock', 'alternative', 'psychedelic', 'math rock', 'garage rock', 'lo-fi rock']],
+  ['Folk / Singer-songwriter', ['folk', 'singer-songwriter', 'acoustic', 'country', 'americana']],
+  ['Classical / Soundtrack',   ['classical', 'piano', 'neoclassical', 'orchestral', 'soundtrack', 'score', 'modern classical']],
+  ['Pop',                 ['pop', 'synth pop', 'dream pop', 'indie pop']],
+  ['Electronic (general)',['electronic', 'electronica', 'dance', 'club']],
+];
+const UNSORTED = 'Unsorted';
+const ALL = 'All';
+
+/* ---- Matching ---------------------------------------------------------- */
+const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const compiled = GENRE_GROUPS.map(([name, words]) => [
+  name,
+  words.map((w) => new RegExp('(^|[^a-z0-9])' + esc(w.toLowerCase()) + '($|[^a-z0-9])')),
+]);
+
+function genresFor(item) {
+  const hits = [];
+  for (const [name, regs] of compiled) {
+    if (item.tags.some((t) => regs.some((r) => r.test(t)))) hits.push(name);
+  }
+  return hits;   // already ordered by GENRE_GROUPS priority
+}
+
+/* ---- State ------------------------------------------------------------- */
+let items = [];
+let current = ALL;
+let queue = [];       // currently visible, in play order
+let playingKey = null;
+let shuffled = false;
+
+const $ = (id) => document.getElementById(id);
+function h(tag, props, ...kids) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(props || {})) {
+    if (k === 'class') el.className = v;
+    else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v);
+  }
+  for (const kid of kids) if (kid != null) el.append(kid);
+  return el;
+}
+
+function init(data) {
+  items = (data.items || []).map((it, i) => {
+    const o = Object.assign({ tags: [] }, it, { order: i });
+    o.genres = genresFor(o);
+    o.primary = o.genres[0] || UNSORTED;
+    return o;
+  });
+  $('loader').hidden = true;
+  $('layout').hidden = false;
+  document.title = (data.user ? data.user + ' - ' : '') + 'Wishlist Genres (' + items.length + ')';
+  renderAll();
+}
+
+function visibleItems() {
+  const multi = $('multi').checked;
+  const q = $('q').value.trim().toLowerCase();
+  let list = items.filter((it) => {
+    if (current !== ALL) {
+      const inGenre = multi ? (it.genres.includes(current) || (current === UNSORTED && !it.genres.length)) : it.primary === current;
+      if (!inGenre) return false;
+    }
+    if (q) {
+      const hay = (it.title + ' ' + it.artist + ' ' + it.tags.join(' ')).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  const sort = $('sort').value;
+  if (sort === 'artist') list.sort((a, b) => a.artist.localeCompare(b.artist));
+  else if (sort === 'title') list.sort((a, b) => a.title.localeCompare(b.title));
+  else list.sort((a, b) => a.order - b.order);
+  if (shuffled) {
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [list[i], list[j]] = [list[j], list[i]];
+    }
+  }
+  return list;
+}
+
+function renderNav() {
+  const multi = $('multi').checked;
+  const counts = new Map();
+  for (const it of items) {
+    const gs = multi ? (it.genres.length ? it.genres : [UNSORTED]) : [it.primary];
+    for (const g of gs) counts.set(g, (counts.get(g) || 0) + 1);
+  }
+  const names = [ALL, ...GENRE_GROUPS.map((g) => g[0]), UNSORTED].filter((n) => n === ALL || counts.has(n));
+  const nav = $('nav');
+  nav.replaceChildren(...names.map((n) =>
+    h('button', { class: n === current ? 'on' : '', onclick: () => { current = n; renderAll(); } },
+      h('span', {}, n), h('span', {}, String(n === ALL ? items.length : counts.get(n))))));
+}
+
+function renderGrid() {
+  queue = visibleItems();
+  $('grid').replaceChildren(...queue.map((it) =>
+    h('div', { class: 'card' + (it.key === playingKey ? ' playing' : ''), onclick: () => play(it) },
+      h('img', { src: it.art || '', loading: 'lazy', alt: '' }),
+      h('div', { class: 't' }, it.title),
+      h('div', { class: 'a' }, it.artist),
+      h('div', { class: 'g' }, it.tags.slice(0, 5).join(', ') || 'no tags'),
+      h('a', { href: it.url, target: '_blank', rel: 'noopener', onclick: (e) => e.stopPropagation() }, 'Open on Bandcamp'))));
+}
+
+function renderUnmatched() {
+  const counts = new Map();
+  for (const it of items) if (!it.genres.length) for (const t of it.tags) counts.set(t, (counts.get(t) || 0) + 1);
+  const top = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 60);
+  $('unmatched').textContent = top.length ? top.map(([t, c]) => t + ' (' + c + ')').join(', ') : 'None, every item matched a genre.';
+}
+
+function renderAll() { renderNav(); renderGrid(); renderUnmatched(); }
+
+/* ---- Player ------------------------------------------------------------ */
+function embedUrl(it) {
+  const kind = it.type === 'a' ? 'album' : 'track';
+  return 'https://bandcamp.com/EmbeddedPlayer/' + kind + '=' + it.id +
+    '/size=large/bgcol=1c1f25/linkcol=1da0c3/tracklist=false/artwork=small/transparent=true/';
+}
+
+function play(it) {
+  playingKey = it.key;
+  $('player').src = embedUrl(it);
+  $('now').textContent = it.artist + ' - ' + it.title + '  [' + it.primary + ']';
+  renderGrid();
+}
+
+function step(delta) {
+  if (!queue.length) return;
+  let i = queue.findIndex((it) => it.key === playingKey);
+  i = i < 0 ? 0 : (i + delta + queue.length) % queue.length;
+  play(queue[i]);
+}
+
+$('next').onclick = () => step(1);
+$('prev').onclick = () => step(-1);
+$('shuffle').onclick = () => { shuffled = !shuffled; $('shuffle').classList.toggle('on', shuffled); renderGrid(); };
+$('multi').onchange = renderAll;
+$('sort').onchange = renderGrid;
+$('q').oninput = renderGrid;
+
+/* ---- Loading ----------------------------------------------------------- */
+function readFile(f) {
+  const r = new FileReader();
+  r.onload = () => { try { init(JSON.parse(r.result)); } catch (e) { alert('Not a valid wishlist.json: ' + e.message); } };
+  r.readAsText(f);
+}
+$('file').onchange = (e) => e.target.files[0] && readFile(e.target.files[0]);
+const loader = $('loader');
+window.addEventListener('dragover', (e) => { e.preventDefault(); loader.classList.add('drag'); });
+window.addEventListener('dragleave', () => loader.classList.remove('drag'));
+window.addEventListener('drop', (e) => { e.preventDefault(); loader.classList.remove('drag'); if (e.dataTransfer.files[0]) readFile(e.dataTransfer.files[0]); });
+
+fetch('wishlist.json', { cache: 'no-cache' })
+  .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+  .then(init)
+  .catch(() => { /* fall back to the file picker */ });
+</script>
+</body>
+</html>
