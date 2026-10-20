@@ -32,7 +32,7 @@ Results are cached per release in Tampermonkey's storage, so re-runs only fetch 
 ## Publish on GitHub Pages
 
 1. Put the export in `wishlists/` (e.g. `wishlists/yu_vanessa.json`), commit and push.
-2. For a new person, also add their username to `WISHLISTS` at the top of the script in `index.html`, so they appear on the start page.
+2. For a new person, also add them to `WISHLISTS` at the top of the script in `index.html` (username and display name), so they appear on the start page, and save their Bandcamp profile photo as `avatars/<username>.jpg`. Without a photo the page shows the first letter of their name.
 3. Repo Settings -> Pages -> Source: *Deploy from a branch*, branch `main`, folder `/ (root)`.
 
 To update later: re-run the export and replace that person's file in `wishlists/`.
@@ -53,7 +53,7 @@ Every piece of evidence adds weight to a genre group (all set in `WEIGHTS` in `i
 - **A tag counts towards its most specific group.** "dub techno" goes to Dub Techno, not Techno too.
 - **Families.** Groups that are sub-genres of each other share a `family` (Techno: Dub Techno, Deep / Hypnotic, Techno; Bass: Dubstep / 140, UK Garage, Breaks, Bass / Club). The family with the most evidence wins, then the best group inside it. The family's `generic` group (Techno, Bass / Club) only wins if the specific ones have little evidence.
 
-Hover a card's genre to see the top three scores and what contributed to each. To tune, edit `GENRE_GROUPS`, `WEIGHTS`, `BEATPORT` and `DISCOGS` at the top of the script. The "Most common tags not matched" panel at the bottom shows tags that don't map to any group. Tick "List in every matching genre" to also list a release under groups scoring at least 40% of its best.
+Hover a card's genre to see the top three scores and what contributed to each. To tune, edit `GENRE_GROUPS`, `WEIGHTS`, `BEATPORT` and `DISCOGS` at the top of the script. The "Most common tags not matched" panel at the bottom shows tags that don't map to any group. Tick "List releases in every genre they match" to also list a release under groups scoring at least 40% of its best.
 
 ## Fixing genres by hand
 

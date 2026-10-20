@@ -21,8 +21,14 @@
   .list:hover { border-color:var(--accent); }
   .list .mosaic { display:grid; grid-template-columns:1fr 1fr; aspect-ratio:1; background:#222; }
   .list .mosaic img { width:100%; height:100%; object-fit:cover; display:block; }
-  .list .name { padding:10px 12px 2px; font-weight:600; }
-  .list .meta { padding:0 12px 12px; color:var(--dim); font-size:13px; }
+  .list .who { display:flex; align-items:flex-end; gap:10px; padding:0 12px; margin-top:-28px; position:relative; }
+  .list .who .avatar { width:56px; height:56px; border:3px solid var(--panel); }
+  .list .name { font-weight:600; padding-bottom:2px; min-width:0; overflow-wrap:anywhere; }
+  .list .handle { padding:2px 12px 0; color:var(--dim); font-size:12px; }
+  .list .meta { padding:2px 12px 12px; color:var(--dim); font-size:13px; }
+  .avatar { flex-shrink:0; border-radius:50%; object-fit:cover; background:var(--line); display:inline-flex; align-items:center; justify-content:center; color:var(--text); font-weight:600; }
+  .bar h1 { display:flex; align-items:center; gap:8px; }
+  .bar h1 .avatar { width:26px; height:26px; font-size:13px; }
   button, input[type=search], select { background:var(--bg); color:var(--text); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font:inherit; }
   button { cursor:pointer; } button:hover { border-color:var(--accent); }
   button.on { background:var(--accent); border-color:var(--accent); color:#fff; }
@@ -63,11 +69,11 @@
 <body>
 <header hidden>
   <div class="bar">
-    <h1><a id="home" href="./">Wishlists</a> / <span id="who"></span></h1>
+    <h1><a id="home" href="./">Wishlists</a> / <span id="whoAvatar"></span><span id="who"></span></h1>
     <button id="prev">&#9664; Prev</button>
     <button id="next">Next &#9654;</button>
     <button id="shuffle">Shuffle order</button>
-    <label><input type="checkbox" id="multi"> List in every matching genre</label>
+    <label><input type="checkbox" id="multi"> List releases in every genre they match</label>
     <input type="search" id="q" placeholder="Search title, artist, tag">
     <select id="sort"><option value="added">Wishlist order</option><option value="artist">Artist A-Z</option><option value="title">Title A-Z</option></select>
     <button id="exportOv" hidden title="Download your hand-set genres to commit as wishlists/&lt;user&gt;.overrides.json">Export overrides</button>
@@ -96,9 +102,14 @@
 </div>
 
 <script>
-/* Bandcamp usernames shown on the start page, in this order. Each needs its
-   export at wishlists/<username>.json, and is opened at /<username>. */
-const WISHLISTS = ['indent_uk', 'yu_vanessa'];
+/* Wishlists shown on the start page, in this order. Each needs its export at
+   wishlists/<user>.json, is opened at /<user>, and shows avatars/<user>.jpg
+   (the first letter of its name if that file is missing). */
+const WISHLISTS = [
+  // user: Bandcamp username; name: shown on the page. Photo: avatars/<user>.jpg.
+  { user: 'indent_uk',  name: 'Indent' },
+  { user: 'yu_vanessa', name: 'yu_vanessa' },
+];
 
 /* ---- Edit me -------------------------------------------------------------
    Genre groups. Each Bandcamp tag, Beatport genre and Discogs style adds weight
@@ -390,7 +401,9 @@ function init(data) {
   $('picker').hidden = true;
   document.querySelector('header').hidden = false;
   $('layout').hidden = false;
-  $('who').textContent = data.user || 'wishlist';
+  $('who').textContent = data.user ? personOf(data.user).name || data.user : 'wishlist';
+  $('who').title = data.user ? '@' + data.user : '';
+  $('whoAvatar').replaceChildren(avatar(data.user));
   document.title = (data.user ? data.user + ' - ' : '') + 'Wishlist Genres (' + items.length + ')';
   renderAll();
 }
@@ -466,7 +479,7 @@ function renderGrid() {
       genreLine(it),
       it.dcStyles.length ? h('div', { class: 'src' }, 'Discogs: ' + it.dcStyles.join(', ')) : null,
       it.bpGenres.length ? h('div', { class: 'src' }, 'Beatport: ' + it.bpGenres.join(', ')) : null,
-      h('div', { class: 'g' }, it.tags.filter((t) => t !== 'electronic').slice(0, 5).join(', ') || 'no tags'),
+      h('div', { class: 'g' }, 'Bandcamp: ' + (it.tags.filter((t) => t !== 'electronic').slice(0, 5).join(', ') || 'no tags')),
       h('div', { class: 'links' },
         extLink(it.url, 'Bandcamp'),
         it.beatport ? extLink(it.beatport.url, 'Beatport') : null,
@@ -562,17 +575,31 @@ function openUser(u) {
   });
 }
 
+const personOf = (user) => WISHLISTS.find((w) => w.user === user) || { user, name: user };
+
+// Round profile photo from avatars/<user>.jpg, or the person's initial if
+// there's no photo for them.
+function avatar(user) {
+  const initial = () => h('span', { class: 'avatar', 'aria-hidden': 'true' }, (personOf(user).name || user || '?').trim().charAt(0).toUpperCase());
+  if (!user) return initial();
+  const img = h('img', { class: 'avatar', alt: '', src: new URL('avatars/' + user + '.jpg', ROOT).href,
+    onerror: () => img.replaceWith(initial()) });
+  return img;
+}
+
 function showPicker() {
   $('picker').hidden = false;
-  $('lists').replaceChildren(...WISHLISTS.map((u) => {
+  $('lists').replaceChildren(...WISHLISTS.map(({ user: u, name }) => {
     const mosaic = h('div', { class: 'mosaic' });
+    const who = h('div', { class: 'who' }, avatar(u), h('div', { class: 'name' }, name || u));
+    const handle = h('div', { class: 'handle' }, '@' + u);
     const meta = h('div', { class: 'meta' }, 'Loading…');
     const card = h('a', { class: 'list', href: ROOT.pathname + u, onclick: (e) => {
       if (e.ctrlKey || e.metaKey || e.shiftKey || e.button) return;
       e.preventDefault();
       history.pushState(null, '', ROOT.pathname + u);
       openUser(u);
-    } }, mosaic, h('div', { class: 'name' }, u), meta);
+    } }, mosaic, who, handle, meta);
     getList(u).then((d) => {
       const items = d.items || [];
       mosaic.append(...items.filter((it) => it.art).slice(0, 4).map((it) => h('img', { src: it.art, alt: '', loading: 'lazy' })));
