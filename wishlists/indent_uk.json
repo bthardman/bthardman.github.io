@@ -1,6 +1,6 @@
 {
  "version": 3,
- "exported": "2026-10-20T13:51:00.225Z",
+ "exported": "2026-10-20T15:15:53.439Z",
  "user": "indent_uk",
  "count": 838,
  "items": [
@@ -211,7 +211,7 @@
    "lookup": {
     "artist": "TraTraTrax",
     "album": "Pyrexia",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -237,7 +237,11 @@
    "art": "https://f4.bcbits.com/img/a2171872547_9.jpg",
    "bandId": 1379473524,
    "tags": [
-    "electronic"
+    "electronic",
+    "house",
+    "club",
+    "electro",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -250,7 +254,7 @@
    "lookup": {
     "artist": "Djoser",
     "album": "Expand",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -290,8 +294,8 @@
     "artist": "Mosca",
     "v": 3
    },
-   "bpMiss": 1792502806510,
-   "bpVer": 3,
+   "bpMiss": 1792508902944,
+   "bpVer": 4,
    "dcMiss": 1792503210851,
    "dcVer": 2
   },
@@ -319,8 +323,8 @@
     "album": "Subjugation",
     "v": 3
    },
-   "bpMiss": 1792502809738,
-   "bpVer": 3,
+   "bpMiss": 1792508907838,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -383,7 +387,7 @@
    "lookup": {
     "artist": "TraTraTrax",
     "album": "Pyrexia",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -479,8 +483,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502810238,
-   "bpVer": 3,
+   "bpMiss": 1792508908757,
+   "bpVer": 4,
    "dcMiss": 1792503225858,
    "dcVer": 2
   },
@@ -504,7 +508,7 @@
    "label": "Nervous Records",
    "lookup": {
     "artist": "Destrata",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503231855,
    "dcVer": 2
@@ -581,8 +585,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502814617,
-   "bpVer": 3,
+   "bpMiss": 1792508913374,
+   "bpVer": 4,
    "dcMiss": 1792503244855,
    "dcVer": 2
   },
@@ -632,7 +636,15 @@
    "url": "https://purespace.bandcamp.com/track/intermak",
    "art": "https://f4.bcbits.com/img/a2174793561_9.jpg",
    "bandId": 1281399204,
-   "tags": [],
+   "tags": [
+    "bass",
+    "dubstep",
+    "electro",
+    "poetry",
+    "psychadelic",
+    "techno",
+    "trance"
+   ],
    "beatport": {
     "genres": [
      "Minimal / Deep Tech"
@@ -644,7 +656,7 @@
    "lookup": {
     "artist": "LOIF",
     "album": "Decade Deep",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503256857,
    "dcVer": 2
@@ -683,8 +695,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502811869,
-   "bpVer": 3,
+   "bpMiss": 1792508914167,
+   "bpVer": 4,
    "dcMiss": 1792503259850,
    "dcVer": 2
   },
@@ -718,8 +730,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502815960,
-   "bpVer": 3,
+   "bpMiss": 1792508916038,
+   "bpVer": 4,
    "dcMiss": 1792503265850,
    "dcVer": 2
   },
@@ -835,8 +847,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502817302,
-   "bpVer": 3,
+   "bpMiss": 1792508926204,
+   "bpVer": 4,
    "dcMiss": 1792503274861,
    "dcVer": 2
   },
@@ -870,8 +882,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502819034,
-   "bpVer": 3,
+   "bpMiss": 1792508924114,
+   "bpVer": 4,
    "dcMiss": 1792503280901,
    "dcVer": 2
   },
@@ -994,8 +1006,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502817612,
-   "bpVer": 3,
+   "bpMiss": 1792508930319,
+   "bpVer": 4,
    "dcMiss": 1792503280902,
    "dcVer": 2
   },
@@ -1150,8 +1162,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502820340,
-   "bpVer": 3,
+   "bpMiss": 1792508931780,
+   "bpVer": 4,
    "dcMiss": 1792503289858,
    "dcVer": 2
   },
@@ -1329,8 +1341,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502829524,
-   "bpVer": 3,
+   "bpMiss": 1792508933787,
+   "bpVer": 4,
    "dcMiss": 1792503307858,
    "dcVer": 2
   },
@@ -1880,10 +1892,10 @@
    "lookup": {
     "artist": "Entrañas",
     "album": "Atropello Vol 2",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502832196,
-   "bpVer": 3,
+   "bpMiss": 1792508934271,
+   "bpVer": 4,
    "dcMiss": 1792503332832,
    "dcVer": 2
   },
@@ -1910,7 +1922,7 @@
    "lookup": {
     "artist": "Entrañas",
     "album": "Atropello Vol 2",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503337862,
    "dcVer": 2
@@ -1939,8 +1951,8 @@
     "album": "Dusk Till Dawn",
     "v": 3
    },
-   "bpMiss": 1792502834515,
-   "bpVer": 3,
+   "bpMiss": 1792508936950,
+   "bpVer": 4,
    "dcMiss": 1792503343613,
    "dcVer": 2
   },
@@ -2091,8 +2103,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502835372,
-   "bpVer": 3,
+   "bpMiss": 1792508937542,
+   "bpVer": 4,
    "dcMiss": 1792503353512,
    "dcVer": 2
   },
@@ -2117,8 +2129,8 @@
     "artist": "Facta",
     "v": 3
    },
-   "bpMiss": 1792502839908,
-   "bpVer": 3,
+   "bpMiss": 1792508939390,
+   "bpVer": 4,
    "dcMiss": 1792503356904,
    "dcVer": 2
   },
@@ -2146,8 +2158,8 @@
     "album": "Stampede",
     "v": 3
    },
-   "bpMiss": 1792502840711,
-   "bpVer": 3,
+   "bpMiss": 1792508941386,
+   "bpVer": 4,
    "dcMiss": 1792503359844,
    "dcVer": 2
   },
@@ -2175,8 +2187,8 @@
     "album": "Stampede",
     "v": 3
    },
-   "bpMiss": 1792502841113,
-   "bpVer": 3,
+   "bpMiss": 1792508943487,
+   "bpVer": 4,
    "dcMiss": 1792503362737,
    "dcVer": 2
   },
@@ -2302,8 +2314,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502842726,
-   "bpVer": 3,
+   "bpMiss": 1792508946526,
+   "bpVer": 4,
    "dcMiss": 1792503377843,
    "dcVer": 2
   },
@@ -2370,8 +2382,8 @@
     "album": "Split Signal EP",
     "v": 3
    },
-   "bpMiss": 1792502843565,
-   "bpVer": 3,
+   "bpMiss": 1792508949535,
+   "bpVer": 4,
    "dcMiss": 1792503380801,
    "dcVer": 2
   },
@@ -2385,7 +2397,13 @@
    "art": "https://f4.bcbits.com/img/a2778040948_9.jpg",
    "bandId": 624156156,
    "tags": [],
-   "beatport": null,
+   "beatport": {
+    "genres": [
+     "Dubstep"
+    ],
+    "url": "https://www.beatport.com/release/tectonic-sound-vol-2/7473502",
+    "match": "release-label"
+   },
    "label": "Tectonic Recordings",
    "lookup": {
     "artist": "Tectonic Recordings",
@@ -2399,8 +2417,6 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502844545,
-   "bpVer": 3,
    "dcMiss": 1792503382282,
    "dcVer": 2
   },
@@ -2480,8 +2496,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502846335,
-   "bpVer": 3,
+   "bpMiss": 1792508951109,
+   "bpVer": 4,
    "dcMiss": 1792503386832,
    "dcVer": 2
   },
@@ -2496,7 +2512,9 @@
    "bandId": 2118117460,
    "tags": [
     "electronic",
-    "dubstep"
+    "dubstep",
+    "kahn",
+    "deepmedi"
    ],
    "beatport": {
     "genres": [
@@ -2509,7 +2527,7 @@
    "lookup": {
     "artist": "Kahn",
     "album": "Past Life",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -2534,7 +2552,9 @@
    "bandId": 2118117460,
    "tags": [
     "electronic",
-    "dubstep"
+    "dubstep",
+    "kahn",
+    "deepmedi"
    ],
    "beatport": {
     "genres": [
@@ -2547,7 +2567,7 @@
    "lookup": {
     "artist": "Kahn",
     "album": "Past Life",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -2626,7 +2646,7 @@
    "lookup": {
     "artist": "Limousine Dream",
     "album": "The Train",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -2856,7 +2876,7 @@
    "lookup": {
     "artist": "BOUKAN RECORDS",
     "album": "7 Y.O Compilation Vol.2",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503402939,
    "dcVer": 2
@@ -2871,17 +2891,23 @@
    "art": "https://f4.bcbits.com/img/a2890953531_9.jpg",
    "bandId": 106951444,
    "tags": [
-    "electronic"
+    "electronic",
+    "4x4",
+    "house",
+    "leftfield bass",
+    "bass",
+    "leftfield",
+    "techno"
    ],
    "beatport": null,
    "label": "First Touch Archives",
    "lookup": {
     "artist": "Main Phase",
     "album": "First Touch Archives 002",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502848289,
-   "bpVer": 3,
+   "bpMiss": 1792508951171,
+   "bpVer": 4,
    "dcMiss": 1792503407186,
    "dcVer": 2
   },
@@ -2894,7 +2920,11 @@
    "url": "https://timedance.bandcamp.com/track/beater-stenny-remix",
    "art": "https://f4.bcbits.com/img/a3135751084_9.jpg",
    "bandId": 126216259,
-   "tags": [],
+   "tags": [
+    "gully",
+    "riddims",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Bass / Club"
@@ -2906,7 +2936,7 @@
    "lookup": {
     "artist": "Lurka",
     "album": "Remixes - 1",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -2948,8 +2978,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502849442,
-   "bpVer": 3,
+   "bpMiss": 1792508955576,
+   "bpVer": 4,
    "dcMiss": 1792503410211,
    "dcVer": 2
   },
@@ -2974,7 +3004,7 @@
    "lookup": {
     "artist": "mulemusiq",
     "album": "Ever Changing EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -3053,8 +3083,8 @@
     "album": "Bittersweet",
     "v": 3
    },
-   "bpMiss": 1792502850577,
-   "bpVer": 3,
+   "bpMiss": 1792508954736,
+   "bpVer": 4,
    "dcMiss": 1792503413260,
    "dcVer": 2
   },
@@ -3081,8 +3111,8 @@
     "album": "Bittersweet",
     "v": 3
    },
-   "bpMiss": 1792502850639,
-   "bpVer": 3,
+   "bpMiss": 1792508958838,
+   "bpVer": 4,
    "dcMiss": 1792503416279,
    "dcVer": 2
   },
@@ -3296,7 +3326,12 @@
    "url": "https://livitysound.bandcamp.com/track/tough-one",
    "art": "https://f4.bcbits.com/img/a0436488082_9.jpg",
    "bandId": 1454301132,
-   "tags": [],
+   "tags": [
+    "drum & bass",
+    "dub",
+    "dub techno",
+    "steppers"
+   ],
    "beatport": {
     "genres": [
      "Bass / Club"
@@ -3308,7 +3343,7 @@
    "lookup": {
     "artist": "Livity Sound",
     "album": "Numbers Talk EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -3351,8 +3386,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502853807,
-   "bpVer": 3,
+   "bpMiss": 1792508957082,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -3389,8 +3424,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502854708,
-   "bpVer": 3,
+   "bpMiss": 1792508961964,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -3430,8 +3465,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502856135,
-   "bpVer": 3,
+   "bpMiss": 1792508964318,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -3547,8 +3582,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502856553,
-   "bpVer": 3,
+   "bpMiss": 1792508963742,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -3585,8 +3620,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502859853,
-   "bpVer": 3,
+   "bpMiss": 1792508969801,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Bass Music",
@@ -3630,8 +3665,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502857922,
-   "bpVer": 3,
+   "bpMiss": 1792508970344,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -3724,8 +3759,8 @@
     "artist": "Ebende",
     "v": 3
    },
-   "bpMiss": 1792502861935,
-   "bpVer": 3,
+   "bpMiss": 1792508972770,
+   "bpVer": 4,
    "dcMiss": 1792503429032,
    "dcVer": 2
   },
@@ -3785,7 +3820,13 @@
    "url": "https://rut-rut-rut.bandcamp.com/track/beton-brut-digital-fatigue",
    "art": "https://f4.bcbits.com/img/a0064945404_9.jpg",
    "bandId": 993975719,
-   "tags": [],
+   "tags": [
+    "bass",
+    "deconstructed",
+    "grime",
+    "mutant",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Techno (Peak Time / Driving)"
@@ -3797,7 +3838,7 @@
    "lookup": {
     "artist": "rut",
     "album": "[RUT01] Digital Fatigue / Double U Double U",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503433419,
    "dcVer": 2
@@ -3811,7 +3852,13 @@
    "url": "https://rut-rut-rut.bandcamp.com/track/ssslip-double-u-double-u-beton-brut-remix",
    "art": "https://f4.bcbits.com/img/a0064945404_9.jpg",
    "bandId": 993975719,
-   "tags": [],
+   "tags": [
+    "bass",
+    "deconstructed",
+    "grime",
+    "mutant",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Bass / Club"
@@ -3823,7 +3870,7 @@
    "lookup": {
     "artist": "rut",
     "album": "[RUT01] Digital Fatigue / Double U Double U",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -3914,8 +3961,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502862274,
-   "bpVer": 3,
+   "bpMiss": 1792508977053,
+   "bpVer": 4,
    "dcMiss": 1792503440925,
    "dcVer": 2
   },
@@ -4182,17 +4229,21 @@
    "art": "https://f4.bcbits.com/img/a2962010498_9.jpg",
    "bandId": 265368575,
    "tags": [
-    "electronic"
+    "electronic",
+    "cosmic",
+    "synthpop",
+    "techno",
+    "trance"
    ],
    "beatport": null,
    "label": "Gut Level",
    "lookup": {
     "artist": "Jorg Kuning",
     "album": "Blissful Dancefloor Hooliganism: A Gut Level Fundraiser Compilation",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502864540,
-   "bpVer": 3,
+   "bpMiss": 1792508974828,
+   "bpVer": 4,
    "dcMiss": 1792503443946,
    "dcVer": 2
   },
@@ -4312,7 +4363,7 @@
    "lookup": {
     "artist": "WEN",
     "album": "Signals",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -4349,7 +4400,7 @@
    "lookup": {
     "artist": "WEN",
     "album": "Signals",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -4389,7 +4440,7 @@
    "lookup": {
     "artist": "WEN",
     "album": "Signals",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -4429,7 +4480,7 @@
    "lookup": {
     "artist": "WEN",
     "album": "Signals",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -4469,7 +4520,7 @@
    "lookup": {
     "artist": "WEN",
     "album": "Signals",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -4505,8 +4556,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502867262,
-   "bpVer": 3,
+   "bpMiss": 1792508977474,
+   "bpVer": 4,
    "dcMiss": 1792503447300,
    "dcVer": 2
   },
@@ -4535,8 +4586,8 @@
     "artist": "Tom VR",
     "v": 3
    },
-   "bpMiss": 1792502869857,
-   "bpVer": 3,
+   "bpMiss": 1792508980071,
+   "bpVer": 4,
    "dcMiss": 1792503450555,
    "dcVer": 2
   },
@@ -4618,8 +4669,8 @@
     "album": "efflorescence iii",
     "v": 3
    },
-   "bpMiss": 1792502871227,
-   "bpVer": 3,
+   "bpMiss": 1792508980695,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Deep Techno",
@@ -4663,8 +4714,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502873042,
-   "bpVer": 3,
+   "bpMiss": 1792508984480,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -4709,8 +4760,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502871537,
-   "bpVer": 3,
+   "bpMiss": 1792508987224,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dub Techno",
@@ -4902,8 +4953,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502872711,
-   "bpVer": 3,
+   "bpMiss": 1792508986647,
+   "bpVer": 4,
    "dcMiss": 1792503455483,
    "dcVer": 2
   },
@@ -4935,8 +4986,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502877645,
-   "bpVer": 3,
+   "bpMiss": 1792508990389,
+   "bpVer": 4,
    "dcMiss": 1792503456959,
    "dcVer": 2
   },
@@ -5222,8 +5273,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502877328,
-   "bpVer": 3,
+   "bpMiss": 1792508992990,
+   "bpVer": 4,
    "dcMiss": 1792503465858,
    "dcVer": 2
   },
@@ -5249,8 +5300,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502878579,
-   "bpVer": 3,
+   "bpMiss": 1792508995962,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Balearic"
@@ -5288,8 +5339,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502881459,
-   "bpVer": 3,
+   "bpMiss": 1792508999168,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Deep Techno"
@@ -5411,8 +5462,8 @@
     "album": "Pressure 3D EP [BSUN013]",
     "v": 3
    },
-   "bpMiss": 1792502884236,
-   "bpVer": 3,
+   "bpMiss": 1792509001554,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dub",
@@ -5436,7 +5487,9 @@
    "art": "https://f4.bcbits.com/img/a1051620687_9.jpg",
    "bandId": 2702220768,
    "tags": [
-    "electronic"
+    "electronic",
+    "experimental",
+    "milan"
    ],
    "beatport": {
     "genres": [
@@ -5449,7 +5502,7 @@
    "lookup": {
     "artist": "Big Hands",
     "album": "Ossario",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -5642,7 +5695,14 @@
    "art": "https://f4.bcbits.com/img/a3247945887_9.jpg",
    "bandId": 2702220768,
    "tags": [
-    "electronic"
+    "electronic",
+    "bass music",
+    "broken techno",
+    "dub",
+    "dub techno",
+    "footwork",
+    "half time",
+    "percussive"
    ],
    "beatport": {
     "genres": [
@@ -5655,7 +5715,7 @@
    "lookup": {
     "artist": "Big Hands & Pugilist",
     "album": "Anti Militarist Dubs",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -5705,8 +5765,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502886133,
-   "bpVer": 3,
+   "bpMiss": 1792509002054,
+   "bpVer": 4,
    "dcMiss": 1792503472008,
    "dcVer": 2
   },
@@ -5769,8 +5829,8 @@
     "album": "VALA 1",
     "v": 3
    },
-   "bpMiss": 1792502886569,
-   "bpVer": 3,
+   "bpMiss": 1792509008238,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -5804,8 +5864,8 @@
     "album": "VALA 3",
     "v": 3
    },
-   "bpMiss": 1792502887753,
-   "bpVer": 3,
+   "bpMiss": 1792509006851,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -5846,8 +5906,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502888608,
-   "bpVer": 3,
+   "bpMiss": 1792509012416,
+   "bpVer": 4,
    "dcMiss": 1792503478303,
    "dcVer": 2
   },
@@ -5879,8 +5939,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502889014,
-   "bpVer": 3,
+   "bpMiss": 1792509011932,
+   "bpVer": 4,
    "dcMiss": 1792503479785,
    "dcVer": 2
   },
@@ -5956,7 +6016,7 @@
    "lookup": {
     "artist": "Technokunst Records",
     "album": "Split Series 02",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -5991,7 +6051,7 @@
    "lookup": {
     "artist": "Technokunst Records",
     "album": "Split Series 02",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -6016,7 +6076,9 @@
    "bandId": 2069481545,
    "tags": [
     "electronic",
-    "techno"
+    "techno",
+    "groovy",
+    "hypnotic"
    ],
    "beatport": {
     "genres": [
@@ -6029,7 +6091,7 @@
    "lookup": {
     "artist": "Dynamic Reflection",
     "album": "Deep Blue EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -6066,7 +6128,7 @@
    "lookup": {
     "artist": "Augusto Taito",
     "album": "Light In The Dark",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -6103,7 +6165,7 @@
    "lookup": {
     "artist": "Augusto Taito",
     "album": "Light In The Dark",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -6140,7 +6202,7 @@
    "lookup": {
     "artist": "Augusto Taito",
     "album": "Light In The Dark",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -6162,16 +6224,27 @@
    "url": "https://fidesrecords.bandcamp.com/track/marte-rosso",
    "art": "https://f4.bcbits.com/img/a0635674846_9.jpg",
    "bandId": 3224183563,
-   "tags": [],
+   "tags": [
+    "d-leria",
+    "dyad",
+    "ufo95",
+    "z.i.p.p.o",
+    "bimol",
+    "claudio prc",
+    "decoder",
+    "fides records",
+    "stephanie sykes",
+    "techno"
+   ],
    "beatport": null,
    "label": "Fides Records",
    "lookup": {
     "artist": "Z.I.P.P.O & Claudio PRC",
     "album": "X1 [FIDESX1]",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502893439,
-   "bpVer": 3,
+   "bpMiss": 1792509015390,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -6193,7 +6266,16 @@
    "url": "https://fidesrecords.bandcamp.com/track/no-eye-contact-2",
    "art": "https://f4.bcbits.com/img/a3373661674_9.jpg",
    "bandId": 3224183563,
-   "tags": [],
+   "tags": [
+    "10 years",
+    "asymtpote",
+    "augusto taito",
+    "fides x",
+    "holden federico",
+    "casual treatment",
+    "seddig",
+    "setaoc mass"
+   ],
    "beatport": {
     "genres": [
      "Techno (Raw / Deep / Hypnotic)"
@@ -6205,7 +6287,7 @@
    "lookup": {
     "artist": "Augusto Taito",
     "album": "X2 [FIDESX2]",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -6227,16 +6309,24 @@
    "url": "https://fidesrecords.bandcamp.com/track/moonchild-2",
    "art": "https://f4.bcbits.com/img/a1875198315_9.jpg",
    "bandId": 3224183563,
-   "tags": [],
+   "tags": [
+    "1morning",
+    "fides x",
+    "fireground",
+    "human safari",
+    "stojche",
+    "techno",
+    "z.i.p.p.o & mareena"
+   ],
    "beatport": null,
    "label": "Fides Records",
    "lookup": {
     "artist": "Z.I.P.P.O & Mareena",
     "album": "X6 [FIDESX6]",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502893438,
-   "bpVer": 3,
+   "bpMiss": 1792509015887,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -6257,7 +6347,15 @@
    "url": "https://fidesrecords.bandcamp.com/track/perpetual-sin-2",
    "art": "https://f4.bcbits.com/img/a1875198315_9.jpg",
    "bandId": 3224183563,
-   "tags": [],
+   "tags": [
+    "1morning",
+    "fides x",
+    "fireground",
+    "human safari",
+    "stojche",
+    "techno",
+    "z.i.p.p.o & mareena"
+   ],
    "beatport": {
     "genres": [
      "Techno (Raw / Deep / Hypnotic)"
@@ -6269,7 +6367,7 @@
    "lookup": {
     "artist": "Stojche",
     "album": "X6 [FIDESX6]",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -6291,7 +6389,15 @@
    "url": "https://fidesrecords.bandcamp.com/track/you-heard-me-the-first-time-2",
    "art": "https://f4.bcbits.com/img/a1875198315_9.jpg",
    "bandId": 3224183563,
-   "tags": [],
+   "tags": [
+    "1morning",
+    "fides x",
+    "fireground",
+    "human safari",
+    "stojche",
+    "techno",
+    "z.i.p.p.o & mareena"
+   ],
    "beatport": {
     "genres": [
      "Techno (Raw / Deep / Hypnotic)"
@@ -6303,7 +6409,7 @@
    "lookup": {
     "artist": "1morning",
     "album": "X6 [FIDESX6]",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -6351,8 +6457,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502900430,
-   "bpVer": 3,
+   "bpMiss": 1792509020978,
+   "bpVer": 4,
    "dcMiss": 1792503482986,
    "dcVer": 2
   },
@@ -6416,8 +6522,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502900697,
-   "bpVer": 3,
+   "bpMiss": 1792509022021,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Progressive House",
@@ -6459,8 +6565,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502902580,
-   "bpVer": 3,
+   "bpMiss": 1792509023999,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Progressive House",
@@ -6536,8 +6642,8 @@
     "album": "Overdrive",
     "v": 3
    },
-   "bpMiss": 1792502903484,
-   "bpVer": 3,
+   "bpMiss": 1792509028099,
+   "bpVer": 4,
    "dcMiss": 1792503489077,
    "dcVer": 2
   },
@@ -6639,7 +6745,7 @@
    "lookup": {
     "artist": "Van Wilkins",
     "album": "Nervous Lab 002",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -6677,8 +6783,8 @@
     "album": "Overdrive",
     "v": 3
    },
-   "bpMiss": 1792502903842,
-   "bpVer": 3,
+   "bpMiss": 1792509031559,
+   "bpVer": 4,
    "dcMiss": 1792503498213,
    "dcVer": 2
   },
@@ -6747,7 +6853,7 @@
    "lookup": {
     "artist": "Sobolik",
     "album": "sub-alchemy",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -7344,7 +7450,16 @@
    "url": "https://dvs1mistress.bandcamp.com/track/city-with-no-fear-dj-plant-texture-outro-world-mix",
    "art": "https://f4.bcbits.com/img/a1223235154_9.jpg",
    "bandId": 3144650884,
-   "tags": [],
+   "tags": [
+    "chicago",
+    "mistress recordings",
+    "techno",
+    "acid house",
+    "chicago acid house",
+    "dj plant texture",
+    "house music",
+    "tribal techno"
+   ],
    "beatport": {
     "genres": [
      "Bass / Club"
@@ -7356,7 +7471,7 @@
    "lookup": {
     "artist": "Mistress Recordings",
     "album": "MISTRESS 18.5",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -7565,7 +7680,13 @@
    "url": "https://wisdomteethuk.bandcamp.com/track/bborn-again",
    "art": "https://f4.bcbits.com/img/a1301560101_9.jpg",
    "bandId": 3663828575,
-   "tags": [],
+   "tags": [
+    "bass",
+    "downtempo",
+    "experimental",
+    "house",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Electronica"
@@ -7577,7 +7698,7 @@
    "lookup": {
     "artist": "Wisdom Teeth",
     "album": "Bborn Again",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503532815,
    "dcVer": 2
@@ -7646,8 +7767,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502907211,
-   "bpVer": 3,
+   "bpMiss": 1792509033476,
+   "bpVer": 4,
    "dcMiss": 1792503538855,
    "dcVer": 2
   },
@@ -7757,7 +7878,16 @@
    "url": "https://hawscardiff.bandcamp.com/track/late-nite-visions",
    "art": "https://f4.bcbits.com/img/a2917026384_9.jpg",
    "bandId": 1950858717,
-   "tags": [],
+   "tags": [
+    "acid",
+    "downtempo",
+    "dub",
+    "house",
+    "prog",
+    "tech house",
+    "techno",
+    "trance"
+   ],
    "beatport": {
     "genres": [
      "Trance (Raw / Deep / Hypnotic)",
@@ -7770,7 +7900,7 @@
    "lookup": {
     "artist": "Wigs",
     "album": "Club Unity Vol. 2",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503547583,
    "dcVer": 2
@@ -7784,7 +7914,16 @@
    "url": "https://hawscardiff.bandcamp.com/track/pulse",
    "art": "https://f4.bcbits.com/img/a2917026384_9.jpg",
    "bandId": 1950858717,
-   "tags": [],
+   "tags": [
+    "acid",
+    "downtempo",
+    "dub",
+    "house",
+    "prog",
+    "tech house",
+    "techno",
+    "trance"
+   ],
    "beatport": {
     "genres": [
      "Trance (Raw / Deep / Hypnotic)",
@@ -7797,7 +7936,7 @@
    "lookup": {
     "artist": "Fazack",
     "album": "Club Unity Vol. 2",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503550606,
    "dcVer": 2
@@ -7811,7 +7950,16 @@
    "url": "https://hawscardiff.bandcamp.com/track/reverse-motion",
    "art": "https://f4.bcbits.com/img/a2917026384_9.jpg",
    "bandId": 1950858717,
-   "tags": [],
+   "tags": [
+    "acid",
+    "downtempo",
+    "dub",
+    "house",
+    "prog",
+    "tech house",
+    "techno",
+    "trance"
+   ],
    "beatport": {
     "genres": [
      "Deep House"
@@ -7823,7 +7971,7 @@
    "lookup": {
     "artist": "Beltrac",
     "album": "Club Unity Vol. 2",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503553762,
    "dcVer": 2
@@ -7851,8 +7999,8 @@
     "album": "Obligated Records: Vol.2",
     "v": 3
    },
-   "bpMiss": 1792502907580,
-   "bpVer": 3,
+   "bpMiss": 1792509036654,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -7887,8 +8035,8 @@
     "album": "Obligated Records: Vol.2",
     "v": 3
    },
-   "bpMiss": 1792502910349,
-   "bpVer": 3,
+   "bpMiss": 1792509039938,
+   "bpVer": 4,
    "dcMiss": 1792503556965,
    "dcVer": 2
   },
@@ -7915,7 +8063,7 @@
    "lookup": {
     "artist": "Dave Huismans",
     "album": "Unbalance",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -8044,8 +8192,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502909149,
-   "bpVer": 3,
+   "bpMiss": 1792509047911,
+   "bpVer": 4,
    "dcMiss": 1792503561409,
    "dcVer": 2
   },
@@ -8087,8 +8235,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502911345,
-   "bpVer": 3,
+   "bpMiss": 1792509049169,
+   "bpVer": 4,
    "dcMiss": 1792503562873,
    "dcVer": 2
   },
@@ -8122,8 +8270,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502913607,
-   "bpVer": 3,
+   "bpMiss": 1792509053408,
+   "bpVer": 4,
    "dcMiss": 1792503565826,
    "dcVer": 2
   },
@@ -8152,8 +8300,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502913607,
-   "bpVer": 3,
+   "bpMiss": 1792509054671,
+   "bpVer": 4,
    "dcMiss": 1792503568820,
    "dcVer": 2
   },
@@ -8182,8 +8330,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502915251,
-   "bpVer": 3,
+   "bpMiss": 1792509060416,
+   "bpVer": 4,
    "dcMiss": 1792503571735,
    "dcVer": 2
   },
@@ -8217,8 +8365,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502915246,
-   "bpVer": 3,
+   "bpMiss": 1792509061712,
+   "bpVer": 4,
    "dcMiss": 1792503573215,
    "dcVer": 2
   },
@@ -8326,8 +8474,8 @@
     "album": "Erre",
     "v": 3
    },
-   "bpMiss": 1792502916471,
-   "bpVer": 3,
+   "bpMiss": 1792509064405,
+   "bpVer": 4,
    "dcMiss": 1792503583635,
    "dcVer": 2
   },
@@ -8358,8 +8506,8 @@
     "album": "Arroyo De Mercurio",
     "v": 3
    },
-   "bpMiss": 1792502917547,
-   "bpVer": 3,
+   "bpMiss": 1792509063703,
+   "bpVer": 4,
    "dcMiss": 1792503588138,
    "dcVer": 2
   },
@@ -8387,8 +8535,8 @@
     "album": "Wavelengths",
     "v": 3
    },
-   "bpMiss": 1792502921386,
-   "bpVer": 3,
+   "bpMiss": 1792509067113,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -8458,7 +8606,9 @@
    "art": "https://f4.bcbits.com/img/a3840059283_9.jpg",
    "bandId": 1272383236,
    "tags": [
-    "electronic"
+    "electronic",
+    "dubstep",
+    "ukg"
    ],
    "beatport": {
     "genres": [
@@ -8471,7 +8621,7 @@
    "lookup": {
     "artist": "K-LONE",
     "album": "Pressure EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -8624,7 +8774,17 @@
    "url": "https://pressuredome.bandcamp.com/track/bloom-nascosta",
    "art": "https://f4.bcbits.com/img/a3885646530_9.jpg",
    "bandId": 3970933732,
-   "tags": [],
+   "tags": [
+    "broken beat",
+    "experimental",
+    "uk techno",
+    "breaks",
+    "broken techno",
+    "dancehall",
+    "electro",
+    "leftfield",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Bass / Club"
@@ -8636,7 +8796,7 @@
    "lookup": {
     "artist": "Piezo x Yushh",
     "album": "Two [Is Greater Than] One - Part 2",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503592503,
    "dcVer": 2
@@ -8650,16 +8810,25 @@
    "url": "https://amity.bandcamp.com/track/arm-bar",
    "art": "https://f4.bcbits.com/img/a0890378225_9.jpg",
    "bandId": 2120332394,
-   "tags": [],
+   "tags": [
+    "amapiano",
+    "drum & bass",
+    "dnb",
+    "experimental",
+    "jungle",
+    "techno",
+    "ukbass",
+    "ukfunky"
+   ],
    "beatport": null,
    "label": "Amity",
    "lookup": {
     "artist": "Dual Monitor",
     "album": "Kills Two Birds",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502922056,
-   "bpVer": 3,
+   "bpMiss": 1792509067921,
+   "bpVer": 4,
    "dcMiss": 1792503595427,
    "dcVer": 2
   },
@@ -8673,17 +8842,23 @@
    "art": "https://f4.bcbits.com/img/a0669851350_9.jpg",
    "bandId": 79393342,
    "tags": [
-    "electronic"
+    "electronic",
+    "rap",
+    "bass",
+    "dancehall",
+    "harddrum",
+    "ukbass",
+    "uktechno"
    ],
    "beatport": null,
    "label": "Amity",
    "lookup": {
     "artist": "Elpac & Grove",
     "album": "An Ode To Brentry Road",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502923950,
-   "bpVer": 3,
+   "bpMiss": 1792509070144,
+   "bpVer": 4,
    "dcMiss": 1792503598398,
    "dcVer": 2
   },
@@ -8696,16 +8871,26 @@
    "url": "https://amity.bandcamp.com/track/7-pocket-pacemaker",
    "art": "https://f4.bcbits.com/img/a0229234170_9.jpg",
    "bandId": 2120332394,
-   "tags": [],
+   "tags": [
+    "electronic",
+    "house",
+    "bass",
+    "dancehall",
+    "jungle",
+    "techno",
+    "ukbass",
+    "ukfunky",
+    "uktechno"
+   ],
    "beatport": null,
    "label": "Amity",
    "lookup": {
     "artist": "VVS1",
     "album": "Ricochet",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502923188,
-   "bpVer": 3,
+   "bpMiss": 1792509070813,
+   "bpVer": 4,
    "dcMiss": 1792503599889,
    "dcVer": 2
   },
@@ -8718,7 +8903,16 @@
    "url": "https://amity.bandcamp.com/track/save-u-mulholland-remix",
    "art": "https://f4.bcbits.com/img/a2843845863_9.jpg",
    "bandId": 2120332394,
-   "tags": [],
+   "tags": [
+    "uktechno",
+    "bass",
+    "dubstep",
+    "footwork",
+    "juke",
+    "jungle",
+    "techno",
+    "ukbass"
+   ],
    "beatport": {
     "genres": [
      "Dubstep"
@@ -8730,7 +8924,7 @@
    "lookup": {
     "artist": "Amity",
     "album": "Save U",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503601365,
    "dcVer": 2
@@ -8829,7 +9023,15 @@
    "url": "https://tratratrax.com/track/onda",
    "art": "https://f4.bcbits.com/img/a1866960330_9.jpg",
    "bandId": 283365678,
-   "tags": [],
+   "tags": [
+    "bass",
+    "dembow",
+    "sound design",
+    "tech hosue",
+    "techno",
+    "tratratrax",
+    "tribal"
+   ],
    "beatport": {
     "genres": [
      "Bass / Club"
@@ -8841,7 +9043,7 @@
    "lookup": {
     "artist": "Piezo x Priori",
     "album": "no pare, sigue sigue 4",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -8867,7 +9069,15 @@
    "url": "https://tratratrax.com/track/ultra-feral",
    "art": "https://f4.bcbits.com/img/a1866960330_9.jpg",
    "bandId": 283365678,
-   "tags": [],
+   "tags": [
+    "bass",
+    "dembow",
+    "sound design",
+    "tech hosue",
+    "techno",
+    "tratratrax",
+    "tribal"
+   ],
    "beatport": {
     "genres": [
      "Bass / Club"
@@ -8879,7 +9089,7 @@
    "lookup": {
     "artist": "Brenda",
     "album": "no pare, sigue sigue 4",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503613531,
    "dcVer": 2
@@ -8939,17 +9149,26 @@
    "art": "https://f4.bcbits.com/img/a3467380343_9.jpg",
    "bandId": 2030201215,
    "tags": [
-    "electronic"
+    "electronic",
+    "house",
+    "palestine",
+    "uk techno",
+    "baile funk",
+    "bass",
+    "breakbeat",
+    "club",
+    "leftfield techno",
+    "techno"
    ],
    "beatport": null,
    "label": "Vief Records",
    "lookup": {
     "artist": "INGI & Manami",
     "album": "Palestine Fundraiser (2025)",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502927698,
-   "bpVer": 3,
+   "bpMiss": 1792509074390,
+   "bpVer": 4,
    "dcMiss": 1792503616585,
    "dcVer": 2
   },
@@ -8963,17 +9182,26 @@
    "art": "https://f4.bcbits.com/img/a3467380343_9.jpg",
    "bandId": 2030201215,
    "tags": [
-    "electronic"
+    "electronic",
+    "house",
+    "palestine",
+    "uk techno",
+    "baile funk",
+    "bass",
+    "breakbeat",
+    "club",
+    "leftfield techno",
+    "techno"
    ],
    "beatport": null,
    "label": "Vief Records",
    "lookup": {
     "artist": "Kaval",
     "album": "Palestine Fundraiser (2025)",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502930066,
-   "bpVer": 3,
+   "bpMiss": 1792509073500,
+   "bpVer": 4,
    "dcMiss": 1792503621536,
    "dcVer": 2
   },
@@ -9000,8 +9228,8 @@
     "album": "Voil",
     "v": 3
    },
-   "bpMiss": 1792502931817,
-   "bpVer": 3,
+   "bpMiss": 1792509076933,
+   "bpVer": 4,
    "dcMiss": 1792503624492,
    "dcVer": 2
   },
@@ -9028,8 +9256,8 @@
     "album": "Voil",
     "v": 3
    },
-   "bpMiss": 1792502931823,
-   "bpVer": 3,
+   "bpMiss": 1792509076927,
+   "bpVer": 4,
    "dcMiss": 1792503627411,
    "dcVer": 2
   },
@@ -9086,8 +9314,8 @@
     "album": "Ghost Town EP",
     "v": 3
    },
-   "bpMiss": 1792502934319,
-   "bpVer": 3,
+   "bpMiss": 1792509080805,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -9126,8 +9354,8 @@
     "album": "Ghost Town EP",
     "v": 3
    },
-   "bpMiss": 1792502934322,
-   "bpVer": 3,
+   "bpMiss": 1792509080813,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -9152,7 +9380,9 @@
    "art": "https://f4.bcbits.com/img/a4063187195_9.jpg",
    "bandId": 1016691359,
    "tags": [
-    "electronic"
+    "electronic",
+    "bass",
+    "dance"
    ],
    "beatport": {
     "genres": [
@@ -9165,7 +9395,7 @@
    "lookup": {
     "artist": "Meku",
     "album": "Duck!dem",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503633485,
    "dcVer": 2
@@ -9345,7 +9575,11 @@
    "url": "https://naffrecordings.bandcamp.com/track/fly-in-amber",
    "art": "https://f4.bcbits.com/img/a1380985369_9.jpg",
    "bandId": 959793951,
-   "tags": [],
+   "tags": [
+    "ambient",
+    "bass",
+    "dub techno"
+   ],
    "beatport": {
     "genres": [
      "Techno (Raw / Deep / Hypnotic)"
@@ -9357,7 +9591,7 @@
    "lookup": {
     "artist": "naff recordings",
     "album": "Fly In Amber",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -9380,7 +9614,11 @@
    "url": "https://naffrecordings.bandcamp.com/track/softening",
    "art": "https://f4.bcbits.com/img/a1380985369_9.jpg",
    "bandId": 959793951,
-   "tags": [],
+   "tags": [
+    "ambient",
+    "bass",
+    "dub techno"
+   ],
    "beatport": {
     "genres": [
      "Techno (Raw / Deep / Hypnotic)"
@@ -9392,7 +9630,7 @@
    "lookup": {
     "artist": "naff recordings",
     "album": "Fly In Amber",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -9415,7 +9653,11 @@
    "url": "https://naffrecordings.bandcamp.com/track/slip-logic",
    "art": "https://f4.bcbits.com/img/a1380985369_9.jpg",
    "bandId": 959793951,
-   "tags": [],
+   "tags": [
+    "ambient",
+    "bass",
+    "dub techno"
+   ],
    "beatport": {
     "genres": [
      "Electronica"
@@ -9427,7 +9669,7 @@
    "lookup": {
     "artist": "naff recordings",
     "album": "Fly In Amber",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -9722,17 +9964,27 @@
    "art": "https://f4.bcbits.com/img/a3931071292_9.jpg",
    "bandId": 2030201215,
    "tags": [
-    "electronic"
+    "electronic",
+    "detroit",
+    "uk techno",
+    "bass",
+    "breakbeat",
+    "breaks",
+    "club",
+    "electro",
+    "leftfield",
+    "leftfield techno",
+    "techno"
    ],
    "beatport": null,
    "label": "Vief Records",
    "lookup": {
     "artist": "Vief Records",
     "album": "Music Is My Perverse Fantasy",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502937190,
-   "bpVer": 3,
+   "bpMiss": 1792509085618,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -9875,8 +10127,8 @@
     "album": "Cycle EP",
     "v": 3
    },
-   "bpMiss": 1792502936543,
-   "bpVer": 3,
+   "bpMiss": 1792509084015,
+   "bpVer": 4,
    "dcMiss": 1792503643793,
    "dcVer": 2
   },
@@ -9910,8 +10162,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502939673,
-   "bpVer": 3,
+   "bpMiss": 1792509088733,
+   "bpVer": 4,
    "dcMiss": 1792503648427,
    "dcVer": 2
   },
@@ -9945,8 +10197,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502943753,
-   "bpVer": 3,
+   "bpMiss": 1792509089670,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dub Techno"
@@ -10038,8 +10290,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502946479,
-   "bpVer": 3,
+   "bpMiss": 1792509093115,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -10073,8 +10325,8 @@
     "album": "Torcido",
     "v": 3
    },
-   "bpMiss": 1792502945396,
-   "bpVer": 3,
+   "bpMiss": 1792509094563,
+   "bpVer": 4,
    "dcMiss": 1792503652808,
    "dcVer": 2
   },
@@ -10100,8 +10352,8 @@
     "album": "Torcido",
     "v": 3
    },
-   "bpMiss": 1792502946932,
-   "bpVer": 3,
+   "bpMiss": 1792509096293,
+   "bpVer": 4,
    "dcMiss": 1792503657317,
    "dcVer": 2
   },
@@ -10175,7 +10427,7 @@
    "lookup": {
     "artist": "toasty",
     "album": "The Knowledge",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -10298,7 +10550,14 @@
    "url": "https://30drecords.bandcamp.com/track/trident",
    "art": "https://f4.bcbits.com/img/a2012965339_9.jpg",
    "bandId": 3992487372,
-   "tags": [],
+   "tags": [
+    "30d records",
+    "absis",
+    "breaks",
+    "broken beat",
+    "eyes have it",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Electronica"
@@ -10310,7 +10569,7 @@
    "lookup": {
     "artist": "30D Records",
     "album": "Eines EP [30DEYES-006]",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -10333,7 +10592,12 @@
    "url": "https://spacelab.bandcamp.com/track/omen",
    "art": "https://f4.bcbits.com/img/a3151117017_9.jpg",
    "bandId": 1101871858,
-   "tags": [],
+   "tags": [
+    "milan",
+    "deep techno",
+    "halftime",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Techno (Raw / Deep / Hypnotic)"
@@ -10345,7 +10609,7 @@
    "lookup": {
     "artist": "space•lab",
     "album": "Fates EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -10382,8 +10646,8 @@
     "album": "MOVE005",
     "v": 3
    },
-   "bpMiss": 1792502948813,
-   "bpVer": 3,
+   "bpMiss": 1792509100815,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Speed Garage",
@@ -10479,17 +10743,21 @@
    "art": "https://f4.bcbits.com/img/a1230265799_9.jpg",
    "bandId": 3598473634,
    "tags": [
-    "electronic"
+    "electronic",
+    "progressive house",
+    "progressive trance",
+    "techno",
+    "trance"
    ],
    "beatport": null,
    "label": "Neptune Discs",
    "lookup": {
     "artist": "Neptune Discs",
     "album": "A Portal To The Unkown - 6 Rotations Of Neptune Discs",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502949216,
-   "bpVer": 3,
+   "bpMiss": 1792509104910,
+   "bpVer": 4,
    "dcMiss": 1792503676695,
    "dcVer": 2
   },
@@ -10652,7 +10920,7 @@
    "lookup": {
     "artist": "Efdemin",
     "album": "Efdemin",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -10893,8 +11161,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502952318,
-   "bpVer": 3,
+   "bpMiss": 1792509106094,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Broken Beat",
@@ -11019,8 +11287,8 @@
     "album": "PBAL001",
     "v": 3
    },
-   "bpMiss": 1792502955789,
-   "bpVer": 3,
+   "bpMiss": 1792509109945,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -11058,8 +11326,8 @@
     "album": "PBAL001",
     "v": 3
    },
-   "bpMiss": 1792502956286,
-   "bpVer": 3,
+   "bpMiss": 1792509110506,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -11098,8 +11366,8 @@
     "artist": "Dual Monitor",
     "v": 3
    },
-   "bpMiss": 1792502956971,
-   "bpVer": 3,
+   "bpMiss": 1792509113934,
+   "bpVer": 4,
    "dcMiss": 1792503699556,
    "dcVer": 2
   },
@@ -11113,17 +11381,26 @@
    "art": "https://f4.bcbits.com/img/a0972804152_9.jpg",
    "bandId": 2030201215,
    "tags": [
-    "electronic"
+    "electronic",
+    "3step",
+    "afrotech",
+    "baile",
+    "baile funk",
+    "brazilian funk",
+    "gqom",
+    "hard drum",
+    "leftfield techno",
+    "uk funky"
    ],
    "beatport": null,
    "label": "Vief Records",
    "lookup": {
     "artist": "Vief Records",
     "album": "IDANHA",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502959609,
-   "bpVer": 3,
+   "bpMiss": 1792509114666,
+   "bpVer": 4,
    "dcMiss": 1792503701019,
    "dcVer": 2
   },
@@ -11602,7 +11879,7 @@
    "label": "Nervous Records",
    "lookup": {
     "artist": "Croft",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -11998,7 +12275,16 @@
    "url": "https://timedance.bandcamp.com/track/minor-science-mortals",
    "art": "https://f4.bcbits.com/img/a2991693964_9.jpg",
    "bandId": 126216259,
-   "tags": [],
+   "tags": [
+    "electronic",
+    "fwd",
+    "bass",
+    "bass music",
+    "breaks",
+    "club music",
+    "electro",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Trap / Future Bass"
@@ -12010,7 +12296,7 @@
    "lookup": {
     "artist": "TIMEDANCE",
     "album": "TD10",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503716222,
    "dcVer": 2
@@ -12024,7 +12310,16 @@
    "url": "https://timedance.bandcamp.com/track/yushh-jurango-wake-me-when-its-over",
    "art": "https://f4.bcbits.com/img/a0711214893_9.jpg",
    "bandId": 126216259,
-   "tags": [],
+   "tags": [
+    "electronic",
+    "fwd",
+    "bass",
+    "bass music",
+    "breaks",
+    "club music",
+    "electro",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Bass / Club"
@@ -12036,7 +12331,7 @@
    "lookup": {
     "artist": "TIMEDANCE",
     "album": "TD10",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503719294,
    "dcVer": 2
@@ -12050,7 +12345,16 @@
    "url": "https://timedance.bandcamp.com/track/batu-frostbite",
    "art": "https://f4.bcbits.com/img/a1150232855_9.jpg",
    "bandId": 126216259,
-   "tags": [],
+   "tags": [
+    "electronic",
+    "fwd",
+    "bass",
+    "bass music",
+    "breaks",
+    "club music",
+    "electro",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Bass / Club"
@@ -12062,7 +12366,7 @@
    "lookup": {
     "artist": "TIMEDANCE",
     "album": "TD10",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503724067,
    "dcVer": 2
@@ -12256,17 +12560,18 @@
    "bandId": 4239224325,
    "tags": [
     "electronic",
-    "progressive house"
+    "progressive house",
+    "progressive trance"
    ],
    "beatport": null,
    "label": "39 Records",
    "lookup": {
     "artist": "39 Records",
     "album": "Equinox",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502958354,
-   "bpVer": 3,
+   "bpMiss": 1792509117298,
+   "bpVer": 4,
    "dcMiss": 1792503725533,
    "dcVer": 2
   },
@@ -12287,10 +12592,10 @@
    "lookup": {
     "artist": "Fam Records",
     "album": "Masala",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502962529,
-   "bpVer": 3,
+   "bpMiss": 1792509117998,
+   "bpVer": 4,
    "dcMiss": 1792503730030,
    "dcVer": 2
   },
@@ -12303,7 +12608,12 @@
    "url": "https://casavoyager.net/track/the-magic-laugh-trancehuman",
    "art": "https://f4.bcbits.com/img/a4165759885_9.jpg",
    "bandId": 430964189,
-   "tags": [],
+   "tags": [
+    "breaks",
+    "electro",
+    "soundtrack",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Breaks / Breakbeat / UK Bass",
@@ -12317,7 +12627,7 @@
    "lookup": {
     "artist": "casa voyager",
     "album": "Transhuman X-Press",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -12393,7 +12703,9 @@
    "bandId": 2697630730,
    "tags": [
     "electronic",
-    "electro"
+    "electro",
+    "dance",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -12406,7 +12718,7 @@
    "lookup": {
     "artist": "Client_03",
     "album": "Testbed_Assembly",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -12431,7 +12743,9 @@
    "bandId": 2697630730,
    "tags": [
     "electronic",
-    "electro"
+    "electro",
+    "dance",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -12444,7 +12758,7 @@
    "lookup": {
     "artist": "Client_03",
     "album": "Testbed_Assembly",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -12469,7 +12783,9 @@
    "bandId": 2697630730,
    "tags": [
     "electronic",
-    "electro"
+    "electro",
+    "dance",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -12482,7 +12798,7 @@
    "lookup": {
     "artist": "Client_03",
     "album": "Testbed_Assembly",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -12507,7 +12823,9 @@
    "bandId": 2697630730,
    "tags": [
     "electronic",
-    "electro"
+    "electro",
+    "dance",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -12520,7 +12838,7 @@
    "lookup": {
     "artist": "Client_03",
     "album": "Testbed_Assembly",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -12556,8 +12874,8 @@
     "album": "38490 Electronics [DT001]",
     "v": 3
    },
-   "bpMiss": 1792502963070,
-   "bpVer": 3,
+   "bpMiss": 1792509121749,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Electro",
@@ -12615,17 +12933,19 @@
    "bandId": 4239224325,
    "tags": [
     "electronic",
-    "progressive house"
+    "progressive house",
+    "progressive-house",
+    "house"
    ],
    "beatport": null,
    "label": "39 Records",
    "lookup": {
     "artist": "39 Records",
     "album": "Body Wigs",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502966189,
-   "bpVer": 3,
+   "bpMiss": 1792509120876,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Progressive House"
@@ -12691,7 +13011,10 @@
    "url": "https://acidtestrecords.bandcamp.com/track/test-7",
    "art": "https://f4.bcbits.com/img/a1806776557_9.jpg",
    "bandId": 4128680201,
-   "tags": [],
+   "tags": [
+    "acid",
+    "ambient"
+   ],
    "beatport": {
     "genres": [
      "Deep House"
@@ -12703,7 +13026,7 @@
    "lookup": {
     "artist": "Acid Test",
     "album": "Acid Test 09",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -12832,17 +13155,22 @@
    "art": "https://f4.bcbits.com/img/a1237196234_9.jpg",
    "bandId": 382478946,
    "tags": [
-    "electronic"
+    "electronic",
+    "punk electronic",
+    "dnb",
+    "mathrock",
+    "techno",
+    "dancehall"
    ],
    "beatport": null,
    "label": "subglow",
    "lookup": {
     "artist": "georg-i",
     "album": "Rebuild",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502965895,
-   "bpVer": 3,
+   "bpMiss": 1792509124581,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "IDM",
@@ -12891,8 +13219,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502968662,
-   "bpVer": 3,
+   "bpMiss": 1792509127279,
+   "bpVer": 4,
    "dcMiss": 1792503741184,
    "dcVer": 2
   },
@@ -12923,8 +13251,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502969065,
-   "bpVer": 3,
+   "bpMiss": 1792509127967,
+   "bpVer": 4,
    "dcMiss": 1792503744139,
    "dcVer": 2
   },
@@ -13134,7 +13462,11 @@
    "art": "https://f4.bcbits.com/img/a3097111080_9.jpg",
    "bandId": 2101111648,
    "tags": [
-    "electronic"
+    "electronic",
+    "drum & bass",
+    "breaks",
+    "leftfield",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -13147,7 +13479,7 @@
    "lookup": {
     "artist": "Studio Natura",
     "album": "Agents Against Agency",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503753011,
    "dcVer": 2
@@ -13162,7 +13494,11 @@
    "art": "https://f4.bcbits.com/img/a3097111080_9.jpg",
    "bandId": 2101111648,
    "tags": [
-    "electronic"
+    "electronic",
+    "drum & bass",
+    "breaks",
+    "leftfield",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -13175,7 +13511,7 @@
    "lookup": {
     "artist": "Studio Natura",
     "album": "Agents Against Agency",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503754476,
    "dcVer": 2
@@ -13201,7 +13537,7 @@
    "lookup": {
     "artist": "tactual",
     "album": "ilinx play",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503755948,
    "dcVer": 2
@@ -13320,8 +13656,8 @@
     "album": "Carburador",
     "v": 3
    },
-   "bpMiss": 1792502969859,
-   "bpVer": 3,
+   "bpMiss": 1792509130037,
+   "bpVer": 4,
    "dcMiss": 1792503760700,
    "dcVer": 2
   },
@@ -13352,8 +13688,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502970281,
-   "bpVer": 3,
+   "bpMiss": 1792509132234,
+   "bpVer": 4,
    "dcMiss": 1792503765156,
    "dcVer": 2
   },
@@ -13426,7 +13762,15 @@
     "dubstep",
     "techno"
    ],
-   "beatport": null,
+   "beatport": {
+    "genres": [
+     "Bass / Club",
+     "Electro (Classic / Detroit / Modern)",
+     "140 / Deep Dubstep / Grime"
+    ],
+    "url": "https://www.beatport.com/release/tectonic-sound/5064416",
+    "match": "release-label"
+   },
    "label": "Tectonic Recordings",
    "lookup": {
     "artist": "Tectonic Recordings",
@@ -13440,8 +13784,6 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502970617,
-   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dubstep"
@@ -13481,8 +13823,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502973595,
-   "bpVer": 3,
+   "bpMiss": 1792509134819,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Progressive Trance",
@@ -13580,8 +13922,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502975591,
-   "bpVer": 3,
+   "bpMiss": 1792509137031,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -13668,8 +14010,8 @@
     "album": "Exuvia Comp 001",
     "v": 3
    },
-   "bpMiss": 1792502976071,
-   "bpVer": 3,
+   "bpMiss": 1792509138182,
+   "bpVer": 4,
    "dcMiss": 1792503774152,
    "dcVer": 2
   },
@@ -13785,8 +14127,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502977329,
-   "bpVer": 3,
+   "bpMiss": 1792509144197,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Broken Beat",
@@ -13826,8 +14168,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502979659,
-   "bpVer": 3,
+   "bpMiss": 1792509145522,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Broken Beat",
@@ -13873,8 +14215,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502981940,
-   "bpVer": 3,
+   "bpMiss": 1792509148337,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -14487,8 +14829,8 @@
     "album": "Baroquism Vol. 1 VA [BSUN006]",
     "v": 3
    },
-   "bpMiss": 1792502983982,
-   "bpVer": 3,
+   "bpMiss": 1792509153103,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Leftfield",
@@ -14711,8 +15053,8 @@
     "album": "VA - Ascension Vol. 3",
     "v": 3
    },
-   "bpMiss": 1792502986422,
-   "bpVer": 3,
+   "bpMiss": 1792509154146,
+   "bpVer": 4,
    "dcMiss": 1792503780416,
    "dcVer": 2
   },
@@ -14731,10 +15073,10 @@
    "lookup": {
     "artist": "Transmigration",
     "album": "When It Rains It Pours",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502985208,
-   "bpVer": 3,
+   "bpMiss": 1792509158518,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Ambient",
@@ -14770,7 +15112,7 @@
    "lookup": {
     "artist": "SK_eleven",
     "album": "Arcanus [SK11X023]",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -15006,7 +15348,15 @@
    "url": "https://parachute.bandcamp.com/track/day-of-riddance-dario-zenker-remix",
    "art": "https://f4.bcbits.com/img/a0898992739_9.jpg",
    "bandId": 2399511233,
-   "tags": [],
+   "tags": [
+    "a",
+    "avatism",
+    "clockwork",
+    "cw",
+    "dario zenker",
+    "lucy",
+    "parachute"
+   ],
    "beatport": {
     "genres": [
      "Techno (Peak Time / Driving)"
@@ -15018,7 +15368,7 @@
    "lookup": {
     "artist": "Parachute",
     "album": "Day Of Riddance",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -15113,8 +15463,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502990419,
-   "bpVer": 3,
+   "bpMiss": 1792509159797,
+   "bpVer": 4,
    "dcMiss": 1792503785314,
    "dcVer": 2
   },
@@ -15219,16 +15569,26 @@
    "url": "https://schimmerstuttgart.bandcamp.com/track/you-could-never",
    "art": "https://f4.bcbits.com/img/a1939817786_9.jpg",
    "bandId": 4144376572,
-   "tags": [],
+   "tags": [
+    "electronic",
+    "house",
+    "techno.",
+    "electronic music",
+    "electronica",
+    "house music",
+    "techno",
+    "techno and variations",
+    "techno house"
+   ],
    "beatport": null,
    "label": "Schimmer Records",
    "lookup": {
     "artist": "Terence Fletcher",
     "album": "Between Heights",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502990800,
-   "bpVer": 3,
+   "bpMiss": 1792509162570,
+   "bpVer": 4,
    "dcMiss": 1792503791196,
    "dcVer": 2
   },
@@ -15637,7 +15997,14 @@
    "url": "https://baitdubstep.bandcamp.com/track/vcr-wood",
    "art": "https://f4.bcbits.com/img/a4010411954_9.jpg",
    "bandId": 112743079,
-   "tags": [],
+   "tags": [
+    "paris",
+    "bass",
+    "industrial",
+    "mechanical",
+    "techno",
+    "wonky"
+   ],
    "beatport": {
     "genres": [
      "Dubstep"
@@ -15649,7 +16016,7 @@
    "lookup": {
     "artist": "Bait",
     "album": "Out of Step VEP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -15686,7 +16053,7 @@
    "lookup": {
     "artist": "Conzi",
     "album": "HEADS003 - Chant EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -15723,7 +16090,7 @@
    "lookup": {
     "artist": "Conzi",
     "album": "HEADS003 - Chant EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -15759,8 +16126,8 @@
     "album": "Beyond The Jungle Ep",
     "v": 3
    },
-   "bpMiss": 1792502992439,
-   "bpVer": 3,
+   "bpMiss": 1792509165230,
+   "bpVer": 4,
    "dcMiss": 1792503801707,
    "dcVer": 2
   },
@@ -15829,8 +16196,8 @@
     "album": "Josi's Wourld",
     "v": 3
    },
-   "bpMiss": 1792502992423,
-   "bpVer": 3,
+   "bpMiss": 1792509167580,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dubstep"
@@ -15863,8 +16230,8 @@
     "artist": "Aloka",
     "v": 3
    },
-   "bpMiss": 1792502995128,
-   "bpVer": 3,
+   "bpMiss": 1792509169021,
+   "bpVer": 4,
    "dcMiss": 1792503806250,
    "dcVer": 2
   },
@@ -16083,8 +16450,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792502997335,
-   "bpVer": 3,
+   "bpMiss": 1792509172933,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -16119,7 +16486,7 @@
    "lookup": {
     "artist": "Little Corner",
     "album": "Circus EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -16158,7 +16525,7 @@
    "lookup": {
     "artist": "Bruce",
     "album": "Sonder Somatic",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -16181,7 +16548,9 @@
    "art": "https://f4.bcbits.com/img/a0001611855_9.jpg",
    "bandId": 124210634,
    "tags": [
-    "electronic"
+    "electronic",
+    "kosmische",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -16194,7 +16563,7 @@
    "lookup": {
     "artist": "Barker",
     "album": "Unfixed",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -16219,7 +16588,9 @@
    "art": "https://f4.bcbits.com/img/a0001611855_9.jpg",
    "bandId": 124210634,
    "tags": [
-    "electronic"
+    "electronic",
+    "kosmische",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -16232,7 +16603,7 @@
    "lookup": {
     "artist": "Barker",
     "album": "Unfixed",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -16751,7 +17122,15 @@
    "art": "https://f4.bcbits.com/img/a0375575041_9.jpg",
    "bandId": 1523292576,
    "tags": [
-    "techno"
+    "techno",
+    "bass",
+    "dance",
+    "dekmantel",
+    "drum & bass",
+    "dubstep",
+    "electro",
+    "house",
+    "uk funky"
    ],
    "beatport": {
     "genres": [
@@ -16764,7 +17143,7 @@
    "lookup": {
     "artist": "Talismann",
     "album": "Dekmantel Ten: A Decade Of Dekmantel Festival",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -16883,10 +17262,10 @@
    "lookup": {
     "artist": "Piezo",
     "album": "Chroma / Spin [feat. STILL]",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792502998914,
-   "bpVer": 3,
+   "bpMiss": 1792509173743,
+   "bpVer": 4,
    "dcMiss": 1792503857814,
    "dcVer": 2
   },
@@ -17154,8 +17533,8 @@
     "album": "SFTM006",
     "v": 3
    },
-   "bpMiss": 1792503002367,
-   "bpVer": 3,
+   "bpMiss": 1792509180621,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "New Wave",
@@ -17224,8 +17603,8 @@
     "album": "Anarchist Africa::When Visions Fall From Sky",
     "v": 3
    },
-   "bpMiss": 1792503000936,
-   "bpVer": 3,
+   "bpMiss": 1792509179563,
+   "bpVer": 4,
    "dcMiss": 1792503872015,
    "dcVer": 2
   },
@@ -17250,7 +17629,7 @@
    "lookup": {
     "artist": "dBridge",
     "album": "Berlin Atonal: More Light 5/5",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -17317,16 +17696,24 @@
    "url": "https://yukumusic.bandcamp.com/track/shut-the-gram",
    "art": "https://f4.bcbits.com/img/a1625559871_9.jpg",
    "bandId": 1573398018,
-   "tags": [],
+   "tags": [
+    "ambient",
+    "breakbeat",
+    "breaks",
+    "dnb",
+    "electronic",
+    "idm",
+    "leftfield bass"
+   ],
    "beatport": null,
    "label": "YUKU",
    "lookup": {
     "artist": "YUKU",
     "album": "Sudden Life",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503002838,
-   "bpVer": 3,
+   "bpMiss": 1792509183563,
+   "bpVer": 4,
    "dcMiss": 1792503873488,
    "dcVer": 2
   },
@@ -17340,7 +17727,14 @@
    "art": "https://f4.bcbits.com/img/a0179617999_9.jpg",
    "bandId": 3127920172,
    "tags": [
-    "electronic"
+    "electronic",
+    "acid",
+    "bass",
+    "bass music",
+    "breaks",
+    "dubstep",
+    "electro",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -17354,7 +17748,7 @@
    "lookup": {
     "artist": "85acid",
     "album": "Snakey EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -17380,7 +17774,8 @@
    "art": "https://f4.bcbits.com/img/a0268404592_9.jpg",
    "bandId": 33387035,
    "tags": [
-    "funky house"
+    "funky house",
+    "ukg"
    ],
    "beatport": {
     "genres": [
@@ -17393,7 +17788,7 @@
    "lookup": {
     "artist": "T!M, Logan",
     "album": "1FFNG009",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503878762,
    "dcVer": 2
@@ -17449,7 +17844,9 @@
    "art": "https://f4.bcbits.com/img/a0237953862_9.jpg",
    "bandId": 2677907011,
    "tags": [
-    "electronic"
+    "electronic",
+    "leftfield",
+    "techno."
    ],
    "beatport": {
     "genres": [
@@ -17462,7 +17859,7 @@
    "lookup": {
     "artist": "Jabes",
     "album": "klunk001",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -17653,8 +18050,8 @@
     "album": "Atrahasis",
     "v": 3
    },
-   "bpMiss": 1792503004928,
-   "bpVer": 3,
+   "bpMiss": 1792509184852,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Bassline",
@@ -17690,7 +18087,7 @@
    "lookup": {
     "artist": "Hypho",
     "album": "Vol. 2 - 'Right Place, Wrong Time' [LRC002]",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -17726,8 +18123,8 @@
     "album": "Hodge - Mind Games / Flashback",
     "v": 3
    },
-   "bpMiss": 1792503004587,
-   "bpVer": 3,
+   "bpMiss": 1792509187345,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -17807,8 +18204,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503007346,
-   "bpVer": 3,
+   "bpMiss": 1792509186299,
+   "bpVer": 4,
    "dcMiss": 1792503893809,
    "dcVer": 2
   },
@@ -17821,7 +18218,16 @@
    "url": "https://sungaterec.bandcamp.com/track/dafne-arkajo-remix",
    "art": "https://f4.bcbits.com/img/a0580952153_9.jpg",
    "bandId": 1400805464,
-   "tags": [],
+   "tags": [
+    "arkajo",
+    "deeptechno",
+    "dub",
+    "dubtechno",
+    "markus suckut",
+    "moy santana",
+    "sungate",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Techno (Raw / Deep / Hypnotic)"
@@ -17833,7 +18239,7 @@
    "lookup": {
     "artist": "Sungate",
     "album": "Cosmic Advisor (Incl. Arkajo & Markus Suckut remixes)",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -17946,16 +18352,24 @@
    "url": "https://terminalrec.bandcamp.com/track/entra-as-bruja-del-paramo",
    "art": "https://f4.bcbits.com/img/a4280082636_9.jpg",
    "bandId": 1317229113,
-   "tags": [],
+   "tags": [
+    "electronic",
+    "experimental",
+    "global club music",
+    "club music",
+    "experimental electronic",
+    "latinoamerica",
+    "leftfield"
+   ],
    "beatport": null,
    "label": "Terminal",
    "lookup": {
     "artist": "Terminal",
     "album": "Terminal Tribe Soundsystem vol.001",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503006605,
-   "bpVer": 3,
+   "bpMiss": 1792509193016,
+   "bpVer": 4,
    "dcMiss": 1792503898184,
    "dcVer": 2
   },
@@ -18426,7 +18840,7 @@
    "lookup": {
     "artist": "Hemlock Recordings",
     "album": "HEK008 - Ramadanman - Glut / Tempest",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -18949,8 +19363,8 @@
     "album": "RUFFKRU01",
     "v": 3
    },
-   "bpMiss": 1792503009667,
-   "bpVer": 3,
+   "bpMiss": 1792509193597,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Speed Garage"
@@ -19161,8 +19575,8 @@
     "album": "Tuste / Radice Goa",
     "v": 3
    },
-   "bpMiss": 1792503010879,
-   "bpVer": 3,
+   "bpMiss": 1792509197480,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Broken Beat",
@@ -19282,8 +19696,8 @@
     "artist": "Chisari",
     "v": 3
    },
-   "bpMiss": 1792503012105,
-   "bpVer": 3,
+   "bpMiss": 1792509196557,
+   "bpVer": 4,
    "dcMiss": 1792503930242,
    "dcVer": 2
   },
@@ -19732,8 +20146,8 @@
     "album": "Definition of Nowhere [FIDES005]",
     "v": 3
    },
-   "bpMiss": 1792503013946,
-   "bpVer": 3,
+   "bpMiss": 1792509202384,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -19818,8 +20232,8 @@
     "album": "DOT 2 (feat. Benji & Josei)",
     "v": 3
    },
-   "bpMiss": 1792503014426,
-   "bpVer": 3,
+   "bpMiss": 1792509203348,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dub Techno"
@@ -20030,8 +20444,8 @@
     "album": "Obligated Records: Vol.1",
     "v": 3
    },
-   "bpMiss": 1792503016815,
-   "bpVer": 3,
+   "bpMiss": 1792509207447,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -20067,8 +20481,8 @@
     "album": "Obligated Records: Vol.1",
     "v": 3
    },
-   "bpMiss": 1792503017419,
-   "bpVer": 3,
+   "bpMiss": 1792509208986,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -20105,8 +20519,8 @@
     "album": "Obligated Records: Vol.1",
     "v": 3
    },
-   "bpMiss": 1792503019977,
-   "bpVer": 3,
+   "bpMiss": 1792509212367,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -20142,8 +20556,8 @@
     "album": "Obligated Records: Vol.1",
     "v": 3
    },
-   "bpMiss": 1792503020801,
-   "bpVer": 3,
+   "bpMiss": 1792509214036,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -20164,7 +20578,13 @@
    "url": "https://deadbeatrecordslondon.bandcamp.com/track/dawn-razor-confluence-panomatic-mono",
    "art": "https://f4.bcbits.com/img/a4002639806_9.jpg",
    "bandId": 2398399415,
-   "tags": [],
+   "tags": [
+    "electro house",
+    "tech house",
+    "breakbeat",
+    "breaks",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Breaks / Breakbeat / UK Bass"
@@ -20176,7 +20596,7 @@
    "lookup": {
     "artist": "deadbeat Records",
     "album": "Dawn Razor - Sixteen EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -20352,8 +20772,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503023860,
-   "bpVer": 3,
+   "bpMiss": 1792509220197,
+   "bpVer": 4,
    "dcMiss": 1792503955834,
    "dcVer": 2
   },
@@ -20386,8 +20806,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503023861,
-   "bpVer": 3,
+   "bpMiss": 1792509218869,
+   "bpVer": 4,
    "dcMiss": 1792503957330,
    "dcVer": 2
   },
@@ -20450,8 +20870,8 @@
     "album": "EP3",
     "v": 3
    },
-   "bpMiss": 1792503028911,
-   "bpVer": 3,
+   "bpMiss": 1792509224091,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Chillwave",
@@ -20757,7 +21177,7 @@
    "lookup": {
     "artist": "Peder Mannerfelt",
     "album": "It's Elastic",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -20792,7 +21212,7 @@
    "lookup": {
     "artist": "Mor Elian & Rhyw",
     "album": "It's Elastic",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -20826,7 +21246,7 @@
    "lookup": {
     "artist": "DJ Doomscroll",
     "album": "It's Elastic",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -20939,10 +21359,10 @@
    "label": "elbartomusikau",
    "lookup": {
     "artist": "Elbarto",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503033853,
-   "bpVer": 3,
+   "bpMiss": 1792509221572,
+   "bpVer": 4,
    "dcMiss": 1792503982883,
    "dcVer": 2
   },
@@ -20956,7 +21376,15 @@
    "art": "https://f4.bcbits.com/img/a3881119862_9.jpg",
    "bandId": 352874038,
    "tags": [
-    "electronic"
+    "electronic",
+    "bass",
+    "breaks",
+    "dubstep",
+    "funk",
+    "groove",
+    "harddrum",
+    "techno",
+    "ukg"
    ],
    "beatport": {
     "genres": [
@@ -20972,7 +21400,7 @@
    "lookup": {
     "artist": "elbartomusikau",
     "album": "oddone",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503984362,
    "dcVer": 2
@@ -21129,7 +21557,13 @@
    "art": "https://f4.bcbits.com/img/a3918606532_9.jpg",
    "bandId": 4084072253,
    "tags": [
-    "electronic"
+    "electronic",
+    "idm",
+    "ambient",
+    "bass music",
+    "electro",
+    "jungle",
+    "remix"
    ],
    "beatport": {
     "genres": [
@@ -21142,7 +21576,7 @@
    "lookup": {
     "artist": "Objekt",
     "album": "Ganzfeld",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -21218,7 +21652,15 @@
    "url": "https://absorbemit.bandcamp.com/track/kincaid-dog",
    "art": "https://f4.bcbits.com/img/a3539192003_9.jpg",
    "bandId": 1836137541,
-   "tags": [],
+   "tags": [
+    "avant-garde",
+    "avantgarde",
+    "electronica",
+    "experimental electronic",
+    "leftfield",
+    "new wave",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Ambient / Experimental"
@@ -21230,7 +21672,7 @@
    "lookup": {
     "artist": "absorb emit",
     "album": "Tales Of Disguise 1",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792503987588,
    "dcVer": 2
@@ -21458,7 +21900,7 @@
    "lookup": {
     "artist": "toasty",
     "album": "The Knowledge",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -22303,8 +22745,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503029863,
-   "bpVer": 3,
+   "bpMiss": 1792509226917,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -22341,8 +22783,8 @@
     "album": "PT/3.1",
     "v": 3
    },
-   "bpMiss": 1792503035863,
-   "bpVer": 3,
+   "bpMiss": 1792509227337,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -22363,7 +22805,12 @@
    "url": "https://nmbrs.bandcamp.com/track/myth",
    "art": "https://f4.bcbits.com/img/a0975175897_9.jpg",
    "bandId": 1126593507,
-   "tags": [],
+   "tags": [
+    "numbers",
+    "nmbrs",
+    "roska",
+    "untold"
+   ],
    "beatport": {
     "genres": [
      "Dubstep"
@@ -22375,7 +22822,7 @@
    "lookup": {
     "artist": "Numbers",
     "album": "Myth",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -22451,7 +22898,7 @@
    "lookup": {
     "artist": "Haŵs",
     "album": "Euphoria Simulator",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -22480,17 +22927,20 @@
    "bandId": 1940476816,
    "tags": [
     "electronic",
-    "house"
+    "house",
+    "progressive house",
+    "tech",
+    "trance"
    ],
    "beatport": null,
    "label": "Guy Contact",
    "lookup": {
     "artist": "Guy Contact",
     "album": "New Found Energy EP",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503040865,
-   "bpVer": 3,
+   "bpMiss": 1792509231981,
+   "bpVer": 4,
    "dcMiss": 1792504003834,
    "dcVer": 2
   },
@@ -22604,8 +23054,8 @@
     "artist": "PIPANAV",
     "v": 3
    },
-   "bpMiss": 1792503038855,
-   "bpVer": 3,
+   "bpMiss": 1792509230937,
+   "bpVer": 4,
    "dcMiss": 1792504006792,
    "dcVer": 2
   },
@@ -22698,7 +23148,11 @@
    "art": "https://f4.bcbits.com/img/a2679600393_9.jpg",
    "bandId": 1128177376,
    "tags": [
-    "electronic"
+    "electronic",
+    "bass",
+    "experimental electronic",
+    "future bass",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -22711,7 +23165,7 @@
    "lookup": {
     "artist": "Peder Mannerfelt Produktion",
     "album": "Pendrum / Now That's Focus!",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792504017776,
    "dcVer": 2
@@ -22767,7 +23221,12 @@
    "art": "https://f4.bcbits.com/img/a0549169024_9.jpg",
    "bandId": 1128177376,
    "tags": [
-    "electronic"
+    "electronic",
+    "experimental",
+    "reggaeton",
+    "bass music",
+    "dancehall",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -22780,7 +23239,7 @@
    "lookup": {
     "artist": "Peder Mannerfelt Produktion",
     "album": "Hyperchase EP",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792504021523,
    "dcVer": 2
@@ -22808,7 +23267,7 @@
    "lookup": {
     "artist": "Peder Mannerfelt Produktion",
     "album": "Ben Depressa / Rotula",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792504025992,
    "dcVer": 2
@@ -22861,7 +23320,17 @@
    "url": "https://tratratrax.com/track/ronaldinho-hace-la-ela-stica",
    "art": "https://f4.bcbits.com/img/a0870303707_9.jpg",
    "bandId": 283365678,
-   "tags": [],
+   "tags": [
+    "cumbia",
+    "dembow",
+    "dengue dengue dengue",
+    "latin america",
+    "medellin",
+    "nicola cruz",
+    "techno",
+    "tratratrax",
+    "tribal"
+   ],
    "beatport": {
     "genres": [
      "Bass / Club"
@@ -22873,7 +23342,7 @@
    "lookup": {
     "artist": "Verraco",
     "album": "no pare, sigue sigue",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -23204,10 +23673,10 @@
    "lookup": {
     "artist": "Ebende",
     "album": "Vilsen EP",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503043858,
-   "bpVer": 3,
+   "bpMiss": 1792509234074,
+   "bpVer": 4,
    "dcMiss": 1792504033701,
    "dcVer": 2
   },
@@ -23221,7 +23690,13 @@
    "art": "https://f4.bcbits.com/img/a2101220788_9.jpg",
    "bandId": 3119697684,
    "tags": [
-    "electronic"
+    "electronic",
+    "bass",
+    "club",
+    "electro",
+    "experimental",
+    "percussive",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -23234,7 +23709,7 @@
    "lookup": {
     "artist": "The Pleasure Boyz",
     "album": "An Evening with The Pleasure Boyz",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -23257,17 +23732,26 @@
    "art": "https://f4.bcbits.com/img/a2395792839_9.jpg",
    "bandId": 2030201215,
    "tags": [
-    "electronic"
+    "electronic",
+    "palestine",
+    "uk techno",
+    "bass",
+    "breakbeat",
+    "breaks",
+    "leftfield",
+    "leftfield house",
+    "techno",
+    "uk bass"
    ],
    "beatport": null,
    "label": "Vief Records",
    "lookup": {
     "artist": "Dåser",
     "album": "Madhoun",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503045848,
-   "bpVer": 3,
+   "bpMiss": 1792509234777,
+   "bpVer": 4,
    "dcMiss": 1792504038101,
    "dcVer": 2
   },
@@ -23281,17 +23765,26 @@
    "art": "https://f4.bcbits.com/img/a2395792839_9.jpg",
    "bandId": 2030201215,
    "tags": [
-    "electronic"
+    "electronic",
+    "palestine",
+    "uk techno",
+    "bass",
+    "breakbeat",
+    "breaks",
+    "leftfield",
+    "leftfield house",
+    "techno",
+    "uk bass"
    ],
    "beatport": null,
    "label": "Vief Records",
    "lookup": {
     "artist": "Mulholland",
     "album": "Madhoun",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503049862,
-   "bpVer": 3,
+   "bpMiss": 1792509237303,
+   "bpVer": 4,
    "dcMiss": 1792504039637,
    "dcVer": 2
   },
@@ -23344,7 +23837,10 @@
    "bandId": 1244227965,
    "tags": [
     "electronic",
-    "leipzig"
+    "leipzig",
+    "uk tech house",
+    "leftfield",
+    "montreal"
    ],
    "beatport": {
     "genres": [
@@ -23357,7 +23853,7 @@
    "lookup": {
     "artist": "KANN",
     "album": "Crystalline",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792504045582,
    "dcVer": 2
@@ -23416,7 +23912,9 @@
    "art": "https://f4.bcbits.com/img/a0688004333_9.jpg",
    "bandId": 1128177376,
    "tags": [
-    "electronic"
+    "electronic",
+    "leftfield techno",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -23429,7 +23927,7 @@
    "lookup": {
     "artist": "Peder Mannerfelt Produktion",
     "album": "All My Love",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -23504,7 +24002,7 @@
    "lookup": {
     "artist": "Neighbourhood",
     "album": "HOOD008 : Alarico - Drippin' Blood/La Vaca Vega",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -23538,7 +24036,7 @@
    "lookup": {
     "artist": "Neighbourhood",
     "album": "HOOD010A : THE HIVE - VOLUME 2",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792504047024,
    "dcVer": 2
@@ -23594,7 +24092,10 @@
    "art": "https://f4.bcbits.com/img/a1778355933_9.jpg",
    "bandId": 1061163952,
    "tags": [
-    "electronic"
+    "electronic",
+    "idm",
+    "expeirmental",
+    "sound design"
    ],
    "beatport": {
     "genres": [
@@ -23607,7 +24108,7 @@
    "lookup": {
     "artist": "Metrist",
     "album": "Forova",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -23782,8 +24283,8 @@
     "album": "Community Cuts VA 2",
     "v": 3
    },
-   "bpMiss": 1792503050867,
-   "bpVer": 3,
+   "bpMiss": 1792509238426,
+   "bpVer": 4,
    "dcMiss": 1792504051561,
    "dcVer": 2
   },
@@ -23808,7 +24309,7 @@
    "lookup": {
     "artist": "Rhyw",
     "album": "It's Not a Bug, It's a Feature",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -23834,7 +24335,17 @@
    "url": "https://pressuredome.bandcamp.com/track/left-my-feelings",
    "art": "https://f4.bcbits.com/img/a1026990595_9.jpg",
    "bandId": 3970933732,
-   "tags": [],
+   "tags": [
+    "broken beat",
+    "experimental",
+    "uk techno",
+    "breaks",
+    "broken techno",
+    "dancehall",
+    "dubstep",
+    "leftfield",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Breaks / Breakbeat / UK Bass"
@@ -23846,7 +24357,7 @@
    "lookup": {
     "artist": "Elsa",
     "album": "INTL.PDCOMP002",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792504056915,
    "dcVer": 2
@@ -23933,7 +24444,7 @@
    "lookup": {
     "artist": "DJ Boss",
     "album": "Chapter Thirteen: Fatal Mission EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -24093,7 +24604,11 @@
    "art": "https://f4.bcbits.com/img/a3240921078_9.jpg",
    "bandId": 3127920172,
    "tags": [
-    "electronic"
+    "electronic",
+    "bass",
+    "club",
+    "electro",
+    "techno"
    ],
    "beatport": {
     "genres": [
@@ -24106,7 +24621,7 @@
    "lookup": {
     "artist": "85acid",
     "album": "Flat W EP",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792504068630,
    "dcVer": 2
@@ -24171,17 +24686,26 @@
    "art": "https://f4.bcbits.com/img/a2554641214_9.jpg",
    "bandId": 1009788789,
    "tags": [
-    "electronic"
+    "electronic",
+    "latin",
+    "club",
+    "dance",
+    "drums",
+    "edits",
+    "harddrum",
+    "progressive",
+    "raptor house",
+    "trance"
    ],
    "beatport": null,
    "label": "TSVI",
    "lookup": {
     "artist": "TSVI",
     "album": "HIT PARADE",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503056874,
-   "bpVer": 3,
+   "bpMiss": 1792509242422,
+   "bpVer": 4,
    "dcMiss": 1792504075300,
    "dcVer": 2
   },
@@ -24195,17 +24719,26 @@
    "art": "https://f4.bcbits.com/img/a2554641214_9.jpg",
    "bandId": 1009788789,
    "tags": [
-    "electronic"
+    "electronic",
+    "latin",
+    "club",
+    "dance",
+    "drums",
+    "edits",
+    "harddrum",
+    "progressive",
+    "raptor house",
+    "trance"
    ],
    "beatport": null,
    "label": "TSVI",
    "lookup": {
     "artist": "TSVI",
     "album": "HIT PARADE",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503056895,
-   "bpVer": 3,
+   "bpMiss": 1792509242429,
+   "bpVer": 4,
    "dcMiss": 1792504078220,
    "dcVer": 2
   },
@@ -24282,8 +24815,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503062859,
-   "bpVer": 3,
+   "bpMiss": 1792509246097,
+   "bpVer": 4,
    "dcMiss": 1792504081397,
    "dcVer": 2
   },
@@ -24296,7 +24829,13 @@
    "url": "https://metalheadz.bandcamp.com/track/the-rain-2015-re-master",
    "art": "https://f4.bcbits.com/img/a2389495445_9.jpg",
    "bandId": 3106974770,
-   "tags": [],
+   "tags": [
+    "d'n'b",
+    "dnb",
+    "drum & bass",
+    "electronic",
+    "metalheadz"
+   ],
    "beatport": {
     "genres": [
      "Drum & Bass"
@@ -24308,7 +24847,7 @@
    "lookup": {
     "artist": "Metalheadz",
     "album": "Natural Born Killa EP [2015 Remasters]",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -24450,8 +24989,8 @@
     "album": "Renegade Lakes",
     "v": 3
    },
-   "bpMiss": 1792503064863,
-   "bpVer": 3,
+   "bpMiss": 1792509248977,
+   "bpVer": 4,
    "dcMiss": 1792504084604,
    "dcVer": 2
   },
@@ -24482,8 +25021,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503069870,
-   "bpVer": 3,
+   "bpMiss": 1792509249818,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -24803,7 +25342,7 @@
    "lookup": {
     "artist": "BCCO",
     "album": "BCCX009",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -25461,8 +26000,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503074853,
-   "bpVer": 3,
+   "bpMiss": 1792509252419,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "House",
@@ -25509,8 +26048,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503076875,
-   "bpVer": 3,
+   "bpMiss": 1792509255009,
+   "bpVer": 4,
    "dcMiss": 1792504113867,
    "dcVer": 2
   },
@@ -25538,8 +26077,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503081854,
-   "bpVer": 3,
+   "bpMiss": 1792509256368,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -25560,16 +26099,26 @@
    "url": "https://erosion-label.bandcamp.com/track/shuttered-doctor-jeep-remix",
    "art": "https://f4.bcbits.com/img/a3828846753_9.jpg",
    "bandId": 2032257716,
-   "tags": [],
+   "tags": [
+    "drum & bass",
+    "uk techno",
+    "bass music",
+    "breaks",
+    "broken techno",
+    "dubstep",
+    "electronic",
+    "jungle",
+    "techno"
+   ],
    "beatport": null,
    "label": "Erosion",
    "lookup": {
     "artist": "Erosion",
     "album": "View from an Empty Lake",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503083874,
-   "bpVer": 3,
+   "bpMiss": 1792509260010,
+   "bpVer": 4,
    "dcMiss": 1792504122862,
    "dcVer": 2
   },
@@ -25659,7 +26208,8 @@
    "art": "https://f4.bcbits.com/img/a1715419197_9.jpg",
    "bandId": 3579487270,
    "tags": [
-    "electronic"
+    "electronic",
+    "livity sound"
    ],
    "beatport": {
     "genres": [
@@ -25672,7 +26222,7 @@
    "lookup": {
     "artist": "Facta",
     "album": "Dumb Hummer / All The Time",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -25696,7 +26246,13 @@
    "art": "https://f4.bcbits.com/img/a1779983238_9.jpg",
    "bandId": 3579487270,
    "tags": [
-    "electronic"
+    "electronic",
+    "deep house",
+    "house",
+    "tech house",
+    "new york city",
+    "techno",
+    "trippy"
    ],
    "beatport": {
     "genres": [
@@ -25709,7 +26265,7 @@
    "lookup": {
     "artist": "Facta",
     "album": "Emeline",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -26037,8 +26593,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503086859,
-   "bpVer": 3,
+   "bpMiss": 1792509262740,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -26112,8 +26668,8 @@
     "artist": "Leod",
     "v": 3
    },
-   "bpMiss": 1792503088854,
-   "bpVer": 3,
+   "bpMiss": 1792509264783,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -26146,8 +26702,8 @@
     "artist": "Leod",
     "v": 3
    },
-   "bpMiss": 1792503091860,
-   "bpVer": 3,
+   "bpMiss": 1792509266701,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -26183,8 +26739,8 @@
     "album": "Gravity Always Wins [LY01]",
     "v": 3
    },
-   "bpMiss": 1792503091861,
-   "bpVer": 3,
+   "bpMiss": 1792509269723,
+   "bpVer": 4,
    "dcMiss": 1792504143862,
    "dcVer": 2
   },
@@ -26212,8 +26768,8 @@
     "album": "Waitomo",
     "v": 3
    },
-   "bpMiss": 1792503097891,
-   "bpVer": 3,
+   "bpMiss": 1792509274572,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Deep Techno",
@@ -26272,7 +26828,14 @@
    "url": "https://uttu.club/track/shiitake",
    "art": "https://f4.bcbits.com/img/a3217577924_9.jpg",
    "bandId": 2665196750,
-   "tags": [],
+   "tags": [
+    "ambient",
+    "breakbeat",
+    "cosmic house",
+    "deep house",
+    "downtemp",
+    "electronica"
+   ],
    "beatport": {
     "genres": [
      "Breaks / Breakbeat / UK Bass"
@@ -26284,7 +26847,7 @@
    "lookup": {
     "artist": "Unknown To The Unknown & Hot Haus Recs",
     "album": "Xhale EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -26453,7 +27016,7 @@
    "lookup": {
     "artist": "Primal Instinct",
     "album": "Carnal Fever",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -26576,8 +27139,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503099883,
-   "bpVer": 3,
+   "bpMiss": 1792509278722,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -26613,8 +27176,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503102873,
-   "bpVer": 3,
+   "bpMiss": 1792509282630,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -26703,8 +27266,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503108861,
-   "bpVer": 3,
+   "bpMiss": 1792509283544,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -27229,8 +27792,8 @@
     "album": "Sixty 9 / Triple D",
     "v": 3
    },
-   "bpMiss": 1792503111855,
-   "bpVer": 3,
+   "bpMiss": 1792509287544,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "House",
@@ -27396,8 +27959,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503113849,
-   "bpVer": 3,
+   "bpMiss": 1792509286782,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Tribal",
@@ -27429,10 +27992,10 @@
    "lookup": {
     "artist": "Matrixxman",
     "album": "Identity Crisis",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503117895,
-   "bpVer": 3,
+   "bpMiss": 1792509291648,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -27463,10 +28026,10 @@
    "lookup": {
     "artist": "Matrixxman",
     "album": "Identity Crisis",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503118862,
-   "bpVer": 3,
+   "bpMiss": 1792509291648,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -27587,7 +28150,7 @@
    "lookup": {
     "artist": "Forest Drive West",
     "album": "Parallel Space EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -27847,7 +28410,14 @@
    "url": "https://wisdomteethuk.bandcamp.com/track/sputnik-one-calvepen-666",
    "art": "https://f4.bcbits.com/img/a2750968272_9.jpg",
    "bandId": 3663828575,
-   "tags": [],
+   "tags": [
+    "bass",
+    "drum and bass",
+    "experimental",
+    "footwork",
+    "jungle",
+    "techno"
+   ],
    "beatport": {
     "genres": [
      "Bass / Club"
@@ -27859,7 +28429,7 @@
    "lookup": {
     "artist": "Wisdom Teeth",
     "album": "Club Moss",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -27887,7 +28457,10 @@
    "art": "https://f4.bcbits.com/img/a3229431812_9.jpg",
    "bandId": 821362188,
    "tags": [
-    "electronic"
+    "electronic",
+    "experimental",
+    "bass",
+    "club"
    ],
    "beatport": {
     "genres": [
@@ -27900,7 +28473,7 @@
    "lookup": {
     "artist": "Kindergarten Records",
     "album": "Jasper",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792504198186,
    "dcVer": 2
@@ -27973,8 +28546,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503124850,
-   "bpVer": 3,
+   "bpMiss": 1792509296173,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -28361,8 +28934,8 @@
     "album": "LATIN BASS EDIT PACK",
     "v": 3
    },
-   "bpMiss": 1792503125879,
-   "bpVer": 3,
+   "bpMiss": 1792509296858,
+   "bpVer": 4,
    "dcMiss": 1792504202594,
    "dcVer": 2
   },
@@ -28376,7 +28949,13 @@
    "art": "https://f4.bcbits.com/img/a0850111470_9.jpg",
    "bandId": 1128177376,
    "tags": [
-    "electronic"
+    "electronic",
+    "blawan",
+    "karenn",
+    "pariah",
+    "peder mannerfelt",
+    "techno",
+    "voam"
    ],
    "beatport": {
     "genres": [
@@ -28389,7 +28968,7 @@
    "lookup": {
     "artist": "Peder Mannerfelt Produktion",
     "album": "And The Band Played On",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -28552,7 +29131,7 @@
    "lookup": {
     "artist": "TSVI",
     "album": "Sogno EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -28702,7 +29281,14 @@
    "art": "https://f4.bcbits.com/img/a4140989251_9.jpg",
    "bandId": 1009788789,
    "tags": [
-    "electronic"
+    "electronic",
+    "club",
+    "dance",
+    "hard drum",
+    "percussions",
+    "raptor house",
+    "techno",
+    "trance"
    ],
    "beatport": {
     "genres": [
@@ -28716,7 +29302,7 @@
    "lookup": {
     "artist": "TSVI",
     "album": "Mediterraneo EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -28754,8 +29340,8 @@
     "album": "They Don't Love It Like We Do",
     "v": 3
    },
-   "bpMiss": 1792503130854,
-   "bpVer": 3,
+   "bpMiss": 1792509305035,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "House"
@@ -28831,7 +29417,7 @@
    "lookup": {
     "artist": "Neighbourhood",
     "album": "HOOD009 : Yant - Broken Strings EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -28854,17 +29440,22 @@
    "art": "https://f4.bcbits.com/img/a3322348915_9.jpg",
    "bandId": 4087347939,
    "tags": [
-    "electronic"
+    "electronic",
+    "150bpm",
+    "bass",
+    "footwork",
+    "left-field club",
+    "techno"
    ],
    "beatport": null,
    "label": "Piezo",
    "lookup": {
     "artist": "Hassan Abou Alam",
     "album": "Fast Fists Fest [ANSIA007]",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503132882,
-   "bpVer": 3,
+   "bpMiss": 1792509305939,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Footwork",
@@ -28889,17 +29480,22 @@
    "art": "https://f4.bcbits.com/img/a3322348915_9.jpg",
    "bandId": 4087347939,
    "tags": [
-    "electronic"
+    "electronic",
+    "150bpm",
+    "bass",
+    "footwork",
+    "left-field club",
+    "techno"
    ],
    "beatport": null,
    "label": "Piezo",
    "lookup": {
     "artist": "Oyubi",
     "album": "Fast Fists Fest [ANSIA007]",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503135862,
-   "bpVer": 3,
+   "bpMiss": 1792509308224,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Footwork",
@@ -28949,8 +29545,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503139856,
-   "bpVer": 3,
+   "bpMiss": 1792509310609,
+   "bpVer": 4,
    "dcMiss": 1792504205545,
    "dcVer": 2
   },
@@ -29097,8 +29693,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503140860,
-   "bpVer": 3,
+   "bpMiss": 1792509311358,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Breaks",
@@ -29134,8 +29730,8 @@
     "album": "SunkLo",
     "v": 3
    },
-   "bpMiss": 1792503142854,
-   "bpVer": 3,
+   "bpMiss": 1792509313721,
+   "bpVer": 4,
    "dcMiss": 1792504209960,
    "dcVer": 2
   },
@@ -29162,8 +29758,8 @@
     "album": "SunkLo",
     "v": 3
    },
-   "bpMiss": 1792503143849,
-   "bpVer": 3,
+   "bpMiss": 1792509313727,
+   "bpVer": 4,
    "dcMiss": 1792504211550,
    "dcVer": 2
   },
@@ -29190,8 +29786,8 @@
     "album": "SunkLo",
     "v": 3
    },
-   "bpMiss": 1792503145859,
-   "bpVer": 3,
+   "bpMiss": 1792509317520,
+   "bpVer": 4,
    "dcMiss": 1792504213014,
    "dcVer": 2
   },
@@ -29588,7 +30184,11 @@
    "art": "https://f4.bcbits.com/img/a4079302651_9.jpg",
    "bandId": 42361674,
    "tags": [
-    "techno"
+    "techno",
+    "alarico",
+    "beste hira",
+    "off-grid",
+    "stranger"
    ],
    "beatport": {
     "genres": [
@@ -29601,7 +30201,7 @@
    "lookup": {
     "artist": "Alarico",
     "album": "T3R VA Series 01",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -29637,8 +30237,8 @@
     "album": "djfix & Jek - Grass Whistle",
     "v": 3
    },
-   "bpMiss": 1792503149859,
-   "bpVer": 3,
+   "bpMiss": 1792509318721,
+   "bpVer": 4,
    "dcMiss": 1792504220785,
    "dcVer": 2
   },
@@ -29834,7 +30434,7 @@
    "lookup": {
     "artist": "Barker",
     "album": "Debiasing",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -29942,7 +30542,7 @@
    "lookup": {
     "artist": "CLR",
     "album": "Umek - Difolvon EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -30008,7 +30608,13 @@
    "art": "https://f4.bcbits.com/img/a0551869633_9.jpg",
    "bandId": 1128177376,
    "tags": [
-    "electronic"
+    "electronic",
+    "blawan",
+    "peder mannerfelt",
+    "karenn",
+    "pariah",
+    "techno",
+    "voam"
    ],
    "beatport": {
     "genres": [
@@ -30021,7 +30627,7 @@
    "lookup": {
     "artist": "Peder Mannerfelt Produktion",
     "album": "The Benefits of Living in a Hole",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -30174,8 +30780,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503150863,
-   "bpVer": 3,
+   "bpMiss": 1792509321356,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -30282,7 +30888,13 @@
    "art": "https://f4.bcbits.com/img/a3656926726_9.jpg",
    "bandId": 4238087821,
    "tags": [
-    "electronic"
+    "electronic",
+    "bass",
+    "fever am",
+    "rhyw",
+    "techno",
+    "uk",
+    "voam"
    ],
    "beatport": {
     "genres": [
@@ -30295,7 +30907,7 @@
    "lookup": {
     "artist": "Rhyw",
     "album": "Honey Badger",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -30507,7 +31119,7 @@
    "lookup": {
     "artist": "Ben Sims",
     "album": "Phases Of Appearance EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -30879,8 +31491,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503164861,
-   "bpVer": 3,
+   "bpMiss": 1792509322088,
+   "bpVer": 4,
    "dcMiss": 1792504240491,
    "dcVer": 2
   },
@@ -31349,7 +31961,7 @@
    "lookup": {
     "artist": "Kasper Marott",
     "album": "Sol EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -31465,10 +32077,10 @@
    "lookup": {
     "artist": "Swamp 81",
     "album": "Swampshit",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503162877,
-   "bpVer": 3,
+   "bpMiss": 1792509325064,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Bass Music",
@@ -31594,8 +32206,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503168891,
-   "bpVer": 3,
+   "bpMiss": 1792509326433,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Ambient",
@@ -31727,8 +32339,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503170885,
-   "bpVer": 3,
+   "bpMiss": 1792509329429,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Special Effects"
@@ -31763,8 +32375,8 @@
     "album": "Gupta Tribes",
     "v": 3
    },
-   "bpMiss": 1792503173863,
-   "bpVer": 3,
+   "bpMiss": 1792509332829,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Ambient",
@@ -31815,8 +32427,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792503175891,
-   "bpVer": 3,
+   "bpMiss": 1792509333997,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Special Effects"
@@ -31927,10 +32539,10 @@
    "lookup": {
     "artist": "Space Afrika",
     "album": "Honest Labour",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503180874,
-   "bpVer": 3,
+   "bpMiss": 1792509339110,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Abstract",
@@ -32204,17 +32816,19 @@
    "art": "https://f4.bcbits.com/img/a2505010224_9.jpg",
    "bandId": 690401412,
    "tags": [
-    "experimental"
+    "experimental",
+    "experiemental",
+    "techno"
    ],
    "beatport": null,
    "label": "Avian",
    "lookup": {
     "artist": "Avian",
     "album": "The Dirt on Our Hands",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503182889,
-   "bpVer": 3,
+   "bpMiss": 1792509338112,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -32236,17 +32850,18 @@
    "art": "https://f4.bcbits.com/img/a0086055164_9.jpg",
    "bandId": 690401412,
    "tags": [
-    "experimental"
+    "experimental",
+    "techno"
    ],
    "beatport": null,
    "label": "Avian",
    "lookup": {
     "artist": "Avian",
     "album": "Fat Punko",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503185891,
-   "bpVer": 3,
+   "bpMiss": 1792509343273,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -32276,10 +32891,10 @@
    "lookup": {
     "artist": "Rhyw",
     "album": "Cave Walls (Part Two)",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503187869,
-   "bpVer": 3,
+   "bpMiss": 1792509345623,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno",
@@ -32309,10 +32924,10 @@
    "lookup": {
     "artist": "Rhyw",
     "album": "Cave Walls (Part One)",
-    "v": 3
+    "v": 4
    },
-   "bpMiss": 1792503190860,
-   "bpVer": 3,
+   "bpMiss": 1792509347859,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Techno"
@@ -32347,7 +32962,7 @@
    "lookup": {
     "artist": "Linkwood",
     "album": "Expressions",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -32596,7 +33211,7 @@
    "lookup": {
     "artist": "Hessle Audio",
     "album": "Tonight",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -32674,8 +33289,8 @@
     "album": "PSEU003 - Soreab - Bound to Origins",
     "v": 3
    },
-   "bpMiss": 1792503191855,
-   "bpVer": 3,
+   "bpMiss": 1792509353106,
+   "bpVer": 4,
    "discogs": {
     "styles": [
      "Acid",
@@ -32711,7 +33326,7 @@
    "lookup": {
     "artist": "Hessle Audio",
     "album": "Blimey",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -32733,7 +33348,15 @@
    "url": "https://modernhypnosisrecords.bandcamp.com/track/hiss-is-bliss-dub-free-pt-3-rose-line-mix",
    "art": "https://f4.bcbits.com/img/a0854541588_9.jpg",
    "bandId": 3121407755,
-   "tags": [],
+   "tags": [
+    "modern hypnosis",
+    "bass music",
+    "deep techno",
+    "dub",
+    "dub techno",
+    "electronica",
+    "garage"
+   ],
    "beatport": {
     "genres": [
      "Techno (Raw / Deep / Hypnotic)",
@@ -32746,7 +33369,7 @@
    "lookup": {
     "artist": "Modern Hypnosis",
     "album": "Various Artists - Hiss Is Bliss, Bukkha, Somah",
-    "v": 3
+    "v": 4
    },
    "dcMiss": 1792504260215,
    "dcVer": 2
@@ -32843,7 +33466,9 @@
    "url": "https://ternesc.bandcamp.com/track/atlas",
    "art": "https://f4.bcbits.com/img/a1973407653_9.jpg",
    "bandId": 1381879607,
-   "tags": [],
+   "tags": [
+    "blawan-ternesc-karenn"
+   ],
    "beatport": {
     "genres": [
      "Techno (Raw / Deep / Hypnotic)"
@@ -32855,7 +33480,7 @@
    "lookup": {
     "artist": "Ternesc",
     "album": "Nutrition",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
@@ -32891,7 +33516,7 @@
    "lookup": {
     "artist": "Hessle Audio",
     "album": "Ramadanman EP",
-    "v": 3
+    "v": 4
    },
    "discogs": {
     "styles": [
