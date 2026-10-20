@@ -69,6 +69,7 @@ npx serve .
 
 ## Limits
 
+- When the normal searches find nothing, both Beatport and Discogs try **artist-first**: find the artist, scan their own releases (Beatport: their 150 most recent tracks; Discogs: their release list), and match titles more loosely. One title can contain the other ("Feels So Gud" in "Feels So Gud EP"), and filler words, numbers and the artist's own name don't count ("Vol. 2" never matches "Vol. 3"). Earlier "not found" results are re-checked once with only this step.
 - Beatport matching is by artist + title, catalogue number, label and (for albums) tracklist against Beatport's public search page. Many self-released EPs, edits, bootlegs and compilations simply aren't on Beatport.
 - Discogs mostly catalogues physical releases, so digital-only releases are often missing there too. Results are checked against artist, title, label and catalogue number before being used.
 - Bandcamp has no official wishlist API. The exporter reads data the wishlist page already embeds, the endpoint the page uses for "view all", and the endpoint Bandcamp's mobile app uses, so a Bandcamp change could break it.

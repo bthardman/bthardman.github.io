@@ -22,7 +22,8 @@
   const DELAY_MS = 300;         // pause after each request (be polite)
   const USE_BEATPORT = true;    // look each release up on Beatport for a cleaner genre
   const BP_MISS_TTL_DAYS = 30;  // re-try Beatport/Discogs "no match" results after this long
-  const BP_MATCHER_VERSION = 2; // bump when Beatport matching improves, so earlier misses are re-checked once
+  const BP_MATCHER_VERSION = 3; // bump when Beatport matching improves, so earlier misses are re-checked once
+  const DC_MATCHER_VERSION = 2; // the same for Discogs
   // Discogs personal access token (discogs.com -> Settings -> Developers -> Generate token).
   // The script asks for it on the first export and keeps it in Tampermonkey's
   // storage, never in this file (which is published). Without one Discogs
@@ -290,7 +291,8 @@
     if (bracketCat && /\d/.test(bracketCat[1]) && bracketCat.index > 0) { cat = cat || catKey(bracketCat[1]); t = t.slice(0, bracketCat.index); }
     t = t.replace(/\s*[([](?:feat|ft|incl|inc)\.?[^)\]]*[)\]]/gi, '');
     for (let k = 0; k < 2; k++) t = t.replace(FORMAT_RE, '');
-    return { title: t.trim() || String(title || '').trim(), cat };
+    const fallback = String(title || '').replace(/\s*[([](?:feat|ft|incl|inc)\.?[^)\]]*[)\]]/gi, '').trim();
+    return { title: t.trim() || fallback || String(title || '').trim(), cat };
   }
 
   function words(s) { return norm(s).split(' ').filter((w) => w && w !== 'the' && w !== 'and'); }
@@ -325,10 +327,10 @@
     try {
       const qs = JSON.parse(m[1]).props.pageProps.dehydratedState.queries;
       const q = qs.find((x) => x.state && x.state.data && (x.state.data.tracks || x.state.data.releases));
-      if (!q) return { tracks: [], releases: [] };
+      if (!q) return { tracks: [], releases: [], artists: [] };
       const d = q.state.data;
       const list = (x) => (x ? (Array.isArray(x) ? x : x.data || []) : []);
-      return { tracks: list(d.tracks), releases: list(d.releases) };
+      return { tracks: list(d.tracks), releases: list(d.releases), artists: list(d.artists) };
     } catch (e) { return null; }
   }
 
@@ -363,6 +365,36 @@
   }
 
   const bestDice = (titles, s) => Math.max(...titles.map((t) => dice(t, s)));
+
+  // Title similarity once the artist is certain: Dice, or one title containing
+  // the other ("Feels So Gud" in "Feels So Gud EP", "Raw Dubz" in "Raw Dubz Vol.3").
+  // Containment is by whole words, so "Mission" doesn't match "Transmission".
+  // Titles that both carry numbers must share one ("Vol. 2" isn't "Vol. 3").
+  const numbers = (s) => new Set(norm(s).split(' ').filter((w) => /^\d+$/.test(w)).map(Number));
+  // Words like "vol", "edits" and numbers say nothing about which release it
+  // is ("Community Edits Vol.1" isn't "Risky Business Vol 1"), so the loose
+  // comparison only counts the other words.
+  const FILLER = new Set(['vol', 'volume', 'pt', 'part', 'ep', 'lp', 'edit', 'edits', 'remix', 'remixes', 'mix', 'mixes',
+    'dub', 'dubs', 'version', 'versions', 'original', 'extended', 'vip', 'the', 'and', 'a', 'of', 'no', 'series', 'collection']);
+  // ignore: the artist's own name words, which often appear in their titles
+  // ("OSSX Mashups" vs "Watchyaback (OSSX Remix)").
+  const content = (s, ignore) => norm(s).split(' ').filter((w) => w && !FILLER.has(w) && !/^\d+$/.test(w) && !(ignore && ignore.has(w)));
+  function looseSim(a, b, ignore) {
+    const na = numbers(a), nb = numbers(b);
+    if (na.size && nb.size && ![...na].some((n) => nb.has(n))) return 0;
+    const ca = content(a, ignore), cb = content(b, ignore);
+    if (!ca.length || !cb.length) return norm(a) === norm(b) ? 1 : 0;
+    const setB = new Set(cb), hit = ca.filter((w) => setB.has(w)).length;
+    if (!hit) return 0;
+    const d = (2 * hit) / (ca.length + cb.length), A = ' ' + norm(a) + ' ', B = ' ' + norm(b) + ' ';
+    if (A.trim().length >= 4 && B.trim().length >= 4 && (A.includes(B) || B.includes(A))) return Math.max(d, 0.75);
+    return d;
+  }
+  const bestLoose = (titles, s, ignore) => Math.max(0, ...titles.filter(Boolean).map((t) => looseSim(t, s, ignore)));
+  const artistWords = (artists) => new Set(artists.flatMap((a) => norm(a).split(' ')));
+  const stripBrackets = (t) => t.replace(/\s*[([][^)\]]*[)\]]/g, '');
+  // Search results for artists whose name is one of ours.
+  const sameArtist = (ours, name) => ours.some((a) => a === norm(name) || dice(a, name) >= 0.8);
 
   // Picks the best Beatport hit for a wishlist item, or null.
   function bestMatch(it, info, data) {
@@ -439,15 +471,98 @@
     return [...new Set(q.filter((x) => x.length > 2))].slice(0, 4);
   }
 
-  async function lookupBeatport(it, info) {
+  const bpSearch = (q) => fetchParsed('https://www.beatport.com/search?q=' + encodeURIComponent(q), bpSearchData, 3);
+
+  // artistOnly: a miss from before the artist-first step (matcher v2); the
+  // searches themselves haven't changed, so only the new step is run.
+  async function lookupBeatport(it, info, artistOnly) {
+    if (artistOnly) return bpByArtist(it, info, []);
+    const artistsSeen = [];
     for (const q of bpQueries(it, info)) {
-      const data = await fetchParsed('https://www.beatport.com/search?q=' + encodeURIComponent(q), bpSearchData, 3);
+      const data = await bpSearch(q);
       const hit = data && bestMatch(it, info, data);
       if (hit) return hit;
+      if (data) artistsSeen.push(...data.artists);
       await sleep(DELAY_MS);
+    }
+    return bpByArtist(it, info, artistsSeen);
+  }
+
+  // Fallback when the searches find nothing: the artist's own Beatport tracks
+  // page (their 150 most recent tracks, each with genre, release and catalogue
+  // number), matched with looser titles now that the artist is certain.
+  function bpArtistTracks(html) {
+    const m = /<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/.exec(html);
+    if (!m) return null;
+    try {
+      const qs = JSON.parse(m[1]).props.pageProps.dehydratedState.queries;
+      const q = qs.find((x) => x.state && x.state.data && Array.isArray(x.state.data.results) &&
+        (!x.state.data.results.length || 'mix_name' in x.state.data.results[0]));
+      return q ? q.state.data.results : [];
+    } catch (e) { return null; }
+  }
+
+  async function bpByArtist(it, info, artistsSeen) {
+    const d = describe(it, info);
+    if (!d.artists.length) return null;
+    let cands = artistsSeen.filter((a) => sameArtist(d.artists, a.artist_name));
+    if (!cands.length) {
+      const data = await bpSearch(d.artists[0]);
+      await sleep(DELAY_MS);
+      cands = ((data && data.artists) || []).filter((a) => sameArtist(d.artists, a.artist_name));
+    }
+    const ids = [...new Set(cands.map((a) => a.artist_id))].slice(0, 2);
+    for (const id of ids) {
+      const a = cands.find((x) => x.artist_id === id);
+      const tracks = await fetchParsed('https://www.beatport.com/artist/' + slug(a.artist_name) + '/' + id + '/tracks?per_page=150', bpArtistTracks, 3);
+      await sleep(DELAY_MS);
+      const hit = tracks && bpMatchArtistTracks(it, d, tracks);
+      if (hit) return hit;
     }
     return null;
   }
+
+  function bpMatchArtistTracks(it, d, tracks) {
+    const isTrack = it.type === 't';
+    const { titles, cat, album, trackTitles } = d;
+    const bare = titles.map(stripBrackets);
+    const wantRelease = isTrack && album ? [album, ...titles] : titles;
+    const ign = artistWords(d.artists);
+    // Genres per Beatport release, from all of the artist's tracks on it.
+    const rel = new Map();
+    for (const t of tracks) {
+      const r = t.release || {};
+      if (!r.id) continue;
+      if (!rel.has(r.id)) rel.set(r.id, { name: r.name || '', url: 'https://www.beatport.com/release/' + slug(r.name) + '/' + r.id, genres: new Set(), fromTracklist: 0 });
+      genreOf(t).forEach((g) => rel.get(r.id).genres.add(g));
+    }
+    let best = null;
+    const consider = (score, how, genres, url) => {
+      genres = [...genres];
+      if (genres.length && (!best || score > best.score)) best = { score, match: how, genres, url };
+    };
+    for (const t of tracks) {
+      const r = rel.get((t.release || {}).id);
+      const catOk = !!(cat && t.catalog_number && catKey(t.catalog_number) === cat);
+      const rs = r ? bestLoose(wantRelease, cleanTitle(r.name).title, ign) : 0;
+      if (isTrack) {
+        const mix = t.mix_name && !/^original( mix)?$/i.test(t.mix_name) ? ' ' + t.mix_name : '';
+        const s = Math.max(bestLoose(titles, (t.name || '') + mix, ign), bestLoose(bare, t.name || '', ign) * 0.9);
+        if (s >= 0.5) consider(s * 2, 'artist-track', genreOf(t), 'https://www.beatport.com/track/' + slug(t.name) + '/' + t.id);
+        else if (r && (catOk || (album && rs >= 0.6))) consider(1.2, 'artist-album', r.genres, r.url);
+      } else if (r) {
+        if (catOk) consider(3, 'artist-catalog', r.genres, r.url);
+        else if (rs >= 0.5) consider(rs * 2, 'artist-release', r.genres, r.url);
+        if (trackTitles.some((tt) => looseSim(tt, t.name || '', ign) >= 0.8)) r.fromTracklist++;
+      }
+    }
+    // An album whose tracks (2+) sit on one Beatport release, whatever it's called.
+    if (!isTrack) for (const r of rel.values()) if (r.fromTracklist >= 2) consider(1.5 + r.fromTracklist / 10, 'artist-tracklist', r.genres, r.url);
+    return best && { genres: best.genres, url: best.url, match: best.match };
+  }
+
+  // The artist tracks page gives genre/sub_genre as objects, not arrays.
+  const genreOf = (t) => [t.genre, t.sub_genre].filter(Boolean).map((g) => g.name || g.genre_name).filter(Boolean);
 
   /* ---- Discogs lookup ---------------------------------------------------- */
 
@@ -520,10 +635,12 @@
 
   // Discogs counts requests over a moving 60 s window and sends no Retry-After,
   // so a 429 waits most of a window rather than fetchParsed's short backoff.
-  async function dcGet(url) {
+  const dcJson = (text) => { try { return JSON.parse(text); } catch (e) { return null; } };
+
+  async function dcGet(url, parse = dcSearchData) {
     for (let a = 1; ; a++) {
       try {
-        return await fetchParsed(url, dcSearchData, 2, dcHeaders());
+        return await fetchParsed(url, parse, 2, dcHeaders());
       } catch (e) {
         if (e.status !== 429 || a >= 3) throw e;
         await sleep(30000 * a);
@@ -531,14 +648,47 @@
     }
   }
 
-  async function lookupDiscogs(it, info) {
+  // artistOnly: a miss from before the artist-first step (matcher v1).
+  async function lookupDiscogs(it, info, artistOnly) {
+    if (artistOnly) return dcByArtist(it, info);
     for (const url of dcQueries(it, info)) {
       const results = await dcGet(url);
       await sleep(discogsGapMs());
       const hit = results && dcBestMatch(it, info, results);
       if (hit) return hit;
     }
-    return null;
+    return dcByArtist(it, info);
+  }
+
+  // Fallback when the release searches find nothing: find the artist, scan
+  // their release list (titles only, newest first) with looser title matching,
+  // then fetch the chosen release for its styles. Three requests.
+  async function dcByArtist(it, info) {
+    const d = describe(it, info);
+    if (!d.artists.length) return null;
+    const found = await dcGet('https://api.discogs.com/database/search?type=artist&per_page=5&q=' + encodeURIComponent(d.artists[0]));
+    await sleep(discogsGapMs());
+    // Discogs disambiguates same-named artists as "Name (2)".
+    const cands = (found || []).filter((r) => sameArtist(d.artists, String(r.title || '').replace(/\s*\(\d+\)$/, ''))).slice(0, 2);
+    const want = it.type === 't' && d.album ? [d.album, ...d.titles] : d.titles;
+    const ign = artistWords(d.artists);
+    let best = null;
+    for (const c of cands) {
+      const j = await dcGet('https://api.discogs.com/artists/' + c.id + '/releases?per_page=100&sort=year&sort_order=desc', dcJson);
+      await sleep(discogsGapMs());
+      for (const r of (j && j.releases) || []) {
+        // Appearances (compilations, mixes) count for less than their own releases.
+        const s = bestLoose(want, cleanTitle(r.title).title, ign) * (r.role === 'Main' ? 1 : 0.85);
+        if (s >= 0.5 && (!best || s > best.score)) best = { score: s, r };
+      }
+      if (best && best.score >= 0.9) break;
+    }
+    if (!best) return null;
+    const r = best.r, kind = r.type === 'master' ? 'master' : 'release';
+    const detail = await dcGet('https://api.discogs.com/' + kind + 's/' + r.id, dcJson);
+    await sleep(discogsGapMs());
+    if (!detail || !((detail.styles || []).length || (detail.genres || []).length)) return null;
+    return { styles: detail.styles || [], genres: detail.genres || [], url: detail.uri || 'https://www.discogs.com/' + kind + '/' + r.id, match: 'artist-' + kind };
   }
 
   /* ---- Cache ------------------------------------------------------------- */
@@ -553,35 +703,54 @@
 
   // Fills cache gaps from a previous wishlist.json so only new or failed items
   // are fetched again (useful after reinstalling the script or on another
-  // browser). Entries already in the local cache win. Returns how many items
-  // were reused.
+  // browser). Each source (Bandcamp, Beatport, Discogs) is filled on its own,
+  // so a cache that has Bandcamp data but no Discogs results still picks up the
+  // published Discogs results. Local entries win unless the export's are newer.
+  // Returns how many items gained something.
   function seedFromExport(cache, data) {
     let reused = 0;
     for (const it of (data && data.items) || []) {
-      if (!it || !it.key || cache.bc[it.key]) continue;
+      if (!it || !it.key) continue;
+      let gained = false;
+      const have = cache.bc[it.key];
       if (data.version >= 2) {
         // v2+ exports mark fetched items with `lookup` (or `gone`). lookup.v
         // (v3+) says which script version fetched it; older ones get refreshed.
-        if (it.gone) cache.bc[it.key] = { tags: [], gone: true };
-        else if (it.lookup) cache.bc[it.key] = Object.assign({ tags: it.tags || [], label: it.label || '' }, it.lookup);
-        else continue;
-        if (!cache.bp[it.key]) {
-          if (it.beatport) cache.bp[it.key] = it.beatport;
-          else if (it.bpMiss) cache.bp[it.key] = { miss: true, at: it.bpMiss, ver: it.bpVer || 1 };
+        if (!have || (!have.gone && it.lookup && (it.lookup.v || 0) > (have.v || 0))) {
+          if (it.gone) { cache.bc[it.key] = { tags: [], gone: true }; gained = true; }
+          else if (it.lookup) { cache.bc[it.key] = Object.assign({ tags: it.tags || [], label: it.label || '' }, it.lookup); gained = true; }
         }
-        if (!cache.dc[it.key]) {
-          if (it.discogs) cache.dc[it.key] = it.discogs;
-          else if (it.dcMiss) cache.dc[it.key] = { miss: true, at: it.dcMiss };
+        const bp = cache.bp[it.key];
+        const bpFromExport = it.beatport || (it.bpMiss ? { miss: true, at: it.bpMiss, ver: it.bpVer || 1 } : null);
+        // Prefer a hit, then the miss checked with the newer matcher.
+        if (bpFromExport && (!bp || (bp.miss && (!bpFromExport.miss || (bpFromExport.ver || 1) > (bp.ver || 1))))) {
+          cache.bp[it.key] = bpFromExport; gained = true;
         }
-      } else {
+        const dc = cache.dc[it.key];
+        const dcFromExport = it.discogs || (it.dcMiss ? { miss: true, at: it.dcMiss, ver: it.dcVer || 1 } : null);
+        if (dcFromExport && (!dc || (dc.miss && (!dcFromExport.miss || (dcFromExport.ver || 1) > (dc.ver || 1))))) {
+          cache.dc[it.key] = dcFromExport; gained = true;
+        }
+      } else if (!have) {
         // v1 exports: empty tags meant "fetch failed", so only reuse non-empty
         // ones. Locations can't be stripped (not recorded) but match no genre.
         if (!Array.isArray(it.tags) || !it.tags.length) continue;
         cache.bc[it.key] = { tags: cleanTags(it.tags), isrc: findIsrc(it.tags), seededV1: true };
+        gained = true;
       }
-      reused++;
+      if (gained) reused++;
     }
     return reused;
+  }
+
+  // Whether any item still needs a lookup that a previous export might answer.
+  function cacheHasGaps(items, cache) {
+    return items.some((it) => {
+      const bc = cache.bc[it.key];
+      if (!bc || (!bc.gone && (bc.v || 0) < BC_INFO_VERSION)) return true;
+      if (bc.gone) return false;
+      return (USE_BEATPORT && !cache.bp[it.key]) || (USE_DISCOGS && !cache.dc[it.key]);
+    });
   }
 
   // Copies cached results onto the items being exported. The inverse of seedFromExport.
@@ -602,7 +771,7 @@
       else if (hit) { it.bpMiss = hit.at; it.bpVer = hit.ver || 1; }
       const dc = cache.dc[it.key];
       if (dc && !dc.miss) it.discogs = dc;
-      else if (dc) it.dcMiss = dc.at;
+      else if (dc) { it.dcMiss = dc.at; it.dcVer = dc.ver || 1; }
     }
   }
 
@@ -688,7 +857,8 @@
     await pool(todo, BP_CONCURRENCY, async (it) => {
       if (blockedRun >= 5) return; // Beatport is refusing us; stop rather than hammer it
       try {
-        const hit = await lookupBeatport(it, cache.bc[it.key]);
+        const prev = cache.bp[it.key];
+        const hit = await lookupBeatport(it, cache.bc[it.key], !!(prev && prev.miss && prev.ver === 2 && prev.at >= stale));
         cache.bp[it.key] = hit || { miss: true, at: Date.now(), ver: BP_MATCHER_VERSION };
         if (hit) found++;
         blockedRun = 0;
@@ -710,14 +880,15 @@
     const stale = Date.now() - BP_MISS_TTL_DAYS * 864e5;
     const todo = items.filter((it) => {
       const c = cache.dc[it.key];
-      return cache.bc[it.key] && !cache.bc[it.key].gone && (!c || (c.miss && c.at < stale));
+      return cache.bc[it.key] && !cache.bc[it.key].gone && (!c || (c.miss && (c.at < stale || (c.ver || 1) < DC_MATCHER_VERSION)));
     });
     let done = 0, failed = 0, found = 0, blockedRun = 0;
     for (const it of todo) {
       if (blockedRun >= 5) break;
       try {
-        const hit = await lookupDiscogs(it, cache.bc[it.key]);
-        cache.dc[it.key] = hit || { miss: true, at: Date.now() };
+        const prev = cache.dc[it.key];
+        const hit = await lookupDiscogs(it, cache.bc[it.key], !!(prev && prev.miss && (prev.ver || 1) === 1 && prev.at >= stale));
+        cache.dc[it.key] = hit || { miss: true, at: Date.now(), ver: DC_MATCHER_VERSION };
         if (hit) found++;
         blockedRun = 0;
       } catch (e) {
@@ -764,7 +935,7 @@
         if (!items.length) throw new Error('No wishlist items found');
         const user = (location.pathname.split('/')[1] || '').toLowerCase();
         const cache = loadCache();
-        if (items.some((it) => !cache.bc[it.key])) {
+        if (cacheHasGaps(items, cache)) {
           say('Checking previous export…');
           const reused = seedFromExport(cache, await loadPreviousExport(user));
           if (reused) { saveCache(cache); say('Reused ' + reused + ' items from previous export'); await sleep(1000); }
