@@ -33,7 +33,8 @@
   button.on { background:var(--accent); border-color:var(--accent); color:#fff; }
   label { color:var(--dim); font-size:13px; display:flex; gap:5px; align-items:center; }
   #now { font-size:13px; color:var(--dim); margin-bottom:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  iframe { width:100%; height:120px; border:0; display:block; background:#222; }
+  #playerWrap { height:120px; background:#222; }
+  #playerWrap iframe { width:100%; height:120px; border:0; display:block; }
   .layout { display:grid; grid-template-columns:260px 1fr; gap:0; }
   nav { border-right:1px solid var(--line); padding:12px; height:calc(100vh - 190px); position:sticky; top:190px; overflow:auto; }
   nav button { display:flex; justify-content:space-between; align-items:baseline; gap:10px; width:100%; text-align:left; margin-bottom:4px; }
@@ -78,7 +79,7 @@
     <button id="exportOv" hidden title="Download your hand-set genres to commit as wishlists/&lt;user&gt;.overrides.json">Export overrides</button>
   </div>
   <div id="now">Nothing playing. Click a release.</div>
-  <iframe id="player" title="Bandcamp player" seamless></iframe>
+  <div id="playerWrap"></div>
 </header>
 
 <div id="picker" hidden>
@@ -471,7 +472,7 @@ function genreLine(it) {
 function renderGrid() {
   queue = visibleItems();
   $('grid').replaceChildren(...queue.map((it) =>
-    h('div', { class: 'card' + (it.key === playingKey ? ' playing' : ''), onclick: () => play(it) },
+    h('div', { class: 'card' + (it.key === playingKey ? ' playing' : ''), 'data-key': it.key, onclick: () => play(it) },
       h('img', { src: it.art || '', loading: 'lazy', alt: '' }),
       h('div', { class: 't' }, it.title),
       h('div', { class: 'a' }, it.artist),
@@ -510,18 +511,56 @@ function embedUrl(it) {
     '/size=large/bgcol=1c1f25/linkcol=1da0c3/tracklist=false/artwork=small/transparent=true/';
 }
 
+/* Bandcamp's player takes several seconds to load (its server is slow to
+   respond and sends ~740 KB), so once one has loaded, the next release in the
+   list is loaded in a hidden frame and swapped in when Next is pressed. */
+let nowFrame = null;   // { key, frame } playing now
+let nextFrame = null;  // { key, frame, loaded } loading in the background
+
+function makeFrame(it, hidden) {
+  const frame = h('iframe', { title: 'Bandcamp player', seamless: '', src: embedUrl(it) });
+  frame.hidden = hidden;
+  $('playerWrap').append(frame);
+  return frame;
+}
+
+function nextInQueue(key, delta) {
+  if (!queue.length) return null;
+  const i = queue.findIndex((x) => x.key === key);
+  return queue[i < 0 ? 0 : (i + delta + queue.length) % queue.length];
+}
+
+function preloadAfter(it) {
+  const next = nextInQueue(it.key, 1);
+  if (!next || next.key === it.key || (nextFrame && nextFrame.key === next.key)) return;
+  if (nextFrame) nextFrame.frame.remove();
+  nextFrame = { key: next.key, frame: makeFrame(next, true), loaded: false };
+  const p = nextFrame;
+  p.frame.addEventListener('load', () => { p.loaded = true; }, { once: true });
+}
+
 function play(it) {
   playingKey = it.key;
-  $('player').src = embedUrl(it);
+  if (nowFrame) nowFrame.frame.remove();
+  if (nextFrame && nextFrame.key === it.key) {
+    nowFrame = nextFrame; nextFrame = null;
+    nowFrame.frame.hidden = false;
+    if (nowFrame.loaded) preloadAfter(it);
+    else nowFrame.frame.addEventListener('load', () => preloadAfter(it), { once: true });
+  } else {
+    nowFrame = { key: it.key, frame: makeFrame(it, false) };
+    nowFrame.frame.addEventListener('load', () => { if (nowFrame && nowFrame.key === it.key) preloadAfter(it); }, { once: true });
+  }
   $('now').textContent = it.artist + ' - ' + it.title + '  [' + it.primary + ']';
-  renderGrid();
+  // Move the highlight rather than rebuilding every card.
+  document.querySelectorAll('.card.playing').forEach((c) => c.classList.remove('playing'));
+  const card = document.querySelector('.card[data-key="' + CSS.escape(it.key) + '"]');
+  if (card) card.classList.add('playing');
 }
 
 function step(delta) {
-  if (!queue.length) return;
-  let i = queue.findIndex((it) => it.key === playingKey);
-  i = i < 0 ? 0 : (i + delta + queue.length) % queue.length;
-  play(queue[i]);
+  const it = playingKey ? nextInQueue(playingKey, delta) : queue[0];
+  if (it) play(it);
 }
 
 $('next').onclick = () => step(1);
