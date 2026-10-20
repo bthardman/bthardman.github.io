@@ -1,6 +1,6 @@
 {
  "version": 3,
- "exported": "2026-10-20T12:12:33.863Z",
+ "exported": "2026-10-20T13:51:00.225Z",
  "user": "indent_uk",
  "count": 838,
  "items": [
@@ -113,7 +113,8 @@
     "album": "Isle of Crass EP",
     "v": 3
    },
-   "dcMiss": 1792495374199
+   "dcMiss": 1792503195850,
+   "dcVer": 2
   },
   {
    "key": "t1772038879",
@@ -186,7 +187,8 @@
     "album": "Fool's Errand",
     "v": 3
    },
-   "dcMiss": 1792495378687
+   "dcMiss": 1792503201862,
+   "dcVer": 2
   },
   {
    "key": "t2062654304",
@@ -288,9 +290,10 @@
     "artist": "Mosca",
     "v": 3
    },
-   "bpMiss": 1792494848099,
-   "bpVer": 2,
-   "dcMiss": 1792495384531
+   "bpMiss": 1792502806510,
+   "bpVer": 3,
+   "dcMiss": 1792503210851,
+   "dcVer": 2
   },
   {
    "key": "t469951901",
@@ -316,8 +319,8 @@
     "album": "Subjugation",
     "v": 3
    },
-   "bpMiss": 1792494850583,
-   "bpVer": 2,
+   "bpMiss": 1792502809738,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -356,7 +359,8 @@
     "album": "Paradisi Artificiali",
     "v": 3
    },
-   "dcMiss": 1792495388960
+   "dcMiss": 1792503216859,
+   "dcVer": 2
   },
   {
    "key": "t1840383338",
@@ -475,9 +479,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494852470,
-   "bpVer": 2,
-   "dcMiss": 1792495396303
+   "bpMiss": 1792502810238,
+   "bpVer": 3,
+   "dcMiss": 1792503225858,
+   "dcVer": 2
   },
   {
    "key": "t1144638834",
@@ -501,7 +506,8 @@
     "artist": "Destrata",
     "v": 3
    },
-   "dcMiss": 1792495399242
+   "dcMiss": 1792503231855,
+   "dcVer": 2
   },
   {
    "key": "a4284964802",
@@ -541,7 +547,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495402379
+   "dcMiss": 1792503238863,
+   "dcVer": 2
   },
   {
    "key": "a3953747504",
@@ -574,9 +581,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494854862,
-   "bpVer": 2,
-   "dcMiss": 1792495406788
+   "bpMiss": 1792502814617,
+   "bpVer": 3,
+   "dcMiss": 1792503244855,
+   "dcVer": 2
   },
   {
    "key": "a2302744756",
@@ -612,7 +620,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495409712
+   "dcMiss": 1792503250860,
+   "dcVer": 2
   },
   {
    "key": "t622255265",
@@ -637,7 +646,8 @@
     "album": "Decade Deep",
     "v": 3
    },
-   "dcMiss": 1792495412639
+   "dcMiss": 1792503256857,
+   "dcVer": 2
   },
   {
    "key": "a3314301454",
@@ -673,9 +683,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494855799,
-   "bpVer": 2,
-   "dcMiss": 1792495415584
+   "bpMiss": 1792502811869,
+   "bpVer": 3,
+   "dcMiss": 1792503259850,
+   "dcVer": 2
   },
   {
    "key": "a2701292317",
@@ -707,9 +718,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494856421,
-   "bpVer": 2,
-   "dcMiss": 1792495418541
+   "bpMiss": 1792502815960,
+   "bpVer": 3,
+   "dcMiss": 1792503265850,
+   "dcVer": 2
   },
   {
    "key": "t2853774891",
@@ -791,7 +803,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495422941
+   "dcMiss": 1792503271859,
+   "dcVer": 2
   },
   {
    "key": "a1742656947",
@@ -822,9 +835,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494864108,
-   "bpVer": 2,
-   "dcMiss": 1792495425917
+   "bpMiss": 1792502817302,
+   "bpVer": 3,
+   "dcMiss": 1792503274861,
+   "dcVer": 2
   },
   {
    "key": "a3417431481",
@@ -856,9 +870,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494861706,
-   "bpVer": 2,
-   "dcMiss": 1792495428854
+   "bpMiss": 1792502819034,
+   "bpVer": 3,
+   "dcMiss": 1792503280901,
+   "dcVer": 2
   },
   {
    "key": "t709544802",
@@ -979,9 +994,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494867973,
-   "bpVer": 2,
-   "dcMiss": 1792495434763
+   "bpMiss": 1792502817612,
+   "bpVer": 3,
+   "dcMiss": 1792503280902,
+   "dcVer": 2
   },
   {
    "key": "a2720206247",
@@ -1102,7 +1118,8 @@
     "album": "Xenia",
     "v": 3
    },
-   "dcMiss": 1792495441052
+   "dcMiss": 1792503286859,
+   "dcVer": 2
   },
   {
    "key": "a2888574175",
@@ -1133,9 +1150,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494869443,
-   "bpVer": 2,
-   "dcMiss": 1792495444012
+   "bpMiss": 1792502820340,
+   "bpVer": 3,
+   "dcMiss": 1792503289858,
+   "dcVer": 2
   },
   {
    "key": "a2798128969",
@@ -1206,7 +1224,13 @@
     "experimental",
     "techno"
    ],
-   "beatport": null,
+   "beatport": {
+    "genres": [
+     "Deep House"
+    ],
+    "url": "https://www.beatport.com/release/himawari-remixes/2140018",
+    "match": "artist-tracklist"
+   },
    "label": "spatial environments music",
    "lookup": {
     "artist": "swayzak",
@@ -1218,9 +1242,16 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494872684,
-   "bpVer": 2,
-   "dcMiss": 1792495448445
+   "discogs": {
+    "styles": [
+     "Tech House"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/master/64141-Swayzak-Illegal",
+    "match": "artist-master"
+   }
   },
   {
    "key": "a3771442725",
@@ -1298,9 +1329,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494873432,
-   "bpVer": 2,
-   "dcMiss": 1792495452859
+   "bpMiss": 1792502829524,
+   "bpVer": 3,
+   "dcMiss": 1792503307858,
+   "dcVer": 2
   },
   {
    "key": "a210036573",
@@ -1338,7 +1370,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495455789
+   "dcMiss": 1792503316292,
+   "dcVer": 2
   },
   {
    "key": "a4256360102",
@@ -1375,7 +1408,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495460192
+   "dcMiss": 1792503319217,
+   "dcVer": 2
   },
   {
    "key": "t1507081747",
@@ -1450,7 +1484,8 @@
     "album": "Dia De Los Muertos",
     "v": 3
    },
-   "dcMiss": 1792495464750
+   "dcMiss": 1792503322128,
+   "dcVer": 2
   },
   {
    "key": "t510630724",
@@ -1486,7 +1521,8 @@
     "album": "Dia De Los Muertos",
     "v": 3
    },
-   "dcMiss": 1792495467631
+   "dcMiss": 1792503325047,
+   "dcVer": 2
   },
   {
    "key": "t2384751749",
@@ -1780,7 +1816,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495479691
+   "dcMiss": 1792503328224,
+   "dcVer": 2
   },
   {
    "key": "t4152126314",
@@ -1845,9 +1882,10 @@
     "album": "Atropello Vol 2",
     "v": 3
    },
-   "bpMiss": 1792494877705,
-   "bpVer": 2,
-   "dcMiss": 1792495485710
+   "bpMiss": 1792502832196,
+   "bpVer": 3,
+   "dcMiss": 1792503332832,
+   "dcVer": 2
   },
   {
    "key": "t1828635253",
@@ -1861,16 +1899,21 @@
    "tags": [
     "electronic"
    ],
-   "beatport": null,
+   "beatport": {
+    "genres": [
+     "Bass / Club"
+    ],
+    "url": "https://www.beatport.com/track/ahora/22298089",
+    "match": "artist-track"
+   },
    "label": "Entrañas",
    "lookup": {
     "artist": "Entrañas",
     "album": "Atropello Vol 2",
     "v": 3
    },
-   "bpMiss": 1792494880698,
-   "bpVer": 2,
-   "dcMiss": 1792495488616
+   "dcMiss": 1792503337862,
+   "dcVer": 2
   },
   {
    "key": "t4256259995",
@@ -1896,9 +1939,10 @@
     "album": "Dusk Till Dawn",
     "v": 3
    },
-   "bpMiss": 1792494882099,
-   "bpVer": 2,
-   "dcMiss": 1792495491825
+   "bpMiss": 1792502834515,
+   "bpVer": 3,
+   "dcMiss": 1792503343613,
+   "dcVer": 2
   },
   {
    "key": "t611915138",
@@ -1972,7 +2016,8 @@
     "album": "Wrinkles",
     "v": 3
    },
-   "dcMiss": 1792495496238
+   "dcMiss": 1792503346656,
+   "dcVer": 2
   },
   {
    "key": "a1635698806",
@@ -2007,7 +2052,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495499214
+   "dcMiss": 1792503352007,
+   "dcVer": 2
   },
   {
    "key": "a2957055085",
@@ -2045,9 +2091,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494883825,
-   "bpVer": 2,
-   "dcMiss": 1792495502238
+   "bpMiss": 1792502835372,
+   "bpVer": 3,
+   "dcMiss": 1792503353512,
+   "dcVer": 2
   },
   {
    "key": "t1327425774",
@@ -2070,9 +2117,10 @@
     "artist": "Facta",
     "v": 3
    },
-   "bpMiss": 1792494883342,
-   "bpVer": 2,
-   "dcMiss": 1792495505242
+   "bpMiss": 1792502839908,
+   "bpVer": 3,
+   "dcMiss": 1792503356904,
+   "dcVer": 2
   },
   {
    "key": "t2268750310",
@@ -2098,9 +2146,10 @@
     "album": "Stampede",
     "v": 3
    },
-   "bpMiss": 1792494886198,
-   "bpVer": 2,
-   "dcMiss": 1792495508398
+   "bpMiss": 1792502840711,
+   "bpVer": 3,
+   "dcMiss": 1792503359844,
+   "dcVer": 2
   },
   {
    "key": "t2924051576",
@@ -2126,9 +2175,10 @@
     "album": "Stampede",
     "v": 3
    },
-   "bpMiss": 1792494886198,
-   "bpVer": 2,
-   "dcMiss": 1792495511487
+   "bpMiss": 1792502841113,
+   "bpVer": 3,
+   "dcMiss": 1792503362737,
+   "dcVer": 2
   },
   {
    "key": "t1220783643",
@@ -2162,7 +2212,8 @@
     "album": "X Amor EP",
     "v": 3
    },
-   "dcMiss": 1792495514597
+   "dcMiss": 1792503367155,
+   "dcVer": 2
   },
   {
    "key": "t2143815328",
@@ -2193,7 +2244,8 @@
     "album": "Nondualism",
     "v": 3
    },
-   "dcMiss": 1792495517530
+   "dcMiss": 1792503371989,
+   "dcVer": 2
   },
   {
    "key": "t1506296927",
@@ -2224,7 +2276,8 @@
     "album": "Remotif - Be Brave & Delete EP",
     "v": 3
    },
-   "dcMiss": 1792495520489
+   "dcMiss": 1792503374917,
+   "dcVer": 2
   },
   {
    "key": "a3585877306",
@@ -2249,9 +2302,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494898092,
-   "bpVer": 2,
-   "dcMiss": 1792495523449
+   "bpMiss": 1792502842726,
+   "bpVer": 3,
+   "dcMiss": 1792503377843,
+   "dcVer": 2
   },
   {
    "key": "t3812140365",
@@ -2316,9 +2370,10 @@
     "album": "Split Signal EP",
     "v": 3
    },
-   "bpMiss": 1792494891408,
-   "bpVer": 2,
-   "dcMiss": 1792495528037
+   "bpMiss": 1792502843565,
+   "bpVer": 3,
+   "dcMiss": 1792503380801,
+   "dcVer": 2
   },
   {
    "key": "a4251445588",
@@ -2344,9 +2399,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494899258,
-   "bpVer": 2,
-   "dcMiss": 1792495531159
+   "bpMiss": 1792502844545,
+   "bpVer": 3,
+   "dcMiss": 1792503382282,
+   "dcVer": 2
   },
   {
    "key": "a4204628633",
@@ -2391,7 +2447,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495534268
+   "dcMiss": 1792503383799,
+   "dcVer": 2
   },
   {
    "key": "a164429223",
@@ -2423,9 +2480,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494901694,
-   "bpVer": 2,
-   "dcMiss": 1792495537180
+   "bpMiss": 1792502846335,
+   "bpVer": 3,
+   "dcMiss": 1792503386832,
+   "dcVer": 2
   },
   {
    "key": "t325499620",
@@ -2544,7 +2602,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495544863
+   "dcMiss": 1792503388306,
+   "dcVer": 2
   },
   {
    "key": "t487016653",
@@ -2648,7 +2707,8 @@
     "album": "Horizontes",
     "v": 3
    },
-   "dcMiss": 1792495550942
+   "dcMiss": 1792503389784,
+   "dcVer": 2
   },
   {
    "key": "t3528219413",
@@ -2683,7 +2743,8 @@
     "album": "Unreleased Territory vol. 7",
     "v": 3
    },
-   "dcMiss": 1792495553888
+   "dcMiss": 1792503392803,
+   "dcVer": 2
   },
   {
    "key": "t2923166130",
@@ -2715,7 +2776,8 @@
     "album": "Judder compilation #4 (JRCMPL004)",
     "v": 3
    },
-   "dcMiss": 1792495558294
+   "dcMiss": 1792503395792,
+   "dcVer": 2
   },
   {
    "key": "a2614146851",
@@ -2796,7 +2858,8 @@
     "album": "7 Y.O Compilation Vol.2",
     "v": 3
    },
-   "dcMiss": 1792495562821
+   "dcMiss": 1792503402939,
+   "dcVer": 2
   },
   {
    "key": "t1882126546",
@@ -2817,9 +2880,10 @@
     "album": "First Touch Archives 002",
     "v": 3
    },
-   "bpMiss": 1792494902597,
-   "bpVer": 2,
-   "dcMiss": 1792495565773
+   "bpMiss": 1792502848289,
+   "bpVer": 3,
+   "dcMiss": 1792503407186,
+   "dcVer": 2
   },
   {
    "key": "t2799867210",
@@ -2884,9 +2948,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494906714,
-   "bpVer": 2,
-   "dcMiss": 1792495570252
+   "bpMiss": 1792502849442,
+   "bpVer": 3,
+   "dcMiss": 1792503410211,
+   "dcVer": 2
   },
   {
    "key": "t2143527725",
@@ -2988,9 +3053,10 @@
     "album": "Bittersweet",
     "v": 3
    },
-   "bpMiss": 1792494904003,
-   "bpVer": 2,
-   "dcMiss": 1792495576320
+   "bpMiss": 1792502850577,
+   "bpVer": 3,
+   "dcMiss": 1792503413260,
+   "dcVer": 2
   },
   {
    "key": "t3986453919",
@@ -3015,9 +3081,10 @@
     "album": "Bittersweet",
     "v": 3
    },
-   "bpMiss": 1792494906714,
-   "bpVer": 2,
-   "dcMiss": 1792495579245
+   "bpMiss": 1792502850639,
+   "bpVer": 3,
+   "dcMiss": 1792503416279,
+   "dcVer": 2
   },
   {
    "key": "t2921942502",
@@ -3284,8 +3351,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494908464,
-   "bpVer": 2,
+   "bpMiss": 1792502853807,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -3322,8 +3389,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494912743,
-   "bpVer": 2,
+   "bpMiss": 1792502854708,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -3363,8 +3430,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494913305,
-   "bpVer": 2,
+   "bpMiss": 1792502856135,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -3412,7 +3479,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495598555
+   "dcMiss": 1792503421044,
+   "dcVer": 2
   },
   {
    "key": "t966680084",
@@ -3479,8 +3547,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494914614,
-   "bpVer": 2,
+   "bpMiss": 1792502856553,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -3517,8 +3585,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494921143,
-   "bpVer": 2,
+   "bpMiss": 1792502859853,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Bass Music",
@@ -3562,9 +3630,19 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494919318,
-   "bpVer": 2,
-   "dcMiss": 1792495605964
+   "bpMiss": 1792502857922,
+   "bpVer": 3,
+   "discogs": {
+    "styles": [
+     "Techno",
+     "Grime"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/9201717-Beneath-3-No-Symbols-006",
+    "match": "artist-release"
+   }
   },
   {
    "key": "a1175027026",
@@ -3646,9 +3724,10 @@
     "artist": "Ebende",
     "v": 3
    },
-   "bpMiss": 1792494922812,
-   "bpVer": 2,
-   "dcMiss": 1792495610596
+   "bpMiss": 1792502861935,
+   "bpVer": 3,
+   "dcMiss": 1792503429032,
+   "dcVer": 2
   },
   {
    "key": "a1726543578",
@@ -3720,7 +3799,8 @@
     "album": "[RUT01] Digital Fatigue / Double U Double U",
     "v": 3
    },
-   "dcMiss": 1792495616581
+   "dcMiss": 1792503433419,
+   "dcVer": 2
   },
   {
    "key": "t2983596429",
@@ -3745,7 +3825,18 @@
     "album": "[RUT01] Digital Fatigue / Double U Double U",
     "v": 3
    },
-   "dcMiss": 1792495620995
+   "discogs": {
+    "styles": [
+     "Juke",
+     "Footwork",
+     "Experimental"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/26607344-SSSLIP-Lift-One-Hot-4-U",
+    "match": "artist-release"
+   }
   },
   {
    "key": "a521589620",
@@ -3823,9 +3914,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494928811,
-   "bpVer": 2,
-   "dcMiss": 1792495625616
+   "bpMiss": 1792502862274,
+   "bpVer": 3,
+   "dcMiss": 1792503440925,
+   "dcVer": 2
   },
   {
    "key": "a2531630558",
@@ -4099,9 +4191,10 @@
     "album": "Blissful Dancefloor Hooliganism: A Gut Level Fundraiser Compilation",
     "v": 3
    },
-   "bpMiss": 1792494928390,
-   "bpVer": 2,
-   "dcMiss": 1792495637887
+   "bpMiss": 1792502864540,
+   "bpVer": 3,
+   "dcMiss": 1792503443946,
+   "dcVer": 2
   },
   {
    "key": "a1592663940",
@@ -4412,9 +4505,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494932737,
-   "bpVer": 2,
-   "dcMiss": 1792495651039
+   "bpMiss": 1792502867262,
+   "bpVer": 3,
+   "dcMiss": 1792503447300,
+   "dcVer": 2
   },
   {
    "key": "t1775206294",
@@ -4441,9 +4535,10 @@
     "artist": "Tom VR",
     "v": 3
    },
-   "bpMiss": 1792494930867,
-   "bpVer": 2,
-   "dcMiss": 1792495654232
+   "bpMiss": 1792502869857,
+   "bpVer": 3,
+   "dcMiss": 1792503450555,
+   "dcVer": 2
   },
   {
    "key": "a1473020940",
@@ -4523,8 +4618,8 @@
     "album": "efflorescence iii",
     "v": 3
    },
-   "bpMiss": 1792494935151,
-   "bpVer": 2,
+   "bpMiss": 1792502871227,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Deep Techno",
@@ -4568,8 +4663,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494935961,
-   "bpVer": 2,
+   "bpMiss": 1792502873042,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -4614,8 +4709,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494938577,
-   "bpVer": 2,
+   "bpMiss": 1792502871537,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dub Techno",
@@ -4772,7 +4867,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495667729
+   "dcMiss": 1792503453994,
+   "dcVer": 2
   },
   {
    "key": "a3732859699",
@@ -4806,9 +4902,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494938078,
-   "bpVer": 2,
-   "dcMiss": 1792495670682
+   "bpMiss": 1792502872711,
+   "bpVer": 3,
+   "dcMiss": 1792503455483,
+   "dcVer": 2
   },
   {
    "key": "a2015040161",
@@ -4838,9 +4935,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494941744,
-   "bpVer": 2,
-   "dcMiss": 1792495673748
+   "bpMiss": 1792502877645,
+   "bpVer": 3,
+   "dcMiss": 1792503456959,
+   "dcVer": 2
   },
   {
    "key": "a1400041472",
@@ -5062,7 +5160,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495683127
+   "dcMiss": 1792503461397,
+   "dcVer": 2
   },
   {
    "key": "t3799822440",
@@ -5094,7 +5193,8 @@
     "album": "AKIKA",
     "v": 3
    },
-   "dcMiss": 1792495686026
+   "dcMiss": 1792503462874,
+   "dcVer": 2
   },
   {
    "key": "a622980076",
@@ -5122,9 +5222,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494944520,
-   "bpVer": 2,
-   "dcMiss": 1792495688941
+   "bpMiss": 1792502877328,
+   "bpVer": 3,
+   "dcMiss": 1792503465858,
+   "dcVer": 2
   },
   {
    "key": "a2788048150",
@@ -5148,8 +5249,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494945453,
-   "bpVer": 2,
+   "bpMiss": 1792502878579,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Balearic"
@@ -5187,8 +5288,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494948693,
-   "bpVer": 2,
+   "bpMiss": 1792502881459,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Deep Techno"
@@ -5283,7 +5384,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495699377
+   "dcMiss": 1792503470538,
+   "dcVer": 2
   },
   {
    "key": "t1865227269",
@@ -5309,8 +5411,8 @@
     "album": "Pressure 3D EP [BSUN013]",
     "v": 3
    },
-   "bpMiss": 1792494949428,
-   "bpVer": 2,
+   "bpMiss": 1792502884236,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dub",
@@ -5603,9 +5705,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494950943,
-   "bpVer": 2,
-   "dcMiss": 1792495716057
+   "bpMiss": 1792502886133,
+   "bpVer": 3,
+   "dcMiss": 1792503472008,
+   "dcVer": 2
   },
   {
    "key": "a534625095",
@@ -5641,7 +5744,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495718964
+   "dcMiss": 1792503476805,
+   "dcVer": 2
   },
   {
    "key": "t1723009078",
@@ -5665,8 +5769,8 @@
     "album": "VALA 1",
     "v": 3
    },
-   "bpMiss": 1792494956905,
-   "bpVer": 2,
+   "bpMiss": 1792502886569,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -5700,8 +5804,8 @@
     "album": "VALA 3",
     "v": 3
    },
-   "bpMiss": 1792494957545,
-   "bpVer": 2,
+   "bpMiss": 1792502887753,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -5742,9 +5846,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494960879,
-   "bpVer": 2,
-   "dcMiss": 1792495727799
+   "bpMiss": 1792502888608,
+   "bpVer": 3,
+   "dcMiss": 1792503478303,
+   "dcVer": 2
   },
   {
    "key": "a2163497061",
@@ -5774,9 +5879,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494960365,
-   "bpVer": 2,
-   "dcMiss": 1792495730729
+   "bpMiss": 1792502889014,
+   "bpVer": 3,
+   "dcMiss": 1792503479785,
+   "dcVer": 2
   },
   {
    "key": "a746872209",
@@ -6064,8 +6170,8 @@
     "album": "X1 [FIDESX1]",
     "v": 3
    },
-   "bpMiss": 1792494963873,
-   "bpVer": 2,
+   "bpMiss": 1792502893439,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -6129,8 +6235,8 @@
     "album": "X6 [FIDESX6]",
     "v": 3
    },
-   "bpMiss": 1792494964342,
-   "bpVer": 2,
+   "bpMiss": 1792502893438,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -6245,9 +6351,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494967742,
-   "bpVer": 2,
-   "dcMiss": 1792495751750
+   "bpMiss": 1792502900430,
+   "bpVer": 3,
+   "dcMiss": 1792503482986,
+   "dcVer": 2
   },
   {
    "key": "t3806388693",
@@ -6279,7 +6386,8 @@
     "album": "Chokkor",
     "v": 3
    },
-   "dcMiss": 1792495754695
+   "dcMiss": 1792503485948,
+   "dcVer": 2
   },
   {
    "key": "a3645703584",
@@ -6308,8 +6416,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494970815,
-   "bpVer": 2,
+   "bpMiss": 1792502900697,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Progressive House",
@@ -6351,8 +6459,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494972976,
-   "bpVer": 2,
+   "bpMiss": 1792502902580,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Progressive House",
@@ -6428,9 +6536,10 @@
     "album": "Overdrive",
     "v": 3
    },
-   "bpMiss": 1792494973989,
-   "bpVer": 2,
-   "dcMiss": 1792495762174
+   "bpMiss": 1792502903484,
+   "bpVer": 3,
+   "dcMiss": 1792503489077,
+   "dcVer": 2
   },
   {
    "key": "t1365123008",
@@ -6506,7 +6615,8 @@
     "album": "Augurios",
     "v": 3
    },
-   "dcMiss": 1792495766572
+   "dcMiss": 1792503490534,
+   "dcVer": 2
   },
   {
    "key": "t2619181141",
@@ -6531,7 +6641,19 @@
     "album": "Nervous Lab 002",
     "v": 3
    },
-   "dcMiss": 1792495769587
+   "discogs": {
+    "styles": [
+     "Minimal",
+     "Tech House",
+     "Techno",
+     "Electro"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/35146489-Various-Nervous-Lab-002",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t1377021550",
@@ -6555,9 +6677,10 @@
     "album": "Overdrive",
     "v": 3
    },
-   "bpMiss": 1792494979120,
-   "bpVer": 2,
-   "dcMiss": 1792495772616
+   "bpMiss": 1792502903842,
+   "bpVer": 3,
+   "dcMiss": 1792503498213,
+   "dcVer": 2
   },
   {
    "key": "t4208500994",
@@ -6673,7 +6796,8 @@
     "album": "Naturally Occurring",
     "v": 3
    },
-   "dcMiss": 1792495780163
+   "dcMiss": 1792503501316,
+   "dcVer": 2
   },
   {
    "key": "t3355677506",
@@ -6703,7 +6827,8 @@
     "album": "Naturally Occurring",
     "v": 3
    },
-   "dcMiss": 1792495783387
+   "dcMiss": 1792503504242,
+   "dcVer": 2
   },
   {
    "key": "a1505897500",
@@ -6745,7 +6870,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495786309
+   "dcMiss": 1792503507200,
+   "dcVer": 2
   },
   {
    "key": "a2611985400",
@@ -6784,7 +6910,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495789282
+   "dcMiss": 1792503508716,
+   "dcVer": 2
   },
   {
    "key": "a3626330085",
@@ -7082,7 +7209,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495799747
+   "dcMiss": 1792503513220,
+   "dcVer": 2
   },
   {
    "key": "t980140115",
@@ -7166,7 +7294,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495804260
+   "dcMiss": 1792503517803,
+   "dcVer": 2
   },
   {
    "key": "a2480774375",
@@ -7203,7 +7332,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495807175
+   "dcMiss": 1792503520842,
+   "dcVer": 2
   },
   {
    "key": "t2196491471",
@@ -7310,7 +7440,8 @@
     "album": "Furtha / Ohm",
     "v": 3
    },
-   "dcMiss": 1792495814202
+   "dcMiss": 1792503523784,
+   "dcVer": 2
   },
   {
    "key": "a3150462479",
@@ -7348,7 +7479,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495817899
+   "dcMiss": 1792503525262,
+   "dcVer": 2
   },
   {
    "key": "a318573599",
@@ -7390,7 +7522,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495822479
+   "dcMiss": 1792503528322,
+   "dcVer": 2
   },
   {
    "key": "t1716531262",
@@ -7420,7 +7553,8 @@
     "album": "Percolate",
     "v": 3
    },
-   "dcMiss": 1792495827315
+   "dcMiss": 1792503531339,
+   "dcVer": 2
   },
   {
    "key": "t4285405249",
@@ -7445,7 +7579,8 @@
     "album": "Bborn Again",
     "v": 3
    },
-   "dcMiss": 1792495831365
+   "dcMiss": 1792503532815,
+   "dcVer": 2
   },
   {
    "key": "t1674747862",
@@ -7477,7 +7612,8 @@
     "album": "Reefa",
     "v": 3
    },
-   "dcMiss": 1792495835969
+   "dcMiss": 1792503535833,
+   "dcVer": 2
   },
   {
    "key": "a652951740",
@@ -7510,9 +7646,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494983413,
-   "bpVer": 2,
-   "dcMiss": 1792495843679
+   "bpMiss": 1792502907211,
+   "bpVer": 3,
+   "dcMiss": 1792503538855,
+   "dcVer": 2
   },
   {
    "key": "a3635219781",
@@ -7608,7 +7745,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495854122
+   "dcMiss": 1792503541905,
+   "dcVer": 2
   },
   {
    "key": "t3589359654",
@@ -7634,7 +7772,8 @@
     "album": "Club Unity Vol. 2",
     "v": 3
    },
-   "dcMiss": 1792495859047
+   "dcMiss": 1792503547583,
+   "dcVer": 2
   },
   {
    "key": "t3425210775",
@@ -7660,7 +7799,8 @@
     "album": "Club Unity Vol. 2",
     "v": 3
    },
-   "dcMiss": 1792495863698
+   "dcMiss": 1792503550606,
+   "dcVer": 2
   },
   {
    "key": "t1051335937",
@@ -7685,7 +7825,8 @@
     "album": "Club Unity Vol. 2",
     "v": 3
    },
-   "dcMiss": 1792495869088
+   "dcMiss": 1792503553762,
+   "dcVer": 2
   },
   {
    "key": "t1445726525",
@@ -7710,8 +7851,8 @@
     "album": "Obligated Records: Vol.2",
     "v": 3
    },
-   "bpMiss": 1792494984768,
-   "bpVer": 2,
+   "bpMiss": 1792502907580,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -7746,9 +7887,10 @@
     "album": "Obligated Records: Vol.2",
     "v": 3
    },
-   "bpMiss": 1792494988271,
-   "bpVer": 2,
-   "dcMiss": 1792495879291
+   "bpMiss": 1792502910349,
+   "bpVer": 3,
+   "dcMiss": 1792503556965,
+   "dcVer": 2
   },
   {
    "key": "t2729830219",
@@ -7864,7 +8006,8 @@
     "artist": "Polygonia",
     "v": 3
    },
-   "dcMiss": 1792495887010
+   "dcMiss": 1792503559933,
+   "dcVer": 2
   },
   {
    "key": "a4247916055",
@@ -7901,9 +8044,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494991653,
-   "bpVer": 2,
-   "dcMiss": 1792495890097
+   "bpMiss": 1792502909149,
+   "bpVer": 3,
+   "dcMiss": 1792503561409,
+   "dcVer": 2
   },
   {
    "key": "a4262269091",
@@ -7943,9 +8087,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494995617,
-   "bpVer": 2,
-   "dcMiss": 1792495893723
+   "bpMiss": 1792502911345,
+   "bpVer": 3,
+   "dcMiss": 1792503562873,
+   "dcVer": 2
   },
   {
    "key": "a650314548",
@@ -7977,9 +8122,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494996242,
-   "bpVer": 2,
-   "dcMiss": 1792495896985
+   "bpMiss": 1792502913607,
+   "bpVer": 3,
+   "dcMiss": 1792503565826,
+   "dcVer": 2
   },
   {
    "key": "a2095818335",
@@ -8006,9 +8152,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792494999215,
-   "bpVer": 2,
-   "dcMiss": 1792495901348
+   "bpMiss": 1792502913607,
+   "bpVer": 3,
+   "dcMiss": 1792503568820,
+   "dcVer": 2
   },
   {
    "key": "a1526564170",
@@ -8035,9 +8182,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495000571,
-   "bpVer": 2,
-   "dcMiss": 1792495905614
+   "bpMiss": 1792502915251,
+   "bpVer": 3,
+   "dcMiss": 1792503571735,
+   "dcVer": 2
   },
   {
    "key": "a3459049907",
@@ -8069,9 +8217,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495004389,
-   "bpVer": 2,
-   "dcMiss": 1792495911156
+   "bpMiss": 1792502915246,
+   "bpVer": 3,
+   "dcMiss": 1792503573215,
+   "dcVer": 2
   },
   {
    "key": "t1733828785",
@@ -8101,7 +8250,8 @@
     "album": "Model To Excite",
     "v": 3
    },
-   "dcMiss": 1792495915572
+   "dcMiss": 1792503574693,
+   "dcVer": 2
   },
   {
    "key": "t231257980",
@@ -8131,7 +8281,20 @@
     "album": "Eyes III",
     "v": 3
    },
-   "dcMiss": 1792495918922
+   "discogs": {
+    "styles": [
+     "Bass Music",
+     "Techno",
+     "Dubstep",
+     "Breaks",
+     "Tribal"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/36651427-Sobolik-Heavy-Eyes",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t3617357301",
@@ -8163,9 +8326,10 @@
     "album": "Erre",
     "v": 3
    },
-   "bpMiss": 1792495005060,
-   "bpVer": 2,
-   "dcMiss": 1792495923797
+   "bpMiss": 1792502916471,
+   "bpVer": 3,
+   "dcMiss": 1792503583635,
+   "dcVer": 2
   },
   {
    "key": "t917493346",
@@ -8194,9 +8358,10 @@
     "album": "Arroyo De Mercurio",
     "v": 3
    },
-   "bpMiss": 1792495006802,
-   "bpVer": 2,
-   "dcMiss": 1792495928709
+   "bpMiss": 1792502917547,
+   "bpVer": 3,
+   "dcMiss": 1792503588138,
+   "dcVer": 2
   },
   {
    "key": "t3988920660",
@@ -8222,8 +8387,8 @@
     "album": "Wavelengths",
     "v": 3
    },
-   "bpMiss": 1792495009511,
-   "bpVer": 2,
+   "bpMiss": 1792502921386,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -8473,7 +8638,8 @@
     "album": "Two [Is Greater Than] One - Part 2",
     "v": 3
    },
-   "dcMiss": 1792495947204
+   "dcMiss": 1792503592503,
+   "dcVer": 2
   },
   {
    "key": "t1622153329",
@@ -8492,9 +8658,10 @@
     "album": "Kills Two Birds",
     "v": 3
    },
-   "bpMiss": 1792495010299,
-   "bpVer": 2,
-   "dcMiss": 1792495954287
+   "bpMiss": 1792502922056,
+   "bpVer": 3,
+   "dcMiss": 1792503595427,
+   "dcVer": 2
   },
   {
    "key": "t2796372953",
@@ -8515,9 +8682,10 @@
     "album": "An Ode To Brentry Road",
     "v": 3
    },
-   "bpMiss": 1792495012802,
-   "bpVer": 2,
-   "dcMiss": 1792495957514
+   "bpMiss": 1792502923950,
+   "bpVer": 3,
+   "dcMiss": 1792503598398,
+   "dcVer": 2
   },
   {
    "key": "t1846228786",
@@ -8536,9 +8704,10 @@
     "album": "Ricochet",
     "v": 3
    },
-   "bpMiss": 1792495013677,
-   "bpVer": 2,
-   "dcMiss": 1792495962473
+   "bpMiss": 1792502923188,
+   "bpVer": 3,
+   "dcMiss": 1792503599889,
+   "dcVer": 2
   },
   {
    "key": "t274531354",
@@ -8563,7 +8732,8 @@
     "album": "Save U",
     "v": 3
    },
-   "dcMiss": 1792495966570
+   "dcMiss": 1792503601365,
+   "dcVer": 2
   },
   {
    "key": "t3047289281",
@@ -8647,7 +8817,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792495976488
+   "dcMiss": 1792503604310,
+   "dcVer": 2
   },
   {
    "key": "t2514064899",
@@ -8672,7 +8843,20 @@
     "album": "no pare, sigue sigue 4",
     "v": 3
    },
-   "dcMiss": 1792495980295
+   "discogs": {
+    "styles": [
+     "Techno",
+     "Reggaeton",
+     "Breaks",
+     "Guaracha",
+     "Bass Music"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/36616972-Various-No-Pare-Sigue-Sigue-4",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t2632777744",
@@ -8697,7 +8881,8 @@
     "album": "no pare, sigue sigue 4",
     "v": 3
    },
-   "dcMiss": 1792495984381
+   "dcMiss": 1792503613531,
+   "dcVer": 2
   },
   {
    "key": "a291133487",
@@ -8763,9 +8948,10 @@
     "album": "Palestine Fundraiser (2025)",
     "v": 3
    },
-   "bpMiss": 1792495017478,
-   "bpVer": 2,
-   "dcMiss": 1792495993568
+   "bpMiss": 1792502927698,
+   "bpVer": 3,
+   "dcMiss": 1792503616585,
+   "dcVer": 2
   },
   {
    "key": "t2298384066",
@@ -8786,9 +8972,10 @@
     "album": "Palestine Fundraiser (2025)",
     "v": 3
    },
-   "bpMiss": 1792495016527,
-   "bpVer": 2,
-   "dcMiss": 1792495997675
+   "bpMiss": 1792502930066,
+   "bpVer": 3,
+   "dcMiss": 1792503621536,
+   "dcVer": 2
   },
   {
    "key": "t1541953678",
@@ -8813,9 +9000,10 @@
     "album": "Voil",
     "v": 3
    },
-   "bpMiss": 1792495018774,
-   "bpVer": 2,
-   "dcMiss": 1792496003321
+   "bpMiss": 1792502931817,
+   "bpVer": 3,
+   "dcMiss": 1792503624492,
+   "dcVer": 2
   },
   {
    "key": "t206371253",
@@ -8840,9 +9028,10 @@
     "album": "Voil",
     "v": 3
    },
-   "bpMiss": 1792495018770,
-   "bpVer": 2,
-   "dcMiss": 1792496011204
+   "bpMiss": 1792502931823,
+   "bpVer": 3,
+   "dcMiss": 1792503627411,
+   "dcVer": 2
   },
   {
    "key": "t897013769",
@@ -8870,7 +9059,8 @@
     "album": "House Of Desire",
     "v": 3
    },
-   "dcMiss": 1792496017509
+   "dcMiss": 1792503630418,
+   "dcVer": 2
   },
   {
    "key": "t52463306",
@@ -8896,8 +9086,8 @@
     "album": "Ghost Town EP",
     "v": 3
    },
-   "bpMiss": 1792495022060,
-   "bpVer": 2,
+   "bpMiss": 1792502934319,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -8936,8 +9126,8 @@
     "album": "Ghost Town EP",
     "v": 3
    },
-   "bpMiss": 1792495022068,
-   "bpVer": 2,
+   "bpMiss": 1792502934322,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -8977,7 +9167,8 @@
     "album": "Duck!dem",
     "v": 3
    },
-   "dcMiss": 1792496029376
+   "dcMiss": 1792503633485,
+   "dcVer": 2
   },
   {
    "key": "t2784794947",
@@ -9540,8 +9731,8 @@
     "album": "Music Is My Perverse Fantasy",
     "v": 3
    },
-   "bpMiss": 1792495027003,
-   "bpVer": 2,
+   "bpMiss": 1792502937190,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -9584,7 +9775,8 @@
     "album": "Temple Curse / Rhythm Pusher",
     "v": 3
    },
-   "dcMiss": 1792496074695
+   "dcMiss": 1792503636423,
+   "dcVer": 2
   },
   {
    "key": "t1203191995",
@@ -9656,7 +9848,8 @@
     "album": "Transex",
     "v": 3
    },
-   "dcMiss": 1792496084120
+   "dcMiss": 1792503640831,
+   "dcVer": 2
   },
   {
    "key": "t2351596796",
@@ -9682,9 +9875,10 @@
     "album": "Cycle EP",
     "v": 3
    },
-   "bpMiss": 1792495025398,
-   "bpVer": 2,
-   "dcMiss": 1792496091439
+   "bpMiss": 1792502936543,
+   "bpVer": 3,
+   "dcMiss": 1792503643793,
+   "dcVer": 2
   },
   {
    "key": "a2967876637",
@@ -9716,9 +9910,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495031395,
-   "bpVer": 2,
-   "dcMiss": 1792496095746
+   "bpMiss": 1792502939673,
+   "bpVer": 3,
+   "dcMiss": 1792503648427,
+   "dcVer": 2
   },
   {
    "key": "a719478580",
@@ -9750,8 +9945,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495032302,
-   "bpVer": 2,
+   "bpMiss": 1792502943753,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dub Techno"
@@ -9843,8 +10038,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495035936,
-   "bpVer": 2,
+   "bpMiss": 1792502946479,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -9878,9 +10073,10 @@
     "album": "Torcido",
     "v": 3
    },
-   "bpMiss": 1792495036794,
-   "bpVer": 2,
-   "dcMiss": 1792496110428
+   "bpMiss": 1792502945396,
+   "bpVer": 3,
+   "dcMiss": 1792503652808,
+   "dcVer": 2
   },
   {
    "key": "t3182930957",
@@ -9904,9 +10100,10 @@
     "album": "Torcido",
     "v": 3
    },
-   "bpMiss": 1792495038674,
-   "bpVer": 2,
-   "dcMiss": 1792496115354
+   "bpMiss": 1792502946932,
+   "bpVer": 3,
+   "dcMiss": 1792503657317,
+   "dcVer": 2
   },
   {
    "key": "a611223419",
@@ -10115,7 +10312,17 @@
     "album": "Eines EP [30DEYES-006]",
     "v": 3
    },
-   "dcMiss": 1792496131882
+   "discogs": {
+    "styles": [
+     "Deep Techno",
+     "Broken Beat"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/master/4105966-Absis-Eines-Ep",
+    "match": "artist-master"
+   }
   },
   {
    "key": "t2167777440",
@@ -10175,8 +10382,8 @@
     "album": "MOVE005",
     "v": 3
    },
-   "bpMiss": 1792495041933,
-   "bpVer": 2,
+   "bpMiss": 1792502948813,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Speed Garage",
@@ -10228,7 +10435,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496143403
+   "dcMiss": 1792503668976,
+   "dcVer": 2
   },
   {
    "key": "t463480188",
@@ -10258,7 +10466,8 @@
     "album": "Obstinacy: Reworked (Forest Drive West, Yushh, Syz & B. McQueen remixes)",
     "v": 3
    },
-   "dcMiss": 1792496148523
+   "dcMiss": 1792503671952,
+   "dcVer": 2
   },
   {
    "key": "t210962871",
@@ -10279,9 +10488,10 @@
     "album": "A Portal To The Unkown - 6 Rotations Of Neptune Discs",
     "v": 3
    },
-   "bpMiss": 1792495046645,
-   "bpVer": 2,
-   "dcMiss": 1792496152010
+   "bpMiss": 1792502949216,
+   "bpVer": 3,
+   "dcMiss": 1792503676695,
+   "dcVer": 2
   },
   {
    "key": "t3839421872",
@@ -10311,7 +10521,17 @@
     "album": "Ace Series VA - Vol 04",
     "v": 3
    },
-   "dcMiss": 1792496156711
+   "discogs": {
+    "styles": [
+     "House",
+     "Deep House"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/34230658-Various-BODO-ACE-VA-004",
+    "match": "artist-release"
+   }
   },
   {
    "key": "a110175059",
@@ -10396,7 +10616,18 @@
     "album": "Overcome / Lady Science (NYC Sunrise) + (Tek Mix) 'Original Jon Davis 1999  Masters' - Trelik 11",
     "v": 3
    },
-   "dcMiss": 1792496166094
+   "discogs": {
+    "styles": [
+     "Deep House",
+     "Tech House",
+     "Minimal Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/master/484910-Soul-Capsule-Overcome",
+    "match": "artist-master"
+   }
   },
   {
    "key": "t1965015507",
@@ -10467,7 +10698,8 @@
     "album": "Waystation: Sequence II",
     "v": 3
    },
-   "dcMiss": 1792496173708
+   "dcMiss": 1792503692175,
+   "dcVer": 2
   },
   {
    "key": "t810609288",
@@ -10499,7 +10731,8 @@
     "album": "NECTAR VA VOL.1",
     "v": 3
    },
-   "dcMiss": 1792496180576
+   "dcMiss": 1792503696585,
+   "dcVer": 2
   },
   {
    "key": "a2297538711",
@@ -10660,8 +10893,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495047514,
-   "bpVer": 2,
+   "bpMiss": 1792502952318,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Broken Beat",
@@ -10786,8 +11019,8 @@
     "album": "PBAL001",
     "v": 3
    },
-   "bpMiss": 1792495052123,
-   "bpVer": 2,
+   "bpMiss": 1792502955789,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -10825,8 +11058,8 @@
     "album": "PBAL001",
     "v": 3
    },
-   "bpMiss": 1792495053039,
-   "bpVer": 2,
+   "bpMiss": 1792502956286,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -10865,9 +11098,10 @@
     "artist": "Dual Monitor",
     "v": 3
    },
-   "bpMiss": 1792495054565,
-   "bpVer": 2,
-   "dcMiss": 1792496202394
+   "bpMiss": 1792502956971,
+   "bpVer": 3,
+   "dcMiss": 1792503699556,
+   "dcVer": 2
   },
   {
    "key": "t3543163629",
@@ -10888,9 +11122,10 @@
     "album": "IDANHA",
     "v": 3
    },
-   "bpMiss": 1792495056229,
-   "bpVer": 2,
-   "dcMiss": 1792496206870
+   "bpMiss": 1792502959609,
+   "bpVer": 3,
+   "dcMiss": 1792503701019,
+   "dcVer": 2
   },
   {
    "key": "a359316913",
@@ -11408,7 +11643,8 @@
     "album": "63N3RD",
     "v": 3
    },
-   "dcMiss": 1792496235935
+   "dcMiss": 1792503705510,
+   "dcVer": 2
   },
   {
    "key": "t831395070",
@@ -11438,7 +11674,8 @@
     "album": "Eyes IV",
     "v": 3
    },
-   "dcMiss": 1792496241049
+   "dcMiss": 1792503708490,
+   "dcVer": 2
   },
   {
    "key": "t1170333909",
@@ -11644,7 +11881,20 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496253253
+   "discogs": {
+    "styles": [
+     "Ambient",
+     "House",
+     "IDM",
+     "Techno",
+     "Trip Hop"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/master/1340786-Various-V",
+    "match": "artist-master"
+   }
   },
   {
    "key": "t3283370387",
@@ -11762,7 +12012,8 @@
     "album": "TD10",
     "v": 3
    },
-   "dcMiss": 1792496270993
+   "dcMiss": 1792503716222,
+   "dcVer": 2
   },
   {
    "key": "t1782984509",
@@ -11787,7 +12038,8 @@
     "album": "TD10",
     "v": 3
    },
-   "dcMiss": 1792496278284
+   "dcMiss": 1792503719294,
+   "dcVer": 2
   },
   {
    "key": "t805647866",
@@ -11812,7 +12064,8 @@
     "album": "TD10",
     "v": 3
    },
-   "dcMiss": 1792496286940
+   "dcMiss": 1792503724067,
+   "dcVer": 2
   },
   {
    "key": "a2031300875",
@@ -12012,9 +12265,10 @@
     "album": "Equinox",
     "v": 3
    },
-   "bpMiss": 1792495058758,
-   "bpVer": 2,
-   "dcMiss": 1792496300652
+   "bpMiss": 1792502958354,
+   "bpVer": 3,
+   "dcMiss": 1792503725533,
+   "dcVer": 2
   },
   {
    "key": "t3757621323",
@@ -12035,9 +12289,10 @@
     "album": "Masala",
     "v": 3
    },
-   "bpMiss": 1792495059446,
-   "bpVer": 2,
-   "dcMiss": 1792496305950
+   "bpMiss": 1792502962529,
+   "bpVer": 3,
+   "dcMiss": 1792503730030,
+   "dcVer": 2
   },
   {
    "key": "t2520756871",
@@ -12301,8 +12556,8 @@
     "album": "38490 Electronics [DT001]",
     "v": 3
    },
-   "bpMiss": 1792495064860,
-   "bpVer": 2,
+   "bpMiss": 1792502963070,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Electro",
@@ -12346,7 +12601,8 @@
     "album": "Genesis Block",
     "v": 3
    },
-   "dcMiss": 1792496334137
+   "dcMiss": 1792503733172,
+   "dcVer": 2
   },
   {
    "key": "t4235040386",
@@ -12368,8 +12624,8 @@
     "album": "Body Wigs",
     "v": 3
    },
-   "bpMiss": 1792495062850,
-   "bpVer": 2,
+   "bpMiss": 1792502966189,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Progressive House"
@@ -12504,7 +12760,20 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496347427
+   "discogs": {
+    "styles": [
+     "House",
+     "UK Garage",
+     "Breakbeat",
+     "Grime",
+     "Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/34362502-Sam-Binga-Club-Orthodontics",
+    "match": "artist-release"
+   }
   },
   {
    "key": "a1322601683",
@@ -12572,8 +12841,8 @@
     "album": "Rebuild",
     "v": 3
    },
-   "bpMiss": 1792495070858,
-   "bpVer": 2,
+   "bpMiss": 1792502965895,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "IDM",
@@ -12622,9 +12891,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495074859,
-   "bpVer": 2,
-   "dcMiss": 1792496357233
+   "bpMiss": 1792502968662,
+   "bpVer": 3,
+   "dcMiss": 1792503741184,
+   "dcVer": 2
   },
   {
    "key": "a1625266861",
@@ -12653,9 +12923,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495076863,
-   "bpVer": 2,
-   "dcMiss": 1792496361441
+   "bpMiss": 1792502969065,
+   "bpVer": 3,
+   "dcMiss": 1792503744139,
+   "dcVer": 2
   },
   {
    "key": "t2929341014",
@@ -12788,7 +13059,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496371618
+   "dcMiss": 1792503745612,
+   "dcVer": 2
   },
   {
    "key": "t1936467193",
@@ -12818,7 +13090,8 @@
     "album": "Non Verbal",
     "v": 3
    },
-   "dcMiss": 1792496377193
+   "dcMiss": 1792503748604,
+   "dcVer": 2
   },
   {
    "key": "t4224182319",
@@ -12848,7 +13121,8 @@
     "album": "Non Verbal",
     "v": 3
    },
-   "dcMiss": 1792496383306
+   "dcMiss": 1792503751546,
+   "dcVer": 2
   },
   {
    "key": "t8638398",
@@ -12875,7 +13149,8 @@
     "album": "Agents Against Agency",
     "v": 3
    },
-   "dcMiss": 1792496387822
+   "dcMiss": 1792503753011,
+   "dcVer": 2
   },
   {
    "key": "t3859530497",
@@ -12902,7 +13177,8 @@
     "album": "Agents Against Agency",
     "v": 3
    },
-   "dcMiss": 1792496392797
+   "dcMiss": 1792503754476,
+   "dcVer": 2
   },
   {
    "key": "t2388488994",
@@ -12927,7 +13203,8 @@
     "album": "ilinx play",
     "v": 3
    },
-   "dcMiss": 1792496398375
+   "dcMiss": 1792503755948,
+   "dcVer": 2
   },
   {
    "key": "a843939096",
@@ -13043,9 +13320,10 @@
     "album": "Carburador",
     "v": 3
    },
-   "bpMiss": 1792495080863,
-   "bpVer": 2,
-   "dcMiss": 1792496406222
+   "bpMiss": 1792502969859,
+   "bpVer": 3,
+   "dcMiss": 1792503760700,
+   "dcVer": 2
   },
   {
    "key": "a1432348990",
@@ -13074,9 +13352,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495081850,
-   "bpVer": 2,
-   "dcMiss": 1792496411789
+   "bpMiss": 1792502970281,
+   "bpVer": 3,
+   "dcMiss": 1792503765156,
+   "dcVer": 2
   },
   {
    "key": "a255064632",
@@ -13118,7 +13397,18 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496418082
+   "discogs": {
+    "styles": [
+     "Bass Music",
+     "Reggaeton"
+    ],
+    "genres": [
+     "Electronic",
+     "Latin"
+    ],
+    "url": "https://www.discogs.com/master/4040749-Amor-Satyr-Siu-Mata-Speed-Dembow-VolIII",
+    "match": "artist-master"
+   }
   },
   {
    "key": "a1953326334",
@@ -13150,8 +13440,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495087856,
-   "bpVer": 2,
+   "bpMiss": 1792502970617,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dubstep"
@@ -13191,8 +13481,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495088862,
-   "bpVer": 2,
+   "bpMiss": 1792502973595,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Progressive Trance",
@@ -13290,8 +13580,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495095852,
-   "bpVer": 2,
+   "bpMiss": 1792502975591,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -13378,9 +13668,10 @@
     "album": "Exuvia Comp 001",
     "v": 3
    },
-   "bpMiss": 1792495094862,
-   "bpVer": 2,
-   "dcMiss": 1792496446279
+   "bpMiss": 1792502976071,
+   "bpVer": 3,
+   "dcMiss": 1792503774152,
+   "dcVer": 2
   },
   {
    "key": "a712303748",
@@ -13423,7 +13714,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496451118
+   "dcMiss": 1792503777374,
+   "dcVer": 2
   },
   {
    "key": "a2503041478",
@@ -13493,8 +13785,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495102855,
-   "bpVer": 2,
+   "bpMiss": 1792502977329,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Broken Beat",
@@ -13534,8 +13826,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495104862,
-   "bpVer": 2,
+   "bpMiss": 1792502979659,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Broken Beat",
@@ -13581,8 +13873,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495109856,
-   "bpVer": 2,
+   "bpMiss": 1792502981940,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -14195,8 +14487,8 @@
     "album": "Baroquism Vol. 1 VA [BSUN006]",
     "v": 3
    },
-   "bpMiss": 1792495116852,
-   "bpVer": 2,
+   "bpMiss": 1792502983982,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Leftfield",
@@ -14419,9 +14711,10 @@
     "album": "VA - Ascension Vol. 3",
     "v": 3
    },
-   "bpMiss": 1792495120792,
-   "bpVer": 2,
-   "dcMiss": 1792496551392
+   "bpMiss": 1792502986422,
+   "bpVer": 3,
+   "dcMiss": 1792503780416,
+   "dcVer": 2
   },
   {
    "key": "t3378904700",
@@ -14440,8 +14733,8 @@
     "album": "When It Rains It Pours",
     "v": 3
    },
-   "bpMiss": 1792495121653,
-   "bpVer": 2,
+   "bpMiss": 1792502985208,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Ambient",
@@ -14820,9 +15113,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495128811,
-   "bpVer": 2,
-   "dcMiss": 1792496584353
+   "bpMiss": 1792502990419,
+   "bpVer": 3,
+   "dcMiss": 1792503785314,
+   "dcVer": 2
   },
   {
    "key": "t1682782912",
@@ -14850,7 +15144,18 @@
     "album": "Triangle D'or Series Part.1",
     "v": 3
    },
-   "dcMiss": 1792496589279
+   "discogs": {
+    "styles": [
+     "Techno",
+     "Leftfield",
+     "Downtempo"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/31194250-Nathan-Melja-Triangle-dor-1",
+    "match": "artist-release"
+   }
   },
   {
    "key": "a1513300197",
@@ -14922,9 +15227,10 @@
     "album": "Between Heights",
     "v": 3
    },
-   "bpMiss": 1792495130059,
-   "bpVer": 2,
-   "dcMiss": 1792496594951
+   "bpMiss": 1792502990800,
+   "bpVer": 3,
+   "dcMiss": 1792503791196,
+   "dcVer": 2
   },
   {
    "key": "a619800815",
@@ -15009,7 +15315,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496602655
+   "dcMiss": 1792503794135,
+   "dcVer": 2
   },
   {
    "key": "a3683886354",
@@ -15049,7 +15356,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496607072
+   "dcMiss": 1792503797142,
+   "dcVer": 2
   },
   {
    "key": "a3580080325",
@@ -15451,9 +15759,10 @@
     "album": "Beyond The Jungle Ep",
     "v": 3
    },
-   "bpMiss": 1792495135858,
-   "bpVer": 2,
-   "dcMiss": 1792496638403
+   "bpMiss": 1792502992439,
+   "bpVer": 3,
+   "dcMiss": 1792503801707,
+   "dcVer": 2
   },
   {
    "key": "a3795541936",
@@ -15520,8 +15829,8 @@
     "album": "Josi's Wourld",
     "v": 3
    },
-   "bpMiss": 1792495142862,
-   "bpVer": 2,
+   "bpMiss": 1792502992423,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dubstep"
@@ -15554,9 +15863,10 @@
     "artist": "Aloka",
     "v": 3
    },
-   "bpMiss": 1792495140850,
-   "bpVer": 2,
-   "dcMiss": 1792496653241
+   "bpMiss": 1792502995128,
+   "bpVer": 3,
+   "dcMiss": 1792503806250,
+   "dcVer": 2
   },
   {
    "key": "t234806309",
@@ -15633,7 +15943,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496659791
+   "dcMiss": 1792503809314,
+   "dcVer": 2
   },
   {
    "key": "t2244730990",
@@ -15663,7 +15974,8 @@
     "album": "Night Crush",
     "v": 3
    },
-   "dcMiss": 1792496664661
+   "dcMiss": 1792503812347,
+   "dcVer": 2
   },
   {
    "key": "t3411001185",
@@ -15695,7 +16007,16 @@
     "album": "Rituals Remixes, Pt. 2",
     "v": 3
    },
-   "dcMiss": 1792496669496
+   "discogs": {
+    "styles": [
+     "Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/19763227-Flore-Rituals-Remixed",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t3916016081",
@@ -15727,7 +16048,8 @@
     "artist": "Azu Tiwaline",
     "v": 3
    },
-   "dcMiss": 1792496674522
+   "dcMiss": 1792503818554,
+   "dcVer": 2
   },
   {
    "key": "a1519547074",
@@ -15761,9 +16083,19 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495148151,
-   "bpVer": 2,
-   "dcMiss": 1792496678618
+   "bpMiss": 1792502997335,
+   "bpVer": 3,
+   "discogs": {
+    "styles": [
+     "Techno",
+     "Ambient"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/33387413-Sunju-Hargun-The-Golden-Triangle-Pt-1",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t3347658290",
@@ -16190,7 +16522,8 @@
     "album": "TT001 [LIMITED REPRESS SALE] - DJ Sunroof, Phasmid, K-65 & Oldboy",
     "v": 3
    },
-   "dcMiss": 1792496717763
+   "dcMiss": 1792503824754,
+   "dcVer": 2
   },
   {
    "key": "t3375010908",
@@ -16221,7 +16554,8 @@
     "album": "TT001 [LIMITED REPRESS SALE] - DJ Sunroof, Phasmid, K-65 & Oldboy",
     "v": 3
    },
-   "dcMiss": 1792496728667
+   "dcMiss": 1792503826218,
+   "dcVer": 2
   },
   {
    "key": "a1395247523",
@@ -16303,7 +16637,17 @@
     "album": "Ministry of Self: Edits 2021-2025",
     "v": 3
    },
-   "dcMiss": 1792496735221
+   "discogs": {
+    "styles": [
+     "Contemporary R&B"
+    ],
+    "genres": [
+     "Hip Hop",
+     "Funk / Soul"
+    ],
+    "url": "https://www.discogs.com/master/133622-Cassie-2-Me-U",
+    "match": "artist-master"
+   }
   },
   {
    "key": "t418790016",
@@ -16382,7 +16726,20 @@
     "album": "AIOA ft. Iceboy Violet",
     "v": 3
    },
-   "dcMiss": 1792496744172
+   "discogs": {
+    "styles": [
+     "Grime",
+     "Bass Music",
+     "Dubstep",
+     "Drum n Bass",
+     "Breaks"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/36706684-Older-Brother-Ft-Iceboy-Violet-AIOA",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t2629584950",
@@ -16409,7 +16766,27 @@
     "album": "Dekmantel Ten: A Decade Of Dekmantel Festival",
     "v": 3
    },
-   "dcMiss": 1792496747862
+   "discogs": {
+    "styles": [
+     "Acid House",
+     "Ambient House",
+     "House",
+     "Jungle",
+     "Drum n Bass",
+     "Techno",
+     "Experimental",
+     "Electro",
+     "Broken Beat",
+     "Dubstep",
+     "UK Funky",
+     "Bass Music"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/31529815-Various-Dekmantel-Ten-A-Decade-Of-Dekmantel-Festival",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t2521140641",
@@ -16438,7 +16815,8 @@
     "album": "Dekmantel Ten: A Decade Of Dekmantel Festival",
     "v": 3
    },
-   "dcMiss": 1792496750814
+   "dcMiss": 1792503846696,
+   "dcVer": 2
   },
   {
    "key": "t2584056691",
@@ -16466,7 +16844,27 @@
     "album": "Dekmantel Ten: A Decade Of Dekmantel Festival",
     "v": 3
    },
-   "dcMiss": 1792496753760
+   "discogs": {
+    "styles": [
+     "Acid House",
+     "Ambient House",
+     "House",
+     "Jungle",
+     "Drum n Bass",
+     "Techno",
+     "Experimental",
+     "Electro",
+     "Broken Beat",
+     "Dubstep",
+     "UK Funky",
+     "Bass Music"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/31529815-Various-Dekmantel-Ten-A-Decade-Of-Dekmantel-Festival",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t1243741321",
@@ -16487,9 +16885,10 @@
     "album": "Chroma / Spin [feat. STILL]",
     "v": 3
    },
-   "bpMiss": 1792495148155,
-   "bpVer": 2,
-   "dcMiss": 1792496756791
+   "bpMiss": 1792502998914,
+   "bpVer": 3,
+   "dcMiss": 1792503857814,
+   "dcVer": 2
   },
   {
    "key": "t3907325663",
@@ -16522,7 +16921,8 @@
     "album": "CLARE DURANT & HARTTA - PHOTOSHOOT EP",
     "v": 3
    },
-   "dcMiss": 1792496759754
+   "dcMiss": 1792503860736,
+   "dcVer": 2
   },
   {
    "key": "t4051211811",
@@ -16640,7 +17040,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496765670
+   "dcMiss": 1792503866056,
+   "dcVer": 2
   },
   {
    "key": "t2706967044",
@@ -16753,8 +17154,8 @@
     "album": "SFTM006",
     "v": 3
    },
-   "bpMiss": 1792495155751,
-   "bpVer": 2,
+   "bpMiss": 1792503002367,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "New Wave",
@@ -16798,7 +17199,8 @@
     "album": "Plug Gulp",
     "v": 3
    },
-   "dcMiss": 1792496773129
+   "dcMiss": 1792503869055,
+   "dcVer": 2
   },
   {
    "key": "t3976443145",
@@ -16822,9 +17224,10 @@
     "album": "Anarchist Africa::When Visions Fall From Sky",
     "v": 3
    },
-   "bpMiss": 1792495155000,
-   "bpVer": 2,
-   "dcMiss": 1792496776101
+   "bpMiss": 1792503000936,
+   "bpVer": 3,
+   "dcMiss": 1792503872015,
+   "dcVer": 2
   },
   {
    "key": "t2692006745",
@@ -16922,9 +17325,10 @@
     "album": "Sudden Life",
     "v": 3
    },
-   "bpMiss": 1792495159144,
-   "bpVer": 2,
-   "dcMiss": 1792496783500
+   "bpMiss": 1792503002838,
+   "bpVer": 3,
+   "dcMiss": 1792503873488,
+   "dcVer": 2
   },
   {
    "key": "t1423021734",
@@ -16991,7 +17395,8 @@
     "album": "1FFNG009",
     "v": 3
    },
-   "dcMiss": 1792496787927
+   "dcMiss": 1792503878762,
+   "dcVer": 2
   },
   {
    "key": "t2294296486",
@@ -17142,7 +17547,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496829607
+   "dcMiss": 1792503883454,
+   "dcVer": 2
   },
   {
    "key": "a2003180206",
@@ -17220,7 +17626,8 @@
     "album": "EM002 - Porter Brook - Linear Entry to Cyclical Thought",
     "v": 3
    },
-   "dcMiss": 1792496835605
+   "dcMiss": 1792503886443,
+   "dcVer": 2
   },
   {
    "key": "t2867953424",
@@ -17246,8 +17653,8 @@
     "album": "Atrahasis",
     "v": 3
    },
-   "bpMiss": 1792495165155,
-   "bpVer": 2,
+   "bpMiss": 1792503004928,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Bassline",
@@ -17319,8 +17726,8 @@
     "album": "Hodge - Mind Games / Flashback",
     "v": 3
    },
-   "bpMiss": 1792495166277,
-   "bpVer": 2,
+   "bpMiss": 1792503004587,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -17370,7 +17777,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496844512
+   "dcMiss": 1792503890812,
+   "dcVer": 2
   },
   {
    "key": "a1926140971",
@@ -17399,9 +17807,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495167752,
-   "bpVer": 2,
-   "dcMiss": 1792496847470
+   "bpMiss": 1792503007346,
+   "bpVer": 3,
+   "dcMiss": 1792503893809,
+   "dcVer": 2
   },
   {
    "key": "t3306481364",
@@ -17545,9 +17954,10 @@
     "album": "Terminal Tribe Soundsystem vol.001",
     "v": 3
    },
-   "bpMiss": 1792495175016,
-   "bpVer": 2,
-   "dcMiss": 1792496857198
+   "bpMiss": 1792503006605,
+   "bpVer": 3,
+   "dcMiss": 1792503898184,
+   "dcVer": 2
   },
   {
    "key": "t2747276387",
@@ -17580,7 +17990,8 @@
     "album": "ALGOL Vol.4",
     "v": 3
    },
-   "dcMiss": 1792496892802
+   "dcMiss": 1792503902560,
+   "dcVer": 2
   },
   {
    "key": "a2039723662",
@@ -17616,7 +18027,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496895787
+   "dcMiss": 1792503905513,
+   "dcVer": 2
   },
   {
    "key": "a1607907409",
@@ -17687,7 +18099,8 @@
     "album": "SIM - Sulum [SPE:C 015 15]",
     "v": 3
    },
-   "dcMiss": 1792496901757
+   "dcMiss": 1792503910771,
+   "dcVer": 2
   },
   {
    "key": "t3906753160",
@@ -17718,7 +18131,8 @@
     "album": "SIM - Sulum [SPE:C 015 15]",
     "v": 3
    },
-   "dcMiss": 1792496904706
+   "dcMiss": 1792503915182,
+   "dcVer": 2
   },
   {
    "key": "t4028187544",
@@ -17791,7 +18205,8 @@
     "album": "Carré - Tilted [SPE:C 015 14]",
     "v": 3
    },
-   "dcMiss": 1792496910610
+   "dcMiss": 1792503918128,
+   "dcVer": 2
   },
   {
    "key": "a4033503560",
@@ -17825,7 +18240,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496913592
+   "dcMiss": 1792503919591,
+   "dcVer": 2
   },
   {
    "key": "t3946493218",
@@ -17856,7 +18272,17 @@
     "album": "Doctor Jeep - Abyss [SPE:C 015 10]",
     "v": 3
    },
-   "dcMiss": 1792496916556
+   "discogs": {
+    "styles": [
+     "Drum n Bass",
+     "Breakbeat"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/29625247-Doctor-Jeep-Abyss",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t1514645621",
@@ -18233,7 +18659,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792496964035
+   "dcMiss": 1792503925654,
+   "dcVer": 2
   },
   {
    "key": "a552624707",
@@ -18522,8 +18949,8 @@
     "album": "RUFFKRU01",
     "v": 3
    },
-   "bpMiss": 1792495182523,
-   "bpVer": 2,
+   "bpMiss": 1792503009667,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Speed Garage"
@@ -18734,8 +19161,8 @@
     "album": "Tuste / Radice Goa",
     "v": 3
    },
-   "bpMiss": 1792495181308,
-   "bpVer": 2,
+   "bpMiss": 1792503010879,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Broken Beat",
@@ -18780,7 +19207,8 @@
     "artist": "INVT, Logan_olm",
     "v": 3
    },
-   "dcMiss": 1792496987944
+   "dcMiss": 1792503928763,
+   "dcVer": 2
   },
   {
    "key": "a3910444547",
@@ -18854,9 +19282,10 @@
     "artist": "Chisari",
     "v": 3
    },
-   "bpMiss": 1792495183503,
-   "bpVer": 2,
-   "dcMiss": 1792496992340
+   "bpMiss": 1792503012105,
+   "bpVer": 3,
+   "dcMiss": 1792503930242,
+   "dcVer": 2
   },
   {
    "key": "t4187639068",
@@ -18918,16 +19347,22 @@
     "latin techno",
     "raptor house"
    ],
-   "beatport": null,
+   "beatport": {
+    "genres": [
+     "Latin Electronic",
+     "Raptor House"
+    ],
+    "url": "https://www.beatport.com/track/in-the-groove/18798051",
+    "match": "artist-track"
+   },
    "label": "Paryìa",
    "lookup": {
     "artist": "Ayesha",
     "album": "The Journey",
     "v": 3
    },
-   "bpMiss": 1792495188674,
-   "bpVer": 2,
-   "dcMiss": 1792496996730
+   "dcMiss": 1792503934721,
+   "dcVer": 2
   },
   {
    "key": "a3087398411",
@@ -19011,7 +19446,8 @@
     "album": "Say I Do",
     "v": 3
    },
-   "dcMiss": 1792497001204
+   "dcMiss": 1792503937866,
+   "dcVer": 2
   },
   {
    "key": "a1801241018",
@@ -19047,7 +19483,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497004143
+   "dcMiss": 1792503942374,
+   "dcVer": 2
   },
   {
    "key": "a4246686514",
@@ -19135,7 +19572,8 @@
     "album": "Worktops",
     "v": 3
    },
-   "dcMiss": 1792497041177
+   "dcMiss": 1792503943837,
+   "dcVer": 2
   },
   {
    "key": "a2547479382",
@@ -19179,7 +19617,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497044119
+   "dcMiss": 1792503946777,
+   "dcVer": 2
   },
   {
    "key": "t3331917194",
@@ -19293,8 +19732,8 @@
     "album": "Definition of Nowhere [FIDES005]",
     "v": 3
    },
-   "bpMiss": 1792495192470,
-   "bpVer": 2,
+   "bpMiss": 1792503013946,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -19379,8 +19818,8 @@
     "album": "DOT 2 (feat. Benji & Josei)",
     "v": 3
    },
-   "bpMiss": 1792495196597,
-   "bpVer": 2,
+   "bpMiss": 1792503014426,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dub Techno"
@@ -19591,8 +20030,8 @@
     "album": "Obligated Records: Vol.1",
     "v": 3
    },
-   "bpMiss": 1792495198570,
-   "bpVer": 2,
+   "bpMiss": 1792503016815,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -19628,8 +20067,8 @@
     "album": "Obligated Records: Vol.1",
     "v": 3
    },
-   "bpMiss": 1792495203680,
-   "bpVer": 2,
+   "bpMiss": 1792503017419,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -19666,8 +20105,8 @@
     "album": "Obligated Records: Vol.1",
     "v": 3
    },
-   "bpMiss": 1792495205654,
-   "bpVer": 2,
+   "bpMiss": 1792503019977,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -19703,8 +20142,8 @@
     "album": "Obligated Records: Vol.1",
     "v": 3
    },
-   "bpMiss": 1792495211487,
-   "bpVer": 2,
+   "bpMiss": 1792503020801,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -19739,7 +20178,18 @@
     "album": "Dawn Razor - Sixteen EP",
     "v": 3
    },
-   "dcMiss": 1792497073504
+   "discogs": {
+    "styles": [
+     "Breaks",
+     "Techno",
+     "Acid"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/31779779-Dawn-Razor-Sixteen-EP",
+    "match": "artist-release"
+   }
   },
   {
    "key": "a1991424132",
@@ -19781,7 +20231,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497076429
+   "dcMiss": 1792503951214,
+   "dcVer": 2
   },
   {
    "key": "a1709941666",
@@ -19829,7 +20280,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497079418
+   "dcMiss": 1792503951214,
+   "dcVer": 2
   },
   {
    "key": "a2080291959",
@@ -19900,9 +20352,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495214433,
-   "bpVer": 2,
-   "dcMiss": 1792497085306
+   "bpMiss": 1792503023860,
+   "bpVer": 3,
+   "dcMiss": 1792503955834,
+   "dcVer": 2
   },
   {
    "key": "a345315530",
@@ -19933,9 +20386,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495218275,
-   "bpVer": 2,
-   "dcMiss": 1792497120847
+   "bpMiss": 1792503023861,
+   "bpVer": 3,
+   "dcMiss": 1792503957330,
+   "dcVer": 2
   },
   {
    "key": "a3840027256",
@@ -19954,7 +20408,13 @@
     "bass",
     "techno"
    ],
-   "beatport": null,
+   "beatport": {
+    "genres": [
+     "Bass / Club"
+    ],
+    "url": "https://www.beatport.com/release/pressure-core/5442646",
+    "match": "artist-release"
+   },
    "label": "SMIFF",
    "lookup": {
     "artist": "SMIFF",
@@ -19966,9 +20426,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495219026,
-   "bpVer": 2,
-   "dcMiss": 1792497123818
+   "dcMiss": 1792503958886,
+   "dcVer": 2
   },
   {
    "key": "t2937586196",
@@ -19991,8 +20450,8 @@
     "album": "EP3",
     "v": 3
    },
-   "bpMiss": 1792495226162,
-   "bpVer": 2,
+   "bpMiss": 1792503028911,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Chillwave",
@@ -20043,7 +20502,8 @@
     "album": "EARFUL OF WAVS | VOL.3",
     "v": 3
    },
-   "dcMiss": 1792497128318
+   "dcMiss": 1792503961996,
+   "dcVer": 2
   },
   {
    "key": "t2181987068",
@@ -20078,7 +20538,8 @@
     "album": "EARFUL OF WAVS | VOL.3",
     "v": 3
    },
-   "dcMiss": 1792497131323
+   "dcMiss": 1792503966505,
+   "dcVer": 2
   },
   {
    "key": "a757307351",
@@ -20113,7 +20574,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497134291
+   "dcMiss": 1792503970969,
+   "dcVer": 2
   },
   {
    "key": "t1668495582",
@@ -20145,7 +20607,8 @@
     "album": "Polaris",
     "v": 3
    },
-   "dcMiss": 1792497137234
+   "dcMiss": 1792503973897,
+   "dcVer": 2
   },
   {
    "key": "t208445688",
@@ -20228,7 +20691,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497143136
+   "dcMiss": 1792503978480,
+   "dcVer": 2
   },
   {
    "key": "a70421895",
@@ -20269,7 +20733,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497146063
+   "dcMiss": 1792503979944,
+   "dcVer": 2
   },
   {
    "key": "t3491632168",
@@ -20476,9 +20941,10 @@
     "artist": "Elbarto",
     "v": 3
    },
-   "bpMiss": 1792495221857,
-   "bpVer": 2,
-   "dcMiss": 1792497193370
+   "bpMiss": 1792503033853,
+   "bpVer": 3,
+   "dcMiss": 1792503982883,
+   "dcVer": 2
   },
   {
    "key": "t4130842232",
@@ -20508,7 +20974,8 @@
     "album": "oddone",
     "v": 3
    },
-   "dcMiss": 1792497196293
+   "dcMiss": 1792503984362,
+   "dcVer": 2
   },
   {
    "key": "a1468615533",
@@ -20765,7 +21232,8 @@
     "album": "Tales Of Disguise 1",
     "v": 3
    },
-   "dcMiss": 1792497242134
+   "dcMiss": 1792503987588,
+   "dcVer": 2
   },
   {
    "key": "t169696325",
@@ -20848,7 +21316,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497246549
+   "dcMiss": 1792503990557,
+   "dcVer": 2
   },
   {
    "key": "t673834016",
@@ -20880,7 +21349,8 @@
     "album": "Caverna",
     "v": 3
    },
-   "dcMiss": 1792497249510
+   "dcMiss": 1792503994915,
+   "dcVer": 2
   },
   {
    "key": "t1838693776",
@@ -21391,7 +21861,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497304370
+   "dcMiss": 1792503997872,
+   "dcVer": 2
   },
   {
    "key": "t360563509",
@@ -21465,7 +21936,8 @@
     "album": "Tempa Allstars Vol. 5",
     "v": 3
    },
-   "dcMiss": 1792497310267
+   "dcMiss": 1792504000795,
+   "dcVer": 2
   },
   {
    "key": "t1908228815",
@@ -21831,8 +22303,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495227842,
-   "bpVer": 2,
+   "bpMiss": 1792503029863,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -21869,8 +22341,8 @@
     "album": "PT/3.1",
     "v": 3
    },
-   "bpMiss": 1792495231518,
-   "bpVer": 2,
+   "bpMiss": 1792503035863,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -22017,9 +22489,10 @@
     "album": "New Found Energy EP",
     "v": 3
    },
-   "bpMiss": 1792495233076,
-   "bpVer": 2,
-   "dcMiss": 1792497369463
+   "bpMiss": 1792503040865,
+   "bpVer": 3,
+   "dcMiss": 1792504003834,
+   "dcVer": 2
   },
   {
    "key": "t2823109843",
@@ -22131,9 +22604,10 @@
     "artist": "PIPANAV",
     "v": 3
    },
-   "bpMiss": 1792495234150,
-   "bpVer": 2,
-   "dcMiss": 1792497376824
+   "bpMiss": 1792503038855,
+   "bpVer": 3,
+   "dcMiss": 1792504006792,
+   "dcVer": 2
   },
   {
    "key": "t890063124",
@@ -22163,7 +22637,16 @@
     "album": "fabric presents Rødhåd",
     "v": 3
    },
-   "dcMiss": 1792497379795
+   "discogs": {
+    "styles": [
+     "Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/master/3654120-Rødhåd-Fabric-Presents-Rødhåd",
+    "match": "artist-master"
+   }
   },
   {
    "key": "t3246357283",
@@ -22230,7 +22713,8 @@
     "album": "Pendrum / Now That's Focus!",
     "v": 3
    },
-   "dcMiss": 1792497384225
+   "dcMiss": 1792504017776,
+   "dcVer": 2
   },
   {
    "key": "a3592369006",
@@ -22298,7 +22782,8 @@
     "album": "Hyperchase EP",
     "v": 3
    },
-   "dcMiss": 1792497388621
+   "dcMiss": 1792504021523,
+   "dcVer": 2
   },
   {
    "key": "t3305067086",
@@ -22325,7 +22810,8 @@
     "album": "Ben Depressa / Rotula",
     "v": 3
    },
-   "dcMiss": 1792497391565
+   "dcMiss": 1792504025992,
+   "dcVer": 2
   },
   {
    "key": "t682830038",
@@ -22389,7 +22875,22 @@
     "album": "no pare, sigue sigue",
     "v": 3
    },
-   "dcMiss": 1792497429134
+   "discogs": {
+    "styles": [
+     "Experimental",
+     "Techno",
+     "Reggaeton",
+     "Cumbia",
+     "Industrial",
+     "Breaks"
+    ],
+    "genres": [
+     "Electronic",
+     "Latin"
+    ],
+    "url": "https://www.discogs.com/release/24936322-Various-No-Pare-Sigue-Sigue",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t3249506830",
@@ -22705,9 +23206,10 @@
     "album": "Vilsen EP",
     "v": 3
    },
-   "bpMiss": 1792495235639,
-   "bpVer": 2,
-   "dcMiss": 1792497444135
+   "bpMiss": 1792503043858,
+   "bpVer": 3,
+   "dcMiss": 1792504033701,
+   "dcVer": 2
   },
   {
    "key": "t1693632171",
@@ -22764,9 +23266,10 @@
     "album": "Madhoun",
     "v": 3
    },
-   "bpMiss": 1792495238832,
-   "bpVer": 2,
-   "dcMiss": 1792497448537
+   "bpMiss": 1792503045848,
+   "bpVer": 3,
+   "dcMiss": 1792504038101,
+   "dcVer": 2
   },
   {
    "key": "t1343314241",
@@ -22787,9 +23290,10 @@
     "album": "Madhoun",
     "v": 3
    },
-   "bpMiss": 1792495240459,
-   "bpVer": 2,
-   "dcMiss": 1792497451449
+   "bpMiss": 1792503049862,
+   "bpVer": 3,
+   "dcMiss": 1792504039637,
+   "dcVer": 2
   },
   {
    "key": "a1501010436",
@@ -22826,7 +23330,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497454377
+   "dcMiss": 1792504042583,
+   "dcVer": 2
   },
   {
    "key": "t3653394699",
@@ -22854,7 +23359,8 @@
     "album": "Crystalline",
     "v": 3
    },
-   "dcMiss": 1792497489922
+   "dcMiss": 1792504045582,
+   "dcVer": 2
   },
   {
    "key": "t7734622",
@@ -23034,7 +23540,8 @@
     "album": "HOOD010A : THE HIVE - VOLUME 2",
     "v": 3
    },
-   "dcMiss": 1792497499055
+   "dcMiss": 1792504047024,
+   "dcVer": 2
   },
   {
    "key": "t2933048437",
@@ -23246,7 +23753,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497509353
+   "dcMiss": 1792504047024,
+   "dcVer": 2
   },
   {
    "key": "t3897023580",
@@ -23274,9 +23782,10 @@
     "album": "Community Cuts VA 2",
     "v": 3
    },
-   "bpMiss": 1792495244310,
-   "bpVer": 2,
-   "dcMiss": 1792497512308
+   "bpMiss": 1792503050867,
+   "bpVer": 3,
+   "dcMiss": 1792504051561,
+   "dcVer": 2
   },
   {
    "key": "t2629433201",
@@ -23339,7 +23848,8 @@
     "album": "INTL.PDCOMP002",
     "v": 3
    },
-   "dcMiss": 1792497518223
+   "dcMiss": 1792504056915,
+   "dcVer": 2
   },
   {
    "key": "a2006710204",
@@ -23425,7 +23935,16 @@
     "album": "Chapter Thirteen: Fatal Mission EP",
     "v": 3
    },
-   "dcMiss": 1792497522696
+   "discogs": {
+    "styles": [
+     "Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/master/785738-Various-Chapter-Thirteen-Fatal-Mission-EP",
+    "match": "artist-master"
+   }
   },
   {
    "key": "a1741202725",
@@ -23589,7 +24108,8 @@
     "album": "Flat W EP",
     "v": 3
    },
-   "dcMiss": 1792497562716
+   "dcMiss": 1792504068630,
+   "dcVer": 2
   },
   {
    "key": "a4131940665",
@@ -23638,7 +24158,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497567213
+   "dcMiss": 1792504071651,
+   "dcVer": 2
   },
   {
    "key": "t4004871308",
@@ -23659,9 +24180,10 @@
     "album": "HIT PARADE",
     "v": 3
    },
-   "bpMiss": 1792495247811,
-   "bpVer": 2,
-   "dcMiss": 1792497570242
+   "bpMiss": 1792503056874,
+   "bpVer": 3,
+   "dcMiss": 1792504075300,
+   "dcVer": 2
   },
   {
    "key": "t1323905912",
@@ -23682,9 +24204,10 @@
     "album": "HIT PARADE",
     "v": 3
    },
-   "bpMiss": 1792495251556,
-   "bpVer": 2,
-   "dcMiss": 1792497573389
+   "bpMiss": 1792503056895,
+   "bpVer": 3,
+   "dcMiss": 1792504078220,
+   "dcVer": 2
   },
   {
    "key": "a2331267828",
@@ -23759,9 +24282,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495253268,
-   "bpVer": 2,
-   "dcMiss": 1792497577847
+   "bpMiss": 1792503062859,
+   "bpVer": 3,
+   "dcMiss": 1792504081397,
+   "dcVer": 2
   },
   {
    "key": "t1821343230",
@@ -23926,9 +24450,10 @@
     "album": "Renegade Lakes",
     "v": 3
    },
-   "bpMiss": 1792495256406,
-   "bpVer": 2,
-   "dcMiss": 1792497586732
+   "bpMiss": 1792503064863,
+   "bpVer": 3,
+   "dcMiss": 1792504084604,
+   "dcVer": 2
   },
   {
    "key": "a2056064422",
@@ -23957,8 +24482,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495257793,
-   "bpVer": 2,
+   "bpMiss": 1792503069870,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -24055,7 +24580,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497592649
+   "dcMiss": 1792504086080,
+   "dcVer": 2
   },
   {
    "key": "a2949067195",
@@ -24141,7 +24667,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497597095
+   "dcMiss": 1792504089347,
+   "dcVer": 2
   },
   {
    "key": "a1625243086",
@@ -24180,7 +24707,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497600028
+   "dcMiss": 1792504092258,
+   "dcVer": 2
   },
   {
    "key": "a2584206404",
@@ -24210,7 +24738,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497602956
+   "dcMiss": 1792504095196,
+   "dcVer": 2
   },
   {
    "key": "t602586049",
@@ -24540,7 +25069,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497621009
+   "dcMiss": 1792504098246,
+   "dcVer": 2
   },
   {
    "key": "a2606908077",
@@ -24581,7 +25111,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497627819
+   "dcMiss": 1792504099687,
+   "dcVer": 2
   },
   {
    "key": "t2416874766",
@@ -24782,7 +25313,14 @@
     "tresor",
     "groovy techno"
    ],
-   "beatport": null,
+   "beatport": {
+    "genres": [
+     "Bass / Club",
+     "Techno (Raw / Deep / Hypnotic)"
+    ],
+    "url": "https://www.beatport.com/release/evolving-echoes-02/4603116",
+    "match": "artist-tracklist"
+   },
    "label": "Inveterate",
    "lookup": {
     "artist": "Tapefeed",
@@ -24796,9 +25334,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495262671,
-   "bpVer": 2,
-   "dcMiss": 1792497638331
+   "dcMiss": 1792504106851,
+   "dcVer": 2
   },
   {
    "key": "a1722392156",
@@ -24924,8 +25461,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495265869,
-   "bpVer": 2,
+   "bpMiss": 1792503074853,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "House",
@@ -24972,9 +25509,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495266799,
-   "bpVer": 2,
-   "dcMiss": 1792497647253
+   "bpMiss": 1792503076875,
+   "bpVer": 3,
+   "dcMiss": 1792504113867,
+   "dcVer": 2
   },
   {
    "key": "a3227454418",
@@ -25000,8 +25538,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495270618,
-   "bpVer": 2,
+   "bpMiss": 1792503081854,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -25030,9 +25568,10 @@
     "album": "View from an Empty Lake",
     "v": 3
    },
-   "bpMiss": 1792495273071,
-   "bpVer": 2,
-   "dcMiss": 1792497651757
+   "bpMiss": 1792503083874,
+   "bpVer": 3,
+   "dcMiss": 1792504122862,
+   "dcVer": 2
   },
   {
    "key": "t1542711406",
@@ -25107,7 +25646,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497656158
+   "dcMiss": 1792504125855,
+   "dcVer": 2
   },
   {
    "key": "t762210006",
@@ -25497,8 +26037,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495276095,
-   "bpVer": 2,
+   "bpMiss": 1792503086859,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -25541,7 +26081,16 @@
     "album": "R.M.K - Remixes Part 1",
     "v": 3
    },
-   "dcMiss": 1792497705410
+   "discogs": {
+    "styles": [
+     "Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/31915837-RMK-16-Bits-EP",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t2643360549",
@@ -25563,8 +26112,8 @@
     "artist": "Leod",
     "v": 3
    },
-   "bpMiss": 1792495276876,
-   "bpVer": 2,
+   "bpMiss": 1792503088854,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -25597,8 +26146,8 @@
     "artist": "Leod",
     "v": 3
    },
-   "bpMiss": 1792495278732,
-   "bpVer": 2,
+   "bpMiss": 1792503091860,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -25634,9 +26183,10 @@
     "album": "Gravity Always Wins [LY01]",
     "v": 3
    },
-   "bpMiss": 1792495281869,
-   "bpVer": 2,
-   "dcMiss": 1792497715783
+   "bpMiss": 1792503091861,
+   "bpVer": 3,
+   "dcMiss": 1792504143862,
+   "dcVer": 2
   },
   {
    "key": "t72243847",
@@ -25662,8 +26212,8 @@
     "album": "Waitomo",
     "v": 3
    },
-   "bpMiss": 1792495284707,
-   "bpVer": 2,
+   "bpMiss": 1792503097891,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Deep Techno",
@@ -25710,7 +26260,8 @@
     "album": "Deep Red",
     "v": 3
    },
-   "dcMiss": 1792497721806
+   "dcMiss": 1792504149866,
+   "dcVer": 2
   },
   {
    "key": "t2416495554",
@@ -25735,7 +26286,19 @@
     "album": "Xhale EP",
     "v": 3
    },
-   "dcMiss": 1792497757333
+   "discogs": {
+    "styles": [
+     "Techno",
+     "Breakbeat",
+     "Ambient",
+     "Tech House"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/12651409-Ludwig-AF-Röhrscheid-Xhale-EP",
+    "match": "artist-release"
+   }
   },
   {
    "key": "a2835008976",
@@ -25824,7 +26387,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497761816
+   "dcMiss": 1792504154514,
+   "dcVer": 2
   },
   {
    "key": "a2837418155",
@@ -26012,9 +26576,18 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495285675,
-   "bpVer": 2,
-   "dcMiss": 1792497770664
+   "bpMiss": 1792503099883,
+   "bpVer": 3,
+   "discogs": {
+    "styles": [
+     "Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/master/1300975-Reeko-Emergence-Five",
+    "match": "artist-master"
+   }
   },
   {
    "key": "a820994176",
@@ -26040,9 +26613,19 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495288951,
-   "bpVer": 2,
-   "dcMiss": 1792497773622
+   "bpMiss": 1792503102873,
+   "bpVer": 3,
+   "discogs": {
+    "styles": [
+     "Techno",
+     "Industrial"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/master/1300987-Reeko-Emergence-Eight",
+    "match": "artist-master"
+   }
   },
   {
    "key": "a499298342",
@@ -26120,8 +26703,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495289933,
-   "bpVer": 2,
+   "bpMiss": 1792503108861,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -26352,7 +26935,16 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497787151
+   "discogs": {
+    "styles": [
+     "Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/31906159-Various-Blue-Hour-Presents-Omni",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t3035617653",
@@ -26637,8 +27229,8 @@
     "album": "Sixty 9 / Triple D",
     "v": 3
    },
-   "bpMiss": 1792495294314,
-   "bpVer": 2,
+   "bpMiss": 1792503111855,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "House",
@@ -26804,8 +27396,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495297764,
-   "bpVer": 2,
+   "bpMiss": 1792503113849,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Tribal",
@@ -26839,8 +27431,8 @@
     "album": "Identity Crisis",
     "v": 3
    },
-   "bpMiss": 1792495299052,
-   "bpVer": 2,
+   "bpMiss": 1792503117895,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -26873,8 +27465,8 @@
     "album": "Identity Crisis",
     "v": 3
    },
-   "bpMiss": 1792495304451,
-   "bpVer": 2,
+   "bpMiss": 1792503118862,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Dubstep",
@@ -26927,7 +27519,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497844234
+   "dcMiss": 1792504178997,
+   "dcVer": 2
   },
   {
    "key": "a3177839626",
@@ -26967,7 +27560,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497848688
+   "dcMiss": 1792504183445,
+   "dcVer": 2
   },
   {
    "key": "t877735574",
@@ -27040,7 +27634,8 @@
     "album": "Evolving Echos 1 (incl. Matrixxman Remix)",
     "v": 3
    },
-   "dcMiss": 1792497853106
+   "dcMiss": 1792504186365,
+   "dcVer": 2
   },
   {
    "key": "t2739093180",
@@ -27071,7 +27666,8 @@
     "album": "Primordial EP",
     "v": 3
    },
-   "dcMiss": 1792497856079
+   "dcMiss": 1792504190722,
+   "dcVer": 2
   },
   {
    "key": "t3167271661",
@@ -27102,7 +27698,8 @@
     "album": "Primordial EP",
     "v": 3
    },
-   "dcMiss": 1792497859013
+   "dcMiss": 1792504195181,
+   "dcVer": 2
   },
   {
    "key": "t1919109103",
@@ -27305,7 +27902,8 @@
     "album": "Jasper",
     "v": 3
    },
-   "dcMiss": 1792497870799
+   "dcMiss": 1792504198186,
+   "dcVer": 2
   },
   {
    "key": "a1009205539",
@@ -27343,7 +27941,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792497906423
+   "dcMiss": 1792504199683,
+   "dcVer": 2
   },
   {
    "key": "a127230530",
@@ -27374,8 +27973,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495307681,
-   "bpVer": 2,
+   "bpMiss": 1792503124850,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -27762,9 +28361,10 @@
     "album": "LATIN BASS EDIT PACK",
     "v": 3
    },
-   "bpMiss": 1792495308349,
-   "bpVer": 2,
-   "dcMiss": 1792497925486
+   "bpMiss": 1792503125879,
+   "bpVer": 3,
+   "dcMiss": 1792504202594,
+   "dcVer": 2
   },
   {
    "key": "t1104573604",
@@ -28154,8 +28754,8 @@
     "album": "They Don't Love It Like We Do",
     "v": 3
    },
-   "bpMiss": 1792495314781,
-   "bpVer": 2,
+   "bpMiss": 1792503130854,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "House"
@@ -28263,8 +28863,8 @@
     "album": "Fast Fists Fest [ANSIA007]",
     "v": 3
    },
-   "bpMiss": 1792495317106,
-   "bpVer": 2,
+   "bpMiss": 1792503132882,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Footwork",
@@ -28298,8 +28898,8 @@
     "album": "Fast Fists Fest [ANSIA007]",
     "v": 3
    },
-   "bpMiss": 1792495319190,
-   "bpVer": 2,
+   "bpMiss": 1792503135862,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Footwork",
@@ -28349,9 +28949,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495319986,
-   "bpVer": 2,
-   "dcMiss": 1792497982023
+   "bpMiss": 1792503139856,
+   "bpVer": 3,
+   "dcMiss": 1792504205545,
+   "dcVer": 2
   },
   {
    "key": "t984459509",
@@ -28382,7 +28983,8 @@
     "album": "The AI Told Me To",
     "v": 3
    },
-   "dcMiss": 1792497985038
+   "dcMiss": 1792504208502,
+   "dcVer": 2
   },
   {
    "key": "a9749474",
@@ -28495,8 +29097,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495320860,
-   "bpVer": 2,
+   "bpMiss": 1792503140860,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Breaks",
@@ -28532,9 +29134,10 @@
     "album": "SunkLo",
     "v": 3
    },
-   "bpMiss": 1792495323288,
-   "bpVer": 2,
-   "dcMiss": 1792497994291
+   "bpMiss": 1792503142854,
+   "bpVer": 3,
+   "dcMiss": 1792504209960,
+   "dcVer": 2
   },
   {
    "key": "t218115286",
@@ -28559,9 +29162,10 @@
     "album": "SunkLo",
     "v": 3
    },
-   "bpMiss": 1792495323292,
-   "bpVer": 2,
-   "dcMiss": 1792497997192
+   "bpMiss": 1792503143849,
+   "bpVer": 3,
+   "dcMiss": 1792504211550,
+   "dcVer": 2
   },
   {
    "key": "t682089779",
@@ -28586,9 +29190,10 @@
     "album": "SunkLo",
     "v": 3
    },
-   "bpMiss": 1792495327297,
-   "bpVer": 2,
-   "dcMiss": 1792498000095
+   "bpMiss": 1792503145859,
+   "bpVer": 3,
+   "dcMiss": 1792504213014,
+   "dcVer": 2
   },
   {
    "key": "a2943210580",
@@ -28713,7 +29318,8 @@
     "album": "DI001 - Lo Chi - Half Cut EP",
     "v": 3
    },
-   "dcMiss": 1792498007660
+   "dcMiss": 1792504217781,
+   "dcVer": 2
   },
   {
    "key": "t2307393396",
@@ -29031,9 +29637,10 @@
     "album": "djfix & Jek - Grass Whistle",
     "v": 3
    },
-   "bpMiss": 1792495328620,
-   "bpVer": 2,
-   "dcMiss": 1792498056765
+   "bpMiss": 1792503149859,
+   "bpVer": 3,
+   "dcMiss": 1792504220785,
+   "dcVer": 2
   },
   {
    "key": "t1596334350",
@@ -29311,7 +29918,8 @@
     "album": "Double Dip",
     "v": 3
    },
-   "dcMiss": 1792498070059
+   "dcMiss": 1792504223874,
+   "dcVer": 2
   },
   {
    "key": "t720018539",
@@ -29456,7 +30064,8 @@
     "album": "MTY-AIR - \"Mille attaques, les vents contrèrent\"",
     "v": 3
    },
-   "dcMiss": 1792498080363
+   "dcMiss": 1792504226832,
+   "dcVer": 2
   },
   {
    "key": "t2760485577",
@@ -29487,7 +30096,8 @@
     "album": "MTY-AIR - \"Mille attaques, les vents contrèrent\"",
     "v": 3
    },
-   "dcMiss": 1792498083274
+   "dcMiss": 1792504229812,
+   "dcVer": 2
   },
   {
    "key": "t2065515107",
@@ -29564,8 +30174,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495331905,
-   "bpVer": 2,
+   "bpMiss": 1792503150863,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -29600,7 +30210,13 @@
     "idm",
     "trance"
    ],
-   "beatport": null,
+   "beatport": {
+    "genres": [
+     "Techno (Raw / Deep / Hypnotic)"
+    ],
+    "url": "https://www.beatport.com/release/syxt038/5265984",
+    "match": "artist-tracklist"
+   },
    "label": "Toru Ikemoto",
    "lookup": {
     "artist": "Toru Ikemoto",
@@ -29612,9 +30228,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495332808,
-   "bpVer": 2,
-   "dcMiss": 1792498089146
+   "dcMiss": 1792504232797,
+   "dcVer": 2
   },
   {
    "key": "t847728097",
@@ -29798,7 +30413,13 @@
     "uktechno",
     "underground"
    ],
-   "beatport": null,
+   "beatport": {
+    "genres": [
+     "Techno (Raw / Deep / Hypnotic)"
+    ],
+    "url": "https://www.beatport.com/release/agile-ep/3990485",
+    "match": "artist-release"
+   },
    "label": "Rotation Records",
    "lookup": {
     "artist": "Umberto Carmignani",
@@ -29809,9 +30430,16 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495336019,
-   "bpVer": 2,
-   "dcMiss": 1792498132090
+   "discogs": {
+    "styles": [
+     "Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/31332157-Umberto-Carmignani-Agile-EP",
+    "match": "artist-release"
+   }
   },
   {
    "key": "t1680136737",
@@ -30036,7 +30664,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792498143952
+   "dcMiss": 1792504237376,
+   "dcVer": 2
   },
   {
    "key": "a3080793424",
@@ -30250,9 +30879,10 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495337065,
-   "bpVer": 2,
-   "dcMiss": 1792498155021
+   "bpMiss": 1792503164861,
+   "bpVer": 3,
+   "dcMiss": 1792504240491,
+   "dcVer": 2
   },
   {
    "key": "a3940437309",
@@ -30335,7 +30965,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792498160884
+   "dcMiss": 1792504245000,
+   "dcVer": 2
   },
   {
    "key": "t1729815522",
@@ -30526,7 +31157,8 @@
     "album": "Surge (MMM remix) / Vapours (Pangaea remix)",
     "v": 3
    },
-   "dcMiss": 1792498204100
+   "dcMiss": 1792504246479,
+   "dcVer": 2
   },
   {
    "key": "a2387389559",
@@ -30835,8 +31467,8 @@
     "album": "Swampshit",
     "v": 3
    },
-   "bpMiss": 1792495341308,
-   "bpVer": 2,
+   "bpMiss": 1792503162877,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Bass Music",
@@ -30962,8 +31594,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495342290,
-   "bpVer": 2,
+   "bpMiss": 1792503168891,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Ambient",
@@ -31055,7 +31687,8 @@
     ],
     "v": 3
    },
-   "dcMiss": 1792498229409
+   "dcMiss": 1792504249385,
+   "dcVer": 2
   },
   {
    "key": "a3962716907",
@@ -31094,8 +31727,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495345402,
-   "bpVer": 2,
+   "bpMiss": 1792503170885,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Special Effects"
@@ -31130,8 +31763,8 @@
     "album": "Gupta Tribes",
     "v": 3
    },
-   "bpMiss": 1792495346290,
-   "bpVer": 2,
+   "bpMiss": 1792503173863,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Ambient",
@@ -31182,8 +31815,8 @@
     ],
     "v": 3
    },
-   "bpMiss": 1792495350465,
-   "bpVer": 2,
+   "bpMiss": 1792503175891,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Special Effects"
@@ -31296,8 +31929,8 @@
     "album": "Honest Labour",
     "v": 3
    },
-   "bpMiss": 1792495353726,
-   "bpVer": 2,
+   "bpMiss": 1792503180874,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Abstract",
@@ -31558,7 +32191,8 @@
     "album": "EARFUL OF WAVS | VOL.1",
     "v": 3
    },
-   "dcMiss": 1792498282770
+   "dcMiss": 1792504252425,
+   "dcVer": 2
   },
   {
    "key": "t1682675580",
@@ -31579,8 +32213,8 @@
     "album": "The Dirt on Our Hands",
     "v": 3
    },
-   "bpMiss": 1792495355819,
-   "bpVer": 2,
+   "bpMiss": 1792503182889,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -31611,8 +32245,8 @@
     "album": "Fat Punko",
     "v": 3
    },
-   "bpMiss": 1792495358561,
-   "bpVer": 2,
+   "bpMiss": 1792503185891,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -31644,8 +32278,8 @@
     "album": "Cave Walls (Part Two)",
     "v": 3
    },
-   "bpMiss": 1792495360964,
-   "bpVer": 2,
+   "bpMiss": 1792503187869,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno",
@@ -31677,8 +32311,8 @@
     "album": "Cave Walls (Part One)",
     "v": 3
    },
-   "bpMiss": 1792495363274,
-   "bpVer": 2,
+   "bpMiss": 1792503190860,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Techno"
@@ -31938,7 +32572,8 @@
     "album": "The No Good EP",
     "v": 3
    },
-   "dcMiss": 1792498337514
+   "dcMiss": 1792504257237,
+   "dcVer": 2
   },
   {
    "key": "t71594829",
@@ -32039,8 +32674,8 @@
     "album": "PSEU003 - Soreab - Bound to Origins",
     "v": 3
    },
-   "bpMiss": 1792495367944,
-   "bpVer": 2,
+   "bpMiss": 1792503191855,
+   "bpVer": 3,
    "discogs": {
     "styles": [
      "Acid",
@@ -32113,7 +32748,8 @@
     "album": "Various Artists - Hiss Is Bliss, Bukkha, Somah",
     "v": 3
    },
-   "dcMiss": 1792498346437
+   "dcMiss": 1792504260215,
+   "dcVer": 2
   },
   {
    "key": "a27174340",
