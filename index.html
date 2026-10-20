@@ -12,6 +12,17 @@
   header { position:sticky; top:0; z-index:5; background:var(--panel); border-bottom:1px solid var(--line); padding:10px 16px; }
   .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:8px; }
   .bar h1 { font-size:16px; margin:0 8px 0 0; }
+  .bar h1 a { color:var(--dim); text-decoration:none; font-weight:400; }
+  .bar h1 a:hover { color:var(--accent); }
+  #picker { max-width:900px; margin:48px auto; padding:0 16px; }
+  #picker h1 { font-size:22px; margin:0 0 20px; }
+  .lists { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:16px; }
+  .list { display:block; background:var(--panel); border:1px solid var(--line); border-radius:10px; overflow:hidden; color:inherit; text-decoration:none; }
+  .list:hover { border-color:var(--accent); }
+  .list .mosaic { display:grid; grid-template-columns:1fr 1fr; aspect-ratio:1; background:#222; }
+  .list .mosaic img { width:100%; height:100%; object-fit:cover; display:block; }
+  .list .name { padding:10px 12px 2px; font-weight:600; }
+  .list .meta { padding:0 12px 12px; color:var(--dim); font-size:13px; }
   button, input[type=search], select { background:var(--bg); color:var(--text); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font:inherit; }
   button { cursor:pointer; } button:hover { border-color:var(--accent); }
   button.on { background:var(--accent); border-color:var(--accent); color:#fff; }
@@ -33,8 +44,13 @@
   .card .t { padding:8px 8px 2px; font-weight:600; font-size:13px; }
   .card .a { padding:0 8px; color:var(--dim); font-size:12px; }
   .card .g { padding:4px 8px 8px; color:var(--dim); font-size:11px; margin-top:auto; }
-  .card .bp { padding:4px 8px 0; color:var(--text); font-size:11px; margin-top:auto; }
-  .card .bp + .g { margin-top:0; }
+  .card .pg { display:flex; align-items:center; gap:6px; padding:6px 8px 0; margin-top:auto; font-size:12px; font-weight:600; color:var(--accent); cursor:help; }
+  .card .pg.set { color:#e0b04a; }
+  .card .pg span { min-width:0; }
+  .card .pg select { width:100%; padding:3px 4px; font-size:12px; }
+  .card .pg .edit { margin-left:auto; padding:0 6px; font-size:12px; line-height:18px; color:var(--dim); background:transparent; }
+  .card .src { padding:2px 8px 0; color:var(--text); font-size:11px; }
+  .card .g { margin-top:0; }
   .card .links { display:flex; gap:12px; padding:0 8px 8px; }
   .card a { color:var(--accent); font-size:12px; text-decoration:none; }
   #loader { max-width:560px; margin:60px auto; text-align:center; color:var(--dim); }
@@ -45,23 +61,29 @@
 </style>
 </head>
 <body>
-<header>
+<header hidden>
   <div class="bar">
-    <h1>Wishlist Genres</h1>
+    <h1><a id="home" href="./">Wishlists</a> / <span id="who"></span></h1>
     <button id="prev">&#9664; Prev</button>
     <button id="next">Next &#9654;</button>
     <button id="shuffle">Shuffle order</button>
     <label><input type="checkbox" id="multi"> List in every matching genre</label>
     <input type="search" id="q" placeholder="Search title, artist, tag">
     <select id="sort"><option value="added">Wishlist order</option><option value="artist">Artist A-Z</option><option value="title">Title A-Z</option></select>
+    <button id="exportOv" hidden title="Download your hand-set genres to commit as wishlists/&lt;user&gt;.overrides.json">Export overrides</button>
   </div>
   <div id="now">Nothing playing. Click a release.</div>
   <iframe id="player" title="Bandcamp player" seamless></iframe>
 </header>
 
-<div id="loader">
-  <p id="status">Loading <code>wishlist.json</code>&hellip;</p>
-  <p>If nothing appears, drop your exported <code>wishlist.json</code> here or
+<div id="picker" hidden>
+  <h1>Wishlist Genres</h1>
+  <div class="lists" id="lists"></div>
+</div>
+
+<div id="loader" hidden>
+  <p id="status">Loading&hellip;</p>
+  <p>If nothing appears, drop an exported wishlist <code>.json</code> here or
     <input type="file" id="file" accept="application/json,.json"></p>
 </div>
 
@@ -74,31 +96,37 @@
 </div>
 
 <script>
+/* Bandcamp usernames shown on the start page, in this order. Each needs its
+   export at wishlists/<username>.json, and is opened at /<username>. */
+const WISHLISTS = ['indent_uk', 'yu_vanessa'];
+
 /* ---- Edit me -------------------------------------------------------------
-   Ordered most-specific to most-generic. Without a Beatport genre, an item's
-   primary genre is the first group in this list that matches any of its
-   Bandcamp tags. Matching is whole-word, so "house" matches "deep house" but
-   not "warehouse". Ambient sits below the dance genres because labels often tag
-   every release "ambient" alongside "techno".
+   Genre groups. Each Bandcamp tag, Beatport genre and Discogs style adds weight
+   to a group (see WEIGHTS); the highest-scoring family wins, then the best
+   group inside it. Matching is whole-word, so "house" matches "deep house" but
+   not "warehouse"; a tag counts towards the group with its longest matching
+   word, so "dub techno" counts for Dub Techno, not Techno. The order breaks ties.
+   family: groups that are sub-genres of each other. Within a family the group
+   marked generic only wins if the specific ones have little evidence.
 --------------------------------------------------------------------------- */
 const GENRE_GROUPS = [
-  ['Dub Techno',          ['dub techno', 'dubtechno']],
-  ['Drum & Bass / Jungle',['drum and bass', 'drum & bass', 'dnb', 'drum n bass', 'jungle', 'liquid funk', 'neurofunk']],
-  ['Dubstep / 140',       ['dubstep', '140', 'deep dubstep', 'halftime', 'grime']],
-  ['UK Garage / Bassline',['uk garage', 'ukg', 'garage', 'speed garage', '2-step', '2 step', 'bassline', 'uk funky', 'ukfunky']],
+  ['Dub Techno',          ['dub techno', 'dubtechno', 'dub-techno'], { family: 'Techno' }],
+  ['Deep / Hypnotic Techno', ['deep techno', 'hypnotic techno', 'hypnotic', 'minimal techno', 'minimal', 'raw techno', 'raw-techno', 'ambient techno'], { family: 'Techno' }],
+  ['Techno',              ['techno', 'hard techno', 'hardgroove', 'peak time', 'peaktime', 'detroit techno', 'uk techno', 'broken techno'], { family: 'Techno', generic: true }],
+  ['Drum & Bass / Jungle',['drum and bass', 'drum & bass', 'dnb', 'drum n bass', 'jungle', 'liquid funk', 'neurofunk', 'breakcore']],
+  ['Dubstep / 140',       ['dubstep', '140', 'deep dubstep', 'halftime', 'grime'], { family: 'Bass' }],
+  ['UK Garage / Bassline',['uk garage', 'ukg', 'garage', 'speed garage', '2-step', '2 step', 'bassline', 'uk funky', 'ukfunky'], { family: 'Bass' }],
+  ['Breaks / UK Bass',    ['breaks', 'breakbeat', 'broken beat', 'broken beats', 'uk bass', 'miami bass'], { family: 'Bass' }],
+  ['Bass / Club',         ['bass music', 'bass', 'club', 'club music', 'leftfield bass', 'left-field club', 'leftfield club', 'hard drum', 'harddrum', 'deconstructed', 'footwork', 'juke'], { family: 'Bass', generic: true }],
   ['Global Club',         ['gqom', 'amapiano', 'baile funk', 'funk carioca', 'dembow', 'reggaeton', 'latin bass', 'latin club', 'club latino', 'guaracha', 'perreo', 'kuduro', 'singeli', 'afro house', 'tribal house']],
-  ['Breaks / UK Bass',    ['breaks', 'breakbeat', 'broken beat', 'broken beats', 'broken techno', 'uk bass', 'miami bass']],
-  ['Bass / Club',         ['bass music', 'bass', 'club', 'club music', 'hard drum', 'harddrum', 'deconstructed', 'footwork', 'juke']],
-  ['Trance / Psy',        ['trance', 'psytrance', 'goa', 'psychedelic trance']],
-  ['Deep / Hypnotic Techno', ['deep techno', 'hypnotic techno', 'minimal techno', 'raw techno', 'raw-techno', 'ambient techno', 'dub-techno']],
-  ['Techno',              ['techno', 'hard techno', 'hardgroove', 'peak time', 'peaktime', 'detroit techno']],
+  ['Trance / Psy',        ['trance', 'psytrance', 'psy-trance', 'goa', 'psychedelic trance']],
   ['House',               ['house', 'deep house', 'acid house', 'tech house', 'techhouse', 'progressive house']],
   ['Electro',             ['electro']],
   ['Ambient / Downtempo', ['ambient', 'drone', 'dark ambient', 'soundscape', 'new age', 'downtempo']],
-  ['IDM / Experimental',  ['idm', 'glitch', 'experimental', 'noise', 'avant-garde', 'musique concrete', 'leftfield']],
+  ['IDM / Experimental',  ['idm', 'glitch', 'experimental', 'noise', 'avant-garde', 'musique concrete', 'leftfield', 'abstract']],
   ['Industrial / Dark',   ['industrial', 'ebm', 'darkwave', 'goth', 'coldwave']],
-  ['Synth / Vapor',       ['synthwave', 'synth', 'retrowave', 'italo disco', 'vaporwave', 'chillwave']],
-  ['Disco / Funk / Soul', ['disco', 'funk', 'soul', 'boogie', 'r&b', 'rnb']],
+  ['Synth / Vapor',       ['synthwave', 'synth', 'retrowave', 'italo disco', 'italo-disco', 'vaporwave', 'chillwave']],
+  ['Disco / Funk / Soul', ['disco', 'nu-disco', 'funk', 'soul', 'boogie', 'r&b', 'rnb']],
   ['Hip-Hop / Beats',     ['hip-hop', 'hip hop', 'rap', 'beat tape', 'trap', 'lo-fi', 'lofi', 'instrumental hip-hop']],
   ['Jazz',                ['jazz', 'spiritual jazz', 'fusion']],
   ['Reggae / Dub / World',['reggae', 'dub', 'dancehall', 'afrobeat', 'world', 'latin', 'cumbia', 'highlife']],
@@ -108,18 +136,39 @@ const GENRE_GROUPS = [
   ['Folk / Singer-songwriter', ['folk', 'singer-songwriter', 'acoustic', 'country', 'americana']],
   ['Classical / Soundtrack',   ['classical', 'piano', 'neoclassical', 'orchestral', 'soundtrack', 'score', 'modern classical']],
   ['Pop',                 ['pop', 'synth pop', 'dream pop', 'indie pop']],
-  ['Electronic (general)',['electronic', 'electronica', 'dance', 'club']],
+  ['Electronic (general)',['electronic', 'electronica', 'dance']],
 ];
-/* Beatport genre -> group. Beatport genres are set per track by the label and
-   are usually more precise than Bandcamp tags, so they decide the primary genre.
-   null = too generic to trust (the Bandcamp tags decide instead). Genres not
-   listed here are matched against GENRE_GROUPS like a tag. */
+
+/* How much each piece of evidence counts. Discogs styles are curated per
+   release, Beatport genres are set per track by the label, Bandcamp tags by
+   the uploader (often the same set on every release of a label). */
+const WEIGHTS = {
+  discogsFirst: 3,      // a release's first Discogs style
+  discogsOther: 2,      // its other styles
+  beatport: 2.5,
+  beatportWeak: 1.2,    // Beatport's catch-all buckets (BEATPORT_WEAK)
+  tag: 1,
+  tagSpecific: 1.5,     // multi-word tags, e.g. "dub techno"
+  tagBroad: 0.4,        // BROAD_TAGS
+  generalGroup: 0.2,    // cap for anything landing in Electronic (general)
+  labelNoise: 0.5,      // multiplier for a tag on >=80% of a label's releases (labels with 3+)
+  genericInFamily: 0.6, // multiplier for a family's generic group when picking within the family
+};
+const BROAD_TAGS = new Set(['bass', 'club', 'dance', 'electronic', 'electronica', 'experimental', 'beats', 'dub', 'world']);
+const BEATPORT_WEAK = new Set(['Bass / Club', 'Techno (Raw / Deep / Hypnotic)']);
+
+/* Beatport genre -> group. null = too generic to count. Genres not listed are
+   matched against GENRE_GROUPS like a tag. */
 const BEATPORT = {
   'Techno (Raw / Deep / Hypnotic)': 'Deep / Hypnotic Techno',
   'Minimal / Deep Tech':            'Deep / Hypnotic Techno',
   'Techno (Peak Time / Driving)':   'Techno',
   'Hard Techno':                    'Techno',
   'Melodic House & Techno':         'Techno',
+  'Trance (Raw / Deep / Hypnotic)': 'Trance / Psy',
+  'Trance (Main Floor)':            'Trance / Psy',
+  'Psy-Trance':                     'Trance / Psy',
+  'Halftime':                       'Drum & Bass / Jungle',
   'Breaks / Breakbeat / UK Bass':   'Breaks / UK Bass',
   '140 / Deep Dubstep / Grime':     'Dubstep / 140',
   'UK Garage / Bassline':           'UK Garage / Bassline',
@@ -137,36 +186,120 @@ const BEATPORT = {
   'DJ Tools':                       null,
   'Mainstage':                      null,
 };
+
+/* Discogs style -> group, for styles whose name doesn't match a group word
+   the right way. null = ignore. Others are matched like a tag. */
+const DISCOGS = {
+  'Drum n Bass':      'Drum & Bass / Jungle',
+  'Bass Music':       'Bass / Club',
+  'Grime':            'Dubstep / 140',
+  'Minimal':          'Deep / Hypnotic Techno',
+  'Deep Techno':      'Deep / Hypnotic Techno',
+  'Tribal':           'Global Club',
+  'Hardcore':         null,   // rave hardcore, not punk
+  'Breakbeat':        'Breaks / UK Bass',
+  'Broken Beat':      'Breaks / UK Bass',
+  'Electro House':    'House',
+  'Euro House':       'House',
+  'Garage House':     'House',
+  'Italo-Disco':      'Synth / Vapor',
+  'Halftime':         'Drum & Bass / Jungle',
+  'Bubbling':         'Global Club',
+  'Funk / Soul':      'Disco / Funk / Soul',
+  'Stage & Screen':   'Classical / Soundtrack',
+  'Folk, World, & Country': 'Reggae / Dub / World',
+};
 const UNSORTED = 'Unsorted';
 const ALL = 'All';
 
-/* ---- Matching ---------------------------------------------------------- */
+/* ---- Scoring ----------------------------------------------------------- */
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const compiled = GENRE_GROUPS.map(([name, words]) => [
-  name,
-  words.map((w) => new RegExp('(^|[^a-z0-9])' + esc(w.toLowerCase()) + '($|[^a-z0-9])')),
-]);
+const compiled = GENRE_GROUPS.map(([name, words, opts]) => ({
+  name, opts: opts || {},
+  words: words.map((w) => ({ len: w.length, re: new RegExp('(^|[^a-z0-9])' + esc(w.toLowerCase()) + '($|[^a-z0-9])') })),
+}));
 const rank = new Map(GENRE_GROUPS.map(([name], i) => [name, i]));
+const familyOf = new Map(compiled.map((g) => [g.name, g.opts.family || g.name]));
+const genericGroup = new Set(compiled.filter((g) => g.opts.generic).map((g) => g.name));
 
-function groupsForTags(tags) {
-  const hits = [];
-  for (const [name, regs] of compiled) {
-    if (tags.some((t) => regs.some((r) => r.test(t)))) hits.push(name);
+// Groups for one term: those whose longest matching word is the longest overall.
+function groupsForTerm(term) {
+  let best = 0, hits = [];
+  for (const g of compiled) {
+    const len = Math.max(0, ...g.words.filter((w) => w.re.test(term)).map((w) => w.len));
+    if (!len) continue;
+    if (len > best) { best = len; hits = [g.name]; } else if (len === best) hits.push(g.name);
   }
-  return hits;   // ordered by GENRE_GROUPS priority
+  return hits;
 }
 
-// Returns every matching group, primary first.
-function genresFor(item) {
-  const fromTags = groupsForTags(item.tags);
-  const fromBp = [];
-  for (const g of item.bpGenres) {
-    const mapped = g in BEATPORT ? BEATPORT[g] : groupsForTags([g.toLowerCase()])[0];
-    if (mapped && !fromBp.includes(mapped)) fromBp.push(mapped);
+// Tags a label puts on (nearly) every one of its releases say little about any one of them.
+function labelNoise(list) {
+  const byLabel = new Map();
+  for (const it of list) {
+    const l = (it.label || '').toLowerCase();
+    if (!l) continue;
+    if (!byLabel.has(l)) byLabel.set(l, []);
+    byLabel.get(l).push(it.tags || []);
   }
-  // A release can have several Beatport genres: prefer one the tags agree with.
-  fromBp.sort((a, b) => (fromTags.includes(b) - fromTags.includes(a)) || (rank.get(a) - rank.get(b)));
-  return [...new Set(fromBp.concat(fromTags))];
+  const noisy = new Map();
+  for (const [l, sets] of byLabel) {
+    if (sets.length < 3) continue;
+    const count = new Map();
+    for (const tags of sets) for (const t of new Set(tags)) count.set(t, (count.get(t) || 0) + 1);
+    noisy.set(l, new Set([...count].filter(([, c]) => c / sets.length >= 0.8).map(([t]) => t)));
+  }
+  return noisy;
+}
+
+const mapTerm = (table, term) => (term in table ? (table[term] ? [table[term]] : []) : groupsForTerm(term.toLowerCase()));
+
+// Scores every group for one item: { genres (best first), scores, why }.
+function scoreItem(it, noisy) {
+  const scores = new Map(), why = new Map();
+  const add = (group, w, note) => {
+    if (group === 'Electronic (general)') w = Math.min(w, WEIGHTS.generalGroup);
+    scores.set(group, (scores.get(group) || 0) + w);
+    if (!why.has(group)) why.set(group, []);
+    why.get(group).push(note + ' +' + Math.round(w * 10) / 10);
+  };
+  const labelTags = noisy.get((it.label || '').toLowerCase());
+  for (const t of it.tags || []) {
+    const groups = groupsForTerm(t);
+    if (!groups.length) continue;
+    let w = BROAD_TAGS.has(t) ? WEIGHTS.tagBroad : / /.test(t) ? WEIGHTS.tagSpecific : WEIGHTS.tag;
+    if (labelTags && labelTags.has(t)) w *= WEIGHTS.labelNoise;
+    for (const g of groups) add(g, w / groups.length, 'tag "' + t + '"');
+  }
+  for (const g of it.bpGenres || []) {
+    const w = BEATPORT_WEAK.has(g) ? WEIGHTS.beatportWeak : WEIGHTS.beatport;
+    for (const grp of mapTerm(BEATPORT, g)) add(grp, w, 'Beatport ' + g);
+  }
+  // Compilations can list 20+ styles: beyond 4, they share the weight of 4.
+  const styles = it.dcStyles || [];
+  const spread = styles.length > 4 ? 4 / styles.length : 1;
+  styles.forEach((st, i) => {
+    const w = (i === 0 ? WEIGHTS.discogsFirst : WEIGHTS.discogsOther) * spread;
+    for (const grp of mapTerm(DISCOGS, st)) add(grp, w, 'Discogs ' + st);
+  });
+  // No styles: fall back to Discogs' broad genres (e.g. "Jazz", "Funk / Soul").
+  if (!styles.length) {
+    for (const g of (it.dcGenres || []).filter((x) => x !== 'Electronic')) {
+      for (const grp of mapTerm(DISCOGS, g)) add(grp, WEIGHTS.discogsOther, 'Discogs genre ' + g);
+    }
+  }
+  if (!scores.size) return { genres: [], scores, why };
+
+  // Best family by total, then the best group in it (generic groups discounted).
+  const fam = new Map();
+  for (const [g, sc] of scores) fam.set(familyOf.get(g), (fam.get(familyOf.get(g)) || 0) + sc);
+  // Equal families: the one whose best-placed group comes first in GENRE_GROUPS.
+  const famFirst = (f) => Math.min(...[...scores.keys()].filter((g) => familyOf.get(g) === f).map((g) => rank.get(g)));
+  const famRank = new Map([...fam].sort((a, b) => (b[1] - a[1]) || (famFirst(a[0]) - famFirst(b[0]))).map(([f], i) => [f, i]));
+  const inFam = (g) => scores.get(g) * (genericGroup.has(g) ? WEIGHTS.genericInFamily : 1);
+  const genres = [...scores.keys()].sort((a, b) =>
+    (famRank.get(familyOf.get(a)) - famRank.get(familyOf.get(b))) || (inFam(b) - inFam(a)) || (rank.get(a) - rank.get(b)));
+  return { genres, scores, why };
 }
 
 /* ---- State ------------------------------------------------------------- */
@@ -188,16 +321,76 @@ function h(tag, props, ...kids) {
   return el;
 }
 
+/* ---- Overrides ---------------------------------------------------------
+   A genre picked by hand on a card beats the scoring. Picks are kept in this
+   browser and merged over wishlists/<user>.overrides.json (if published);
+   "Export overrides" downloads the merged set to commit there. */
+let user = '';
+let published = {};   // from wishlists/<user>.overrides.json
+let local = {};       // picked in this browser, not yet published
+const lsKey = () => 'overrides:' + user;
+function loadLocal() {
+  try { local = JSON.parse(localStorage.getItem(lsKey()) || '{}') || {}; } catch (e) { local = {}; }
+}
+function saveLocal() {
+  try { localStorage.setItem(lsKey(), JSON.stringify(local)); } catch (e) { /* private mode: lasts this visit */ }
+}
+// local values: a group name, or null meaning "cleared here".
+function overrideFor(key) { return key in local ? local[key] : published[key] || null; }
+function mergedOverrides() {
+  const out = Object.assign({}, published);
+  for (const [k, v] of Object.entries(local)) { if (v) out[k] = v; else delete out[k]; }
+  return out;
+}
+function setOverride(it, group) {
+  local[it.key] = group || null;
+  if ((published[it.key] || null) === (group || null)) delete local[it.key];
+  saveLocal();
+  applyGenres(it, scoreCtx);
+  renderAll();
+}
+function exportOverrides() {
+  const blob = new Blob([JSON.stringify({ user, overrides: mergedOverrides() }, null, 1)], { type: 'application/json' });
+  const a = h('a', { href: URL.createObjectURL(blob), download: (user || 'wishlist') + '.overrides.json' });
+  document.body.append(a); a.click(); a.remove();
+}
+
+let scoreCtx = new Map();
+// Sets it.primary, it.genres (for "every matching genre": >=40% of the best) and it.why.
+function applyGenres(it, noisy) {
+  const r = scoreItem(it, noisy);
+  const top = r.genres.length ? r.scores.get(r.genres[0]) : 0;
+  it.genres = r.genres.filter((g) => r.scores.get(g) >= top * 0.4);
+  it.why = r.genres.slice(0, 3).map((g) => g + ' ' + Math.round(r.scores.get(g) * 10) / 10 + ': ' + r.why.get(g).join(', ')).join('\n');
+  it.override = overrideFor(it.key);
+  if (it.override) it.genres = [it.override, ...it.genres.filter((g) => g !== it.override)];
+  it.primary = it.genres[0] || UNSORTED;
+}
+
 function init(data) {
+  user = data.user || '';
+  loadLocal();
   items = (data.items || []).map((it, i) => {
     const o = Object.assign({ tags: [] }, it, { order: i });
     o.bpGenres = (it.beatport && it.beatport.genres) || [];
-    o.genres = genresFor(o);
-    o.primary = o.genres[0] || UNSORTED;
+    o.dcStyles = (it.discogs && it.discogs.styles) || [];
+    o.dcGenres = (it.discogs && it.discogs.genres) || [];
     return o;
   });
+  scoreCtx = labelNoise(items);
+  items.forEach((o) => applyGenres(o, scoreCtx));
+  // Published overrides arrive a moment later; rescore when they do.
+  if (user && location.protocol !== 'file:') {
+    fetch(dataUrl(user + '.overrides'), { cache: 'no-cache' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (d && d.overrides) { published = d.overrides; items.forEach((o) => applyGenres(o, scoreCtx)); renderAll(); } })
+      .catch(() => {});
+  }
   $('loader').hidden = true;
+  $('picker').hidden = true;
+  document.querySelector('header').hidden = false;
   $('layout').hidden = false;
+  $('who').textContent = data.user || 'wishlist';
   document.title = (data.user ? data.user + ' - ' : '') + 'Wishlist Genres (' + items.length + ')';
   renderAll();
 }
@@ -211,7 +404,7 @@ function visibleItems() {
       if (!inGenre) return false;
     }
     if (q) {
-      const hay = (it.title + ' ' + it.artist + ' ' + it.tags.join(' ') + ' ' + it.bpGenres.join(' ') + ' ' + (it.label || '')).toLowerCase();
+      const hay = (it.title + ' ' + it.artist + ' ' + it.tags.join(' ') + ' ' + it.bpGenres.join(' ') + ' ' + it.dcStyles.join(' ') + ' ' + (it.label || '')).toLowerCase();
       if (!hay.includes(q)) return false;
     }
     return true;
@@ -243,6 +436,26 @@ function renderNav() {
       h('span', {}, n), h('span', {}, String(n === ALL ? items.length : counts.get(n))))));
 }
 
+const stop = (e) => e.stopPropagation();
+const extLink = (href, text) => h('a', { href, target: '_blank', rel: 'noopener', onclick: stop }, text);
+
+// The card's genre line; ✎ swaps it for a picker. "Automatic" removes the override.
+function genreLine(it) {
+  const line = h('div', { class: 'pg' + (it.override ? ' set' : ''), title: it.override ? 'Set by hand' : (it.why || 'No genre evidence') },
+    h('span', {}, it.primary + (it.override ? ' (set)' : '')));
+  const edit = h('button', { class: 'edit', title: 'Set genre', onclick: (e) => {
+    stop(e);
+    const sel = h('select', { onclick: stop, onchange: () => setOverride(it, sel.value) },
+      h('option', { value: '' }, 'Automatic' + (it.override ? '' : ' (current)')),
+      ...GENRE_GROUPS.map(([g]) => h('option', { value: g }, g)));
+    sel.value = it.override || '';
+    line.replaceChildren(sel);
+    sel.focus();
+  } }, '✎');
+  line.append(edit);
+  return line;
+}
+
 function renderGrid() {
   queue = visibleItems();
   $('grid').replaceChildren(...queue.map((it) =>
@@ -250,17 +463,28 @@ function renderGrid() {
       h('img', { src: it.art || '', loading: 'lazy', alt: '' }),
       h('div', { class: 't' }, it.title),
       h('div', { class: 'a' }, it.artist),
-      it.bpGenres.length ? h('div', { class: 'bp' }, it.bpGenres.join(' · ')) : null,
+      genreLine(it),
+      it.dcStyles.length ? h('div', { class: 'src' }, 'Discogs: ' + it.dcStyles.join(', ')) : null,
+      it.bpGenres.length ? h('div', { class: 'src' }, 'Beatport: ' + it.bpGenres.join(', ')) : null,
       h('div', { class: 'g' }, it.tags.filter((t) => t !== 'electronic').slice(0, 5).join(', ') || 'no tags'),
       h('div', { class: 'links' },
-        h('a', { href: it.url, target: '_blank', rel: 'noopener', onclick: (e) => e.stopPropagation() }, 'Bandcamp'),
-        it.beatport ? h('a', { href: it.beatport.url, target: '_blank', rel: 'noopener', onclick: (e) => e.stopPropagation() }, 'Beatport') : null))));
+        extLink(it.url, 'Bandcamp'),
+        it.beatport ? extLink(it.beatport.url, 'Beatport') : null,
+        it.discogs ? extLink(it.discogs.url, 'Discogs') : null))));
+  const n = Object.keys(local).length;
+  $('exportOv').hidden = !n && !Object.keys(published).length;
+  $('exportOv').textContent = 'Export overrides' + (n ? ' (' + n + ' unsaved)' : '');
 }
 
 function renderUnmatched() {
   const counts = new Map();
   const add = (t) => counts.set(t, (counts.get(t) || 0) + 1);
-  for (const it of items) if (!it.genres.length) { it.tags.forEach(add); it.bpGenres.forEach((g) => add('beatport: ' + g)); }
+  for (const it of items) {
+    if (it.genres.length) continue;
+    it.tags.forEach(add);
+    it.bpGenres.forEach((g) => add('beatport: ' + g));
+    it.dcStyles.forEach((g) => add('discogs: ' + g));
+  }
   const top = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 60);
   $('unmatched').textContent = top.length ? top.map(([t, c]) => t + ' (' + c + ')').join(', ') : 'None, every item matched a genre.';
 }
@@ -294,6 +518,7 @@ $('shuffle').onclick = () => { shuffled = !shuffled; $('shuffle').classList.togg
 $('multi').onchange = renderAll;
 $('sort').onchange = renderGrid;
 $('q').oninput = renderGrid;
+$('exportOv').onclick = exportOverrides;
 
 /* ---- Loading ----------------------------------------------------------- */
 function readFile(f) {
@@ -307,16 +532,68 @@ window.addEventListener('dragover', (e) => { e.preventDefault(); loader.classLis
 window.addEventListener('dragleave', () => loader.classList.remove('drag'));
 window.addEventListener('drop', (e) => { e.preventDefault(); loader.classList.remove('drag'); if (e.dataTransfer.files[0]) readFile(e.dataTransfer.files[0]); });
 
-fetch('wishlist.json', { cache: 'no-cache' })
-  .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-  .then(init)
-  .catch(() => {
+/* ---- Routing -----------------------------------------------------------
+   /<user> has no file on GitHub Pages, so 404.html sends it here as
+   ?u=<user> and the clean URL is put back below. The site root is the folder
+   this page was served from, captured before the URL is rewritten. */
+const ROOT = new URL('./', location.href);
+const USER_RE = /^[A-Za-z0-9_-]+$/;
+const dataUrl = (u) => new URL('wishlists/' + u + '.json', ROOT);
+$('home').href = ROOT.pathname;
+
+async function getList(u) {
+  const r = await fetch(dataUrl(u), { cache: 'no-cache' });
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return r.json();
+}
+
+function openUser(u) {
+  document.querySelector('header').hidden = true;
+  $('picker').hidden = true;
+  $('layout').hidden = true;
+  $('loader').hidden = false;
+  $('status').textContent = 'Loading ' + u + '…';
+  getList(u).then(init).catch(() => {
     // Fall back to the file picker. Opened from disk, the browser blocks reading
     // neighbouring files, so say so rather than leave "Loading…" up.
     $('status').textContent = location.protocol === 'file:'
-      ? 'Opened from disk, so the browser won\'t let this page read wishlist.json automatically.'
-      : 'Couldn\'t load wishlist.json.';
+      ? 'Opened from disk, so the browser won\'t let this page read wishlists/' + u + '.json automatically.'
+      : 'Couldn\'t load wishlists/' + u + '.json. Has it been exported and uploaded?';
   });
+}
+
+function showPicker() {
+  $('picker').hidden = false;
+  $('lists').replaceChildren(...WISHLISTS.map((u) => {
+    const mosaic = h('div', { class: 'mosaic' });
+    const meta = h('div', { class: 'meta' }, 'Loading…');
+    const card = h('a', { class: 'list', href: ROOT.pathname + u, onclick: (e) => {
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.button) return;
+      e.preventDefault();
+      history.pushState(null, '', ROOT.pathname + u);
+      openUser(u);
+    } }, mosaic, h('div', { class: 'name' }, u), meta);
+    getList(u).then((d) => {
+      const items = d.items || [];
+      mosaic.append(...items.filter((it) => it.art).slice(0, 4).map((it) => h('img', { src: it.art, alt: '', loading: 'lazy' })));
+      meta.textContent = items.length + ' releases' + (d.exported ? ' · exported ' + new Date(d.exported).toLocaleDateString() : '');
+    }).catch(() => { meta.textContent = 'Not exported yet'; });
+    return card;
+  }));
+}
+
+function route() {
+  const params = new URLSearchParams(location.search);
+  let u = params.get('u');
+  if (u && USER_RE.test(u)) history.replaceState(null, '', ROOT.pathname + u + location.hash);
+  else u = decodeURIComponent(location.pathname.slice(ROOT.pathname.length).replace(/\/+$/, ''));
+  if (u && USER_RE.test(u) && u !== 'index.html') openUser(u);
+  else showPicker();
+}
+
+// Back/forward between the start page and a wishlist: simplest to start over.
+window.addEventListener('popstate', () => location.reload());
+route();
 </script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wishlist Genres</title>
+<script>
+  // GitHub Pages serves this for any path without a file, such as /indent_uk.
+  // Hand the last path segment to index.html as ?u=, which restores the clean URL.
+  (function () {
+    var parts = location.pathname.replace(/\/+$/, '').split('/');
+    var user = parts.pop();
+    if (/^[A-Za-z0-9_-]+$/.test(user)) {
+      location.replace(parts.join('/') + '/?u=' + encodeURIComponent(user) + location.hash);
+    }
+  })();
+</script>
+<style>body { margin:0; background:#14161a; color:#9aa3af; font:15px/1.4 system-ui, sans-serif; text-align:center; padding-top:60px; } a { color:#1da0c3; }</style>
+</head>
+<body>
+<p>Page not found. <a href="/">Go to the wishlists</a>.</p>
+</body>
+</html>
