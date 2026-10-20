@@ -22,7 +22,7 @@
   const DELAY_MS = 300;         // pause after each request (be polite)
   const USE_BEATPORT = true;    // look each release up on Beatport for a cleaner genre
   const BP_MISS_TTL_DAYS = 30;  // re-try Beatport/Discogs "no match" results after this long
-  const BP_MATCHER_VERSION = 3; // bump when Beatport matching improves, so earlier misses are re-checked once
+  const BP_MATCHER_VERSION = 4; // bump when Beatport matching improves, so earlier misses are re-checked once
   const DC_MATCHER_VERSION = 2; // the same for Discogs
   // Discogs personal access token (discogs.com -> Settings -> Developers -> Generate token).
   // The script asks for it on the first export and keeps it in Tampermonkey's
@@ -30,7 +30,8 @@
   // allows 25 requests/min instead of 60. Shift-click the button to change it.
   const TOKEN_KEY = 'discogsToken';
   const USE_DISCOGS = true;     // look each release up on Discogs for its styles
-  const BC_INFO_VERSION = 3;    // Bandcamp results older than this are re-fetched (cheap via the mobile API)
+  const BC_INFO_VERSION = 4;    // Bandcamp results older than this are re-fetched (cheap via the mobile API);
+                                // v4 adds album tags to sparsely tagged tracks, so only those v3 tracks are redone
   const CACHE_KEY = 'tagCacheV2'; // V1 cached failed fetches as [] forever, so it is not reused
   // Where this wishlist's last export is published ({user} = the Bandcamp
   // username in the page URL). Items already in it are not fetched again. '' to disable.
@@ -259,6 +260,7 @@
       albumUrl: '',
       isrc: '',
       trackTitles: j.type === 'a' ? (j.tracks || []).map((t) => t.title).filter(Boolean).slice(0, 6) : [],
+      albumId: j.type === 't' ? j.album_id || null : null,
       v: BC_INFO_VERSION,
     };
   }
@@ -359,12 +361,22 @@
       titles, artists, parts: parts.length > 1 ? parts : [],
       cat: cat || (it.type === 't' ? alb.cat : ''),
       album: alb.title,
-      trackTitles: (info.trackTitles || []).map((t) => cleanTitle(t).title),
+      // Label pages list tracks as "Artist - Title".
+      trackTitles: (info.trackTitles || []).map((t) => cleanTitle(t.replace(/^.+?\s+[-–—]\s+/, '')).title),
       label: norm(info.label),
     };
   }
 
   const bestDice = (titles, s) => Math.max(...titles.map((t) => dice(t, s)));
+
+  // Label names differ between sites by suffixes: "Tectonic Recordings" on
+  // Bandcamp is "Tectonic" on Beatport.
+  const LABEL_SUFFIX = /\b(records?|recordings?|recs?|music|audio|label|ltd|limited|uk|london|official)\b/g;
+  const labelCore = (s) => norm(s).replace(LABEL_SUFFIX, ' ').replace(/\s+/g, ' ').trim();
+  function sameLabel(a, b) {
+    const A = labelCore(a), B = labelCore(b);
+    return !!A && A.length >= 3 && A === B;
+  }
 
   // Title similarity once the artist is certain: Dice, or one title containing
   // the other ("Feels So Gud" in "Feels So Gud EP", "Raw Dubz" in "Raw Dubz Vol.3").
@@ -402,7 +414,7 @@
     const d = describe(it, info);
     const { titles, artists: bcArtists, cat, album, trackTitles, label } = d;
     const bare = titles.map((t) => t.replace(/\s*[([][^)\]]*[)\]]/g, '')); // without "(X Remix)"
-    const labelIs = (l) => !!(label && l && norm(l.label_name) === label);
+    const labelIs = (l) => !!(l && sameLabel(label, l.label_name));
     const releaseUrl = (r) => 'https://www.beatport.com/release/' + slug(r.release_name) + '/' + r.release_id;
 
     let best = null;
@@ -468,15 +480,17 @@
     if (it.type === 't' && album) q.push((artist + ' ' + album).trim());
     if (it.type === 'a' && trackTitles[0]) q.push((artist + ' ' + trackTitles[0]).trim());
     if (titles.length > 1 && !parts.length) q.push(titles[1]);
+    // A label or V/A account: its name in front of the title buries the release.
+    if (!artists.length || (label && sameLabel(label, artists[0]))) q.splice(cat ? 1 : 0, 0, titles[0]);
     return [...new Set(q.filter((x) => x.length > 2))].slice(0, 4);
   }
 
   const bpSearch = (q) => fetchParsed('https://www.beatport.com/search?q=' + encodeURIComponent(q), bpSearchData, 3);
 
-  // artistOnly: a miss from before the artist-first step (matcher v2); the
-  // searches themselves haven't changed, so only the new step is run.
-  async function lookupBeatport(it, info, artistOnly) {
-    if (artistOnly) return bpByArtist(it, info, []);
+  // only: re-check just one part for a recent miss — 'artist' runs only the
+  // artist-first step, 'search' only the searches; '' runs everything.
+  async function lookupBeatport(it, info, only) {
+    if (only === 'artist') return bpByArtist(it, info, []);
     const artistsSeen = [];
     for (const q of bpQueries(it, info)) {
       const data = await bpSearch(q);
@@ -485,7 +499,7 @@
       if (data) artistsSeen.push(...data.artists);
       await sleep(DELAY_MS);
     }
-    return bpByArtist(it, info, artistsSeen);
+    return only === 'search' ? null : bpByArtist(it, info, artistsSeen);
   }
 
   // Fallback when the searches find nothing: the artist's own Beatport tracks
@@ -606,7 +620,7 @@
       const s = bestDice(want, t);
       const various = /^various$/i.test(artist);
       const aOk = !various && artistMatch(artists, [artist]);
-      const lOk = !!label && (r.label || []).some((l) => norm(l) === label);
+      const lOk = (r.label || []).some((l) => sameLabel(label, l));
       const catOk = !!cat && !!r.catno && catKey(r.catno) === cat;
       let score = 0, how = '';
       if (catOk && (aOk || lOk || s >= 0.3)) { score = 3; how = 'catalog'; }
@@ -747,7 +761,7 @@
   function cacheHasGaps(items, cache) {
     return items.some((it) => {
       const bc = cache.bc[it.key];
-      if (!bc || (!bc.gone && (bc.v || 0) < BC_INFO_VERSION)) return true;
+      if (needsBandcamp(it, bc)) return true;
       if (bc.gone) return false;
       return (USE_BEATPORT && !cache.bp[it.key]) || (USE_DISCOGS && !cache.dc[it.key]);
     });
@@ -806,11 +820,35 @@
 
   // allowPage: false when only refreshing an older result, so a failing API
   // call doesn't turn into a ~330 KB page load.
+  // Tags that say nothing about the genre on their own.
+  const VAGUE_TAGS = new Set(['electronic', 'electronica', 'electronic music', 'dance', 'music']);
+  const sparseTags = (tags) => (tags || []).filter((t) => !VAGUE_TAGS.has(t)).length < 2;
+
+  function needsBandcamp(it, bc) {
+    if (!bc) return true;
+    if (bc.gone) return false;
+    const v = bc.v || 0;
+    return v < 3 || (v < BC_INFO_VERSION && it.type === 't' && sparseTags(bc.tags));
+  }
+
+  // A track's own tags are often just "Electronic" or a city while its album
+  // has the real ones, so sparse tracks get their album's tags added.
+  async function addAlbumTags(it, info, cache) {
+    if (it.type !== 't' || !info.albumId || !sparseTags(info.tags)) return;
+    const key = 'a' + info.albumId;
+    let tags = cache.album[key];
+    if (!tags) {
+      const a = await fetchParsed(bcApiUrl({ bandId: it.bandId, id: info.albumId, type: 'a' }), parseBandcampApi, 8, undefined, bcPace).catch(() => null);
+      if (a) cache.album[key] = tags = a.tags;
+    }
+    if (tags) info.tags = [...new Set(info.tags.concat(tags))];
+  }
+
   async function fetchBandcamp(it, cache, allowPage = true) {
     if (it.bandId) {
       try {
         const info = await fetchParsed(bcApiUrl(it), parseBandcampApi, 8, undefined, bcPace);
-        if (info) return info;
+        if (info) { await addAlbumTags(it, info, cache); return info; }
       } catch (e) {
         if (!allowPage) throw e;
       }
@@ -821,7 +859,7 @@
   // Fetches items with no Bandcamp result, and refreshes results from older
   // script versions (kept if the refresh fails).
   async function fetchAllTags(items, cache, onProgress) {
-    const todo = items.filter((it) => it.url && (!cache.bc[it.key] || (!cache.bc[it.key].gone && (cache.bc[it.key].v || 0) < BC_INFO_VERSION)));
+    const todo = items.filter((it) => it.url && needsBandcamp(it, cache.bc[it.key]));
     let done = 0, failed = 0, kept = 0;
     // Workers only overlap request latency; bcPace sets the actual rate.
     await pool(todo, BC_CONCURRENCY, async (it) => {
@@ -858,7 +896,10 @@
       if (blockedRun >= 5) return; // Beatport is refusing us; stop rather than hammer it
       try {
         const prev = cache.bp[it.key];
-        const hit = await lookupBeatport(it, cache.bc[it.key], !!(prev && prev.miss && prev.ver === 2 && prev.at >= stale));
+        // Re-checks of recent misses only run the steps that changed since:
+        // v2 misses lack the artist step; v3 misses lack the label/title-only searches.
+        const recent = prev && prev.miss && prev.at >= stale;
+        const hit = await lookupBeatport(it, cache.bc[it.key], recent && prev.ver === 2 ? 'artist' : recent && prev.ver === 3 ? 'search' : '');
         cache.bp[it.key] = hit || { miss: true, at: Date.now(), ver: BP_MATCHER_VERSION };
         if (hit) found++;
         blockedRun = 0;
