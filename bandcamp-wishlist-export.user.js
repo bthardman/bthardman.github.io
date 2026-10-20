@@ -126,30 +126,52 @@
     });
   }
 
+  // One request pace shared by all workers hitting the same site. Bandcamp
+  // rate-limits per connection (429 with a short Retry-After), so separate
+  // worker backoffs just keep re-triggering it. On a 429 every worker pauses
+  // and the gap between requests grows; after a run of successes it shrinks.
+  class Pacer {
+    constructor(gapMs, minMs, maxMs) { this.gap = gapMs; this.min = minMs; this.max = maxMs; this.next = 0; this.ok = 0; }
+    async turn() {
+      for (let wait; (wait = this.next - Date.now()) > 0;) await sleep(wait);
+      this.next = Date.now() + this.gap;
+    }
+    success() { if (++this.ok >= 8) { this.ok = 0; this.gap = Math.max(this.min, Math.round(this.gap * 0.8)); } }
+    limited(retryAfter) {
+      this.ok = 0;
+      this.gap = Math.min(this.max, Math.round(this.gap * 1.6));
+      this.next = Math.max(this.next, Date.now() + Math.max((retryAfter || 3) * 1000, 4000));
+    }
+  }
+  const bcPace = new Pacer(350, 250, 5000);
+
   // Fetches url and runs parse(html). parse returns null when the page is not
   // what we expected (a rate-limit or challenge page served with HTTP 200), which
-  // is retried like a 429. 404/410 are final and resolve to null.
-  async function fetchParsed(url, parse, attempts = 4, headers) {
+  // is retried like a 429. 404/410 are final and resolve to null. With a pacer,
+  // requests take turns and 429s are waited out by the pacer instead.
+  async function fetchParsed(url, parse, attempts = 4, headers, pacer) {
     for (let a = 1; ; a++) {
       try {
+        if (pacer) await pacer.turn();
         const out = parse(await gmGet(url, headers));
-        if (out) return out;
+        if (out) { if (pacer) pacer.success(); return out; }
         throw new Error('unexpected page content');
       } catch (e) {
         if (e.status === 404 || e.status === 410) return null;
         if (a >= attempts || (e.status >= 400 && e.status < 500 && e.status !== 429 && e.status !== 403)) throw e;
+        if (pacer && e.status === 429) { pacer.limited(e.retryAfter); continue; }
         await sleep(e.retryAfter ? e.retryAfter * 1000 : 2000 * 3 ** (a - 1)); // 2s, 6s, 18s
       }
     }
   }
 
   // Runs fn over items with a fixed number of workers.
-  async function pool(items, concurrency, fn) {
+  async function pool(items, concurrency, fn, delayMs = DELAY_MS) {
     let i = 0;
     async function worker() {
       while (i < items.length) {
         await fn(items[i++]);
-        await sleep(DELAY_MS);
+        if (delayMs) await sleep(delayMs);
       }
     }
     await Promise.all(Array.from({ length: concurrency }, worker));
@@ -600,11 +622,11 @@
   // Page fallback for when the app API is unavailable: own tags, plus the
   // parent album's tags for tracks that have few.
   async function fetchBandcampPage(it, cache) {
-    const info = await fetchParsed(it.url, parseBandcamp);
+    const info = await fetchParsed(it.url, parseBandcamp, 6, undefined, bcPace);
     if (info && it.type === 't' && info.albumUrl && info.tags.filter((t) => t !== 'electronic').length < 3) {
       let alb = cache.album[info.albumUrl];
       if (!alb) {
-        const a = await fetchParsed(info.albumUrl, parseBandcamp).catch(() => null);
+        const a = await fetchParsed(info.albumUrl, parseBandcamp, 6, undefined, bcPace).catch(() => null);
         if (a) cache.album[info.albumUrl] = alb = a.tags;
       }
       if (alb) info.tags = [...new Set(info.tags.concat(alb))];
@@ -613,39 +635,45 @@
     return info;
   }
 
-  async function fetchBandcamp(it, cache) {
+  // allowPage: false when only refreshing an older result, so a failing API
+  // call doesn't turn into a ~330 KB page load.
+  async function fetchBandcamp(it, cache, allowPage = true) {
     if (it.bandId) {
       try {
-        const info = await fetchParsed(bcApiUrl(it), parseBandcampApi, 3);
+        const info = await fetchParsed(bcApiUrl(it), parseBandcampApi, 8, undefined, bcPace);
         if (info) return info;
-      } catch (e) { /* fall back to the page */ }
+      } catch (e) {
+        if (!allowPage) throw e;
+      }
     }
-    return it.url ? fetchBandcampPage(it, cache) : null;
+    return it.url && allowPage ? fetchBandcampPage(it, cache) : null;
   }
 
   // Fetches items with no Bandcamp result, and refreshes results from older
   // script versions (kept if the refresh fails).
   async function fetchAllTags(items, cache, onProgress) {
     const todo = items.filter((it) => it.url && (!cache.bc[it.key] || (!cache.bc[it.key].gone && (cache.bc[it.key].v || 0) < BC_INFO_VERSION)));
-    let done = 0, failed = 0;
+    let done = 0, failed = 0, kept = 0;
+    // Workers only overlap request latency; bcPace sets the actual rate.
     await pool(todo, BC_CONCURRENCY, async (it) => {
       const old = cache.bc[it.key];
       try {
-        const info = await fetchBandcamp(it, cache);
+        const info = await fetchBandcamp(it, cache, !old);
         if (info) {
           cache.bc[it.key] = info;
         } else if (!old) {
           cache.bc[it.key] = { tags: [], gone: true };
         }
       } catch (e) {
-        if (old) { done++; return; } // keep the older result
-        failed++;
+        if (old) kept++; // keep the older result; it's refreshed on a later run
+        else failed++;
         console.warn('[wishlist-export] Bandcamp failed for', it.url, e.message);
       }
       done++;
-      onProgress('Bandcamp tags… ' + done + '/' + todo.length + (failed ? ' (' + failed + ' failed)' : ''));
+      const slow = bcPace.gap >= 1000 ? ', Bandcamp is throttling: slowed to ' + (bcPace.gap / 1000).toFixed(1) + 's/request' : '';
+      onProgress('Bandcamp tags… ' + done + '/' + todo.length + (failed ? ' (' + failed + ' failed)' : '') + (kept ? ' (' + kept + ' kept as before)' : '') + slow);
       if (done % 20 === 0) saveCache(cache);
-    });
+    }, 0);
     saveCache(cache);
     return failed;
   }
