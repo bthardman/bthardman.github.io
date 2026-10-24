@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name         Bandcamp Wishlist Genre Exporter
 // @namespace    local.bc-wishlist
-// @version      3.0.0
+// @version      3.2.0
 // @description  Adds an "Export wishlist" button to Bandcamp wishlist pages. Collects every item with its Bandcamp tags, Beatport genre and Discogs styles, and downloads <username>.json.
+// @downloadURL  https://bthardman.github.io/bandcamp-wishlist-export.user.js
+// @updateURL    https://bthardman.github.io/bandcamp-wishlist-export.user.js
 // @match        https://bandcamp.com/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
@@ -30,8 +32,8 @@
   // allows 25 requests/min instead of 60. Shift-click the button to change it.
   const TOKEN_KEY = 'discogsToken';
   const USE_DISCOGS = true;     // look each release up on Discogs for its styles
-  const BC_INFO_VERSION = 4;    // Bandcamp results older than this are re-fetched (cheap via the mobile API);
-                                // v4 adds album tags to sparsely tagged tracks, so only those v3 tracks are redone
+  const BC_INFO_VERSION = 5;    // Bandcamp results older than this are re-fetched (cheap via the mobile API);
+                                // v4 added album tags to sparsely tagged tracks, v5 release date, price and pre-order/free
   const CACHE_KEY = 'tagCacheV2'; // V1 cached failed fetches as [] forever, so it is not reused
   // Where this wishlist's last export is published ({user} = the Bandcamp
   // username in the page URL). Items already in it are not fetched again. '' to disable.
@@ -92,13 +94,14 @@
       });
       if (!res.ok) throw new Error('Wishlist API returned HTTP ' + res.status);
       const data = await res.json();
-      const before = map.size;
       for (const raw of data.items || []) {
         const it = normItem(raw);
         if (it) map.set(it.key, it);
       }
       onProgress('Listing wishlist… ' + map.size + (wl.item_count ? '/' + wl.item_count : ''));
-      more = !!data.more_available && map.size > before;
+      // A page can add nothing (all merch) without being the last, so follow
+      // Bandcamp's flag for as long as the token keeps moving.
+      more = !!data.more_available && (data.items || []).length > 0 && !!data.last_token && data.last_token !== token;
       token = data.last_token;
     }
     return [...map.values()];
@@ -129,50 +132,118 @@
   }
 
   // One request pace shared by all workers hitting the same site. Bandcamp
-  // rate-limits per connection (429 with a short Retry-After), so separate
-  // worker backoffs just keep re-triggering it. On a 429 every worker pauses
-  // and the gap between requests grows; after a run of successes it shrinks.
+  // lets a burst through and then answers 429 for a while, so separate worker
+  // backoffs just keep re-triggering it.
+  // A run of 429s is one episode, and it slows the pace once: to a bit under
+  // the rate that tripped the limit (requests started in the last minute).
+  // 429s from requests already in flight, or from retries during the episode,
+  // don't slow it again. While blocked, a single request probes, waiting
+  // Retry-After or 5, 10, 20… s (up to a minute) between tries; the first
+  // success ends the episode. After that the pace creeps back up, 10% per 20
+  // successes in a row, but never to the pace that tripped the limit. The
+  // learned pace is kept for the next run.
+  const PACE_KEY = 'bcPaceMs';
   class Pacer {
-    constructor(gapMs, minMs, maxMs) { this.gap = gapMs; this.min = minMs; this.max = maxMs; this.next = 0; this.ok = 0; }
-    async turn() {
-      for (let wait; (wait = this.next - Date.now()) > 0;) await sleep(wait);
-      this.next = Date.now() + this.gap;
+    constructor(gapMs, minMs, maxMs, saveKey) {
+      const saved = saveKey ? Number(GM_getValue(saveKey, 0)) : 0;
+      this.gap = Math.min(maxMs, Math.max(minMs, saved || gapMs));
+      this.min = minMs; this.max = maxMs; this.saveKey = saveKey;
+      this.floor = minMs;     // fastest pace allowed, just slower than the last one that tripped
+      this.next = 0;          // no request starts before this
+      this.started = [];      // start times within the last minute
+      this.inFlight = 0;
+      this.blockedSince = 0;  // while an episode lasts
+      this.refusals = 0;      // 429s in this episode
+      this.ok = 0;            // successes since the pace last changed
     }
-    success() { if (++this.ok >= 8) { this.ok = 0; this.gap = Math.max(this.min, Math.round(this.gap * 0.8)); } }
-    limited(retryAfter) {
+    // Waits for a turn and returns its start time. Call done() when the request ends.
+    async turn() {
+      for (;;) {
+        const wait = this.next - Date.now();
+        if (wait > 0) await sleep(wait);
+        else if (this.blockedSince && this.inFlight) await sleep(200); // blocked: one probe at a time
+        else break;
+      }
+      const now = Date.now();
+      this.next = now + this.gap;
+      this.inFlight++;
+      this.started.push(now);
+      while (this.started[0] <= now - 60000) this.started.shift();
+      return now;
+    }
+    done() { this.inFlight--; }
+    success() {
+      if (this.blockedSince) {
+        console.info('[wishlist-export] Bandcamp block lasted', Math.round((Date.now() - this.blockedSince) / 1000), 's,', this.refusals, 'refused');
+        this.blockedSince = 0; this.refusals = 0; this.ok = 0; this.save();
+      }
+      if (++this.ok >= 20) { this.ok = 0; this.gap = Math.max(this.floor, Math.round(this.gap * 0.9)); }
+    }
+    limited(startedAt, retryAfter) {
+      const now = Date.now();
       this.ok = 0;
-      this.gap = Math.min(this.max, Math.round(this.gap * 1.6));
-      this.next = Math.max(this.next, Date.now() + Math.max((retryAfter || 3) * 1000, 4000));
+      if (!this.blockedSince) {
+        this.blockedSince = now;
+        // At most 3x slower in one go: after a block, the last minute holds
+        // fewer requests than Bandcamp would really allow.
+        const perMinute = this.started.filter((t) => t > now - 60000).length;
+        const target = Math.round(60000 / Math.max(1, perMinute * 0.75));
+        const tripped = this.gap;
+        this.gap = Math.min(this.max, tripped * 3, Math.max(Math.round(tripped * 1.5), target));
+        // Tripping again costs a whole block, so stay well clear of this pace.
+        this.floor = Math.min(this.gap, Math.round(Math.max(tripped * 1.25, Math.min(target, this.gap) * 0.85)));
+        console.info('[wishlist-export] Bandcamp limit hit after', perMinute, 'requests in a minute; pace', tripped, '->', this.gap, 'ms');
+      } else if (startedAt < this.blockedSince) {
+        return; // was already on its way when the episode began
+      }
+      const backoff = Math.min(60000, 5000 * 2 ** this.refusals++);
+      this.next = Math.max(this.next, now + Math.max((retryAfter || 0) * 1000, backoff));
+    }
+    save() { if (this.saveKey) GM_setValue(this.saveKey, this.gap); }
+    // For the progress line: the pace once it's slower than ~1 request/s, or the wait.
+    status() {
+      const wait = Math.ceil((this.next - Date.now()) / 1000);
+      if (this.blockedSince && wait > 1) return 'Bandcamp asked us to wait, retrying in ' + wait + 's';
+      return this.gap >= 1000 ? 'Bandcamp is limiting us to ~' + Math.round(60000 / this.gap) + '/min' : '';
     }
   }
-  const bcPace = new Pacer(350, 250, 5000);
+  const bcPace = new Pacer(350, 250, 10000, PACE_KEY);
 
   // Fetches url and runs parse(html). parse returns null when the page is not
   // what we expected (a rate-limit or challenge page served with HTTP 200), which
   // is retried like a 429. 404/410 are final and resolve to null. With a pacer,
-  // requests take turns and 429s are waited out by the pacer instead.
+  // requests take turns and 429s are waited out by the pacer instead; those
+  // don't use up attempts, but 30 in a row (well over 15 minutes) give up.
   async function fetchParsed(url, parse, attempts = 4, headers, pacer) {
-    for (let a = 1; ; a++) {
+    for (let a = 1, limits = 0; ; a++) {
+      let startedAt = 0;
       try {
-        if (pacer) await pacer.turn();
-        const out = parse(await gmGet(url, headers));
+        let text;
+        if (pacer) {
+          startedAt = await pacer.turn();
+          try { text = await gmGet(url, headers); } finally { pacer.done(); }
+        } else {
+          text = await gmGet(url, headers);
+        }
+        const out = parse(text);
         if (out) { if (pacer) pacer.success(); return out; }
         throw new Error('unexpected page content');
       } catch (e) {
         if (e.status === 404 || e.status === 410) return null;
+        if (pacer && e.status === 429 && ++limits < 30) { pacer.limited(startedAt, e.retryAfter); a--; continue; }
         if (a >= attempts || (e.status >= 400 && e.status < 500 && e.status !== 429 && e.status !== 403)) throw e;
-        if (pacer && e.status === 429) { pacer.limited(e.retryAfter); continue; }
-        await sleep(e.retryAfter ? e.retryAfter * 1000 : 2000 * 3 ** (a - 1)); // 2s, 6s, 18s
+        await sleep(e.retryAfter ? e.retryAfter * 1000 : Math.min(30000, 2000 * 3 ** (a - 1))); // 2s, 6s, 18s, then 30s
       }
     }
   }
 
-  // Runs fn over items with a fixed number of workers.
+  // Runs fn over items with a fixed number of workers. fn returning false
+  // stops them all.
   async function pool(items, concurrency, fn, delayMs = DELAY_MS) {
     let i = 0;
     async function worker() {
       while (i < items.length) {
-        await fn(items[i++]);
+        if ((await fn(items[i++])) === false) { i = items.length; return; }
         if (delayMs) await sleep(delayMs);
       }
     }
@@ -195,8 +266,14 @@
     return null;
   }
 
-  // Returns { tags, artist, label, album, albumUrl, isrc } or null if this is
-  // not a release page.
+  // A date as YYYY-MM-DD, or '' if it isn't one.
+  function isoDay(v) {
+    const d = new Date(v);
+    return v && !isNaN(d) ? d.toISOString().slice(0, 10) : '';
+  }
+
+  // Returns { tags, artist, label, album, albumUrl, isrc, released } or null if
+  // this is not a release page.
   function parseBandcamp(html) {
     const doc = new DOMParser().parseFromString(html, 'text/html');
     const ld = ldJson(doc);
@@ -221,6 +298,7 @@
       albumUrl: album['@id'] || '',
       // Keywords repeat the tags plus the artist's location and sometimes an ISRC.
       isrc: findIsrc(kw),
+      released: isoDay(ld.datePublished),
     };
   }
 
@@ -236,16 +314,20 @@
     return tags;
   }
 
-  // Bandcamp app API: ~4 KB of JSON instead of a ~330 KB page. Track lookups
-  // already include the album's tags. Returns the same shape as parseBandcamp
-  // plus trackTitles, or null if the response isn't a release.
+  // Bandcamp app API: ~4 KB of JSON instead of a ~330 KB page. Returns the same
+  // shape as parseBandcamp plus trackTitles, price and pre-order/free flags, or
+  // null if the response isn't a release.
   const bcApiUrl = (it) => 'https://bandcamp.com/api/mobile/25/tralbum_details?band_id=' + it.bandId +
     '&tralbum_id=' + it.id + '&tralbum_type=' + it.type;
 
   function parseBandcampApi(text) {
     let j;
     try { j = JSON.parse(text); } catch (e) { return null; }
-    if (!j || !j.id || j.error) return null;
+    // A removed release comes back as HTTP 200 with {"error":true,"error_message":
+    // "No such tralbum…"}. That's final, so report it like a 404 rather than
+    // retrying it as a challenge page.
+    if (j && j.error) throw new HttpError(404);
+    if (!j || !j.id) return null;
     const tags = j.tags || [];
     const locParts = new Set();
     const addLoc = (s) => String(s || '').toLowerCase().split(',').map((x) => x.trim()).filter(Boolean).forEach((x) => locParts.add(x));
@@ -261,6 +343,12 @@
       isrc: '',
       trackTitles: j.type === 'a' ? (j.tracks || []).map((t) => t.title).filter(Boolean).slice(0, 6) : [],
       albumId: j.type === 't' ? j.album_id || null : null,
+      released: isoDay(j.release_date * 1000),
+      price: typeof j.price === 'number' ? j.price : null, // the minimum, for name-your-price
+      currency: j.currency || '',
+      setPrice: !!j.is_set_price,
+      preorder: !!j.is_preorder,
+      free: !!j.free_download,
       v: BC_INFO_VERSION,
     };
   }
@@ -585,7 +673,8 @@
   // genre signal when a match exists. Search results already carry styles.
   const discogsToken = () => String(GM_getValue(TOKEN_KEY, '') || '').trim();
   const discogsGapMs = () => (discogsToken() ? 1100 : 2600); // 60/min with a token, 25/min without
-  const dcHeaders = () => Object.assign({ 'User-Agent': 'BandcampWishlistGenreExporter/3.0' },
+  const version = (typeof GM_info !== 'undefined' && GM_info.script && GM_info.script.version) || '3';
+  const dcHeaders = () => Object.assign({ 'User-Agent': 'BandcampWishlistGenreExporter/' + version },
     discogsToken() ? { Authorization: 'Discogs token=' + discogsToken() } : {});
 
   // Asks once (or again on shift-click). Cancel keeps the current value; an
@@ -715,6 +804,9 @@
   }
   function saveCache(c) { GM_setValue(CACHE_KEY, JSON.stringify(c)); }
 
+  // Release facts the page shows, kept at the top level of each exported item.
+  const SHOWN = ['released', 'price', 'currency', 'setPrice', 'preorder', 'free'];
+
   // Fills cache gaps from a previous wishlist.json so only new or failed items
   // are fetched again (useful after reinstalling the script or on another
   // browser). Each source (Bandcamp, Beatport, Discogs) is filled on its own,
@@ -732,7 +824,12 @@
         // (v3+) says which script version fetched it; older ones get refreshed.
         if (!have || (!have.gone && it.lookup && (it.lookup.v || 0) > (have.v || 0))) {
           if (it.gone) { cache.bc[it.key] = { tags: [], gone: true }; gained = true; }
-          else if (it.lookup) { cache.bc[it.key] = Object.assign({ tags: it.tags || [], label: it.label || '' }, it.lookup); gained = true; }
+          else if (it.lookup) {
+            const shown = {};
+            for (const k of SHOWN) if (k in it) shown[k] = it[k];
+            cache.bc[it.key] = Object.assign({ tags: it.tags || [], label: it.label || '' }, shown, it.lookup);
+            gained = true;
+          }
         }
         const bp = cache.bp[it.key];
         const bpFromExport = it.beatport || (it.bpMiss ? { miss: true, at: it.bpMiss, ver: it.bpVer || 1 } : null);
@@ -761,7 +858,7 @@
   function cacheHasGaps(items, cache) {
     return items.some((it) => {
       const bc = cache.bc[it.key];
-      if (needsBandcamp(it, bc)) return true;
+      if (needsBandcamp(bc)) return true;
       if (bc.gone) return false;
       return (USE_BEATPORT && !cache.bp[it.key]) || (USE_DISCOGS && !cache.dc[it.key]);
     });
@@ -779,6 +876,8 @@
         for (const k of ['artist', 'album', 'albumUrl', 'isrc', 'trackTitles', 'v']) {
           if (info[k] && !(Array.isArray(info[k]) && !info[k].length)) it.lookup[k] = info[k];
         }
+        // A price of 0 is kept (name your price from nothing); false flags are left out.
+        for (const k of SHOWN) if (info[k] != null && info[k] !== '' && info[k] !== false) it[k] = info[k];
       }
       const hit = cache.bp[it.key];
       if (hit && !hit.miss) it.beatport = hit;
@@ -806,7 +905,7 @@
   // parent album's tags for tracks that have few.
   async function fetchBandcampPage(it, cache) {
     const info = await fetchParsed(it.url, parseBandcamp, 6, undefined, bcPace);
-    if (info && it.type === 't' && info.albumUrl && info.tags.filter((t) => t !== 'electronic').length < 3) {
+    if (info && it.type === 't' && info.albumUrl && sparseTags(info.tags)) {
       let alb = cache.album[info.albumUrl];
       if (!alb) {
         const a = await fetchParsed(info.albumUrl, parseBandcamp, 6, undefined, bcPace).catch(() => null);
@@ -818,17 +917,14 @@
     return info;
   }
 
-  // allowPage: false when only refreshing an older result, so a failing API
-  // call doesn't turn into a ~330 KB page load.
   // Tags that say nothing about the genre on their own.
   const VAGUE_TAGS = new Set(['electronic', 'electronica', 'electronic music', 'dance', 'music']);
   const sparseTags = (tags) => (tags || []).filter((t) => !VAGUE_TAGS.has(t)).length < 2;
 
-  function needsBandcamp(it, bc) {
+  // No result yet, or one from an older script version (see BC_INFO_VERSION).
+  function needsBandcamp(bc) {
     if (!bc) return true;
-    if (bc.gone) return false;
-    const v = bc.v || 0;
-    return v < 3 || (v < BC_INFO_VERSION && it.type === 't' && sparseTags(bc.tags));
+    return !bc.gone && (bc.v || 0) < BC_INFO_VERSION;
   }
 
   // A track's own tags are often just "Electronic" or a city while its album
@@ -844,6 +940,8 @@
     if (tags) info.tags = [...new Set(info.tags.concat(tags))];
   }
 
+  // allowPage: false when only refreshing an older result, so a failing API
+  // call doesn't turn into a ~330 KB page load.
   async function fetchBandcamp(it, cache, allowPage = true) {
     if (it.bandId) {
       try {
@@ -859,8 +957,17 @@
   // Fetches items with no Bandcamp result, and refreshes results from older
   // script versions (kept if the refresh fails).
   async function fetchAllTags(items, cache, onProgress) {
-    const todo = items.filter((it) => it.url && needsBandcamp(it, cache.bc[it.key]));
+    // New items first: they have no genre evidence at all yet, while a refresh
+    // only adds to a result that's already there.
+    const todo = items.filter((it) => it.url && needsBandcamp(cache.bc[it.key]))
+      .sort((a, b) => !!cache.bc[a.key] - !!cache.bc[b.key]);
     let done = 0, failed = 0, kept = 0;
+    const report = () => {
+      const slow = bcPace.status() ? ', ' + bcPace.status() : '';
+      onProgress('Bandcamp tags… ' + done + '/' + todo.length + (failed ? ' (' + failed + ' failed)' : '') + (kept ? ' (' + kept + ' kept as before)' : '') + slow);
+    };
+    // Keeps the countdown moving while Bandcamp holds every request back.
+    const ticker = setInterval(report, 1000);
     // Workers only overlap request latency; bcPace sets the actual rate.
     await pool(todo, BC_CONCURRENCY, async (it) => {
       const old = cache.bc[it.key];
@@ -877,11 +984,11 @@
         console.warn('[wishlist-export] Bandcamp failed for', it.url, e.message);
       }
       done++;
-      const slow = bcPace.gap >= 1000 ? ', Bandcamp is throttling: slowed to ' + (bcPace.gap / 1000).toFixed(1) + 's/request' : '';
-      onProgress('Bandcamp tags… ' + done + '/' + todo.length + (failed ? ' (' + failed + ' failed)' : '') + (kept ? ' (' + kept + ' kept as before)' : '') + slow);
+      report();
       if (done % 20 === 0) saveCache(cache);
-    }, 0);
+    }, 0).finally(() => clearInterval(ticker));
     saveCache(cache);
+    bcPace.save();
     return failed;
   }
 
@@ -893,7 +1000,7 @@
     });
     let done = 0, failed = 0, found = 0, blockedRun = 0;
     await pool(todo, BP_CONCURRENCY, async (it) => {
-      if (blockedRun >= 5) return; // Beatport is refusing us; stop rather than hammer it
+      if (blockedRun >= 5) return false; // Beatport is refusing us; stop rather than hammer it
       try {
         const prev = cache.bp[it.key];
         // Re-checks of recent misses only run the steps that changed since:

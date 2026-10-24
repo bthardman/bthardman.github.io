@@ -4,16 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wishlist Genres</title>
+<meta name="description" content="Bandcamp wishlists sorted into genres from Bandcamp tags, Beatport genres and Discogs styles, with a player for each release.">
+<meta name="theme-color" content="#1c1f25">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wishlist Genres">
+<meta property="og:description" content="Bandcamp wishlists sorted into genres, with a player for each release.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%231da0c3'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%2314161a' stroke-opacity='.35'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%2314161a'/%3E%3C/svg%3E">
 <style>
-  :root { --bg:#14161a; --panel:#1c1f25; --line:#2b3039; --text:#e8eaed; --dim:#9aa3af; --accent:#1da0c3; }
+  /* --accent-strong is the fill behind white text (4.6:1; --accent is 3.1:1). */
+  :root { --bg:#14161a; --panel:#1c1f25; --line:#2b3039; --text:#e8eaed; --dim:#9aa3af; --accent:#1da0c3; --accent-strong:#13809c; --set:#e0b04a; }
   * { box-sizing: border-box; }
   [hidden] { display:none !important; }
   body { margin:0; background:var(--bg); color:var(--text); font:15px/1.4 system-ui, sans-serif; }
   header { position:sticky; top:0; z-index:5; background:var(--panel); border-bottom:1px solid var(--line); padding:10px 16px; }
   .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:8px; }
-  .bar h1 { font-size:16px; margin:0 8px 0 0; }
+  .bar h1 { display:flex; align-items:center; gap:8px; font-size:16px; margin:0 8px 0 0; }
   .bar h1 a { color:var(--dim); text-decoration:none; font-weight:400; }
   .bar h1 a:hover { color:var(--accent); }
+  .bar h1 .avatar { width:26px; height:26px; font-size:13px; }
+  #q { width:240px; }
+  .transport { display:flex; align-items:center; gap:10px; }
+  #now { flex:1; min-width:0; font-size:13px; color:var(--dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  #playerWrap { height:120px; margin-top:8px; background:#222; }
+  #playerWrap iframe { width:100%; height:120px; border:0; display:block; }
   #picker { max-width:900px; margin:48px auto; padding:0 16px; }
   #picker h1 { font-size:22px; margin:0 0 20px; }
   .lists { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:16px; }
@@ -25,67 +38,117 @@
   .list .name { padding:10px 12px 0; font-weight:600; overflow-wrap:anywhere; }
   .list .handle { padding:2px 12px 0; color:var(--dim); font-size:12px; }
   .list .meta { padding:2px 12px 12px; color:var(--dim); font-size:13px; }
+  .foot { margin-top:28px; color:var(--dim); font-size:13px; }
+  .foot a { color:var(--accent); }
   .avatar { flex-shrink:0; border-radius:50%; object-fit:cover; background:var(--line); display:inline-flex; align-items:center; justify-content:center; color:var(--text); font-weight:600; }
-  .bar h1 { display:flex; align-items:center; gap:8px; }
-  .bar h1 .avatar { width:26px; height:26px; font-size:13px; }
   button, input[type=search], select { background:var(--bg); color:var(--text); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font:inherit; }
   button { cursor:pointer; } button:hover { border-color:var(--accent); }
-  button.on { background:var(--accent); border-color:var(--accent); color:#fff; }
+  button.on { background:var(--accent-strong); border-color:var(--accent-strong); color:#fff; }
+  select:disabled { opacity:.5; }
   label { color:var(--dim); font-size:13px; display:flex; gap:5px; align-items:center; }
-  #now { font-size:13px; color:var(--dim); margin-bottom:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  #playerWrap { height:120px; background:#222; }
-  #playerWrap iframe { width:100%; height:120px; border:0; display:block; }
+  /* A button that reads as a link: artist, label and tag filters, the genre name. */
+  .link { background:none; border:0; border-radius:0; padding:0; color:inherit; font:inherit; text-align:left; cursor:pointer; }
+  .link:hover, .link:focus-visible { color:var(--accent); text-decoration:underline; }
   .layout { display:grid; grid-template-columns:260px 1fr; gap:0; }
-  nav { border-right:1px solid var(--line); padding:12px; height:calc(100vh - 190px); position:sticky; top:190px; overflow:auto; }
+  nav { border-right:1px solid var(--line); padding:12px; height:calc(100vh - var(--head, 190px)); position:sticky; top:var(--head, 190px); overflow:auto; }
   nav button { display:flex; justify-content:space-between; align-items:baseline; gap:10px; width:100%; text-align:left; margin-bottom:4px; }
   nav button span:first-child { min-width:0; overflow-wrap:anywhere; }
   nav button span:last-child { flex-shrink:0; color:var(--dim); font-variant-numeric:tabular-nums; }
   nav button.on span:last-child { color:#fff; }
+  nav button.none:not(.on) { opacity:.45; }
+  nav .sep { border-top:1px solid var(--line); margin:8px 0 12px; }
   main { padding:16px; }
+  #viewBar { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:14px; color:var(--dim); font-size:13px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(170px, 1fr)); gap:14px; }
-  .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; overflow:hidden; cursor:pointer; display:flex; flex-direction:column; }
+  .card { position:relative; background:var(--panel); border:1px solid var(--line); border-radius:8px; overflow:hidden; cursor:pointer; display:flex; flex-direction:column; }
   .card:hover { border-color:var(--accent); }
   .card.playing { border-color:var(--accent); box-shadow:0 0 0 2px var(--accent) inset; }
-  .card img { width:100%; aspect-ratio:1; object-fit:cover; display:block; background:#222; }
+  .card.heard { opacity:.55; }
+  .card.heard:hover, .card.heard:focus-within, .card.heard.playing { opacity:1; }
+  .cover { position:relative; }
+  .cover .art { display:block; width:100%; padding:0; border:0; border-radius:0; background:#222; }
+  .cover .art:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
+  .cover img { width:100%; aspect-ratio:1; object-fit:cover; display:block; }
+  .badges { position:absolute; top:6px; left:6px; right:40px; display:flex; flex-wrap:wrap; gap:4px; pointer-events:none; }
+  .pill { font-size:10px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:2px 6px; border-radius:9px; background:#000c; color:#fff; }
+  .pill.new { background:var(--accent-strong); }
+  .pill.pre { background:#8a6a1f; }
+  .pill.free { background:#2f7d4f; }
+  .shared { position:absolute; top:6px; right:6px; display:flex; flex-direction:row-reverse; }
+  .shared .avatar { width:24px; height:24px; font-size:11px; border:2px solid var(--panel); margin-left:-6px; }
+  .tick { position:absolute; right:6px; bottom:6px; width:28px; height:28px; padding:0; border-radius:50%; border-color:transparent; background:#0009; color:#fff; font-size:14px; line-height:26px; opacity:.75; }
+  .tick:hover, .tick:focus-visible { opacity:1; }
+  .tick[aria-pressed="true"] { background:var(--accent-strong); opacity:1; }
   .card .t { padding:8px 8px 2px; font-weight:600; font-size:13px; }
-  .card .a { padding:0 8px; color:var(--dim); font-size:12px; }
-  .card .g { padding:4px 8px 8px; color:var(--dim); font-size:11px; margin-top:auto; }
-  .card .pg { display:flex; align-items:center; gap:6px; padding:6px 8px 0; margin-top:auto; font-size:12px; font-weight:600; color:var(--accent); cursor:help; }
-  .card .pg.set { color:#e0b04a; }
-  .card .pg span { min-width:0; }
+  .card .a, .card .m { padding:0 8px; color:var(--dim); font-size:12px; }
+  .card .pg { display:flex; align-items:center; gap:6px; padding:6px 8px 0; margin-top:auto; font-size:12px; font-weight:600; color:var(--accent); }
+  .card .pg.set { color:var(--set); }
+  .card .pg .gname { min-width:0; cursor:help; }
   .card .pg select { width:100%; padding:3px 4px; font-size:12px; }
   .card .pg .edit { margin-left:auto; padding:0 6px; font-size:12px; line-height:18px; color:var(--dim); background:transparent; }
+  .card .why { margin:4px 8px 0; padding:6px 8px; border-radius:6px; background:var(--bg); color:var(--dim); font-size:11px; white-space:pre-line; cursor:auto; }
   .card .src { padding:2px 8px 0; color:var(--text); font-size:11px; }
-  .card .g { margin-top:0; }
-  .card .links { display:flex; gap:12px; padding:0 8px 8px; }
+  .card .g { padding:4px 8px 8px; color:var(--dim); font-size:11px; }
+  .card .links { display:flex; flex-wrap:wrap; gap:2px 12px; padding:0 8px 8px; }
   .card a { color:var(--accent); font-size:12px; text-decoration:none; }
+  /* Start page: each person's five main genres as a small labelled bar list. */
+  .list .genres { display:grid; grid-template-columns:minmax(0, max-content) 1fr auto; align-items:center; gap:0 8px; margin-top:-6px; padding:0 12px 12px; color:var(--dim); font-size:11px; }
+  .genres .gl { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .genres .gt { padding:5px 0; } /* hover area, taller than the 6px bar */
+  .genres .gt i { display:block; height:6px; min-width:2px; border-radius:0 3px 3px 0; background:var(--accent); }
+  .genres .gt:hover i { filter:brightness(1.25); }
+  .genres .gp { text-align:right; font-variant-numeric:tabular-nums; }
+  #tip { position:fixed; z-index:10; pointer-events:none; background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:4px 8px; font-size:12px; color:var(--dim); }
+  #tip strong { color:var(--text); }
   #loader { max-width:560px; margin:60px auto; text-align:center; color:var(--dim); }
   #loader.drag { color:var(--accent); }
   details { margin-top:24px; color:var(--dim); font-size:13px; }
   details code { color:var(--text); }
-  @media (max-width:720px) { .layout { grid-template-columns:1fr; } nav { position:static; height:auto; max-height:160px; border-right:0; border-bottom:1px solid var(--line); } }
+  /* Phones: the controls scroll away, the player docks at the bottom, the
+     genres become a row of chips and the grid has two columns. */
+  @media (max-width:720px) {
+    header { position:static; padding:10px 12px; }
+    .bar { margin-bottom:0; }
+    #q { flex:1 1 100%; width:auto; }
+    .dock { position:fixed; left:0; right:0; bottom:0; z-index:6; background:var(--panel); border-top:1px solid var(--line); padding:8px 12px calc(8px + env(safe-area-inset-bottom)); }
+    body { padding-bottom:var(--dock, 0px); }
+    .layout { grid-template-columns:1fr; }
+    nav { position:static; height:auto; display:flex; gap:6px; overflow-x:auto; padding:8px 12px; border-right:0; border-bottom:1px solid var(--line); }
+    nav button { flex:0 0 auto; width:auto; margin:0; }
+    nav button span:first-child { white-space:nowrap; }
+    nav .sep { display:none; }
+    main { padding:10px 12px; }
+    .grid { grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:10px; }
+  }
 </style>
 </head>
 <body>
 <header hidden>
   <div class="bar">
     <h1><a id="home" href="./">Wishlists</a> / <span id="whoAvatar"></span><span id="who"></span></h1>
-    <button id="prev">&#9664; Prev</button>
-    <button id="next">Next &#9654;</button>
-    <button id="shuffle">Shuffle order</button>
-    <label><input type="checkbox" id="multi"> List releases in every genre they match</label>
-    <input type="search" id="q" placeholder="Search title, artist, tag">
-    <select id="sort"><option value="added">Wishlist order</option><option value="artist">Artist A-Z</option><option value="title">Title A-Z</option></select>
+    <input type="search" id="q" placeholder="Search title, artist, label, tag" aria-label="Search">
+    <select id="sort" aria-label="Sort"><option value="added">Wishlist order</option><option value="released" hidden disabled>Release date</option><option value="artist">Artist A-Z</option><option value="title">Title A-Z</option></select>
+    <button id="shuffle">Shuffle</button>
+    <label title="Also list a release under every genre that scores at least 40% of its best"><input type="checkbox" id="multi"> Show in every matching genre</label>
+    <label title="Hide releases you've had in the player for 15 seconds or ticked ✓"><input type="checkbox" id="hideHeard"> Hide heard</label>
     <button id="exportOv" hidden title="Download your hand-set genres to commit as wishlists/&lt;user&gt;.overrides.json">Export overrides</button>
   </div>
-  <div id="now">Nothing playing. Click a release.</div>
-  <div id="playerWrap"></div>
+  <div class="dock">
+    <div class="transport">
+      <button id="prev" title="Previous release">&#9664; Prev</button>
+      <button id="next" title="Next release">Next &#9654;</button>
+      <div id="now">Nothing playing. Click a release.</div>
+    </div>
+    <div id="playerWrap" hidden></div>
+  </div>
 </header>
 
 <div id="picker" hidden>
   <h1>Wishlist Genres</h1>
   <div class="lists" id="lists"></div>
+  <p class="foot"><a href="bandcamp-wishlist-export.user.js">Get the exporter</a>, a Tampermonkey userscript that adds an export button to any Bandcamp wishlist. <a href="https://github.com/bthardman/bthardman.github.io#readme">How it works</a></p>
 </div>
+<div id="tip" hidden></div>
 
 <div id="loader" hidden>
   <p id="status">Loading&hellip;</p>
@@ -94,10 +157,11 @@
 </div>
 
 <div class="layout" id="layout" hidden>
-  <nav id="nav"></nav>
+  <nav id="nav" aria-label="Genres"></nav>
   <main>
+    <div id="viewBar" hidden></div>
     <div class="grid" id="grid"></div>
-    <details><summary>Most common tags not matched to a genre (use these to extend GENRE_GROUPS)</summary><div id="unmatched"></div></details>
+    <details><summary>Most common tags that match no genre (use these to extend GENRE_GROUPS)</summary><div id="unmatched"></div></details>
   </main>
 </div>
 
@@ -116,37 +180,38 @@ const WISHLISTS = [
    to a group (see WEIGHTS); the highest-scoring family wins, then the best
    group inside it. Matching is whole-word, so "house" matches "deep house" but
    not "warehouse"; a tag counts towards the group with its longest matching
-   word, so "dub techno" counts for Dub Techno, not Techno. The order breaks ties.
+   word, so "dub techno" counts for Dub Techno, not Techno. Case, accents and
+   hyphens don't matter ("uk-funky" matches "uk funky"). The order breaks ties.
    family: groups that are sub-genres of each other. Within a family the group
    marked generic only wins if the specific ones have little evidence.
 --------------------------------------------------------------------------- */
 const GENRE_GROUPS = [
-  ['Dub Techno',          ['dub techno', 'dubtechno', 'dub-techno'], { family: 'Techno' }],
-  ['Deep / Hypnotic Techno', ['deep techno', 'hypnotic techno', 'hypnotic', 'minimal techno', 'minimal', 'raw techno', 'raw-techno', 'ambient techno'], { family: 'Techno' }],
-  ['Techno',              ['techno', 'hard techno', 'hardgroove', 'peak time', 'peaktime', 'detroit techno', 'uk techno', 'uktechno', 'broken techno'], { family: 'Techno', generic: true }],
+  ['Dub Techno',          ['dub techno', 'dubtechno'], { family: 'Techno' }],
+  ['Deep / Hypnotic Techno', ['deep techno', 'hypnotic techno', 'hypnotic', 'minimal techno', 'minimal', 'raw techno', 'ambient techno', 'deep tech'], { family: 'Techno' }],
+  ['Techno',              ['techno', 'hard techno', 'hardgroove', 'peak time', 'peaktime', 'detroit techno', 'uk techno', 'uktechno', 'broken techno', 'bleep', 'freetekno'], { family: 'Techno', generic: true }],
   ['Drum & Bass / Jungle',['drum and bass', 'drum & bass', 'dnb', 'drum n bass', 'jungle', 'liquid funk', 'neurofunk', 'breakcore']],
   ['Dubstep / 140',       ['dubstep', '140', 'deep dubstep', 'halftime', 'grime'], { family: 'Bass' }],
-  ['UK Garage / Bassline',['uk garage', 'ukgarage', 'ukg', 'garage', 'speed garage', '2-step', '2 step', '2step', 'bassline', 'uk funky', 'ukfunky'], { family: 'Bass' }],
-  ['Breaks / UK Bass',    ['breaks', 'breakbeat', 'broken beat', 'broken beats', 'uk bass', 'ukbass', 'miami bass'], { family: 'Bass' }],
-  ['Bass / Club',         ['bass music', 'bass', 'club', 'club music', 'leftfield bass', 'left-field club', 'leftfield club', 'hard drum', 'harddrum', 'deconstructed', 'footwork', 'juke'], { family: 'Bass', generic: true }],
-  ['Global Club',         ['gqom', 'amapiano', 'baile funk', 'funk carioca', 'dembow', 'reggaeton', 'latin bass', 'latin club', 'club latino', 'guaracha', 'perreo', 'kuduro', 'singeli', 'afro house', 'tribal house']],
-  ['Trance / Psy',        ['trance', 'psytrance', 'psy-trance', 'goa', 'psychedelic trance']],
-  ['House',               ['house', 'deep house', 'acid house', 'tech house', 'techhouse', 'progressive house']],
-  ['Electro',             ['electro']],
-  ['Ambient / Downtempo', ['ambient', 'drone', 'dark ambient', 'soundscape', 'new age', 'downtempo', 'balearic']],
-  ['IDM / Experimental',  ['idm', 'glitch', 'experimental', 'noise', 'avant-garde', 'musique concrete', 'leftfield', 'abstract']],
-  ['Industrial / Dark',   ['industrial', 'ebm', 'darkwave', 'goth', 'coldwave']],
-  ['Synth / Vapor',       ['synthwave', 'synth', 'retrowave', 'italo disco', 'italo-disco', 'vaporwave', 'chillwave']],
-  ['Disco / Funk / Soul', ['disco', 'nu-disco', 'funk', 'soul', 'boogie', 'r&b', 'rnb']],
-  ['Hip-Hop / Beats',     ['hip-hop', 'hip hop', 'rap', 'beat tape', 'trap', 'lo-fi', 'lofi', 'instrumental hip-hop']],
+  ['UK Garage / Bassline',['uk garage', 'ukgarage', 'ukg', 'garage', 'speed garage', '2 step', '2step', 'bassline', 'uk funky', 'ukfunky'], { family: 'Bass' }],
+  ['Breaks / UK Bass',    ['breaks', 'breakbeat', 'breakbeats', 'broken beat', 'broken beats', 'bruk', 'big beat', 'uk bass', 'ukbass', 'miami bass'], { family: 'Bass' }],
+  ['Bass / Club',         ['bass music', 'bass', 'club', 'club music', 'leftfield bass', 'left field club', 'leftfield club', 'hard drum', 'harddrum', 'deconstructed', 'footwork', 'juke', 'ghettotech', 'ghetto tech', 'ballroom'], { family: 'Bass', generic: true }],
+  ['Global Club',         ['global club', 'gqom', 'amapiano', 'baile', 'baile funk', 'funk carioca', 'brazilian funk', 'batida', 'dembow', 'reggaeton', 'moombahton', 'latin bass', 'latin club', 'latin house', 'club latino', 'guaracha', 'perreo', 'kuduro', 'singeli', 'afro house', 'tribal house']],
+  ['Trance / Psy',        ['trance', 'psytrance', 'psy trance', 'goa', 'psychedelic trance']],
+  ['House',               ['house', 'deep house', 'acid house', 'tech house', 'techhouse', 'progressive house', 'lo-fi house', 'indie dance', 'microhouse', 'garage house']],
+  ['Electro',             ['electro', 'elektro']],
+  ['Ambient / Downtempo', ['ambient', 'drone', 'dark ambient', 'soundscape', 'new age', 'downtempo', 'balearic', 'trip hop', 'field recording']],
+  ['IDM / Experimental',  ['idm', 'braindance', 'glitch', 'experimental', 'noise', 'avant-garde', 'avantgarde', 'musique concrete', 'sound collage', 'plunderphonics', 'electroacoustic', 'electro-acoustic', 'illbient', 'leftfield', 'abstract']],
+  ['Industrial / Dark',   ['industrial', 'ebm', 'new beat', 'darkwave', 'goth', 'coldwave']],
+  ['Synth / Vapor',       ['synthwave', 'synth', 'retrowave', 'italo disco', 'vaporwave', 'chillwave']],
+  ['Disco / Funk / Soul', ['disco', 'nu-disco', 'hi nrg', 'funk', 'soul', 'boogie', 'r&b', 'rnb']],
+  ['Hip-Hop / Beats',     ['hip-hop', 'rap', 'drill', 'beat tape', 'trap', 'lo-fi', 'lofi', 'instrumental hip-hop']],
   ['Jazz',                ['jazz', 'spiritual jazz', 'fusion']],
   ['Reggae / Dub / World',['reggae', 'dub', 'dancehall', 'afrobeat', 'world', 'latin', 'cumbia', 'highlife']],
   ['Metal',               ['metal', 'black metal', 'doom', 'death metal', 'sludge']],
-  ['Punk / Hardcore',     ['punk', 'hardcore', 'post-punk', 'emo']],
+  ['Punk / Hardcore',     ['punk', 'hardcore punk', 'post-punk', 'emo']],  // plain "hardcore" is usually rave hardcore here
   ['Rock / Indie',        ['rock', 'indie', 'shoegaze', 'post-rock', 'alternative', 'psychedelic', 'math rock', 'garage rock', 'lo-fi rock']],
   ['Folk / Singer-songwriter', ['folk', 'singer-songwriter', 'acoustic', 'country', 'americana']],
   ['Classical / Soundtrack',   ['classical', 'piano', 'neoclassical', 'orchestral', 'soundtrack', 'score', 'modern classical']],
-  ['Pop',                 ['pop', 'synth pop', 'dream pop', 'indie pop']],
+  ['Pop',                 ['pop', 'synth pop', 'dream pop', 'indie pop', 'hyperpop']],
   ['Electronic (general)',['electronic', 'electronica', 'dance']],
 ];
 
@@ -165,7 +230,7 @@ const WEIGHTS = {
   labelNoise: 0.5,      // multiplier for a tag on >=80% of a label's releases (labels with 3+)
   genericInFamily: 0.6, // multiplier for a family's generic group when picking within the family
 };
-const BROAD_TAGS = new Set(['bass', 'club', 'dance', 'electronic', 'electronica', 'experimental', 'beats', 'dub', 'world']);
+const BROAD_TAGS = new Set(['bass', 'club', 'dance', 'electronic', 'electronica', 'experimental', 'dub', 'world']);
 const BEATPORT_WEAK = new Set(['Bass / Club', 'Techno (Raw / Deep / Hypnotic)']);
 
 /* Beatport genre -> group. null = too generic to count. Genres not listed are
@@ -192,6 +257,7 @@ const BEATPORT = {
   'Organic House':                  'House',
   'Indie Dance':                    'House',
   'Nu Disco / Disco':               'Disco / Funk / Soul',
+  'Hard Dance / Hardcore / Neo Rave': null, // rave hardcore, not punk
   'Dance / Pop':                    null,
   'Electronica':                    null,
   'DJ Tools':                       null,
@@ -222,25 +288,35 @@ const DISCOGS = {
 };
 const UNSORTED = 'Unsorted';
 const ALL = 'All';
+const NEW = 'New';        // views listed above the genres: see "Heard and new"
+const SHARED = 'Shared';  // and "Shared releases"
 
 /* ---- Scoring ----------------------------------------------------------- */
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+// Lower case, accents dropped and hyphens read as spaces, so "Musique Concrète"
+// and "uk-funky" match "musique concrete" and "uk funky".
+const normTerm = (s) => s.toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/-/g, ' ');
 const compiled = GENRE_GROUPS.map(([name, words, opts]) => ({
   name, opts: opts || {},
-  words: words.map((w) => ({ len: w.length, re: new RegExp('(^|[^a-z0-9])' + esc(w.toLowerCase()) + '($|[^a-z0-9])') })),
+  words: words.map(normTerm).map((w) => ({ len: w.length, re: new RegExp('(^|[^a-z0-9])' + esc(w) + '($|[^a-z0-9])') })),
 }));
 const rank = new Map(GENRE_GROUPS.map(([name], i) => [name, i]));
 const familyOf = new Map(compiled.map((g) => [g.name, g.opts.family || g.name]));
 const genericGroup = new Set(compiled.filter((g) => g.opts.generic).map((g) => g.name));
 
 // Groups for one term: those whose longest matching word is the longest overall.
+// The same few hundred terms come up again and again, so answers are kept.
+const termGroups = new Map();
 function groupsForTerm(term) {
+  if (termGroups.has(term)) return termGroups.get(term);
+  const t = normTerm(term);
   let best = 0, hits = [];
   for (const g of compiled) {
-    const len = Math.max(0, ...g.words.filter((w) => w.re.test(term)).map((w) => w.len));
+    const len = Math.max(0, ...g.words.filter((w) => w.re.test(t)).map((w) => w.len));
     if (!len) continue;
     if (len > best) { best = len; hits = [g.name]; } else if (len === best) hits.push(g.name);
   }
+  termGroups.set(term, hits);
   return hits;
 }
 
@@ -263,7 +339,7 @@ function labelNoise(list) {
   return noisy;
 }
 
-const mapTerm = (table, term) => (term in table ? (table[term] ? [table[term]] : []) : groupsForTerm(term.toLowerCase()));
+const mapTerm = (table, term) => (term in table ? (table[term] ? [table[term]] : []) : groupsForTerm(term));
 
 // Scores every group for one item: { genres (best first), scores, why }.
 function scoreItem(it, noisy) {
@@ -282,10 +358,14 @@ function scoreItem(it, noisy) {
     if (labelTags && labelTags.has(t)) w *= WEIGHTS.labelNoise;
     for (const g of groups) add(g, w / groups.length, 'tag "' + t + '"');
   }
+  // A genre and its sub-genre often name the same group ("UK Garage / Bassline"
+  // and "UK Garage"), so each group counts once, at its strongest.
+  const bp = new Map();
   for (const g of it.bpGenres || []) {
     const w = BEATPORT_WEAK.has(g) ? WEIGHTS.beatportWeak : WEIGHTS.beatport;
-    for (const grp of mapTerm(BEATPORT, g)) add(grp, w, 'Beatport ' + g);
+    for (const grp of mapTerm(BEATPORT, g)) if (!bp.has(grp) || bp.get(grp).w < w) bp.set(grp, { w, g });
   }
+  for (const [grp, { w, g }] of bp) add(grp, w, 'Beatport ' + g);
   // Compilations can list 20+ styles: beyond 4, they share the weight of 4.
   const styles = it.dcStyles || [];
   const spread = styles.length > 4 ? 4 / styles.length : 1;
@@ -321,6 +401,7 @@ let playingKey = null;
 let shuffled = false;
 
 const $ = (id) => document.getElementById(id);
+const header = document.querySelector('header');
 function h(tag, props, ...kids) {
   const el = document.createElement(tag);
   for (const [k, v] of Object.entries(props || {})) {
@@ -339,13 +420,16 @@ function h(tag, props, ...kids) {
 let user = '';
 let published = {};   // from wishlists/<user>.overrides.json
 let local = {};       // picked in this browser, not yet published
-const lsKey = () => 'overrides:' + user;
-function loadLocal() {
-  try { local = JSON.parse(localStorage.getItem(lsKey()) || '{}') || {}; } catch (e) { local = {}; }
+
+// Per-wishlist values kept in this browser, as "<name>:<user>". Storage can be
+// unavailable (private mode), and then they last this visit only.
+function readStore(name, fallback) {
+  try { return JSON.parse(localStorage.getItem(name + ':' + user)) || fallback; } catch (e) { return fallback; }
 }
-function saveLocal() {
-  try { localStorage.setItem(lsKey(), JSON.stringify(local)); } catch (e) { /* private mode: lasts this visit */ }
+function writeStore(name, value) {
+  try { localStorage.setItem(name + ':' + user, JSON.stringify(value)); } catch (e) { /* private mode */ }
 }
+const saveLocal = () => writeStore('overrides', local);
 // local values: a group name, or null meaning "cleared here".
 function overrideFor(key) { return key in local ? local[key] : published[key] || null; }
 function mergedOverrides() {
@@ -364,6 +448,7 @@ function exportOverrides() {
   const blob = new Blob([JSON.stringify({ user, overrides: mergedOverrides() }, null, 1)], { type: 'application/json' });
   const a = h('a', { href: URL.createObjectURL(blob), download: (user || 'wishlist') + '.overrides.json' });
   document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
 }
 
 let scoreCtx = new Map();
@@ -378,131 +463,325 @@ function applyGenres(it, noisy) {
   it.primary = it.genres[0] || UNSORTED;
 }
 
-function init(data) {
-  user = data.user || '';
-  loadLocal();
-  items = (data.items || []).map((it, i) => {
-    const o = Object.assign({ tags: [] }, it, { order: i });
+// Wishlist items with the extra fields that scoring and the page use.
+function prepare(data) {
+  return (data.items || []).map((it, i) => {
+    const o = Object.assign({ tags: [] }, it, { order: i, rank: Math.random(), shared: [] });
     o.bpGenres = (it.beatport && it.beatport.genres) || [];
     o.dcStyles = (it.discogs && it.discogs.styles) || [];
     o.dcGenres = (it.discogs && it.discogs.genres) || [];
+    // What free-text search looks through.
+    o.hay = [o.title, o.artist, o.label, ...o.tags, ...o.bpGenres, ...o.dcStyles].join(' ').toLowerCase();
     return o;
   });
+}
+
+// ov: the published overrides (wishlists/<user>.overrides.json), if any.
+function init(data, ov) {
+  user = data.user || '';
+  published = ov || {};
+  local = readStore('overrides', {});
+  // Picks the published file already has are no longer unsaved.
+  const before = Object.keys(local).length;
+  for (const k of Object.keys(local)) if (local[k] === (published[k] || null)) delete local[k];
+  if (Object.keys(local).length !== before) saveLocal();
+  items = prepare(data);
   scoreCtx = labelNoise(items);
   items.forEach((o) => applyGenres(o, scoreCtx));
-  // Published overrides arrive a moment later; rescore when they do.
-  if (user && location.protocol !== 'file:') {
-    fetch(dataUrl(user + '.overrides'), { cache: 'no-cache' })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => { if (d && d.overrides) { published = d.overrides; items.forEach((o) => applyGenres(o, scoreCtx)); renderAll(); } })
-      .catch(() => {});
-  }
+  heard = readStore('heard', {});
+  $('hideHeard').checked = !!readStore('hideHeard', false);
+  loadNew(data);
+  // "Release date" needs an export from exporter 3.1 or later.
+  const byDate = $('sort').querySelector('[value=released]');
+  byDate.hidden = byDate.disabled = !items.some((it) => it.released);
+  if (byDate.disabled && $('sort').value === 'released') $('sort').value = 'added';
   $('loader').hidden = true;
   $('picker').hidden = true;
-  document.querySelector('header').hidden = false;
+  header.hidden = false;
   $('layout').hidden = false;
   $('who').textContent = data.user ? personOf(data.user).name || data.user : 'wishlist';
   $('who').title = data.user ? '@' + data.user : '';
   $('whoAvatar').replaceChildren(avatar(data.user));
   document.title = (data.user ? data.user + ' - ' : '') + 'Wishlist Genres (' + items.length + ')';
   renderAll();
+  renderUnmatched();
+  loadShared();
+}
+
+/* ---- Search ------------------------------------------------------------
+   Free text matches anywhere in a release (title, artist, label, tags,
+   genres). artist:, label: and tag: must match exactly, ignoring case, with
+   quotes around spaces: label:"Livity Sound" dub. Clicking an artist, label
+   or tag on a card fills these in. */
+const FIELD_RE = /\b(artist|label|tag):(?:"([^"]*)"?|(\S+))/gi;
+const fold = (s) => String(s || '').toLowerCase().replace(/"/g, '').trim();
+let query = { text: '', artist: [], label: [], tag: [] };
+
+function parseQuery(s) {
+  const q = { artist: [], label: [], tag: [] };
+  q.text = s.replace(FIELD_RE, (m, field, quoted, bare) => {
+    const v = fold(quoted != null ? quoted : bare);
+    if (v) q[field.toLowerCase()].push(v);
+    return ' ';
+  }).replace(/\s+/g, ' ').trim().toLowerCase();
+  return q;
+}
+const searching = () => !!(query.text || query.artist.length || query.label.length || query.tag.length);
+
+// Whether a release passes the search and "Hide heard". The release playing
+// now always does, so it doesn't vanish mid-listen.
+function matches(it) {
+  if ($('hideHeard').checked && heard[it.key] && it.key !== playingKey) return false;
+  const q = query;
+  if (!q.artist.every((a) => fold(it.artist) === a)) return false;
+  if (!q.label.every((l) => fold(it.label) === l)) return false;
+  if (!q.tag.every((t) => it.tags.some((x) => fold(x) === t))) return false;
+  return !q.text || it.hay.includes(q.text);
+}
+
+function filterBy(field, value) {
+  const v = String(value).replace(/"/g, '').trim();
+  $('q').value = field + ':' + (/\s/.test(v) ? '"' + v + '"' : v);
+  query = parseQuery($('q').value);
+  current = ALL;
+  renderAll();
+  scrollTo(0, 0);
+}
+
+/* ---- Lists ------------------------------------------------------------- */
+// Whether a release is listed under a nav entry: a view (All, New, Shared) or a genre.
+function inView(it, v, multi) {
+  if (v === ALL) return true;
+  if (v === NEW) return newKeys.has(it.key);
+  if (v === SHARED) return it.shared.length > 0;
+  return multi ? (it.genres.includes(v) || (v === UNSORTED && !it.genres.length)) : it.primary === v;
 }
 
 function visibleItems() {
   const multi = $('multi').checked;
-  const q = $('q').value.trim().toLowerCase();
-  let list = items.filter((it) => {
-    if (current !== ALL) {
-      const inGenre = multi ? (it.genres.includes(current) || (current === UNSORTED && !it.genres.length)) : it.primary === current;
-      if (!inGenre) return false;
-    }
-    if (q) {
-      const hay = (it.title + ' ' + it.artist + ' ' + it.tags.join(' ') + ' ' + it.bpGenres.join(' ') + ' ' + it.dcStyles.join(' ') + ' ' + (it.label || '')).toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
-    return true;
-  });
+  const list = items.filter((it) => inView(it, current, multi) && matches(it));
   const sort = $('sort').value;
-  if (sort === 'artist') list.sort((a, b) => a.artist.localeCompare(b.artist));
+  // Shuffle sorts by each item's random rank, which only changes when Shuffle is
+  // pressed again, so searching or re-genring a release doesn't reshuffle.
+  if (shuffled) list.sort((a, b) => a.rank - b.rank);
+  else if (sort === 'released') list.sort((a, b) => (b.released || '').localeCompare(a.released || '') || a.order - b.order);
+  else if (sort === 'artist') list.sort((a, b) => a.artist.localeCompare(b.artist));
   else if (sort === 'title') list.sort((a, b) => a.title.localeCompare(b.title));
   else list.sort((a, b) => a.order - b.order);
-  if (shuffled) {
-    for (let i = list.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [list[i], list[j]] = [list[j], list[i]];
-    }
-  }
   return list;
 }
 
 function renderNav() {
   const multi = $('multi').checked;
-  const counts = new Map();
-  for (const it of items) {
-    const gs = multi ? (it.genres.length ? it.genres : [UNSORTED]) : [it.primary];
-    for (const g of gs) counts.set(g, (counts.get(g) || 0) + 1);
-  }
-  const names = [ALL, ...GENRE_GROUPS.map((g) => g[0]), UNSORTED].filter((n) => n === ALL || counts.has(n));
-  const nav = $('nav');
-  nav.replaceChildren(...names.map((n) =>
-    h('button', { class: n === current ? 'on' : '', onclick: () => { current = n; renderAll(); } },
-      h('span', {}, n), h('span', {}, String(n === ALL ? items.length : counts.get(n))))));
+  const tally = (list) => {
+    const c = new Map([[ALL, list.length], [NEW, 0], [SHARED, 0]]);
+    for (const it of list) {
+      if (newKeys.has(it.key)) c.set(NEW, c.get(NEW) + 1);
+      if (it.shared.length) c.set(SHARED, c.get(SHARED) + 1);
+      for (const g of multi ? (it.genres.length ? it.genres : [UNSORTED]) : [it.primary]) c.set(g, (c.get(g) || 0) + 1);
+    }
+    return c;
+  };
+  // Which entries exist comes from every release; while searching or hiding
+  // heard ones, the numbers count only the matches.
+  const all = tally(items);
+  const shown = searching() || $('hideHeard').checked ? tally(items.filter(matches)) : all;
+  const views = [ALL, NEW, SHARED].filter((n) => all.get(n));
+  const genres = [...GENRE_GROUPS.map((g) => g[0]), UNSORTED].filter((n) => all.get(n));
+  // The entry being shown can empty out (its last release re-genred, or
+  // "every matching genre" unticked); show everything rather than nothing.
+  if (!views.includes(current) && !genres.includes(current)) current = ALL;
+  const entry = (n) => {
+    const c = shown.get(n) || 0;
+    return h('button', { class: (n === current ? 'on' : '') + (c ? '' : ' none'), 'aria-pressed': String(n === current),
+      onclick: () => { current = n; renderAll(); } }, h('span', {}, n), h('span', {}, String(c)));
+  };
+  $('nav').replaceChildren(...views.map(entry), h('div', { class: 'sep' }), ...genres.map(entry));
 }
 
 const stop = (e) => e.stopPropagation();
 const extLink = (href, text) => h('a', { href, target: '_blank', rel: 'noopener', onclick: stop }, text);
+// A name on a card that lists everything with it when clicked.
+const chip = (field, value, title) => h('button', { class: 'link', title, onclick: (e) => { stop(e); filterBy(field, value); } }, value);
 
-// The card's genre line; ✎ swaps it for a picker. "Automatic" removes the override.
+// The card's genre line. Clicking the genre shows why it was picked (hovering
+// shows the same); ✎ swaps the line for a picker, which Esc or clicking
+// elsewhere closes. "Automatic" removes the override.
 function genreLine(it) {
-  const line = h('div', { class: 'pg' + (it.override ? ' set' : ''), title: it.override ? 'Set by hand' : (it.why || 'No genre evidence') },
-    h('span', {}, it.primary + (it.override ? ' (set)' : '')));
-  const edit = h('button', { class: 'edit', title: 'Set genre', onclick: (e) => {
-    stop(e);
-    const sel = h('select', { onclick: stop, onchange: () => setOverride(it, sel.value) },
+  const line = h('div', { class: 'pg' + (it.override ? ' set' : '') });
+  const why = h('div', { class: 'why', hidden: '', onclick: stop },
+    it.override ? 'Set by hand. Automatic scores:\n' + (it.why || 'none') : (it.why || 'No genre evidence'));
+  const show = () => line.replaceChildren(
+    h('button', { class: 'link gname', title: why.textContent, 'aria-expanded': 'false', onclick: (e) => {
+      stop(e);
+      why.hidden = !why.hidden;
+      e.currentTarget.setAttribute('aria-expanded', String(!why.hidden));
+    } }, it.primary + (it.override ? ' (set)' : '')),
+    h('button', { class: 'edit', title: 'Set genre', 'aria-label': 'Set genre', onclick: (e) => { stop(e); pick(); } }, '✎'));
+  const pick = () => {
+    const sel = h('select', { 'aria-label': 'Genre', onclick: stop, onchange: () => setOverride(it, sel.value),
+      onblur: show, onkeydown: (e) => { if (e.key === 'Escape') show(); } },
       h('option', { value: '' }, 'Automatic' + (it.override ? '' : ' (current)')),
       ...GENRE_GROUPS.map(([g]) => h('option', { value: g }, g)));
     sel.value = it.override || '';
     line.replaceChildren(sel);
     sel.focus();
-  } }, '✎');
-  line.append(edit);
-  return line;
+  };
+  show();
+  return [line, why];
+}
+
+// Bandcamp serves each cover at several sizes: _9 is 210px, _2 350px, _16 700px.
+const ART_SIZES = [[9, 210], [2, 350], [16, 700]];
+function coverImg(art) {
+  if (!/_9\.jpg$/.test(art || '')) return h('img', { alt: '', loading: 'lazy', src: art || '' });
+  return h('img', { alt: '', loading: 'lazy', sizes: '(max-width: 720px) 50vw, 210px',
+    srcset: ART_SIZES.map(([n, w]) => art.replace(/_9\.jpg$/, '_' + n + '.jpg') + ' ' + w + 'w').join(', '), src: art });
+}
+
+// "£2", or "£0+" for name your price (the minimum); '' without a price.
+const moneyFormats = new Map();
+function priceText(it) {
+  if (it.price == null || it.free) return '';
+  const digits = Number.isInteger(it.price) ? 0 : 2, k = it.currency + digits;
+  if (!moneyFormats.has(k)) {
+    try { moneyFormats.set(k, new Intl.NumberFormat(undefined, { style: 'currency', currency: it.currency, minimumFractionDigits: digits })); }
+    catch (e) { moneyFormats.set(k, null); } // no or unknown currency
+  }
+  const f = moneyFormats.get(k);
+  return (f ? f.format(it.price) : String(it.price)) + (it.setPrice ? '' : '+');
+}
+
+const whose = (users) => users.map((u) => (personOf(u).name || u) + '\'s').join(' and ') + ' wishlist';
+
+function card(it) {
+  const isHeard = !!heard[it.key];
+  const pills = [
+    newKeys.has(it.key) ? h('span', { class: 'pill new' }, 'New') : null,
+    it.preorder ? h('span', { class: 'pill pre' }, 'Pre-order') : null,
+    it.free ? h('span', { class: 'pill free' }, 'Free') : null,
+  ].filter(Boolean);
+  // Label (unless the artist released it), year and price, between dots.
+  const meta = [
+    it.label && fold(it.label) !== fold(it.artist) ? chip('label', it.label, 'Everything on ' + it.label) : null,
+    it.released ? h('span', { title: 'Released ' + it.released }, it.released.slice(0, 4)) : null,
+    priceText(it) || null,
+  ].filter(Boolean);
+  const tags = it.tags.filter((t) => t !== 'electronic').slice(0, 5);
+  return h('div', { class: 'card' + (it.key === playingKey ? ' playing' : '') + (isHeard ? ' heard' : ''), 'data-key': it.key, onclick: () => play(it) },
+    h('div', { class: 'cover' },
+      h('button', { class: 'art', 'aria-label': 'Play ' + it.artist + ' - ' + it.title }, coverImg(it.art)),
+      pills.length ? h('div', { class: 'badges' }, ...pills) : null,
+      it.shared.length ? h('div', { class: 'shared', role: 'img', title: 'Also on ' + whose(it.shared), 'aria-label': 'Also on ' + whose(it.shared) }, ...it.shared.map(avatar)) : null,
+      h('button', { class: 'tick', 'aria-pressed': String(isHeard), 'aria-label': 'Heard', title: isHeard ? 'Heard (click to unmark)' : 'Mark as heard',
+        onclick: (e) => { stop(e); setHeard(it, !heard[it.key], true); } }, '✓')),
+    h('div', { class: 't' }, it.title),
+    h('div', { class: 'a' }, chip('artist', it.artist, 'Everything by ' + it.artist)),
+    meta.length ? h('div', { class: 'm' }, ...meta.flatMap((x, i) => (i ? [' · ', x] : [x]))) : null,
+    ...genreLine(it),
+    it.dcStyles.length ? h('div', { class: 'src' }, 'Discogs: ' + it.dcStyles.join(', ')) : null,
+    it.bpGenres.length ? h('div', { class: 'src' }, 'Beatport: ' + it.bpGenres.join(', ')) : null,
+    h('div', { class: 'g' }, 'Bandcamp: ', ...(tags.length ? tags.flatMap((t, i) => [i ? ', ' : null, chip('tag', t, 'Everything tagged ' + t)]) : ['no tags'])),
+    h('div', { class: 'links' },
+      extLink(it.url, 'Bandcamp'),
+      it.beatport ? extLink(it.beatport.url, 'Beatport') : null,
+      it.discogs ? extLink(it.discogs.url, 'Discogs') : null));
 }
 
 function renderGrid() {
   queue = visibleItems();
-  $('grid').replaceChildren(...queue.map((it) =>
-    h('div', { class: 'card' + (it.key === playingKey ? ' playing' : ''), 'data-key': it.key, onclick: () => play(it) },
-      h('img', { src: it.art || '', loading: 'lazy', alt: '' }),
-      h('div', { class: 't' }, it.title),
-      h('div', { class: 'a' }, it.artist),
-      genreLine(it),
-      it.dcStyles.length ? h('div', { class: 'src' }, 'Discogs: ' + it.dcStyles.join(', ')) : null,
-      it.bpGenres.length ? h('div', { class: 'src' }, 'Beatport: ' + it.bpGenres.join(', ')) : null,
-      h('div', { class: 'g' }, 'Bandcamp: ' + (it.tags.filter((t) => t !== 'electronic').slice(0, 5).join(', ') || 'no tags')),
-      h('div', { class: 'links' },
-        extLink(it.url, 'Bandcamp'),
-        it.beatport ? extLink(it.beatport.url, 'Beatport') : null,
-        it.discogs ? extLink(it.discogs.url, 'Discogs') : null))));
+  $('grid').replaceChildren(...queue.map(card));
+  // A line above the grid for the New and Shared views.
+  const bar = $('viewBar');
+  bar.hidden = current !== NEW && current !== SHARED;
+  if (current === NEW) bar.replaceChildren(newKeys.size + ' new since the previous export.', h('button', { onclick: markAllSeen }, 'Mark all seen'));
+  if (current === SHARED) bar.replaceChildren('Also on ' + whose([...new Set(items.flatMap((it) => it.shared))]) + '.');
   const n = Object.keys(local).length;
   $('exportOv').hidden = !n && !Object.keys(published).length;
   $('exportOv').textContent = 'Export overrides' + (n ? ' (' + n + ' unsaved)' : '');
 }
 
+// Tags, Beatport genres and Discogs styles that count towards no group, across
+// every release (leaving out those mapped to null on purpose). Tags only
+// change with a new export, so this runs once per wishlist.
 function renderUnmatched() {
   const counts = new Map();
   const add = (t) => counts.set(t, (counts.get(t) || 0) + 1);
   for (const it of items) {
-    if (it.genres.length) continue;
-    it.tags.forEach(add);
-    it.bpGenres.forEach((g) => add('beatport: ' + g));
-    it.dcStyles.forEach((g) => add('discogs: ' + g));
+    it.tags.filter((t) => !groupsForTerm(t).length).forEach(add);
+    it.bpGenres.filter((g) => !(g in BEATPORT) && !groupsForTerm(g).length).forEach((g) => add('beatport: ' + g));
+    it.dcStyles.filter((g) => !(g in DISCOGS) && !groupsForTerm(g).length).forEach((g) => add('discogs: ' + g));
   }
   const top = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 60);
-  $('unmatched').textContent = top.length ? top.map(([t, c]) => t + ' (' + c + ')').join(', ') : 'None, every item matched a genre.';
+  $('unmatched').textContent = top.length ? top.map(([t, c]) => t + ' (' + c + ')').join(', ') : 'None, every tag matched a genre.';
 }
 
-function renderAll() { renderNav(); renderGrid(); renderUnmatched(); }
+function renderAll() { renderNav(); renderGrid(); }
+
+const cardOf = (key) => document.querySelector('.card[data-key="' + CSS.escape(key) + '"]');
+
+/* ---- Heard and new -----------------------------------------------------
+   A release counts as heard once it has been in the player for 15 seconds
+   (the Bandcamp player can't tell this page whether it actually played) or
+   is ticked ✓. "New" marks releases that weren't in the export this browser
+   saw before the current one; they stay new until the next export or "Mark
+   all seen". Both are kept per wishlist in this browser. */
+const HEARD_AFTER_MS = 15000;
+let heard = {};          // key -> when first heard
+let heardTimer = null;
+let newKeys = new Set();
+
+// redraw: ticked by hand, so with "Hide heard" on the card goes at once.
+// Heard in the player, it stays until the list is next drawn.
+function setHeard(it, on, redraw) {
+  if (on) heard[it.key] = heard[it.key] || Date.now(); else delete heard[it.key];
+  writeStore('heard', heard);
+  const el = cardOf(it.key);
+  if (el) {
+    el.classList.toggle('heard', on);
+    const tick = el.querySelector('.tick');
+    tick.setAttribute('aria-pressed', String(on));
+    tick.title = on ? 'Heard (click to unmark)' : 'Mark as heard';
+  }
+  if ($('hideHeard').checked) { if (redraw) renderAll(); else renderNav(); }
+}
+
+function loadNew(data) {
+  const keys = items.map((it) => it.key);
+  const exported = data.exported || '';
+  const seen = readStore('seen', null);
+  if (seen && seen.exported === exported) { newKeys = new Set(seen.newKeys || []); return; }
+  const before = new Set((seen && seen.keys) || keys); // a first visit marks nothing new
+  newKeys = new Set(keys.filter((k) => !before.has(k)));
+  writeStore('seen', { exported, keys, newKeys: [...newKeys] });
+}
+
+function markAllSeen() {
+  newKeys = new Set();
+  writeStore('seen', Object.assign(readStore('seen', {}), { newKeys: [] }));
+  current = ALL;
+  renderAll();
+}
+
+/* ---- Shared releases ---------------------------------------------------
+   Releases that are also on another wishlist here show that person's photo
+   and are listed under "Shared". */
+function loadShared() {
+  const mine = user;
+  const others = WISHLISTS.filter((w) => w.user !== mine);
+  if (!others.length || location.protocol === 'file:') return;
+  Promise.all(others.map((w) => getList(w.user).then((d) => [w.user, d], () => null))).then((lists) => {
+    if (user !== mine) return; // another wishlist has been opened since
+    const byKey = new Map(items.map((it) => [it.key, it]));
+    for (const [u, d] of lists.filter(Boolean)) {
+      for (const x of d.items || []) {
+        const it = byKey.get(x.key);
+        if (it && !it.shared.includes(u)) it.shared.push(u);
+      }
+    }
+    if (items.some((it) => it.shared.length)) renderAll();
+  });
+}
 
 /* ---- Player ------------------------------------------------------------ */
 function embedUrl(it) {
@@ -541,6 +820,7 @@ function preloadAfter(it) {
 
 function play(it) {
   playingKey = it.key;
+  $('playerWrap').hidden = false;
   if (nowFrame) nowFrame.frame.remove();
   if (nextFrame && nextFrame.key === it.key) {
     nowFrame = nextFrame; nextFrame = null;
@@ -554,8 +834,10 @@ function play(it) {
   $('now').textContent = it.artist + ' - ' + it.title + '  [' + it.primary + ']';
   // Move the highlight rather than rebuilding every card.
   document.querySelectorAll('.card.playing').forEach((c) => c.classList.remove('playing'));
-  const card = document.querySelector('.card[data-key="' + CSS.escape(it.key) + '"]');
-  if (card) card.classList.add('playing');
+  const el = cardOf(it.key);
+  if (el) el.classList.add('playing');
+  clearTimeout(heardTimer);
+  if (!heard[it.key]) heardTimer = setTimeout(() => setHeard(it, true), HEARD_AFTER_MS);
 }
 
 function step(delta) {
@@ -565,16 +847,40 @@ function step(delta) {
 
 $('next').onclick = () => step(1);
 $('prev').onclick = () => step(-1);
-$('shuffle').onclick = () => { shuffled = !shuffled; $('shuffle').classList.toggle('on', shuffled); renderGrid(); };
+$('shuffle').onclick = () => {
+  shuffled = !shuffled;
+  if (shuffled) items.forEach((it) => { it.rank = Math.random(); });
+  $('shuffle').classList.toggle('on', shuffled);
+  $('sort').disabled = shuffled; // shuffle replaces the sort order
+  renderGrid();
+};
 $('multi').onchange = renderAll;
+$('hideHeard').onchange = () => { writeStore('hideHeard', $('hideHeard').checked); renderAll(); };
 $('sort').onchange = renderGrid;
-$('q').oninput = renderGrid;
+// Each search redraws every card, so wait for a pause in the typing.
+let searchTimer = null;
+$('q').oninput = () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => { query = parseQuery($('q').value); renderAll(); }, 150);
+};
 $('exportOv').onclick = exportOverrides;
+
+// The genre list sticks just below the header, and on phones the page leaves
+// room at the bottom for the docked player. Both heights change as controls
+// wrap and when the player appears.
+const sizeVar = (el, name) => new ResizeObserver(() => document.documentElement.style.setProperty(name, el.offsetHeight + 'px')).observe(el);
+sizeVar(header, '--head');
+sizeVar(document.querySelector('.dock'), '--dock');
 
 /* ---- Loading ----------------------------------------------------------- */
 function readFile(f) {
   const r = new FileReader();
-  r.onload = () => { try { init(JSON.parse(r.result)); } catch (e) { alert('Not a valid wishlist.json: ' + e.message); } };
+  r.onload = () => {
+    const bad = (e) => alert('Not a valid wishlist.json: ' + e.message);
+    let data;
+    try { data = JSON.parse(r.result); } catch (e) { bad(e); return; }
+    getOverrides(data.user).then((ov) => init(data, ov)).catch(bad);
+  };
   r.readAsText(f);
 }
 $('file').onchange = (e) => e.target.files[0] && readFile(e.target.files[0]);
@@ -592,19 +898,40 @@ const USER_RE = /^[A-Za-z0-9_-]+$/;
 const dataUrl = (u) => new URL('wishlists/' + u + '.json', ROOT);
 $('home').href = ROOT.pathname;
 
-async function getList(u) {
-  const r = await fetch(dataUrl(u), { cache: 'no-cache' });
-  if (!r.ok) throw new Error('HTTP ' + r.status);
-  return r.json();
+// Each wishlist is downloaded once per visit (~800 KB): opening one from the
+// start page reuses what the start page fetched.
+const lists = new Map();
+function getList(u) {
+  if (!lists.has(u)) {
+    lists.set(u, fetch(dataUrl(u), { cache: 'no-cache' })
+      .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .catch((e) => { lists.delete(u); throw e; }));
+  }
+  return lists.get(u);
+}
+
+// A wishlist's published overrides, or {} if it has none. Also once per visit.
+const overrideFiles = new Map();
+function getOverrides(u) {
+  if (!u || location.protocol === 'file:') return Promise.resolve({});
+  if (!overrideFiles.has(u)) {
+    overrideFiles.set(u, fetch(dataUrl(u + '.overrides'), { cache: 'no-cache' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => (d && d.overrides) || {})
+      .catch(() => ({})));
+  }
+  return overrideFiles.get(u);
 }
 
 function openUser(u) {
-  document.querySelector('header').hidden = true;
+  header.hidden = true;
+  $('tip').hidden = true;
   $('picker').hidden = true;
   $('layout').hidden = true;
   $('loader').hidden = false;
   $('status').textContent = 'Loading ' + u + '…';
-  getList(u).then(init).catch(() => {
+  // Overrides come with the list, so the page scores and draws once.
+  Promise.all([getList(u), getOverrides(u)]).then(([d, ov]) => init(d, ov)).catch(() => {
     // Fall back to the file picker. Opened from disk, the browser blocks reading
     // neighbouring files, so say so rather than leave "Loading…" up.
     $('status').textContent = location.protocol === 'file:'
@@ -625,11 +952,14 @@ function avatar(user) {
   return img;
 }
 
-// Start page: each card's square is the person's photo; without one, a
-// mosaic of four of their wishlist covers.
+const metaText = (d, common) => (d.items || []).length + ' releases' + (common ? ' · ' + common + ' in common' : '') +
+  (d.exported ? ' · exported ' + new Date(d.exported).toLocaleDateString() : '');
+
+// Start page: each card's square is the person's photo (without one, a mosaic
+// of four of their covers), then their release count and top genres.
 function showPicker() {
   $('picker').hidden = false;
-  $('lists').replaceChildren(...WISHLISTS.map(({ user: u, name }) => {
+  const tiles = WISHLISTS.map(({ user: u, name }) => {
     const mosaic = h('div', { class: 'mosaic', hidden: '' });
     let covers = [];
     const showMosaic = () => {
@@ -639,21 +969,69 @@ function showPicker() {
     };
     const photo = h('img', { class: 'photo', alt: name || u, src: new URL('avatars/' + u + '.jpg', ROOT).href, onerror: showMosaic });
     const meta = h('div', { class: 'meta' }, 'Loading…');
-    const card = h('a', { class: 'list', href: ROOT.pathname + u, onclick: (e) => {
+    const genres = h('div', { class: 'genres', hidden: '' });
+    const link = h('a', { class: 'list', href: ROOT.pathname + u, onclick: (e) => {
       if (e.ctrlKey || e.metaKey || e.shiftKey || e.button) return;
       e.preventDefault();
       history.pushState(null, '', ROOT.pathname + u);
       openUser(u);
-    } }, photo, mosaic, h('div', { class: 'name' }, name || u), h('div', { class: 'handle' }, '@' + u), meta);
-    getList(u).then((d) => {
-      const items = d.items || [];
-      covers = items.filter((it) => it.art).slice(0, 4).map((it) => it.art);
+    } }, photo, mosaic, h('div', { class: 'name' }, name || u), h('div', { class: 'handle' }, '@' + u), meta, genres);
+    // The count shows as soon as this list is in; genres once every list is,
+    // so the colours line up across cards.
+    const loaded = Promise.all([getList(u), getOverrides(u)]).then(([d, ov]) => {
+      covers = (d.items || []).filter((it) => it.art).slice(0, 4).map((it) => it.art);
       if (!mosaic.hidden) showMosaic();
-      meta.textContent = items.length + ' releases' + (d.exported ? ' · exported ' + new Date(d.exported).toLocaleDateString() : '');
-    }).catch(() => { meta.textContent = 'Not exported yet'; });
-    return card;
-  }));
+      meta.textContent = metaText(d, 0);
+      return { d, ov };
+    }, () => { meta.textContent = 'Not exported yet'; return null; });
+    return { link, meta, genres, loaded };
+  });
+  $('lists').replaceChildren(...tiles.map((t) => t.link));
+  Promise.all(tiles.map((t) => t.loaded)).then((loaded) => drawGenres(tiles, loaded));
 }
+
+/* Each person's five main genres as a small labelled bar list, all on one
+   scale so cards compare, and how many of their releases are on someone
+   else's list too. The bars are one colour: the labels say which is which. */
+function drawGenres(tiles, loaded) {
+  const keySets = loaded.map((x) => x && new Set((x.d.items || []).map((it) => it.key)));
+  const tops = loaded.map((x) => {
+    if (!x) return null;
+    const list = prepare(x.d), noisy = labelNoise(list), counts = new Map();
+    for (const it of list) {
+      const g = x.ov[it.key] || scoreItem(it, noisy).genres[0] || UNSORTED;
+      counts.set(g, (counts.get(g) || 0) + 1);
+    }
+    return { total: list.length, top: [...counts].sort((a, b) => b[1] - a[1]).slice(0, 5) };
+  });
+  const max = Math.max(...tops.filter(Boolean).flatMap((t) => t.top.map(([, n]) => n / t.total)));
+  tiles.forEach((tile, i) => {
+    const t = tops[i];
+    if (!t || !t.total) return;
+    const common = [...keySets[i]].filter((k) => keySets.some((s, j) => j !== i && s && s.has(k))).length;
+    tile.meta.textContent = metaText(loaded[i].d, common);
+    // A row is three grid cells: genre, bar, share. Each shows the count on hover.
+    tile.genres.replaceChildren(...t.top.flatMap(([g, n]) => {
+      const tip = () => ({ onpointermove: (e) => showTip(e, n + ' releases', g), onpointerleave: hideTip });
+      return [
+        h('span', Object.assign({ class: 'gl' }, tip()), g),
+        h('span', Object.assign({ class: 'gt' }, tip()), h('i', { style: 'width:' + ((100 * n) / t.total / max).toFixed(1) + '%' })),
+        h('span', Object.assign({ class: 'gp' }, tip()), Math.round((100 * n) / t.total) + '%'),
+      ];
+    }));
+    tile.genres.hidden = false;
+  });
+}
+
+// The genre bars' tooltip: the number first, then the genre.
+function showTip(e, value, label) {
+  const tip = $('tip');
+  tip.replaceChildren(h('strong', {}, value), ' ' + label);
+  tip.hidden = false;
+  tip.style.left = Math.max(8, Math.min(e.clientX + 12, innerWidth - tip.offsetWidth - 8)) + 'px';
+  tip.style.top = e.clientY + 16 + 'px';
+}
+const hideTip = () => { $('tip').hidden = true; };
 
 function route() {
   const params = new URLSearchParams(location.search);
