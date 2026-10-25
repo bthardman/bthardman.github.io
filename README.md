@@ -33,7 +33,7 @@ Bandcamp lets a burst of roughly 140 requests through and then refuses them for 
 
 The browser console logs each limit (`[wishlist-export] Bandcamp limit hit…`). Set `USE_BEATPORT` or `USE_DISCOGS` to `false` at the top of the script to skip a source.
 
-Since version 3.1 the export also records each release's date, price (the minimum, for name-your-price) and whether it is a pre-order or a free download. The page then shows them on the cards and offers a "Release date" sort. Each wishlist needs one re-export to pick these up. That run re-reads every release through Bandcamp's app API, which takes about 5 minutes per wishlist.
+Since version 3.1 the export also records each release's date, price (the minimum, for name-your-price) and whether it is a pre-order or a free download. The page then shows them on the cards and offers "Release date" and "Price" sorts. Prices are in each label's own currency, so the price sorts compare them at Bandcamp's exchange rates. Exporter 3.3 and later save the rates of the day with the export; older exports use rates built into the page. For name-your-price releases the sorts use the minimum price. Each wishlist needs one re-export to pick these up. That run re-reads every release through Bandcamp's app API, which takes about 5 minutes per wishlist.
 
 ### Re-runs only fetch what's new
 
@@ -68,9 +68,13 @@ Hover or tap a card's genre to see the top three scores and what contributed to 
 ## Using the page
 
 - **Search** matches title, artist, label, tags and genres. Click an artist, label or tag on a card to list everything with exactly that; the search box shows it as `artist:…`, `label:"…"` or `tag:"…"`, and you can combine these with free text, e.g. `label:"Livity Sound" dub`.
+- **Sorting.** Pick a sort, then use the button beside it to flip the order: newest/oldest first, low/high price, A to Z / Z to A. Releases without a date or price stay at the end either way.
 - **Heard.** A release counts as heard once it has been in the player for 15 seconds, or when you tick ✓ on its cover. Heard cards are dimmed, and "Hide heard" takes them out of the list and out of Prev/Next.
 - **New.** Releases that weren't in the export your browser saw last time get a "New" badge and a "New" entry at the top of the genre list. They stay new until the next export, or until you press "Mark all seen".
 - **Shared.** Releases that are also on another wishlist on the site show that person's photo, and are listed under "Shared".
+- **Owned by others.** Releases another person here has already bought show their photo ringed in amber, and are listed under "Owned by others". Buying a track's whole album counts too.
+  - This needs that person's export from exporter 3.4 or later, which also lists their collection. Only the list is read, about one request per 100 purchases, with no lookups.
+  - A private collection is only listed when the export is run logged in as its owner.
 - Heard, new and hand-set genres are kept per wishlist in your browser.
 - The start page shows each person's five main genres and how many releases they have in common with the others.
 - On a phone the player sits at the bottom of the screen and the controls scroll away.

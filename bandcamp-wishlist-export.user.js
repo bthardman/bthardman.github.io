@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bandcamp Wishlist Genre Exporter
 // @namespace    local.bc-wishlist
-// @version      3.2.0
+// @version      3.4.0
 // @description  Adds an "Export wishlist" button to Bandcamp wishlist pages. Collects every item with its Bandcamp tags, Beatport genre and Discogs styles, and downloads <username>.json.
 // @downloadURL  https://bthardman.github.io/bandcamp-wishlist-export.user.js
 // @updateURL    https://bthardman.github.io/bandcamp-wishlist-export.user.js
@@ -67,38 +67,58 @@
       url,
       art,
       bandId: raw.band_id || null,
+      // A track's album, so the page can tell when someone owns the whole album.
+      albumId: type === 't' && raw.album_id ? Number(raw.album_id) : undefined,
       tags: [],
       beatport: null,
     };
   }
 
-  async function collectWishlist(blob, onProgress) {
+  const collectWishlist = (blob, onProgress) => listFan(blob, 'wishlist', normItem, onProgress);
+
+  // What the fan has bought, as release keys ("a123", "t456"): only listed,
+  // never looked up, so it costs one request per 100. A record or tape counts
+  // as its release, since it comes with the download. null if the collection
+  // isn't visible (a private one, unless you're logged in as its owner).
+  async function collectOwned(blob, onProgress) {
+    if (!blob.collection_data) return null;
+    const keyOf = (raw) => {
+      const key = raw && (raw.tralbum_type === 'a' || raw.tralbum_type === 't') && raw.tralbum_id ? raw.tralbum_type + raw.tralbum_id : '';
+      return key ? { key } : null;
+    };
+    return (await listFan(blob, 'collection', keyOf, onProgress)).map((x) => x.key);
+  }
+
+  // Pages through the wishlist or collection: the first items come embedded in
+  // the page, then the endpoint the page uses for "view all". norm turns each
+  // raw item into an entry with a key, or null to skip it.
+  async function listFan(blob, kind, norm, onProgress) {
     const fanId = blob.fan_data && blob.fan_data.fan_id;
-    const wl = blob.wishlist_data || {};
+    const wl = blob[kind + '_data'] || {};
     const map = new Map();
 
-    const cached = (blob.item_cache && blob.item_cache.wishlist) || {};
+    const cached = (blob.item_cache && blob.item_cache[kind]) || {};
     for (const raw of Object.values(cached)) {
-      const it = normItem(raw);
+      const it = norm(raw);
       if (it) map.set(it.key, it);
     }
 
     let token = wl.last_token;
     let more = (wl.item_count || 0) > map.size;
     while (more && token) {
-      const res = await fetch('https://bandcamp.com/api/fancollection/1/wishlist_items', {
+      const res = await fetch('https://bandcamp.com/api/fancollection/1/' + kind + '_items', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ fan_id: fanId, older_than_token: token, count: 100 }),
       });
-      if (!res.ok) throw new Error('Wishlist API returned HTTP ' + res.status);
+      if (!res.ok) throw new Error(kind + ' API returned HTTP ' + res.status);
       const data = await res.json();
       for (const raw of data.items || []) {
-        const it = normItem(raw);
+        const it = norm(raw);
         if (it) map.set(it.key, it);
       }
-      onProgress('Listing wishlist… ' + map.size + (wl.item_count ? '/' + wl.item_count : ''));
+      onProgress('Listing ' + kind + '… ' + map.size + (wl.item_count ? '/' + wl.item_count : ''));
       // A page can add nothing (all merch) without being the last, so follow
       // Bandcamp's flag for as long as the token keeps moving.
       more = !!data.more_available && (data.items || []).length > 0 && !!data.last_token && data.last_token !== token;
@@ -1081,6 +1101,8 @@
         say('Listing wishlist…');
         const items = await collectWishlist(blob, say);
         if (!items.length) throw new Error('No wishlist items found');
+        let owned = null;
+        try { owned = await collectOwned(blob, say); } catch (e) { console.warn('[wishlist-export] collection not listed:', e.message); }
         const user = (location.pathname.split('/')[1] || '').toLowerCase();
         const cache = loadCache();
         if (cacheHasGaps(items, cache)) {
@@ -1092,11 +1114,19 @@
         const bp = USE_BEATPORT ? await fetchAllBeatport(items, cache, say) : { failed: 0 };
         const dc = USE_DISCOGS ? await fetchAllDiscogs(items, cache, say) : { failed: 0 };
         applyCache(items, cache);
+        // Bandcamp's exchange rates (US dollars per unit) for the currencies
+        // used, so the page can sort prices in different currencies.
+        const allRates = (blob.currency_data && blob.currency_data.rates) || {};
+        const rates = {};
+        for (const it of items) if (it.currency && allRates[it.currency]) rates[it.currency] = allRates[it.currency];
         download((user || 'wishlist') + '.json', JSON.stringify({
           version: 3,
           exported: new Date().toISOString(),
           user,
           count: items.length,
+          rates,
+          // Keys of everything bought (left out if the collection couldn't be listed).
+          collection: owned || undefined,
           items,
         }, null, 1));
         const notes = [];
@@ -1106,7 +1136,7 @@
         if (dc.blocked) notes.push('Discogs refused requests: shift-click to check the token, then retry');
         else if (dc.failed) notes.push(dc.failed + ' Discogs errors');
         say('Done: ' + items.length + ' items, ' + items.filter((i) => i.beatport).length + ' on Beatport, ' +
-          items.filter((i) => i.discogs).length + ' on Discogs' +
+          items.filter((i) => i.discogs).length + ' on Discogs' + (owned ? ', ' + owned.length + ' bought' : '') +
           (notes.length ? ' (' + notes.join('; ') + '; click again to retry)' : ''));
       } catch (e) {
         console.error(e);

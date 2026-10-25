@@ -44,7 +44,7 @@
   button, input[type=search], select { background:var(--bg); color:var(--text); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font:inherit; }
   button { cursor:pointer; } button:hover { border-color:var(--accent); }
   button.on { background:var(--accent-strong); border-color:var(--accent-strong); color:#fff; }
-  select:disabled { opacity:.5; }
+  select:disabled, button:disabled { opacity:.5; cursor:default; }
   label { color:var(--dim); font-size:13px; display:flex; gap:5px; align-items:center; }
   /* A button that reads as a link: artist, label and tag filters, the genre name. */
   .link { background:none; border:0; border-radius:0; padding:0; color:inherit; font:inherit; text-align:left; cursor:pointer; }
@@ -76,6 +76,7 @@
   .pill.free { background:#2f7d4f; }
   .shared { position:absolute; top:6px; right:6px; display:flex; flex-direction:row-reverse; }
   .shared .avatar { width:24px; height:24px; font-size:11px; border:2px solid var(--panel); margin-left:-6px; }
+  .shared .avatar.owns { border-color:var(--set); } /* already bought it */
   .tick { position:absolute; right:6px; bottom:6px; width:28px; height:28px; padding:0; border-radius:50%; border-color:transparent; background:#0009; color:#fff; font-size:14px; line-height:26px; opacity:.75; }
   .tick:hover, .tick:focus-visible { opacity:1; }
   .tick[aria-pressed="true"] { background:var(--accent-strong); opacity:1; }
@@ -127,7 +128,8 @@
   <div class="bar">
     <h1><a id="home" href="./">Wishlists</a> / <span id="whoAvatar"></span><span id="who"></span></h1>
     <input type="search" id="q" placeholder="Search title, artist, label, tag" aria-label="Search">
-    <select id="sort" aria-label="Sort"><option value="added">Wishlist order</option><option value="released" hidden disabled>Release date</option><option value="artist">Artist A-Z</option><option value="title">Title A-Z</option></select>
+    <select id="sort" aria-label="Sort"><option value="added">Wishlist order</option><option value="released" data-needs="released" hidden disabled>Release date</option><option value="price" data-needs="price" hidden disabled>Price</option><option value="artist">Artist</option><option value="title">Title</option></select>
+    <button id="dir" title="Reverse the order">Newest first</button>
     <button id="shuffle">Shuffle</button>
     <label title="Also list a release under every genre that scores at least 40% of its best"><input type="checkbox" id="multi"> Show in every matching genre</label>
     <label title="Hide releases you've had in the player for 15 seconds or ticked ✓"><input type="checkbox" id="hideHeard"> Hide heard</label>
@@ -290,6 +292,7 @@ const UNSORTED = 'Unsorted';
 const ALL = 'All';
 const NEW = 'New';        // views listed above the genres: see "Heard and new"
 const SHARED = 'Shared';  // and "Shared releases"
+const OWNED = 'Owned by others';
 
 /* ---- Scoring ----------------------------------------------------------- */
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -466,7 +469,7 @@ function applyGenres(it, noisy) {
 // Wishlist items with the extra fields that scoring and the page use.
 function prepare(data) {
   return (data.items || []).map((it, i) => {
-    const o = Object.assign({ tags: [] }, it, { order: i, rank: Math.random(), shared: [] });
+    const o = Object.assign({ tags: [] }, it, { order: i, rank: Math.random(), shared: [], owners: [] });
     o.bpGenres = (it.beatport && it.beatport.genres) || [];
     o.dcStyles = (it.discogs && it.discogs.styles) || [];
     o.dcGenres = (it.discogs && it.discogs.genres) || [];
@@ -491,10 +494,12 @@ function init(data, ov) {
   heard = readStore('heard', {});
   $('hideHeard').checked = !!readStore('hideHeard', false);
   loadNew(data);
-  // "Release date" needs an export from exporter 3.1 or later.
-  const byDate = $('sort').querySelector('[value=released]');
-  byDate.hidden = byDate.disabled = !items.some((it) => it.released);
-  if (byDate.disabled && $('sort').value === 'released') $('sort').value = 'added';
+  // Date and price sorts need an export from exporter 3.1 or later.
+  rates = Object.assign({}, FALLBACK_RATES, data.rates);
+  const has = { released: items.some((it) => it.released), price: items.some((it) => it.price != null) };
+  for (const opt of $('sort').options) if (opt.dataset.needs) opt.hidden = opt.disabled = !has[opt.dataset.needs];
+  if ($('sort').selectedOptions[0].disabled) { $('sort').value = 'added'; reversed = false; }
+  showDir();
   $('loader').hidden = true;
   $('picker').hidden = true;
   header.hidden = false;
@@ -554,6 +559,7 @@ function inView(it, v, multi) {
   if (v === ALL) return true;
   if (v === NEW) return newKeys.has(it.key);
   if (v === SHARED) return it.shared.length > 0;
+  if (v === OWNED) return it.owners.length > 0;
   return multi ? (it.genres.includes(v) || (v === UNSORTED && !it.genres.length)) : it.primary === v;
 }
 
@@ -563,21 +569,39 @@ function visibleItems() {
   const sort = $('sort').value;
   // Shuffle sorts by each item's random rank, which only changes when Shuffle is
   // pressed again, so searching or re-genring a release doesn't reshuffle.
-  if (shuffled) list.sort((a, b) => a.rank - b.rank);
-  else if (sort === 'released') list.sort((a, b) => (b.released || '').localeCompare(a.released || '') || a.order - b.order);
-  else if (sort === 'artist') list.sort((a, b) => a.artist.localeCompare(b.artist));
-  else if (sort === 'title') list.sort((a, b) => a.title.localeCompare(b.title));
-  else list.sort((a, b) => a.order - b.order);
-  return list;
+  if (shuffled) return list.sort((a, b) => a.rank - b.rank);
+  // Each sort's key in its usual direction; the direction button flips it.
+  // Releases without a date or price go last either way.
+  const key = {
+    added: (it) => it.order,               // the wishlist lists newest first
+    released: (it) => it.released || null, // ISO dates compare as text
+    price: dollars,
+    artist: (it) => it.artist,
+    title: (it) => it.title,
+  }[sort] || ((it) => it.order);
+  const flip = reversed !== (sort === 'released') ? -1 : 1; // dates run newest first
+  return list.sort((a, b) => {
+    const ka = key(a), kb = key(b);
+    if (ka == null || kb == null) return (ka == null) - (kb == null) || a.order - b.order;
+    const c = typeof ka === 'string' ? ka.localeCompare(kb) : ka - kb;
+    return flip * c || a.order - b.order;
+  });
 }
+
+// What the direction button says for each sort: [usual, reversed].
+const SORT_DIRS = { added: ['Newest first', 'Oldest first'], released: ['Newest first', 'Oldest first'],
+  price: ['Low to high', 'High to low'], artist: ['A to Z', 'Z to A'], title: ['A to Z', 'Z to A'] };
+let reversed = false;
+const showDir = () => { $('dir').textContent = (SORT_DIRS[$('sort').value] || SORT_DIRS.added)[reversed ? 1 : 0]; };
 
 function renderNav() {
   const multi = $('multi').checked;
   const tally = (list) => {
-    const c = new Map([[ALL, list.length], [NEW, 0], [SHARED, 0]]);
+    const c = new Map([[ALL, list.length], [NEW, 0], [SHARED, 0], [OWNED, 0]]);
     for (const it of list) {
       if (newKeys.has(it.key)) c.set(NEW, c.get(NEW) + 1);
       if (it.shared.length) c.set(SHARED, c.get(SHARED) + 1);
+      if (it.owners.length) c.set(OWNED, c.get(OWNED) + 1);
       for (const g of multi ? (it.genres.length ? it.genres : [UNSORTED]) : [it.primary]) c.set(g, (c.get(g) || 0) + 1);
     }
     return c;
@@ -586,7 +610,7 @@ function renderNav() {
   // heard ones, the numbers count only the matches.
   const all = tally(items);
   const shown = searching() || $('hideHeard').checked ? tally(items.filter(matches)) : all;
-  const views = [ALL, NEW, SHARED].filter((n) => all.get(n));
+  const views = [ALL, NEW, SHARED, OWNED].filter((n) => all.get(n));
   const genres = [...GENRE_GROUPS.map((g) => g[0]), UNSORTED].filter((n) => all.get(n));
   // The entry being shown can empty out (its last release re-genred, or
   // "every matching genre" unticked); show everything rather than nothing.
@@ -639,6 +663,19 @@ function coverImg(art) {
     srcset: ART_SIZES.map(([n, w]) => art.replace(/_9\.jpg$/, '_' + n + '.jpg') + ' ' + w + 'w').join(', '), src: art });
 }
 
+/* Prices come in each label's own currency, so the price sorts compare them
+   in US dollars, at Bandcamp's own rates (US dollars per unit). Exports from
+   exporter 3.3 carry the rates of their day; older ones use these, from
+   Bandcamp on 2026-10-25. */
+const FALLBACK_RATES = { USD: 1, GBP: 1.33745, EUR: 1.1204, AUD: 0.703, CAD: 0.714158, NZD: 0.56955, CHF: 1.21201,
+  DKK: 0.149888, NOK: 0.107251, CZK: 0.0460416, JPY: 0.00637491, MXN: 0.0535665, HKD: 0.127513 };
+let rates = FALLBACK_RATES;
+// A release's price (the minimum, for name your price) in US dollars, or null.
+function dollars(it) {
+  if (it.free) return 0;
+  return it.price != null && rates[it.currency] ? it.price * rates[it.currency] : null;
+}
+
 // "£2", or "£0+" for name your price (the minimum); '' without a price.
 const moneyFormats = new Map();
 function priceText(it) {
@@ -653,6 +690,16 @@ function priceText(it) {
 }
 
 const whose = (users) => users.map((u) => (personOf(u).name || u) + '\'s').join(' and ') + ' wishlist';
+const names = (users) => users.map((u) => personOf(u).name || u).join(' and ');
+
+// Photos of the other people who want this release, or (ringed) own it.
+function peopleBadge(it) {
+  const people = [...new Set([...it.owners, ...it.shared])];
+  if (!people.length) return null;
+  const says = [it.shared.length ? 'Also on ' + whose(it.shared) : '', it.owners.length ? names(it.owners) + ' bought it' : ''].filter(Boolean).join('. ');
+  return h('div', { class: 'shared', role: 'img', title: says, 'aria-label': says },
+    ...people.map((u) => avatar(u, it.owners.includes(u) ? 'owns' : '')));
+}
 
 function card(it) {
   const isHeard = !!heard[it.key];
@@ -672,7 +719,7 @@ function card(it) {
     h('div', { class: 'cover' },
       h('button', { class: 'art', 'aria-label': 'Play ' + it.artist + ' - ' + it.title }, coverImg(it.art)),
       pills.length ? h('div', { class: 'badges' }, ...pills) : null,
-      it.shared.length ? h('div', { class: 'shared', role: 'img', title: 'Also on ' + whose(it.shared), 'aria-label': 'Also on ' + whose(it.shared) }, ...it.shared.map(avatar)) : null,
+      peopleBadge(it),
       h('button', { class: 'tick', 'aria-pressed': String(isHeard), 'aria-label': 'Heard', title: isHeard ? 'Heard (click to unmark)' : 'Mark as heard',
         onclick: (e) => { stop(e); setHeard(it, !heard[it.key], true); } }, '✓')),
     h('div', { class: 't' }, it.title),
@@ -693,7 +740,8 @@ function renderGrid() {
   $('grid').replaceChildren(...queue.map(card));
   // A line above the grid for the New and Shared views.
   const bar = $('viewBar');
-  bar.hidden = current !== NEW && current !== SHARED;
+  bar.hidden = current !== NEW && current !== SHARED && current !== OWNED;
+  if (current === OWNED) bar.replaceChildren('Already bought by ' + names([...new Set(items.flatMap((it) => it.owners))]) + '.');
   if (current === NEW) bar.replaceChildren(newKeys.size + ' new since the previous export.', h('button', { onclick: markAllSeen }, 'Mark all seen'));
   if (current === SHARED) bar.replaceChildren('Also on ' + whose([...new Set(items.flatMap((it) => it.shared))]) + '.');
   const n = Object.keys(local).length;
@@ -765,7 +813,9 @@ function markAllSeen() {
 
 /* ---- Shared releases ---------------------------------------------------
    Releases that are also on another wishlist here show that person's photo
-   and are listed under "Shared". */
+   and are listed under "Shared". Ones another person has already bought
+   (their export lists their collection) show it ringed in amber and are
+   listed under "Owned by others"; buying a track's whole album counts. */
 function loadShared() {
   const mine = user;
   const others = WISHLISTS.filter((w) => w.user !== mine);
@@ -778,8 +828,12 @@ function loadShared() {
         const it = byKey.get(x.key);
         if (it && !it.shared.includes(u)) it.shared.push(u);
       }
+      const bought = new Set(d.collection || []);
+      for (const it of items) {
+        if ((bought.has(it.key) || (it.albumId && bought.has('a' + it.albumId))) && !it.owners.includes(u)) it.owners.push(u);
+      }
     }
-    if (items.some((it) => it.shared.length)) renderAll();
+    if (items.some((it) => it.shared.length || it.owners.length)) renderAll();
   });
 }
 
@@ -851,12 +905,14 @@ $('shuffle').onclick = () => {
   shuffled = !shuffled;
   if (shuffled) items.forEach((it) => { it.rank = Math.random(); });
   $('shuffle').classList.toggle('on', shuffled);
-  $('sort').disabled = shuffled; // shuffle replaces the sort order
+  $('sort').disabled = $('dir').disabled = shuffled; // shuffle replaces the sort order
   renderGrid();
 };
 $('multi').onchange = renderAll;
 $('hideHeard').onchange = () => { writeStore('hideHeard', $('hideHeard').checked); renderAll(); };
-$('sort').onchange = renderGrid;
+// A new sort starts in its usual direction.
+$('sort').onchange = () => { reversed = false; showDir(); renderGrid(); };
+$('dir').onclick = () => { reversed = !reversed; showDir(); renderGrid(); };
 // Each search redraws every card, so wait for a pause in the typing.
 let searchTimer = null;
 $('q').oninput = () => {
@@ -943,11 +999,12 @@ function openUser(u) {
 const personOf = (user) => WISHLISTS.find((w) => w.user === user) || { user, name: user };
 
 // Small round profile photo for the header, from avatars/<user>.jpg, or the
-// person's initial if there's no photo for them.
-function avatar(user) {
-  const initial = () => h('span', { class: 'avatar', 'aria-hidden': 'true' }, (personOf(user).name || user || '?').trim().charAt(0).toUpperCase());
+// person's initial if there's no photo for them. extra: more classes.
+function avatar(user, extra) {
+  const cls = 'avatar' + (extra ? ' ' + extra : '');
+  const initial = () => h('span', { class: cls, 'aria-hidden': 'true' }, (personOf(user).name || user || '?').trim().charAt(0).toUpperCase());
   if (!user) return initial();
-  const img = h('img', { class: 'avatar', alt: '', src: new URL('avatars/' + user + '.jpg', ROOT).href,
+  const img = h('img', { class: cls, alt: '', src: new URL('avatars/' + user + '.jpg', ROOT).href,
     onerror: () => img.replaceWith(initial()) });
   return img;
 }
