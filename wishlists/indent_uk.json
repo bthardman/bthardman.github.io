@@ -1,16 +1,16 @@
 {
  "version": 3,
- "exported": "2026-10-25T01:02:58.480Z",
+ "exported": "2026-11-10T21:36:33.213Z",
  "user": "indent_uk",
- "count": 844,
+ "count": 876,
  "rates": {
-  "GBP": 1.33745,
-  "EUR": 1.1204,
+  "EUR": 1.11633,
+  "GBP": 1.33445,
   "USD": 1,
-  "AUD": 0.703,
-  "DKK": 0.149888,
-  "JPY": 0.00637491,
-  "CZK": 0.0460416
+  "JPY": 0.00629705,
+  "AUD": 0.686565,
+  "DKK": 0.149333,
+  "CZK": 0.0458386
  },
  "collection": [
   "t2441724250",
@@ -1206,6 +1206,1375 @@
  ],
  "items": [
   {
+   "key": "a256940883",
+   "id": 256940883,
+   "type": "a",
+   "title": "Kilowatt / Respektrum",
+   "artist": "LLL",
+   "url": "https://pedermannerfeltproduktion.bandcamp.com/album/kilowatt-respektrum",
+   "art": "https://f4.bcbits.com/img/a2921447701_9.jpg",
+   "bandId": 1128177376,
+   "tags": [
+    "electronic"
+   ],
+   "beatport": {
+    "genres": [
+     "Bass / Club"
+    ],
+    "url": "https://www.beatport.com/release/kilowatt-respektrum/7606734",
+    "match": "release"
+   },
+   "label": "Peder Mannerfelt Produktion",
+   "lookup": {
+    "artist": "LLL",
+    "trackTitles": [
+     "Kilowatt",
+     "Respektrum"
+    ],
+    "v": 5
+   },
+   "released": "2026-11-06",
+   "price": 2,
+   "currency": "EUR",
+   "dcMiss": 1794346593194,
+   "dcVer": 2
+  },
+  {
+   "key": "a499028597",
+   "id": 499028597,
+   "type": "a",
+   "title": "RECUR://PT.1",
+   "artist": "Typeless",
+   "url": "https://typelessrecords.bandcamp.com/album/recur-pt-1",
+   "art": "https://f4.bcbits.com/img/a2261271610_9.jpg",
+   "bandId": 1115557720,
+   "tags": [
+    "detroit techno",
+    "electronic",
+    "detroit electro",
+    "electro",
+    "techno"
+   ],
+   "beatport": null,
+   "label": "Typeless",
+   "lookup": {
+    "artist": "Typeless",
+    "trackTitles": [
+     "Impulse",
+     "InterfaceCreation",
+     "Squeezing Thru Cracks",
+     "Just Read the Instructions",
+     "Ready",
+     "The Underground"
+    ],
+    "v": 5
+   },
+   "released": "2026-11-13",
+   "price": 7.99,
+   "currency": "GBP",
+   "preorder": true,
+   "bpMiss": 1794345926060,
+   "bpVer": 4,
+   "dcMiss": 1794345980662,
+   "dcVer": 2
+  },
+  {
+   "key": "t1703665211",
+   "id": 1703665211,
+   "type": "t",
+   "title": "SIM - No Silver Bullet",
+   "artist": "SIM",
+   "url": "https://simsimsim.bandcamp.com/track/sim-no-silver-bullet",
+   "art": "https://f4.bcbits.com/img/a4268191024_9.jpg",
+   "bandId": 1531606630,
+   "albumId": 1126853923,
+   "tags": [
+    "electronic",
+    "jungle dnb",
+    "riddims",
+    "bass",
+    "bass music",
+    "chuggy",
+    "club",
+    "dancehall",
+    "grime",
+    "slow tech"
+   ],
+   "beatport": {
+    "genres": [
+     "Caribbean",
+     "Reggae"
+    ],
+    "url": "https://www.beatport.com/track/no-silver-bullet/31024329",
+    "match": "track"
+   },
+   "label": "SIM",
+   "lookup": {
+    "artist": "SIM",
+    "album": "Mindful / No Silver Bullet [SIM006]",
+    "v": 5
+   },
+   "released": "2026-11-06",
+   "price": 2,
+   "currency": "USD",
+   "dcMiss": 1794345989992,
+   "dcVer": 2
+  },
+  {
+   "key": "a864868674",
+   "id": 864868674,
+   "type": "a",
+   "title": "EYEZ",
+   "artist": "Mulholland",
+   "url": "https://mulhollanddd.bandcamp.com/album/eyez",
+   "art": "https://f4.bcbits.com/img/a1125232978_9.jpg",
+   "bandId": 2013464084,
+   "tags": [
+    "electronic",
+    "house",
+    "bass",
+    "dubstep",
+    "jungle",
+    "techno",
+    "ukbass"
+   ],
+   "beatport": {
+    "genres": [
+     "140 / Deep Dubstep / Grime"
+    ],
+    "url": "https://www.beatport.com/release/eyez/7583862",
+    "match": "release"
+   },
+   "label": "Amity",
+   "lookup": {
+    "artist": "Mulholland",
+    "trackTitles": [
+     "EYEZ",
+     "Rezzin",
+     "Comfy (ft. Glimmerman)",
+     "Affi's",
+     "Type Beat Type Beat",
+     "EYEZ (Sir Hiss Remix)"
+    ],
+    "v": 5
+   },
+   "released": "2026-11-17",
+   "price": 5,
+   "currency": "GBP",
+   "preorder": true,
+   "dcMiss": 1794345994382,
+   "dcVer": 2
+  },
+  {
+   "key": "a2380701444",
+   "id": 2380701444,
+   "type": "a",
+   "title": "SPORE TACTICS",
+   "artist": "TETE VIDE",
+   "url": "https://tetevide.bandcamp.com/album/spore-tactics",
+   "art": "https://f4.bcbits.com/img/a2054991130_9.jpg",
+   "bandId": 2594937306,
+   "tags": [
+    "bass",
+    "booty tech",
+    "breakbeat",
+    "electronic",
+    "multi-genre"
+   ],
+   "beatport": null,
+   "label": "TETE VIDE",
+   "lookup": {
+    "artist": "TETE VIDE",
+    "trackTitles": [
+     "Tom Place & HEDDA - Black Sun",
+     "Soupe Froide - You Know",
+     "Azogial - Beast",
+     "Praga Express - Locked",
+     "Dario - Mayri",
+     "Kue - Semiótica"
+    ],
+    "v": 5
+   },
+   "released": "2026-12-18",
+   "price": 5,
+   "currency": "EUR",
+   "preorder": true,
+   "bpMiss": 1794345931576,
+   "bpVer": 4,
+   "dcMiss": 1794345998778,
+   "dcVer": 2
+  },
+  {
+   "key": "a2746481414",
+   "id": 2746481414,
+   "type": "a",
+   "title": "Understanding The Machine",
+   "artist": "SMIFF",
+   "url": "https://smiffmusic.bandcamp.com/album/understanding-the-machine",
+   "art": "https://f4.bcbits.com/img/a2213980558_9.jpg",
+   "bandId": 2632900100,
+   "tags": [
+    "breaks",
+    "electronic",
+    "uk bass",
+    "uk techno",
+    "bass",
+    "techno"
+   ],
+   "beatport": null,
+   "label": "SMIFF",
+   "lookup": {
+    "artist": "SMIFF",
+    "trackTitles": [
+     "Harold",
+     "Crawl Space",
+     "Chumps Change",
+     "Catch Point"
+    ],
+    "v": 5
+   },
+   "released": "2026-11-19",
+   "price": 3,
+   "currency": "GBP",
+   "preorder": true,
+   "bpMiss": 1794345932843,
+   "bpVer": 4,
+   "dcMiss": 1794346003217,
+   "dcVer": 2
+  },
+  {
+   "key": "a1017470935",
+   "id": 1017470935,
+   "type": "a",
+   "title": "Malin Genie & Frits Wentink SAMPLE PACK Vol.2",
+   "artist": "Malin Genie & Frits Wentink",
+   "url": "https://fritswentink.bandcamp.com/album/malin-genie-frits-wentink-sample-pack-vol-2",
+   "art": "https://f4.bcbits.com/img/a2635403535_9.jpg",
+   "bandId": 4215822082,
+   "tags": [
+    "deep house",
+    "electronic",
+    "house",
+    "tech house"
+   ],
+   "beatport": null,
+   "label": "Swap Shop",
+   "lookup": {
+    "artist": "Malin Genie & Frits Wentink",
+    "trackTitles": [
+     "Malin Genie & Frits Wentink SAMPLE PACK Vol.2 (demo-reel)"
+    ],
+    "v": 5
+   },
+   "released": "2026-11-05",
+   "price": 25,
+   "currency": "EUR",
+   "bpMiss": 1794345941377,
+   "bpVer": 4,
+   "dcMiss": 1794346009518,
+   "dcVer": 2
+  },
+  {
+   "key": "a2215100672",
+   "id": 2215100672,
+   "type": "a",
+   "title": "Malin Genie & Frits Wentink SAMPLE PACK Vol.1.2",
+   "artist": "Malin Genie & Frits Wentink",
+   "url": "https://fritswentink.bandcamp.com/album/malin-genie-frits-wentink-sample-pack-vol-12",
+   "art": "https://f4.bcbits.com/img/a2636182342_9.jpg",
+   "bandId": 4215822082,
+   "tags": [
+    "deep house",
+    "electronic",
+    "house",
+    "tech house"
+   ],
+   "beatport": null,
+   "label": "Swap Shop",
+   "lookup": {
+    "artist": "Malin Genie & Frits Wentink",
+    "trackTitles": [
+     "Malin Genie & Frits Wentink SAMPLE PACK Vol.1 (demo-reel)"
+    ],
+    "v": 5
+   },
+   "released": "2026-05-13",
+   "price": 25,
+   "currency": "EUR",
+   "bpMiss": 1794345941424,
+   "bpVer": 4,
+   "dcMiss": 1794346015346,
+   "dcVer": 2
+  },
+  {
+   "key": "a1189732741",
+   "id": 1189732741,
+   "type": "a",
+   "title": "Functions",
+   "artist": "Van Wilkins",
+   "url": "https://fauxpoly.bandcamp.com/album/functions",
+   "art": "https://f4.bcbits.com/img/a1482575652_9.jpg",
+   "bandId": 940721927,
+   "tags": [
+    "electronic",
+    "ukg",
+    "breakbeat",
+    "breaks",
+    "electro",
+    "techno",
+    "ukbass"
+   ],
+   "beatport": {
+    "genres": [
+     "Breaks / Breakbeat / UK Bass"
+    ],
+    "url": "https://www.beatport.com/release/functions/7502175",
+    "match": "release"
+   },
+   "label": "Faux Poly",
+   "lookup": {
+    "artist": "Van Wilkins",
+    "trackTitles": [
+     "Compute",
+     "Modular Tool",
+     "Surface Siren",
+     "Percussive Mannerisms"
+    ],
+    "v": 5
+   },
+   "released": "2026-11-20",
+   "price": 5,
+   "currency": "GBP",
+   "preorder": true,
+   "dcMiss": 1794346021219,
+   "dcVer": 2
+  },
+  {
+   "key": "t1488358354",
+   "id": 1488358354,
+   "type": "t",
+   "title": "Line B",
+   "artist": "Halogenix",
+   "url": "https://halogenix.bandcamp.com/track/line-b",
+   "art": "https://f4.bcbits.com/img/a2675581960_9.jpg",
+   "bandId": 2245596272,
+   "albumId": 2176067892,
+   "tags": [
+    "electronic",
+    "bass music",
+    "drum & bass"
+   ],
+   "beatport": {
+    "genres": [
+     "Drum & Bass"
+    ],
+    "url": "https://www.beatport.com/track/line-b/11970498",
+    "match": "track"
+   },
+   "label": "Critical Music",
+   "lookup": {
+    "artist": "Halogenix",
+    "album": "Gaslight EP",
+    "v": 5
+   },
+   "released": "2019-06-07",
+   "price": 1.5,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "Drum n Bass"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/13730747-Halogenix-Gaslight-EP",
+    "match": "release"
+   }
+  },
+  {
+   "key": "t3296405390",
+   "id": 3296405390,
+   "type": "t",
+   "title": "Footsteps In My Eyes",
+   "artist": "Radioactive Man",
+   "url": "https://radioactiveman.bandcamp.com/track/footsteps-in-my-eyes",
+   "art": "https://f4.bcbits.com/img/a2820535360_9.jpg",
+   "bandId": 266926083,
+   "albumId": 3879673562,
+   "tags": [
+    "electronic",
+    "breakbeat",
+    "electro",
+    "electronica"
+   ],
+   "beatport": {
+    "genres": [
+     "Electro (Classic / Detroit / Modern)"
+    ],
+    "url": "https://www.beatport.com/track/footsteps-in-my-eyes/30476857",
+    "match": "track"
+   },
+   "label": "Radioactive Man",
+   "lookup": {
+    "artist": "Radioactive Man",
+    "album": "Hole In The Fire",
+    "v": 5
+   },
+   "released": "2026-09-30",
+   "price": 2.2,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "Electro",
+     "Breakbeat",
+     "Acid"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/38651772-Radioactive-Man-Hole-In-The-Fire",
+    "match": "release"
+   }
+  },
+  {
+   "key": "a348999391",
+   "id": 348999391,
+   "type": "a",
+   "title": "HEK038 - Crop Milk EP",
+   "artist": "Untold ",
+   "url": "https://untoldhemlock.bandcamp.com/album/hek038-crop-milk-ep",
+   "art": "https://f4.bcbits.com/img/a1025309646_9.jpg",
+   "bandId": 518172890,
+   "tags": [
+    "dance",
+    "dubstep",
+    "electronic",
+    "electronica",
+    "ambient",
+    "techno"
+   ],
+   "beatport": {
+    "genres": [
+     "Bass / Club"
+    ],
+    "url": "https://www.beatport.com/release/crop-milk/7575149",
+    "match": "catalog"
+   },
+   "label": "Hemlock Recordings",
+   "lookup": {
+    "artist": "Untold ",
+    "trackTitles": [
+     "Oloid",
+     "Crop Milk",
+     "Move 37",
+     "Valcoviini",
+     "Fruit Fly"
+    ],
+    "v": 5
+   },
+   "released": "2026-10-30",
+   "price": 6,
+   "currency": "GBP",
+   "dcMiss": 1794346033685,
+   "dcVer": 2
+  },
+  {
+   "key": "t3718876193",
+   "id": 3718876193,
+   "type": "t",
+   "title": "Move 37",
+   "artist": "Untold ",
+   "url": "https://untoldhemlock.bandcamp.com/track/move-37",
+   "art": "https://f4.bcbits.com/img/a1025309646_9.jpg",
+   "bandId": 518172890,
+   "albumId": 348999391,
+   "tags": [
+    "dance",
+    "dubstep",
+    "electronic",
+    "electronica",
+    "ambient",
+    "techno"
+   ],
+   "beatport": {
+    "genres": [
+     "Bass / Club"
+    ],
+    "url": "https://www.beatport.com/track/move-37/30938853",
+    "match": "track"
+   },
+   "label": "Hemlock Recordings",
+   "lookup": {
+    "artist": "Untold ",
+    "album": "HEK038 - Crop Milk EP",
+    "v": 5
+   },
+   "released": "2026-10-30",
+   "price": 1.5,
+   "currency": "GBP",
+   "dcMiss": 1794346042573,
+   "dcVer": 2
+  },
+  {
+   "key": "t3204506312",
+   "id": 3204506312,
+   "type": "t",
+   "title": "Oloid",
+   "artist": "Untold ",
+   "url": "https://untoldhemlock.bandcamp.com/track/oloid",
+   "art": "https://f4.bcbits.com/img/a1025309646_9.jpg",
+   "bandId": 518172890,
+   "albumId": 348999391,
+   "tags": [
+    "dance",
+    "dubstep",
+    "electronic",
+    "electronica",
+    "ambient",
+    "techno"
+   ],
+   "beatport": {
+    "genres": [
+     "Bass / Club"
+    ],
+    "url": "https://www.beatport.com/track/oloid/30938851",
+    "match": "track"
+   },
+   "label": "Hemlock Recordings",
+   "lookup": {
+    "artist": "Untold ",
+    "album": "HEK038 - Crop Milk EP",
+    "v": 5
+   },
+   "released": "2026-10-30",
+   "price": 1.5,
+   "currency": "GBP",
+   "dcMiss": 1794346051304,
+   "dcVer": 2
+  },
+  {
+   "key": "a3015153604",
+   "id": 3015153604,
+   "type": "a",
+   "title": "Multi Source",
+   "artist": "Various Artists",
+   "url": "https://plasmasources.bandcamp.com/album/multi-source",
+   "art": "https://f4.bcbits.com/img/a923439042_9.jpg",
+   "bandId": 2291563567,
+   "tags": [
+    "drum & bass",
+    "electronic",
+    "experimental",
+    "idm",
+    "techno",
+    "bass",
+    "downtempo",
+    "electro",
+    "grime",
+    "jungle",
+    "sci-fi"
+   ],
+   "beatport": null,
+   "label": "Plasma Sources",
+   "lookup": {
+    "artist": "Various Artists",
+    "trackTitles": [
+     "Safe Tread",
+     "Circuit Reflex",
+     "Particle Shifter",
+     "Res90",
+     "WWW",
+     "Hammer"
+    ],
+    "v": 5
+   },
+   "released": "2025-03-27",
+   "price": 12,
+   "currency": "EUR",
+   "bpMiss": 1794345953478,
+   "bpVer": 4,
+   "dcMiss": 1794346054221,
+   "dcVer": 2
+  },
+  {
+   "key": "t2190596926",
+   "id": 2190596926,
+   "type": "t",
+   "title": "Rupture (Dual Monitor's Miami Tripsit Remix)",
+   "artist": "DubGuy",
+   "url": "https://dubguyjp.bandcamp.com/track/rupture-dual-monitors-miami-tripsit-remix",
+   "art": "https://f4.bcbits.com/img/a958134128_9.jpg",
+   "bandId": 3703441504,
+   "albumId": 2086771202,
+   "tags": [
+    "electronic",
+    "ghettotech",
+    "electronica",
+    "elektro",
+    "elektronika"
+   ],
+   "beatport": null,
+   "label": "TREKKIE TRAX",
+   "lookup": {
+    "artist": "DubGuy",
+    "album": "Phase Ritual EP",
+    "v": 5
+   },
+   "released": "2026-10-30",
+   "price": 250,
+   "currency": "JPY",
+   "bpMiss": 1794345954595,
+   "bpVer": 4,
+   "dcMiss": 1794346060081,
+   "dcVer": 2
+  },
+  {
+   "key": "t4115118955",
+   "id": 4115118955,
+   "type": "t",
+   "title": "With Patsy",
+   "artist": "Tessela",
+   "url": "https://tessela.bandcamp.com/track/with-patsy",
+   "art": "https://f4.bcbits.com/img/a4284579983_9.jpg",
+   "bandId": 3993007205,
+   "albumId": 2943210580,
+   "tags": [
+    "electronic",
+    "electronica/dance",
+    "techno",
+    "house"
+   ],
+   "beatport": {
+    "genres": [
+     "Techno (Peak Time / Driving)"
+    ],
+    "url": "https://www.beatport.com/track/with-patsy/9848093",
+    "match": "track"
+   },
+   "label": "Poly Kicks",
+   "lookup": {
+    "artist": "Tessela",
+    "album": "With Patsy / Swimming",
+    "v": 5
+   },
+   "released": "2017-11-03",
+   "price": 1,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/8101903-Tessela-With-Patsy-Swimming",
+    "match": "release"
+   }
+  },
+  {
+   "key": "t3466613499",
+   "id": 3466613499,
+   "type": "t",
+   "title": "Swimming",
+   "artist": "Tessela",
+   "url": "https://tessela.bandcamp.com/track/swimming",
+   "art": "https://f4.bcbits.com/img/a4284579983_9.jpg",
+   "bandId": 3993007205,
+   "albumId": 2943210580,
+   "tags": [
+    "electronic",
+    "electronica/dance",
+    "techno",
+    "house"
+   ],
+   "beatport": {
+    "genres": [
+     "Bass / Club",
+     "Bass/Club"
+    ],
+    "url": "https://www.beatport.com/track/swimming/9848094",
+    "match": "track"
+   },
+   "label": "Poly Kicks",
+   "lookup": {
+    "artist": "Tessela",
+    "album": "With Patsy / Swimming",
+    "v": 5
+   },
+   "released": "2017-11-03",
+   "price": 1,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/8101903-Tessela-With-Patsy-Swimming",
+    "match": "release"
+   }
+  },
+  {
+   "key": "t2455992493",
+   "id": 2455992493,
+   "type": "t",
+   "title": "Headland",
+   "artist": "Tessela",
+   "url": "https://tessela.bandcamp.com/track/headland",
+   "art": "https://f4.bcbits.com/img/a3658771239_9.jpg",
+   "bandId": 3993007205,
+   "albumId": 3210337212,
+   "tags": [
+    "electronic",
+    "electronica/dance",
+    "techno",
+    "house"
+   ],
+   "beatport": {
+    "genres": [
+     "Techno (Peak Time / Driving)"
+    ],
+    "url": "https://www.beatport.com/track/headland/9773028",
+    "match": "track"
+   },
+   "label": "Poly Kicks",
+   "lookup": {
+    "artist": "Tessela",
+    "album": "Hackney Parrot (10_Ton_Mix) / Headland",
+    "v": 5
+   },
+   "released": "2017-10-27",
+   "price": 1,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "Hardcore",
+     "Breaks",
+     "Minimal Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/10944610-Tessela-Hackney-Parrot-10-Ton-mix-Headland-",
+    "match": "release"
+   }
+  },
+  {
+   "key": "t1855663761",
+   "id": 1855663761,
+   "type": "t",
+   "title": "Nancy's Pantry",
+   "artist": "Tessela",
+   "url": "https://tessela.bandcamp.com/track/nancys-pantry",
+   "art": "https://f4.bcbits.com/img/a196994406_9.jpg",
+   "bandId": 3993007205,
+   "albumId": 1250655717,
+   "tags": [
+    "electronic",
+    "house",
+    "techno"
+   ],
+   "beatport": {
+    "genres": [
+     "Electronica"
+    ],
+    "url": "https://www.beatport.com/track/nancy-s-pantry/4681617",
+    "match": "track"
+   },
+   "label": "R&S Records",
+   "lookup": {
+    "artist": "Tessela",
+    "album": "Nancy's Pantry",
+    "v": 5
+   },
+   "released": "2013-10-07",
+   "price": 1,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "Techno",
+     "Breakbeat"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/5000336-Tessela-Nancys-Pantry",
+    "match": "release"
+   }
+  },
+  {
+   "key": "t3014125684",
+   "id": 3014125684,
+   "type": "t",
+   "title": "Channel",
+   "artist": "Tessela",
+   "url": "https://punchdrunkrecords.bandcamp.com/track/channel-2",
+   "art": "https://f4.bcbits.com/img/a0852229893_9.jpg",
+   "bandId": 1122752248,
+   "albumId": 1803615640,
+   "tags": [
+    "techno",
+    "uk garage",
+    "uk techno"
+   ],
+   "beatport": {
+    "genres": [
+     "Breaks / Breakbeat / UK Bass"
+    ],
+    "url": "https://www.beatport.com/track/channel/5692415",
+    "match": "track"
+   },
+   "label": "Punch Drunk Records",
+   "lookup": {
+    "artist": "Punch Drunk Records",
+    "album": "D Jane / Channel",
+    "v": 5
+   },
+   "released": "2012-02-17",
+   "price": 2,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "UK Garage"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/3492337-Tessela-D-Jane-Channel",
+    "match": "release"
+   }
+  },
+  {
+   "key": "t149100068",
+   "id": 149100068,
+   "type": "t",
+   "title": "Prototype Fear",
+   "artist": "Hodge",
+   "url": "https://hodgebristol.bandcamp.com/track/prototype-fear",
+   "art": "https://f4.bcbits.com/img/a2420706083_9.jpg",
+   "bandId": 1884601808,
+   "albumId": 3428843583,
+   "tags": [
+    "electronic",
+    "bass",
+    "dance",
+    "techno"
+   ],
+   "beatport": {
+    "genres": [
+     "Dubstep"
+    ],
+    "url": "https://www.beatport.com/track/prototype-fear/5692669",
+    "match": "track"
+   },
+   "label": "Punch Drunk Records",
+   "lookup": {
+    "artist": "Hodge",
+    "album": "Resolve / Prototype Fear",
+    "v": 5
+   },
+   "released": "2013-11-01",
+   "price": 2,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/23982680-Hodge-Resolve-Prototype-Fear",
+    "match": "release"
+   }
+  },
+  {
+   "key": "t1066311856",
+   "id": 1066311856,
+   "type": "t",
+   "title": "Jarvik Mindstate",
+   "artist": "Peverelist",
+   "url": "https://peverelist.bandcamp.com/track/jarvik-mindstate",
+   "art": "https://f4.bcbits.com/img/a1730492212_9.jpg",
+   "bandId": 3660791908,
+   "albumId": 602324355,
+   "tags": [
+    "electronic",
+    "bass",
+    "techno",
+    "uk techno"
+   ],
+   "beatport": {
+    "genres": [
+     "Dubstep"
+    ],
+    "url": "https://www.beatport.com/track/jarvik-mindstate/5692369",
+    "match": "track"
+   },
+   "label": "Punch Drunk Records",
+   "lookup": {
+    "artist": "Peverelist",
+    "album": "Jarvik Mindstate",
+    "v": 5
+   },
+   "released": "2009-11-01",
+   "price": 2,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "Dubstep",
+     "Techno",
+     "Ambient",
+     "Dub"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/2026218-Peverelist-Jarvik-Mindstate",
+    "match": "release"
+   }
+  },
+  {
+   "key": "t1453139985",
+   "id": 1453139985,
+   "type": "t",
+   "title": "Better Ways of Living",
+   "artist": "Peverelist",
+   "url": "https://peverelist.bandcamp.com/track/better-ways-of-living",
+   "art": "https://f4.bcbits.com/img/a4282338515_9.jpg",
+   "bandId": 3660791908,
+   "albumId": 969976579,
+   "tags": [
+    "electronic",
+    "bass",
+    "techno",
+    "uk techno"
+   ],
+   "beatport": {
+    "genres": [
+     "140 / Deep Dubstep / Grime"
+    ],
+    "url": "https://www.beatport.com/track/better-ways-of-living/10379009",
+    "match": "track"
+   },
+   "label": "Punch Drunk Records",
+   "lookup": {
+    "artist": "Peverelist",
+    "album": "Better Ways of Living / Fighting Without Fighting",
+    "v": 5
+   },
+   "released": "2010-07-19",
+   "price": 2,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "Dubstep"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/2362309-Peverelist-Better-Ways-Of-Living-Fighting-Without-Fighting",
+    "match": "release"
+   }
+  },
+  {
+   "key": "t3225223756",
+   "id": 3225223756,
+   "type": "t",
+   "title": "RRRR",
+   "artist": "Peverelist & Hyetal",
+   "url": "https://punchdrunkrecords.bandcamp.com/track/rrrr",
+   "art": "https://f4.bcbits.com/img/a1773869483_9.jpg",
+   "bandId": 1122752248,
+   "albumId": 3060600228,
+   "tags": [
+    "dubstep",
+    "not dubstep"
+   ],
+   "beatport": {
+    "genres": [
+     "Bass / Club",
+     "Bass/Club"
+    ],
+    "url": "https://www.beatport.com/track/rrrr/5724702",
+    "match": "track"
+   },
+   "label": "Punch Drunk Records",
+   "lookup": {
+    "artist": "Punch Drunk Records",
+    "album": "The Hum / RRRR",
+    "v": 5
+   },
+   "released": "2010-10-15",
+   "price": 2,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "UK Garage",
+     "Dubstep"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/10629607-Peverelist-Hyetal-The-Hum-Rrrr",
+    "match": "release"
+   }
+  },
+  {
+   "key": "a799895437",
+   "id": 799895437,
+   "type": "a",
+   "title": "Bluez (Classic mix) / Und_92",
+   "artist": "Peverelist",
+   "url": "https://peverelist.bandcamp.com/album/bluez-classic-mix-und-92",
+   "art": "https://f4.bcbits.com/img/a2026778396_9.jpg",
+   "bandId": 3660791908,
+   "tags": [
+    "deep dubstep",
+    "dubstep",
+    "electronic",
+    "bass",
+    "techno",
+    "uk techno"
+   ],
+   "beatport": {
+    "genres": [
+     "Breaks / Breakbeat / UK Bass",
+     "140 / Deep Dubstep / Grime"
+    ],
+    "url": "https://www.beatport.com/release/bluez-classic-mix-und-92/2413782",
+    "match": "release"
+   },
+   "label": "Punch Drunk Records",
+   "lookup": {
+    "artist": "Peverelist",
+    "trackTitles": [
+     "Bluez (Classic mix)",
+     "Und_92"
+    ],
+    "v": 5
+   },
+   "released": "2018-11-02",
+   "price": 3,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "Dubstep"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/master/2662631-Peverelist-Bluez",
+    "match": "artist-master"
+   }
+  },
+  {
+   "key": "a606089744",
+   "id": 606089744,
+   "type": "a",
+   "title": "Ram Pam EP",
+   "artist": "Azogial",
+   "url": "https://taipantrax.bandcamp.com/album/ram-pam-ep",
+   "art": "https://f4.bcbits.com/img/a3932639842_9.jpg",
+   "bandId": 2538320114,
+   "tags": [
+    "electronic",
+    "ukg",
+    "breakbeat",
+    "breaks",
+    "rave"
+   ],
+   "beatport": {
+    "genres": [
+     "Bass / Club",
+     "Breaks / Breakbeat / UK Bass",
+     "Electro (Classic / Detroit / Modern)"
+    ],
+    "url": "https://www.beatport.com/release/ram-pam/7496975",
+    "match": "release"
+   },
+   "label": "Taipan Trax",
+   "lookup": {
+    "artist": "Azogial",
+    "trackTitles": [
+     "Ram Pam",
+     "Your Mind",
+     "Thanks To The Cloud",
+     "Recover"
+    ],
+    "v": 5
+   },
+   "released": "2026-11-06",
+   "price": 4.99,
+   "currency": "GBP",
+   "dcMiss": 1794346079220,
+   "dcVer": 2
+  },
+  {
+   "key": "a815466954",
+   "id": 815466954,
+   "type": "a",
+   "title": "Incarnate",
+   "artist": "Pugilist",
+   "url": "https://pugilist.bandcamp.com/album/incarnate",
+   "art": "https://f4.bcbits.com/img/a4259723398_9.jpg",
+   "bandId": 4120961698,
+   "tags": [
+    "electronic",
+    "techno",
+    "bass",
+    "breaks",
+    "broken techno",
+    "deep techno",
+    "dub",
+    "dub techno",
+    "dubstep",
+    "jungle"
+   ],
+   "beatport": null,
+   "label": "Control Freak Recordings",
+   "lookup": {
+    "artist": "Pugilist",
+    "trackTitles": [
+     "Galvanize",
+     "Hadron",
+     "Malice",
+     "Incarnate"
+    ],
+    "v": 5
+   },
+   "released": "2026-12-04",
+   "price": 5,
+   "currency": "GBP",
+   "preorder": true,
+   "bpMiss": 1794345967527,
+   "bpVer": 4,
+   "dcMiss": 1794346086959,
+   "dcVer": 2
+  },
+  {
+   "key": "a2259847279",
+   "id": 2259847279,
+   "type": "a",
+   "title": "Ten Years of On Loop Vol. 2",
+   "artist": "Moxie",
+   "url": "https://moxiemox.bandcamp.com/album/ten-years-of-on-loop-vol-2",
+   "art": "https://f4.bcbits.com/img/a0171866839_9.jpg",
+   "bandId": 3362632046,
+   "tags": [
+    "electronic",
+    "house",
+    "acid",
+    "club",
+    "garage",
+    "techno"
+   ],
+   "beatport": {
+    "genres": [
+     "House"
+    ],
+    "url": "https://www.beatport.com/release/ten-years-of-on-loop-vol-2/7615668",
+    "match": "release-label"
+   },
+   "label": "On Loop",
+   "lookup": {
+    "artist": "Moxie",
+    "trackTitles": [
+     "Ricky",
+     "Crazy",
+     "Movements",
+     "Blues",
+     "Finale",
+     "Lonely Bongo"
+    ],
+    "v": 5
+   },
+   "released": "2026-10-16",
+   "price": 10,
+   "currency": "GBP",
+   "dcMiss": 1794346094435,
+   "dcVer": 2
+  },
+  {
+   "key": "a2764304396",
+   "id": 2764304396,
+   "type": "a",
+   "title": "Nothing I Want I See",
+   "artist": "Paleman",
+   "url": "https://atwrecords.bandcamp.com/album/nothing-i-want-i-see",
+   "art": "https://f4.bcbits.com/img/a0521635739_9.jpg",
+   "bandId": 972360687,
+   "tags": [
+    "electronic"
+   ],
+   "beatport": {
+    "genres": [
+     "Bass House"
+    ],
+    "url": "https://www.beatport.com/release/nothing-i-want-i-see/7610322",
+    "match": "release"
+   },
+   "label": "ATW Records",
+   "lookup": {
+    "artist": "Paleman",
+    "trackTitles": [
+     "Nothing I Want I See"
+    ],
+    "v": 5
+   },
+   "released": "2026-10-23",
+   "price": 1.5,
+   "currency": "GBP",
+   "discogs": {
+    "styles": [
+     "Bass Music",
+     "Electro",
+     "Techno"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/36177529-Paleman-ILl-Be",
+    "match": "artist-release"
+   }
+  },
+  {
+   "key": "a3511365543",
+   "id": 3511365543,
+   "type": "a",
+   "title": "Harrison BDP - This One's For You",
+   "artist": "Neptune Discs",
+   "url": "https://neptunediscs.bandcamp.com/album/harrison-bdp-this-ones-for-you",
+   "art": "https://f4.bcbits.com/img/a3798368331_9.jpg",
+   "bandId": 3598473634,
+   "tags": [
+    "electronic",
+    "tech house"
+   ],
+   "beatport": null,
+   "label": "Neptune Discs",
+   "lookup": {
+    "artist": "Neptune Discs",
+    "trackTitles": [
+     "Harrison BDP - This One's For you",
+     "Harrison BDP - Tahiti",
+     "Harrison BDP - Humma Kavula",
+     "Harrison BDP - Humma Kavula (Squash Mix))"
+    ],
+    "v": 5
+   },
+   "released": "2026-10-29",
+   "price": 7,
+   "currency": "GBP",
+   "bpMiss": 1794345974443,
+   "bpVer": 4,
+   "discogs": {
+    "styles": [
+     "Progressive House",
+     "Tech House"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/38743707-Harrison-BDP-This-Ones-For-You",
+    "match": "release"
+   }
+  },
+  {
+   "key": "a2304527618",
+   "id": 2304527618,
+   "type": "a",
+   "title": "Taíno Gold",
+   "artist": "jurango_satw",
+   "url": "https://jurango.bandcamp.com/album/tai-no-gold",
+   "art": "https://f4.bcbits.com/img/a2910970024_9.jpg",
+   "bandId": 1017480746,
+   "tags": [
+    "dub",
+    "electronic",
+    "uk techno",
+    "bass",
+    "soundsystem",
+    "techno"
+   ],
+   "beatport": {
+    "genres": [
+     "Bass / Club",
+     "Techno (Raw / Deep / Hypnotic)"
+    ],
+    "url": "https://www.beatport.com/release/taino-gold/5408978",
+    "match": "release"
+   },
+   "label": "Livity Sound",
+   "lookup": {
+    "artist": "jurango_satw",
+    "trackTitles": [
+     "Black Torches",
+     "Maybe It's Broken",
+     "Inbosin",
+     "Waiting For Trelawny",
+     "Double Sevens",
+     "Hibiscus"
+    ],
+    "v": 5
+   },
+   "released": "2025-10-31",
+   "price": 9,
+   "currency": "GBP",
+   "dcMiss": 1794346107910,
+   "dcVer": 2
+  },
+  {
+   "key": "a355032773",
+   "id": 355032773,
+   "type": "a",
+   "title": "Head In The Sand",
+   "artist": "K Wata",
+   "url": "https://kwata.bandcamp.com/album/head-in-the-sand",
+   "art": "https://f4.bcbits.com/img/a1123864644_9.jpg",
+   "bandId": 3719801621,
+   "tags": [
+    "electronic",
+    "ambient",
+    "bass",
+    "club",
+    "downtempo",
+    "drums",
+    "dub",
+    "techno"
+   ],
+   "beatport": null,
+   "label": "K Wata",
+   "lookup": {
+    "artist": "K Wata",
+    "trackTitles": [
+     "Masa Drone",
+     "Noir Dub",
+     "Head In The Sand",
+     "Decision Fatigue",
+     "Infinite Love"
+    ],
+    "v": 5
+   },
+   "released": "2026-03-18",
+   "price": 8,
+   "currency": "USD",
+   "bpMiss": 1794345975898,
+   "bpVer": 4,
+   "discogs": {
+    "styles": [
+     "Techno",
+     "Experimental",
+     "Ambient"
+    ],
+    "genres": [
+     "Electronic"
+    ],
+    "url": "https://www.discogs.com/release/36814870-K-Wata-Head-In-The-Sand",
+    "match": "release"
+   }
+  },
+  {
    "key": "t699360300",
    "id": 699360300,
    "type": "t",
@@ -1255,7 +2624,7 @@
    "title": "Absorbe EP",
    "artist": "Anders Hajem",
    "url": "https://spacelab.bandcamp.com/album/absorbe-ep",
-   "art": "https://f4.bcbits.com/img/a834221188_9.jpg",
+   "art": "https://f4.bcbits.com/img/a0834221188_9.jpg",
    "bandId": 1101871858,
    "tags": [],
    "beatport": null,
@@ -1777,7 +3146,7 @@
    "title": "We Control The Beat",
    "artist": "DJ Bone",
    "url": "https://djbone313.bandcamp.com/track/we-control-the-beat",
-   "art": "https://f4.bcbits.com/img/a428139476_9.jpg",
+   "art": "https://f4.bcbits.com/img/a0428139476_9.jpg",
    "bandId": 3333225839,
    "albumId": 4139927961,
    "tags": [
@@ -1818,7 +3187,7 @@
    "title": "Zwm",
    "artist": "Polygonia",
    "url": "https://domusaps.bandcamp.com/track/zwm",
-   "art": "https://f4.bcbits.com/img/a20114430_9.jpg",
+   "art": "https://f4.bcbits.com/img/a0020114430_9.jpg",
    "bandId": 3679788233,
    "albumId": 2757126487,
    "tags": [
@@ -1944,7 +3313,7 @@
    "title": "CL001",
    "artist": "Chlorine",
    "url": "https://beatricem.bandcamp.com/album/cl001",
-   "art": "https://f4.bcbits.com/img/a4008478638_9.jpg",
+   "art": "https://f4.bcbits.com/img/a1233891431_9.jpg",
    "bandId": 1736842583,
    "tags": [
     "electronic",
@@ -1985,7 +3354,7 @@
    "title": "Falls",
    "artist": "Destrata",
    "url": "https://nervousrecords.bandcamp.com/track/falls",
-   "art": "https://f4.bcbits.com/img/a259356739_9.jpg",
+   "art": "https://f4.bcbits.com/img/a0259356739_9.jpg",
    "bandId": 2239800859,
    "tags": [],
    "beatport": {
@@ -2216,10 +3585,10 @@
    "id": 2701292317,
    "type": "a",
    "title": "Delirium",
-   "artist": "Iti",
-   "url": "https://fastatwork.bandcamp.com/album/delirium",
+   "artist": "iti",
+   "url": "https://iti-mqn.bandcamp.com/album/delirium",
    "art": "https://f4.bcbits.com/img/a1924465173_9.jpg",
-   "bandId": 3972188923,
+   "bandId": 2928009770,
    "tags": [
     "electronic",
     "bass",
@@ -2649,7 +4018,7 @@
    "id": 4114819861,
    "type": "t",
    "title": "Un Poquito",
-   "artist": "phran",
+   "artist": "Phran",
    "url": "https://phran.bandcamp.com/track/un-poquito",
    "art": "https://f4.bcbits.com/img/a1487041648_9.jpg",
    "bandId": 63845245,
@@ -9940,9 +11309,9 @@
    "type": "a",
    "title": "Crevasse",
    "artist": "Stones Taro",
-   "url": "https://fastatwork.bandcamp.com/album/crevasse",
+   "url": "https://stonestaro.bandcamp.com/album/crevasse",
    "art": "https://f4.bcbits.com/img/a2311712822_9.jpg",
-   "bandId": 3972188923,
+   "bandId": 2819097313,
    "tags": [
     "electronic",
     "japan",
@@ -19923,9 +21292,9 @@
    "key": "a1395247523",
    "id": 1395247523,
    "type": "a",
-   "title": "Othering",
+   "title": "Othering (incl. Coralie Remix)",
    "artist": "Mercy System",
-   "url": "https://ofparadise.bandcamp.com/album/othering",
+   "url": "https://ofparadise.bandcamp.com/album/othering-incl-coralie-remix",
    "art": "https://f4.bcbits.com/img/a3981633437_9.jpg",
    "bandId": 1569590138,
    "tags": [
@@ -33951,53 +35320,6 @@
    "bpVer": 4,
    "dcMiss": 1792504213014,
    "dcVer": 2
-  },
-  {
-   "key": "a2943210580",
-   "id": 2943210580,
-   "type": "a",
-   "title": "With Patsy / Swimming",
-   "artist": "Tessela",
-   "url": "https://tessela.bandcamp.com/album/with-patsy-swimming",
-   "art": "https://f4.bcbits.com/img/a4284579983_9.jpg",
-   "bandId": 3993007205,
-   "tags": [
-    "dance",
-    "electronic",
-    "electronica",
-    "techno",
-    "house"
-   ],
-   "beatport": {
-    "genres": [
-     "Techno (Peak Time / Driving)",
-     "Bass / Club"
-    ],
-    "url": "https://www.beatport.com/release/with-patsy-swimming/2134452",
-    "match": "release"
-   },
-   "label": "Poly Kicks",
-   "lookup": {
-    "artist": "Tessela",
-    "trackTitles": [
-     "With Patsy",
-     "Swimming"
-    ],
-    "v": 5
-   },
-   "released": "2017-11-03",
-   "price": 2,
-   "currency": "GBP",
-   "discogs": {
-    "styles": [
-     "Techno"
-    ],
-    "genres": [
-     "Electronic"
-    ],
-    "url": "https://www.discogs.com/release/8101903-Tessela-With-Patsy-Swimming",
-    "match": "release"
-   }
   },
   {
    "key": "t788002710",

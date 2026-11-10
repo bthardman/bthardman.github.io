@@ -1,21 +1,21 @@
 {
  "version": 3,
- "exported": "2026-10-25T01:02:14.768Z",
+ "exported": "2026-11-10T21:37:11.548Z",
  "user": "yu_vanessa",
- "count": 905,
+ "count": 904,
  "rates": {
   "USD": 1,
-  "GBP": 1.33745,
-  "EUR": 1.1204,
-  "CAD": 0.714158,
-  "CZK": 0.0460416,
-  "AUD": 0.703,
-  "NZD": 0.56955,
-  "CHF": 1.21201,
-  "NOK": 0.107251,
-  "DKK": 0.149888,
-  "MXN": 0.0535665,
-  "HKD": 0.127513
+  "GBP": 1.33445,
+  "EUR": 1.11633,
+  "CAD": 0.704786,
+  "CZK": 0.0458386,
+  "AUD": 0.686565,
+  "NZD": 0.560305,
+  "CHF": 1.2116,
+  "NOK": 0.105183,
+  "DKK": 0.149333,
+  "MXN": 0.0536806,
+  "HKD": 0.127464
  },
  "collection": [
   "t269410054",
@@ -7428,7 +7428,7 @@
    "id": 3956259227,
    "type": "t",
    "title": "Pangaea - If (After Hours Edit)",
-   "artist": "After Hours",
+   "artist": "afterhours",
    "url": "https://afterhoursuk.bandcamp.com/track/pangaea-if-after-hours-edit",
    "art": "https://f4.bcbits.com/img/a0506620225_9.jpg",
    "bandId": 1716741457,
@@ -10676,34 +10676,6 @@
    "bpMiss": 1792509617980,
    "bpVer": 4,
    "dcMiss": 1792506029640,
-   "dcVer": 2
-  },
-  {
-   "key": "t2950442048",
-   "id": 2950442048,
-   "type": "t",
-   "title": "Bodyrox Yeah Yeah - Shirley Temper Jungle Remix",
-   "artist": "Shirley Temper",
-   "url": "https://shirleytemper.bandcamp.com/track/bodyrox-yeah-yeah-shirley-temper-jungle-remix",
-   "art": "https://f4.bcbits.com/img/a2512594975_9.jpg",
-   "bandId": 2372577114,
-   "tags": [
-    "electronic",
-    "jungle",
-    "dnb"
-   ],
-   "beatport": null,
-   "label": "Shirley Temper",
-   "lookup": {
-    "artist": "Shirley Temper",
-    "v": 5
-   },
-   "released": "2024-06-17",
-   "price": 0,
-   "currency": "GBP",
-   "bpMiss": 1792509619340,
-   "bpVer": 4,
-   "dcMiss": 1792506031136,
    "dcVer": 2
   },
   {
